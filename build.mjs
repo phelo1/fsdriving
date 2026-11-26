@@ -1,5 +1,5 @@
 // node build.mjs -> dist/ (index.html, data.json, 404.html, robots.txt, favicon.svg)
-import fs from 'node:fs'; import path from 'node:path'; import {execFileSync} from 'node:child_process'; import { ogHtml } from './tools/og_template.mjs'; import { competitorsHtml } from './tools/competitors_page.mjs'; import { fsdHtml } from './tools/fsd_page.mjs';
+import fs from 'node:fs'; import path from 'node:path'; import {execFileSync} from 'node:child_process'; import { ogHtml } from './tools/og_template.mjs'; import { competitorsHtml } from './tools/competitors_page.mjs'; import { fsdHtml } from './tools/fsd_page.mjs'; import { newsHtml } from './tools/news_page.mjs';
 import { geoAlbersUsa, geoEqualEarth, geoGraticule, geoPath } from 'd3-geo';
 import { buildPlaces } from './tools/places.mjs';
 import { feature, mesh } from 'topojson-client';
@@ -170,7 +170,7 @@ const headTags = ({ title, desc, path: pth }) => { const url = cfg.url + (pth ||
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${ogImg}"><meta name="twitter:image:alt" content="${esc(ogAlt)}">
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png">`; };
 const topHeader = page => `<header class="top"><a class="brand" href="/"><span class="dot"></span>Robotaxi Hiring Map</a>
-<nav class="tnav" aria-label="Site"><a href="/"${page === 'home' ? ' aria-current="page"' : ''}>Tracker</a><a href="/fsd"${page === 'fsd' ? ' aria-current="page"' : ''}>FSD</a><a href="/competitors"${page === 'competitors' ? ' aria-current="page"' : ''}>Competitors</a></nav>
+<nav class="tnav" aria-label="Site"><a href="/"${page === 'home' ? ' aria-current="page"' : ''}>Tracker</a><a href="/fsd"${page === 'fsd' ? ' aria-current="page"' : ''}>FSD</a><a href="/competitors"${page === 'competitors' ? ' aria-current="page"' : ''}>Competitors</a><a href="/news"${page === 'news' ? ' aria-current="page"' : ''}>News</a></nav>
 <div class="checked"><span class="live"></span>Last checked <b>${esc(fmt(last))}</b> <span class="tz">Riyadh time</span></div></header>`;
 const sisterLink = `<p class="sister">Also tracking Tesla Optimus &amp; humanoid robots: <a href="https://optimistbot.com" target="_blank" rel="noopener">optimistbot.com</a></p>`;
 const MAPHTML = mapHtml();
@@ -254,6 +254,18 @@ fs.copyFileSync(path.join(root,'data/launches.json'),path.join(dist,'launches.js
   if (/\u2014/.test(fh)) { console.error('em dash in fsd page'); process.exit(1); }
   fs.mkdirSync(path.join(dist, 'fsd'), { recursive: true }); fs.writeFileSync(path.join(dist, 'fsd/index.html'), fh);
   console.log('fsd page:', F.releases.length, 'timeline entries');
+}
+{ // /news
+  const N = rd('data/news.json');
+  if (/\u2014/.test(JSON.stringify(N))) { console.error('em dash in data/news.json'); process.exit(1); }
+  const footerHtml = `<footer>
+  <p><b>Not affiliated with Tesla.</b> Unofficial tracker. Every story, rumour, incident and video links to its source; rumours and pending items are labelled as such, and NHTSA crash reports are not findings of fault. Spot something stale? The data lives in <a href="https://github.com/phelo1/fsdriving/blob/main/data/news.json" target="_blank" rel="noopener">data/news.json</a>.</p>
+  ${sisterLink}
+</footer>`;
+  const nh = newsHtml({ N, esc, headTags, topHeader, footerHtml, css });
+  if (/\u2014/.test(nh)) { console.error('em dash in news page'); process.exit(1); }
+  fs.mkdirSync(path.join(dist, 'news'), { recursive: true }); fs.writeFileSync(path.join(dist, 'news/index.html'), nh);
+  console.log('news page:', N.items.length + 1, 'stories,', N.incidents.length, 'incidents,', N.videos.length, 'videos');
 }
 fs.writeFileSync(path.join(dist,'history.json'),JSON.stringify(history,null,1));
 fs.writeFileSync(path.join(dist, 'data.json'), JSON.stringify(histAll, null, 1));

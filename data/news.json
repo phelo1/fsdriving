@@ -1,0 +1,572 @@
+{
+ "checkedAt": "2026-11-27",
+ "about": "Hand-checked Tesla FSD, Robotaxi and Cybercab news. Every item links to its source. Status labels: Confirmed (happened, on the record), Pending (scheduled or officially planned, not done), Rumour (reported or hoped for, not confirmed), Debunked (claim shown false by the sources), Under review (disputed or under investigation).",
+ "lead": {
+  "id": "eu-tcmv-dec15",
+  "status": "Pending",
+  "date": "2026-11-26",
+  "title": "EU committee could vote on Tesla Assisted Driving on 15 December",
+  "summary": "The Commission's draft agenda for the 120th TCMV meeting lists item 4: a draft implementing decision authorising the Netherlands (RDW) to grant EU type-approval for the 'Tesla Assisted Driving' system, with a possible vote, 10:40 to 11:10 Brussels time. A possible vote is not a guaranteed one, and an EU-wide yes needs a qualified majority of member states.",
+  "detail": [
+   "Agenda dated Brussels, 24 November 2026; meeting 15 December 2026, 10:00 to 15:00.",
+   "Item 4 wording: 'Further examination on draft Commission implementing decision authorising the Kingdom of the Netherlands to grant EU type-approval for the Tesla Assisted Driving system (with possible vote)'.",
+   "Reuters: approval needs at least 15 of the 27 member states representing 65% of the EU population.",
+   "Tesla Assisted Driving is the name Tesla uses in Europe for FSD (Supervised). The RDW granted its provisional approval on 10 April 2026."
+  ],
+  "post": {
+   "url": "https://x.com/tslaming/status/2125978056250827226",
+   "author": "Ming (@tslaming)",
+   "createdUtc": "2026-11-26T15:40:42Z",
+   "createdRiyadh": "2026-11-26 18:40",
+   "text": "BOOM 🇪🇺 🚨 The draft agenda for the TCMV's December 15 meeting is out, and Tesla Assisted Driving is on it with a possible vote 🔥 Item 4 covers a draft decision that would let the Netherlands grant one approval for all 27 EU countries. It's scheduled for 10:40 to 11:10 a.m."
+  },
+  "sources": [
+   {
+    "label": "TCMV draft agenda, 15 Dec 2026 (European Commission, CIRCABC)",
+    "url": "https://circabc.europa.eu/sd/a/cd7afd62-f795-4439-b14f-f7271f3fbd57/Draft%20Agenda%20TCMV%2015.12.2026.pdf",
+    "primary": true
+   },
+   {
+    "label": "@tslaming on X",
+    "url": "https://x.com/tslaming/status/2125978056250827226"
+   },
+   {
+    "label": "Reuters via Investing.com",
+    "url": "https://www.investing.com/news/stock-market-news/eu-may-vote-on-authorising-tesla-assisteddriving-system-at-dec-15-meeting-5052607"
+   },
+   {
+    "label": "Electrek",
+    "url": "https://electrek.co/2026/11/25/eu-delays-tesla-fsd-vote-december-15-tcmv/"
+   },
+   {
+    "label": "RDW",
+    "url": "https://www.rdw.nl/en/news/2026/rdw-explanation-of-european-type-approval-tesla-with-provisional-validity-in-the-netherlands"
+   }
+  ]
+ },
+ "items": [
+  {
+   "id": "v15-wide",
+   "kind": "rumour",
+   "status": "Pending",
+   "date": "2026-11-21",
+   "title": "FSD v15 wide release with the Holiday Update",
+   "summary": "Musk wrote that 'FSD V15 goes to wide release next month' and said yes when asked if it comes with the 2026 Holiday Update. So far v15.0.1 is confirmed only on US HW4 Model Y.",
+   "sources": [
+    {
+     "label": "Elon Musk on X",
+     "url": "https://x.com/elonmusk/status/2124042864891982292",
+     "primary": true
+    },
+    {
+     "label": "Not a Tesla App",
+     "url": "https://www.notateslaapp.com/news/5057/tesla-fsd-v15-coming-next-month-with-holiday-update-musk"
+    },
+    {
+     "label": "Teslarati",
+     "url": "https://www.teslarati.com/tesla-full-self-driving-v15-gets-release-date-elon-musk/"
+    }
+   ],
+   "link": "/fsd"
+  },
+  {
+   "id": "robotaxi-next",
+   "kind": "rumour",
+   "status": "Pending",
+   "date": "2026-10-21",
+   "title": "Las Vegas, Phoenix and Jacksonville listed as next Robotaxi cities",
+   "summary": "Tesla has named these as coming soon, with no launch dates or zones published. Fort Worth launched on 2 November without appearing on any of those lists.",
+   "sources": [
+    {
+     "label": "News4JAX",
+     "url": "https://www.news4jax.com/news/local/2026/10/26/tesla-robotaxis-are-listed-as-coming-soon-to-jacksonville-when-could-rides-start/",
+     "primary": true
+    },
+    {
+     "label": "Not a Tesla App",
+     "url": "https://www.notateslaapp.com/news/4932/tesla-expands-robotaxi-service-launches-unsupervised-rides-in-fort-worth"
+    }
+   ],
+   "link": "/"
+  },
+  {
+   "id": "customer-robotaxi",
+   "kind": "rumour",
+   "status": "Pending",
+   "date": "2026-10-21",
+   "title": "Customer cars in the Robotaxi fleet around Q2 2027",
+   "summary": "On the Q3 2026 call Ashok Elluswamy said: 'We suspect somewhere around Q2 next year is when we can turn on some of the first customer vehicles to be part of the Robotaxi fleet.' A target, not a launch date, and it means Tesla's managed network, not unsupervised FSD everywhere.",
+   "sources": [
+    {
+     "label": "Not a Tesla App",
+     "url": "https://www.notateslaapp.com/news/4879/tesla-to-launch-unsupervised-fsd-let-owners-join-robotaxi-network-in-q2-2027",
+     "primary": true
+    },
+    {
+     "label": "Electrek",
+     "url": "https://electrek.co/2026/10/21/tesla-unsupervised-fsd-q2-2027-robotaxi-fleet/"
+    }
+   ]
+  },
+  {
+   "id": "hw3-retrofit",
+   "kind": "rumour",
+   "status": "Pending",
+   "date": "2026-04-22",
+   "title": "HW3 upgrade: trade-in or retrofit, still no price or date",
+   "summary": "Musk said HW3 cannot reach unsupervised FSD and floated a discounted AI4 trade-in or a computer-plus-cameras retrofit through metro 'microfactories'. As of 27 Nov 2026 there is no public price, start date or sign-up.",
+   "sources": [
+    {
+     "label": "The Verge",
+     "url": "https://www.theverge.com/transportation/917167/elon-musk-tesla-hw3-fsd",
+     "primary": true
+    },
+    {
+     "label": "Tesla Oracle",
+     "url": "https://www.teslaoracle.com/2026/04/23/tesla-hw3-vehicles-cant-achieve-unsupervised-fsd-v14-lite-to-be-released-by-june-musk-on-q1-2026-earnings-call/"
+    }
+   ],
+   "link": "/fsd"
+  },
+  {
+   "id": "china-fsd",
+   "kind": "rumour",
+   "status": "Rumour",
+   "date": "2026-11-17",
+   "title": "Musk's China trip revives hopes for a full FSD roll-out there",
+   "summary": "Musk said 'I will be in China', and some owners online urged him to push for full FSD in the country. No approval or roll-out has been announced; this is hope, not news.",
+   "sources": [
+    {
+     "label": "CnEVPost",
+     "url": "https://cnevpost.com/2026/11/17/elon-musk-visit-china-renewing-hopes-fsd/",
+     "primary": true
+    }
+   ]
+  },
+  {
+   "id": "v15-first-wave",
+   "kind": "confirmed",
+   "status": "Confirmed",
+   "date": "2026-11-21",
+   "title": "FSD v15.0.1 starts rolling out",
+   "summary": "Tesla began sending FSD (Supervised) v15.0.1 (firmware 2026.38.6.11) to a first wave of US HW4 Model Ys, with Reality View and an upgraded end-to-end network. No Model 3, S, X or Cybertruck installs are confirmed yet.",
+   "sources": [
+    {
+     "label": "Tesla on X",
+     "url": "https://x.com/Tesla/status/2124222447855743019",
+     "primary": true
+    },
+    {
+     "label": "2026.38.6.11 notes (Not a Tesla App)",
+     "url": "https://www.notateslaapp.com/software-updates/version/2026.38.6.11/release-notes"
+    },
+    {
+     "label": "Teslascope",
+     "url": "https://teslascope.com/software/2026.38.6.11"
+    }
+   ],
+   "link": "/fsd"
+  },
+  {
+   "id": "italy",
+   "kind": "confirmed",
+   "status": "Confirmed",
+   "date": "2026-11-20",
+   "title": "Italy becomes an FSD (Supervised) market",
+   "summary": "Tesla's AI chief posted 'You can now enjoy Italy on FSD.' Tesla's safety page now lists 19 approved markets.",
+   "sources": [
+    {
+     "label": "Ashok Elluswamy on X",
+     "url": "https://x.com/aelluswamy/status/2123834247781970327",
+     "primary": true
+    },
+    {
+     "label": "Tesla FSD safety report",
+     "url": "https://www.tesla.com/fsd/safety"
+    }
+   ]
+  },
+  {
+   "id": "dallas-cybercab",
+   "kind": "confirmed",
+   "status": "Confirmed",
+   "date": "2026-11-19",
+   "title": "Cybercab public rides reach Dallas",
+   "summary": "The two-seat Cybercab with no steering wheel or pedals opened to public riders in Dallas, after Austin got the first public Cybercab rides on 3 September 2026.",
+   "sources": [
+    {
+     "label": "Teslarati",
+     "url": "https://www.teslarati.com/tesla-cybercab-without-steering-wheel-pedals-expands-public-rides-dallas/",
+     "primary": true
+    }
+   ]
+  },
+  {
+   "id": "san-antonio",
+   "kind": "confirmed",
+   "status": "Confirmed",
+   "date": "2026-11-09",
+   "title": "Robotaxi launches in San Antonio, its biggest zone yet",
+   "summary": "About 274 sq mi from Loop 1604 to just south of downtown, Tesla's 9th Robotaxi region. Not a Tesla App reports unsupervised rides; TechCrunch says Tesla didn't confirm whether monitors are on board.",
+   "sources": [
+    {
+     "label": "TechCrunch",
+     "url": "https://techcrunch.com/2026/11/09/tesla-expands-robotaxi-service-to-san-antonio/",
+     "primary": true
+    },
+    {
+     "label": "Not a Tesla App",
+     "url": "https://www.notateslaapp.com/news/4969/tesla-launches-largest-robotaxi-zone-yet-in-san-antonio"
+    }
+   ],
+   "link": "/"
+  },
+  {
+   "id": "fort-worth",
+   "kind": "confirmed",
+   "status": "Confirmed",
+   "date": "2026-11-02",
+   "title": "Unsupervised Robotaxi rides start in Fort Worth",
+   "summary": "About 143 sq mi from Saginaw to Benbrook, with no safety monitor in the car per Not a Tesla App. Fort Worth was not on any of Tesla's announced lists.",
+   "sources": [
+    {
+     "label": "Not a Tesla App",
+     "url": "https://www.notateslaapp.com/news/4932/tesla-expands-robotaxi-service-launches-unsupervised-rides-in-fort-worth",
+     "primary": true
+    },
+    {
+     "label": "Fort Worth Star-Telegram",
+     "url": "https://www.star-telegram.com/news/local/fort-worth/article317965952.html"
+    }
+   ],
+   "link": "/"
+  },
+  {
+   "id": "rdw",
+   "kind": "confirmed",
+   "status": "Confirmed",
+   "date": "2026-04-10",
+   "title": "Netherlands approves FSD (Supervised), a first in Europe",
+   "summary": "The Dutch RDW granted an EU type-approval with provisional validity in the Netherlands under Article 39, and said it would seek EU-wide approval. That request is what the TCMV takes up on 15 December.",
+   "sources": [
+    {
+     "label": "RDW",
+     "url": "https://www.rdw.nl/en/news/2026/rdw-explanation-of-european-type-approval-tesla-with-provisional-validity-in-the-netherlands",
+     "primary": true
+    },
+    {
+     "label": "Reuters",
+     "url": "https://www.reuters.com/business/teslas-self-driving-software-gets-dutch-go-ahead-boost-eu-ambitions-2026-04-10/"
+    }
+   ]
+  }
+ ],
+ "incidents": [
+  {
+   "id": "austin-launch",
+   "verdict": "confirmed",
+   "date": "2025-06-23",
+   "location": "South Austin, TX",
+   "title": "Launch-week Robotaxi traffic mistakes on video",
+   "claim": "Rider videos from the first days of Austin Robotaxi showed cars breaking traffic rules, including speeding and driving into the wrong lane.",
+   "finding": "NHTSA confirmed it was 'aware of the referenced incidents and is in contact with the manufacturer to gather additional information.' The clips were real rides from Tesla's invite-only launch.",
+   "sources": [
+    {
+     "label": "TechCrunch",
+     "url": "https://techcrunch.com/2025/06/23/teslas-robotaxis-have-already-caught-the-attention-of-federal-safety-regulators/",
+     "primary": true
+    },
+    {
+     "label": "Reuters",
+     "url": "https://www.reuters.com/business/autos-transportation/nhtsa-contacts-tesla-robotaxi-issues-seen-online-videos-bloomberg-news-reports-2025-06-23/"
+    },
+    {
+     "label": "Bloomberg",
+     "url": "https://www.bloomberg.com/news/articles/2025-06-23/tesla-robotaxi-videos-show-speeding-driving-into-wrong-lane"
+    }
+   ]
+  },
+  {
+   "id": "sgo-tally",
+   "verdict": "confirmed",
+   "date": "2026-11-16",
+   "dateLabel": "NHTSA file of 16 Nov 2026",
+   "location": "Austin, Dallas, Houston, Tampa",
+   "title": "43 Robotaxi crash reports filed with NHTSA",
+   "claim": "Tesla's driverless Robotaxis have been in crashes.",
+   "finding": "NHTSA's Standing General Order file has 43 Tesla automated-driving crash reports for incidents from Jul 2025 on, mostly low-speed and mostly in Austin; 3 allege an injury. They are Tesla's own filings: they record that a crash happened, not who was at fault, and they are not a crash rate.",
+   "sources": [
+    {
+     "label": "NHTSA Standing General Order data",
+     "url": "https://www.nhtsa.gov/laws-regulations/standing-general-order-crash-reporting",
+     "primary": true
+    },
+    {
+     "label": "Live Accident Tracker analysis",
+     "url": "https://liveaccidenttracker.com/statistics/tesla-robotaxi-crashes"
+    },
+    {
+     "label": "Dr. Autonomy analysis",
+     "url": "https://drautonomy.com/tesla-robotaxi-crash-reports/"
+    }
+   ]
+  },
+  {
+   "id": "cybercab-pothole",
+   "verdict": "confirmed",
+   "date": "2026-08",
+   "location": "Austin, TX",
+   "title": "Cybercab reported after hitting a water-filled pothole",
+   "claim": "A Cybercab crashed in Austin.",
+   "finding": "NHTSA report 13781-16672: the Cybercab was going about 5 mph in a parking lot and drove into a large water-filled pothole, with a safety monitor on board and no passengers. Property damage only; it is one of four Cybercab reports in the file, all with no injuries.",
+   "sources": [
+    {
+     "label": "Dr. Autonomy (NHTSA narrative)",
+     "url": "https://drautonomy.com/tesla-robotaxi-crash-reports/",
+     "primary": true
+    },
+    {
+     "label": "NHTSA Standing General Order data",
+     "url": "https://www.nhtsa.gov/laws-regulations/standing-general-order-crash-reporting"
+    }
+   ]
+  },
+  {
+   "id": "pe25012",
+   "verdict": "review",
+   "date": "2025-10-07",
+   "location": "US (cluster at one Joppa, MD intersection)",
+   "title": "NHTSA probe into FSD running red lights and wrong-way lane changes",
+   "claim": "FSD (Supervised) commits traffic violations, such as going through red lights and changing into oncoming lanes.",
+   "finding": "NHTSA opened Preliminary Evaluation PE25-012 citing 18 complaints, 1 media report and 6 crash reports of FSD entering intersections on red, 4 with injuries. The probe is still listed as open; Tesla got a partial extension to April 2026 to answer NHTSA's questions.",
+   "sources": [
+    {
+     "label": "NHTSA PE25-012",
+     "url": "https://www.nhtsa.gov/recalls?nhtsaId=PE25012",
+     "primary": true
+    },
+    {
+     "label": "NHTSA extension memo (PDF)",
+     "url": "https://static.nhtsa.gov/odi/inv/2025/INRE-PE25012-39805.pdf"
+    },
+    {
+     "label": "try.vin summary",
+     "url": "https://try.vin/recalls/investigations/pe25012"
+    }
+   ]
+  },
+  {
+   "id": "cybertruck-overpass",
+   "verdict": "review",
+   "date": "2025-08-18",
+   "location": "69 Eastex Freeway, Houston, TX",
+   "title": "Cybertruck hits an overpass barrier: system or driver?",
+   "claim": "Dashcam video aired in March 2026 shows a Cybertruck, allegedly in self-driving mode, missing a curve and hitting a barrier; the driver is suing Tesla for over $1 million.",
+   "finding": "Musk says logs show the driver disengaged the system four seconds before the crash. The driver's lawyer agrees she took over but says the truck was already heading straight for the barrier. Neither side's account has been tested in court yet.",
+   "sources": [
+    {
+     "label": "Electrek",
+     "url": "https://electrek.co/2026/03/18/tesla-cybertruck-fsd-crash-video-musk-logs-overconfidence/",
+     "primary": true
+    },
+    {
+     "label": "Teslarati",
+     "url": "https://www.teslarati.com/elon-musk-clarifies-viral-tesla-cybertruck-accident-driver-logs/"
+    },
+    {
+     "label": "Elon Musk on X",
+     "url": "https://x.com/elonmusk/status/2034172658540286326"
+    }
+   ],
+   "video": {
+    "type": "x",
+    "url": "https://x.com/FoxNews/status/2033891478494171637",
+    "label": "Dashcam video (Fox News on X)"
+   }
+  },
+  {
+   "id": "okc-plane",
+   "verdict": "debunked",
+   "date": "2025-10-23",
+   "location": "Oklahoma City, OK",
+   "title": "'FSD dodged a crashing plane'",
+   "claim": "A viral dashcam clip of a military plane coming down beside a highway was shared as proof that FSD avoided the crash.",
+   "finding": "The driver who filmed it said he was driving manually and that FSD 'would have absolutely macked that plane'. Electrek and Gizmodo both reported the correction.",
+   "sources": [
+    {
+     "label": "Electrek",
+     "url": "https://electrek.co/2025/10/26/tesla-fans-falsely-attribute-avoiding-literal-plane-crash-full-self-driving-insane-video/",
+     "primary": true
+    },
+    {
+     "label": "Gizmodo",
+     "url": "https://gizmodo.com/dont-listen-to-tesla-fans-on-social-media-fsd-did-not-just-prevent-a-plane-crash-2000677245"
+    }
+   ]
+  },
+  {
+   "id": "korea-cybercab",
+   "verdict": "debunked",
+   "date": "2026-03-31",
+   "location": "South Korea (claimed)",
+   "title": "'Cybercab spotted in Korea'",
+   "claim": "A clip shared on X showed a Cybercab driving in South Korea, read as a sign of a Korean Robotaxi approval.",
+   "finding": "Tesla's official Robotaxi account replied directly to the post: 'This video is AI.'",
+   "sources": [
+    {
+     "label": "@robotaxi reply on X",
+     "url": "https://x.com/robotaxi/status/2039097651841609733",
+     "primary": true
+    },
+    {
+     "label": "Original claim on X",
+     "url": "https://x.com/alex_avoigt/status/2039047587001463121"
+    }
+   ],
+   "video": {
+    "type": "x",
+    "url": "https://x.com/alex_avoigt/status/2039047587001463121",
+    "label": "The AI clip as shared on X"
+   }
+  },
+  {
+   "id": "optimus-driver",
+   "verdict": "debunked",
+   "date": "2026-08-14",
+   "location": "South Korea",
+   "title": "'Optimus robot drives a Tesla on public roads'",
+   "claim": "Reposted footage showed Tesla's Optimus robot at the wheel of a Tesla on Korean roads.",
+   "finding": "It is a Korean Tesla fan in an Optimus cosplay suit. His original 28 Feb 2026 post was a joke ('Can this be called a real robotaxi?' with laughing emojis); reposts dropped that context.",
+   "sources": [
+    {
+     "label": "Fact Crescendo",
+     "url": "https://english.factcrescendo.com/2026/08/14/tesla-optimus-not-driving-public-roads-cosplay/",
+     "primary": true
+    },
+    {
+     "label": "El Pais Motor",
+     "url": "https://motor.elpais.com/virales-motor/no-era-optimus-el-video-viral-del-robot-de-tesla-conduciendo-un-coche-tiene-truco/"
+    }
+   ],
+   "video": {
+    "type": "x",
+    "url": "https://x.com/emzipori2/status/2027768916572049879",
+    "label": "Original cosplay post on X"
+   }
+  }
+ ],
+ "videos": [
+  {
+   "id": "eNBqkc7V1nU",
+   "title": "Introducing Tesla Self-Driving V15",
+   "author": "Tesla",
+   "authorUrl": "https://www.youtube.com/@tesla",
+   "published": "2026-11-21",
+   "seconds": 36,
+   "blurb": "Tesla's official 36-second v15 launch clip with the new Reality View visuals.",
+   "tags": [
+    "v15",
+    "Official"
+   ],
+   "url": "https://www.youtube.com/watch?v=eNBqkc7V1nU"
+  },
+  {
+   "id": "UXzhIXdefxg",
+   "title": "FSD v15.0.1 - First Impressions Drive",
+   "author": "Chuck Cook",
+   "authorUrl": "https://www.youtube.com/@ChuckCook",
+   "published": "2026-11-22",
+   "seconds": 4928,
+   "blurb": "Chuck Cook's 82-minute first-impressions drive on FSD (Supervised) v15.0.1.",
+   "tags": [
+    "v15",
+    "HW4"
+   ],
+   "url": "https://www.youtube.com/watch?v=UXzhIXdefxg"
+  },
+  {
+   "id": "E4ss4lOY2nE",
+   "title": "We Tried Tesla FSD V15 in Manhattan - It Feels UNSUPERVISED!",
+   "author": "Ananto",
+   "authorUrl": "https://www.youtube.com/@01ananto",
+   "published": "2026-11-22",
+   "seconds": 4304,
+   "blurb": "v15 through Times Square, Midtown, Downtown and Chinatown traffic.",
+   "tags": [
+    "v15",
+    "City"
+   ],
+   "url": "https://www.youtube.com/watch?v=E4ss4lOY2nE"
+  },
+  {
+   "id": "agoj1eJLvNw",
+   "title": "Tesla FSD V15 Downtown Stress Test!",
+   "author": "Dirty Tesla",
+   "authorUrl": "https://www.youtube.com/@DirtyTesla",
+   "published": "2026-11-25",
+   "seconds": 1781,
+   "blurb": "A downtown stress test of v15 in dense traffic.",
+   "tags": [
+    "v15",
+    "City"
+   ],
+   "url": "https://www.youtube.com/watch?v=agoj1eJLvNw"
+  },
+  {
+   "id": "T1Id2aas5wI",
+   "title": "World’s first public Tesla Cybercab ride (no steering wheel)",
+   "author": "Sawyer Merritt",
+   "authorUrl": "https://www.youtube.com/@realsawyermerritt",
+   "published": "2026-09-03",
+   "seconds": 878,
+   "blurb": "One of the first public Cybercab rides in Austin: no steering wheel, no pedals.",
+   "tags": [
+    "Cybercab",
+    "Austin"
+   ],
+   "url": "https://www.youtube.com/watch?v=T1Id2aas5wI"
+  },
+  {
+   "id": "hE2rEaUWjW0",
+   "title": "I Took Dallas's FIRST Tesla Cybercab Ride",
+   "author": "Ledge Andary",
+   "authorUrl": "https://www.youtube.com/@LedgeAndary",
+   "published": "2026-11-24",
+   "seconds": 949,
+   "blurb": "A full public Cybercab ride in Dallas, from booking in the app to drop-off.",
+   "tags": [
+    "Cybercab",
+    "Dallas"
+   ],
+   "url": "https://www.youtube.com/watch?v=hE2rEaUWjW0"
+  },
+  {
+   "id": "bbPo4rt9vAM",
+   "title": "Come with me on the First Unsupervised Tesla Robotaxi Ride! 22 January 2026 in Austin, Texas!",
+   "author": "Joe Tegtmeyer",
+   "authorUrl": "https://www.youtube.com/@JoeTegtmeyer",
+   "published": "2026-01-22",
+   "seconds": 900,
+   "blurb": "The first public Robotaxi rides with no one in the front seats, Austin, 22 Jan 2026.",
+   "tags": [
+    "Robotaxi",
+    "Austin"
+   ],
+   "url": "https://www.youtube.com/watch?v=bbPo4rt9vAM"
+  },
+  {
+   "id": "izGL4h2RaI0",
+   "title": "Tesla Vision-Only FSD In A Downpour",
+   "author": "Out of Spec BITS",
+   "authorUrl": "https://www.youtube.com/@OutofSpecBITS",
+   "published": "2026-07-21",
+   "seconds": 985,
+   "blurb": "Camera-only FSD in a heavy downpour.",
+   "tags": [
+    "FSD",
+    "Rain"
+   ],
+   "url": "https://www.youtube.com/watch?v=izGL4h2RaI0"
+  }
+ ]
+}

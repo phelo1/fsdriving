@@ -336,7 +336,7 @@ errors; writes shots/{desktop,mobile}-map-*.png). Deep links: `/#place=<id>` (e.
 - Rules: never invent numbers; label company-reported figures; use "-" when unpublished; update `checkedAt` and the
   milestone lists when re-checking (newest first is automatic). No em dashes.
 - Routing: tools/pack.mjs serves `/x` and `/x/` from `dist/x/index.html` with 200 (no redirect).
-- Shared header nav (Tracker / FSD / Competitors) and the footer sister link to https://optimistbot.com live in build.mjs
+- Shared header nav (Tracker / FSD / Competitors / News) and the footer sister link to https://optimistbot.com live in build.mjs
   (`topHeader`, `sisterLink`).
 - Check: `python3 tools/competitors_shot.py https://fsdriving.com shots` (status, overflow at 1440/390, tabs,
   sources, comma card, optimistbot link, console errors; writes shots/{desktop,mobile}-competitors.png).
@@ -354,3 +354,20 @@ Update checklist (weekly, or when a new FSD build ships):
 6. Tesla counters (miles, city miles, markets, safety multiples): copy from tesla.com/fsd and tesla.com/fsd/safety into `official_tesla_fsd_site.live_stats_observed` with the observed time. Always shown as Tesla's figures.
 7. Plans and claims (Musk/Tesla dates) stay `planned` until shipped. Never invent a version, build, date or stat.
 8. Bump `checkedAt`, rebuild, deploy, run fsd_shot.py on the live site, then git_sync.
+
+## /news page (added 27 Nov 2026)
+News, rumours, incident fact-checks and videos. Built by `tools/news_page.mjs` from `data/news.json`; check with `python3 tools/news_shot.py <base> shots` (status, overflow at 1440/390, every filter tab and incident sub-filter, no YouTube requests before a click, click-to-play iframe, console errors).
+
+`data/news.json` sections:
+- `lead`: the top watch item (currently the 15 Dec 2026 TCMV agenda, item 4). Link the primary document first (`primary: true`), then the post that flagged it.
+- `items`: stories. `kind` is `rumour` or `confirmed`; `status` is `Rumour`, `Pending` or `Confirmed`. Each needs `date`, `title`, `summary`, `sources`.
+- `incidents`: `verdict` is `confirmed`, `debunked` or `review` (Under review); `claim` and `finding` are shown side by side. Optional `video` (`type: x`, verified post URL).
+- `videos`: YouTube only, verified through `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=<id>&format=json` (200 with title and author) before adding. Copy `title`, `author`, `authorUrl`, `published` (from the watch page `publishDate`) and `seconds`.
+
+Update checklist (weekly, and right after big events):
+1. After 15 Dec 2026: replace the TCMV lead with the outcome (vote result, minutes or Commission statement) and move it to `confirmed` or keep it `Pending` if postponed.
+2. Promote Pending items when they happen (v15 wide release, new Robotaxi cities, HW3 retrofit pricing) and add the new confirmed source; drop rumours that went nowhere after about 3 months.
+3. Incidents: re-check the NHTSA Standing General Order file around the 15th of each month and update the `sgo-tally` counts; update `pe25012` if NHTSA upgrades or closes it; update `cybertruck-overpass` when the lawsuit moves.
+4. Only add a debunk when a named source shows the claim false (driver, Tesla account, fact-checker, telemetry). Disputed cases go to Under review.
+5. Every URL must open (Reuters, Bloomberg, nhtsa.gov and tesla.com block scripts, so check those in a browser). No em dashes; the build fails on one.
+6. Bump `checkedAt`, rebuild, deploy, run news_shot.py on the live site, then git_sync.
