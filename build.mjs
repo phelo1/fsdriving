@@ -1,5 +1,5 @@
 // node build.mjs -> dist/ (index.html, data.json, 404.html, robots.txt, favicon.svg)
-import fs from 'node:fs'; import path from 'node:path'; import {execFileSync} from 'node:child_process'; import { ogHtml } from './tools/og_template.mjs';
+import fs from 'node:fs'; import path from 'node:path'; import {execFileSync} from 'node:child_process'; import { ogHtml } from './tools/og_template.mjs'; import { competitorsHtml } from './tools/competitors_page.mjs';
 import { geoAlbersUsa, geoEqualEarth, geoGraticule, geoPath } from 'd3-geo';
 import { buildPlaces } from './tools/places.mjs';
 import { feature, mesh } from 'topojson-client';
@@ -163,19 +163,23 @@ const roleCards = Object.entries(content.roles).map(([k, r]) => `
   <article class="role rv" data-role="${k}"><div class="role-tag ${k}">${esc(r.short)}</div><h3>${esc(r.label)}</h3><p class="role-blurb">${esc(r.blurb)}</p>
   <ul>${r.points.map(p => `<li>${esc(p)}</li>`).join('')}</ul></article>`).join('');
 
+const headTags = ({ title, desc, path: pth }) => { const url = cfg.url + (pth || ''); return `<title>${esc(title)}</title><meta name="description" content="${esc(desc)}">
+<link rel="canonical" href="${url}"><meta name="theme-color" content="#07080c">
+<meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${url}">
+<meta property="og:site_name" content="${esc(cfg.name)}"><meta property="og:image" content="${ogImg}"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(ogAlt)}">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${ogImg}"><meta name="twitter:image:alt" content="${esc(ogAlt)}">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png">`; };
+const topHeader = page => `<header class="top"><a class="brand" href="/"><span class="dot"></span>Robotaxi Hiring Map</a>
+<nav class="tnav" aria-label="Site"><a href="/"${page === 'home' ? ' aria-current="page"' : ''}>Tracker</a><a href="/competitors"${page === 'competitors' ? ' aria-current="page"' : ''}>Competitors</a></nav>
+<div class="checked"><span class="live"></span>Last checked <b>${esc(fmt(last))}</b> <span class="tz">Riyadh time</span></div></header>`;
+const sisterLink = `<p class="sister">Also tracking Tesla Optimus &amp; humanoid robots: <a href="https://optimistbot.com" target="_blank" rel="noopener">optimistbot.com</a></p>`;
 const MAPHTML = mapHtml();
 const html = `<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>${esc(title)}</title><meta name="description" content="${esc(desc)}">
-<link rel="canonical" href="${cfg.url}"><meta name="theme-color" content="#07080c">
-<meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${cfg.url}">
-<meta property="og:site_name" content="${esc(cfg.name)}"><meta property="og:image" content="${ogImg}"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(ogAlt)}">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${ogImg}"><meta name="twitter:image:alt" content="${esc(ogAlt)}">
-<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+${headTags({ title, desc, path: "" })}
 <style>${css}</style></head><body>
 <div class="grain" aria-hidden="true"></div>
-<header class="top"><a class="brand" href="/"><span class="dot"></span>Robotaxi Hiring Map</a>
-<div class="checked"><span class="live"></span>Last checked <b>${esc(fmt(last))}</b> <span class="tz">Riyadh time</span></div></header>
+${topHeader('home')}
 <main>
 ${heroHtml()}
 
@@ -215,6 +219,7 @@ ${MAPHTML}
 <footer>
   <p><b>Not affiliated with Tesla.</b> Unofficial tracker. Job data comes from Tesla's public careers listings (<a href="${cfg.sourceUrl}" rel="noopener" target="_blank">tesla.com/careers</a>). Openings can close any time, so always check the posting itself.</p>
   <p class="muted">Data for nerds: <a href="/data.json">data.json</a> keeps first-seen and last-seen for every job. ${runs.length} check${runs.length === 1 ? '' : 's'} so far.</p>
+  ${sisterLink}
 </footer>
 <script id="data" type="application/json">${JSON.stringify(payload).replace(/\u2014/g, '-').replace(/</g, '\\u003c')}</script>
 <script>/*D3*/</script><script>${js}</script>
@@ -223,6 +228,22 @@ if (/\u2014/.test(html)) { console.error('em dash found in page copy (src/ or bu
 const d3src = fs.readFileSync(path.join(root, 'src/d3.min.js'), 'utf8');
 fs.writeFileSync(path.join(dist, 'index.html'), html.replace('<script>/*D3*/</script>', () => `<script>${d3src}</script>`));
 fs.copyFileSync(path.join(root,'data/launches.json'),path.join(dist,'launches.json'));
+{ // /competitors
+  const C = rd('data/competitors.json'); const liveM = launches.metros.filter(m => m.status === 'live'); const drv = liveM.filter(m => m.currentMode === 'safety-driver');
+  const soonM = launches.metros.filter(m => m.status === 'announced');
+  const tesla = { live: `${liveM.length} (${drv.length ? drv.map(m => m.name).join(', ') + ' with a safety driver' : 'all driverless'})`,
+    status: `Public rides in ${liveM.length} markets, driverless in ${liveM.length - drv.length}${drv.length ? `; ${drv.map(m => m.name).join(', ')} still has a safety driver` : ''}`,
+    markets: liveM.map(m => m.name).join(', ') + (soonM.length ? `. Coming soon: ${soonM.map(m => m.name).join(', ')}` : ''),
+    soon: soonM.map(m => m.name).join(', ') || 'None listed', roles: `${mapMeta.head.rt} (${mapMeta.head.sup} supervisor)` };
+  const footerHtml = `<footer>
+  <p><b>Not affiliated with Tesla or any company listed.</b> Unofficial tracker. Facts are hand-checked against the linked sources; company figures are marked as such. Spot something stale? The data lives in <a href="https://github.com/phelo1/fsdriving/blob/main/data/competitors.json" target="_blank" rel="noopener">data/competitors.json</a>.</p>
+  ${sisterLink}
+</footer>`;
+  const ch = competitorsHtml({ C, esc, headTags, topHeader, footerHtml, css, tesla });
+  if (/\u2014/.test(ch)) { console.error('em dash in competitors page'); process.exit(1); }
+  fs.mkdirSync(path.join(dist, 'competitors'), { recursive: true }); fs.writeFileSync(path.join(dist, 'competitors/index.html'), ch);
+  console.log('competitors page:', C.companies.length, 'companies');
+}
 fs.writeFileSync(path.join(dist,'history.json'),JSON.stringify(history,null,1));
 fs.writeFileSync(path.join(dist, 'data.json'), JSON.stringify(histAll, null, 1));
 for (const f of ['favicon.svg', 'favicon.ico', 'favicon.png', 'apple-touch-icon.png']) fs.copyFileSync(path.join(root, 'src/icons', f), path.join(dist, f));

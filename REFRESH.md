@@ -325,3 +325,18 @@ errors; writes shots/{desktop,mobile}-map-*.png). Deep links: `/#place=<id>` (e.
 - Push auth goes through gh (`gh auth setup-git`); no token is ever written to the repo or the remote URL.
 - PUBLIC repo: never add credentials, account ids, emails or absolute box paths to tracked files; put them in
   `OPS.local.md` (gitignored). `tools/git_sync.sh` blocks obvious leaks but is a safety net, not a review.
+
+## /competitors page (added 27 Nov 2026)
+
+- Data: `data/competitors.json` (hand-checked facts, every row/spec/milestone has source keys into `sources`). Tesla's
+  live markets, coming-soon list and open-role counts are filled in at build time from launches.json + jobs.json
+  (`__TESLA_*__` placeholders). Page builder: `tools/competitors_page.mjs`, styles in the "/competitors" CSS block.
+- Covered: Tesla (benchmark), Waymo, Zoox, May Mobility, Baidu Apollo Go, WeRide, Pony.ai, comma.ai (featured,
+  aftermarket), Wayve, Mobileye. Tabs: All / US robotaxis / China & global / Car-agnostic, software & platforms.
+- Rules: never invent numbers; label company-reported figures; use "-" when unpublished; update `checkedAt` and the
+  milestone lists when re-checking (newest first is automatic). No em dashes.
+- Routing: tools/pack.mjs serves `/x` and `/x/` from `dist/x/index.html` with 200 (no redirect).
+- Shared header nav (Tracker / Competitors) and the footer sister link to https://optimistbot.com live in build.mjs
+  (`topHeader`, `sisterLink`).
+- Check: `python3 tools/competitors_shot.py https://fsdriving.com shots` (status, overflow at 1440/390, tabs,
+  sources, comma card, optimistbot link, console errors; writes shots/{desktop,mobile}-competitors.png).

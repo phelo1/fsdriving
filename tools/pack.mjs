@@ -18,7 +18,7 @@ export default{async fetch(req){const url=new URL(req.url);
 
 let p=decodeURIComponent(url.pathname);
 if(F[p])return resp(p);
-if(F[p.replace(/\\/?$/,'/')+'index.html']){if(!p.endsWith('/')){url.pathname=p+'/';return Response.redirect(url.toString(),301)}return resp(p+'index.html')}
+const ix=p.replace(/\\/?$/,'/')+'index.html';if(F[ix])return resp(ix);
 return resp('/404.html',404)}};`;
 fs.writeFileSync(path.join(out,'_worker.js'), worker);
 const mcp = `async () => {

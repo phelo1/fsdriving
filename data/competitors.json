@@ -1,0 +1,284 @@
+{
+  "checkedAt": "2026-11-27",
+  "about": "Hand-checked from company filings, company pages and named news reports, 27 Nov 2026. Company-reported figures are labeled. A dash means the company has not published it.",
+  "categories": [
+    {"id": "us", "label": "US robotaxis"},
+    {"id": "global", "label": "China & global"},
+    {"id": "platform", "label": "Car-agnostic, software & platforms"}
+  ],
+  "companies": [
+    {
+      "id": "tesla", "name": "Tesla Robotaxi", "parent": "Tesla", "cat": ["us"], "benchmark": true,
+      "badge": "driverless", "badgeLabel": "Driverless public",
+      "blurb": "The benchmark. Camera-only AI driving, its own app, and Cybercab now carrying public riders. This whole site tracks it city by city.",
+      "rows": {
+        "approach": {"t": "AI driving on cameras only, no lidar, no radar, no HD maps", "s": ["reuters-tesla-approach"]},
+        "status": {"t": "__TESLA_STATUS__", "s": ["tesla-safety"]},
+        "markets": {"t": "__TESLA_MARKETS__", "s": ["tesla-safety"]},
+        "scale": {"t": "Tesla doesn't publish a Robotaxi fleet count or ride numbers.", "s": []},
+        "hardware": {"t": "Model Y, plus Cybercab (no steering wheel or pedals) in Austin and Dallas", "s": ["teslarati-cybercab"]}
+      },
+      "specs": [
+        {"k": "Live markets", "v": "__TESLA_LIVE__", "s": ["tesla-safety"]},
+        {"k": "Coming soon", "v": "__TESLA_SOON__", "s": ["tesla-safety"]},
+        {"k": "Open Robotaxi roles", "v": "__TESLA_ROLES__", "s": ["tesla-careers"]},
+        {"k": "Sensors", "v": "Cameras only", "s": ["reuters-tesla-approach"]}
+      ],
+      "milestones": [
+        {"date": "2026-11-19", "title": "Cybercab public rides reach Dallas", "text": "The steering-wheel-free Cybercab starts carrying public riders in Dallas, after Austin in September.", "s": ["teslarati-cybercab"]},
+        {"date": "2026-11-09", "title": "Robotaxi launches in San Antonio", "text": "Tesla's biggest launch zone yet, about 274 sq mi.", "s": ["tc-tesla-sa"]},
+        {"date": "2026-11-02", "title": "Unsupervised rides in Fort Worth", "text": "Fort Worth joins Dallas as a live Robotaxi market.", "s": ["nota-fw"]}
+      ],
+      "link": {"label": "Full Tesla tracker", "u": "/"}
+    },
+    {
+      "id": "waymo", "name": "Waymo", "parent": "Alphabet", "cat": ["us"],
+      "badge": "driverless", "badgeLabel": "Driverless public",
+      "blurb": "The scale leader in the US. Fully driverless paid rides in 15 US cities, now rolling out its own Ojai vehicle. Freeway rides are paused for now.",
+      "rows": {
+        "approach": {"t": "Lidar + imaging radar + high-res cameras fused, 6th-gen Waymo Driver", "s": ["waymo-6th"]},
+        "status": {"t": "Fully driverless paid rides. Freeway rides suspended nationwide since mid Nov 2026 after a California DMV order.", "s": ["tc-waymo-freeway"]},
+        "markets": {"t": "15 US cities live. Up next abroad: London, Tokyo, Munich, Madrid region, Toronto, Singapore.", "s": ["waymo-rides"]},
+        "scale": {"t": "500,000+ paid trips a week and 4,000+ vehicles (company figures)", "s": ["tc-waymo-freeway", "tbbj-waymo"]},
+        "hardware": {"t": "Jaguar I-PACE and the Zeekr-built Ojai (first with the 6th-gen Driver)", "s": ["waymo-ojai", "waymo-6th"]}
+      },
+      "specs": [
+        {"k": "Live US cities", "v": "15", "s": ["waymo-rides"]},
+        {"k": "Paid trips / week", "v": "500,000+ (company)", "s": ["tc-waymo-freeway"]},
+        {"k": "Vehicles", "v": "4,000+ (company)", "s": ["tbbj-waymo"]},
+        {"k": "Sensors", "v": "Lidar, imaging radar, 17 MP cameras, external audio", "s": ["waymo-6th"]}
+      ],
+      "milestones": [
+        {"date": "2026-11-17", "title": "Freeway rides paused nationwide", "text": "After a California DMV restriction issued 11 Nov, Waymo stopped freeway trips in every market while it evaluates performance. Surface-street service continues.", "s": ["tc-waymo-freeway"]},
+        {"date": "2026-11-16", "title": "Mapping Tampa International Airport", "text": "First step toward airport service in Tampa. Waymo cites 4,000+ vehicles and 500,000+ paid trips a week.", "s": ["tbbj-waymo"]},
+        {"date": "2026-05-28", "title": "First public riders in the Ojai", "text": "Select riders in SF, Phoenix and LA get free Ojai rides, with Denver, Las Vegas and San Diego next.", "s": ["waymo-ojai"]}
+      ],
+      "link": {"label": "Tesla vs Waymo by city", "u": "/#vs"}
+    },
+    {
+      "id": "zoox", "name": "Zoox", "parent": "Amazon", "cat": ["us"],
+      "badge": "driverless", "badgeLabel": "Driverless public",
+      "blurb": "The only purpose-built, no-steering-wheel robotaxi charging fares in the US. Paid rides in Las Vegas only, everything else is still free or employees-only.",
+      "rows": {
+        "approach": {"t": "Purpose-built bidirectional robotaxi, no steering wheel or pedals, 4 seats facing each other", "s": ["ev-zoox"]},
+        "status": {"t": "Paid public rides in Las Vegas since 10 Aug 2026. Free early-rider program in SF. Employees, family and friends only in Austin, Miami, Atlanta and LA.", "s": ["lat-zoox", "ev-zoox"]},
+        "markets": {"t": "Las Vegas (paid, also on Uber), San Francisco (free), Austin, Miami, Atlanta, Los Angeles (employees)", "s": ["zoox-lv", "ev-zoox"]},
+        "scale": {"t": "1M+ riders carried (company). No official fleet count.", "s": ["ev-zoox"]},
+        "hardware": {"t": "Zoox robotaxi under the first NHTSA commercial exemption (up to 2,500 vehicles a year, through 31 Jul 2028)", "s": ["ev-zoox"]}
+      },
+      "specs": [
+        {"k": "Paid markets", "v": "1 (Las Vegas)", "s": ["ev-zoox"]},
+        {"k": "Riders carried", "v": "1M+ (company)", "s": ["ev-zoox"]},
+        {"k": "Hours in Vegas", "v": "6 a.m. to 3 a.m., daily", "s": ["zoox-lv"]},
+        {"k": "Controls", "v": "None. No wheel, no pedals", "s": ["ev-zoox"]}
+      ],
+      "milestones": [
+        {"date": "2026-11-19", "title": "Robotaxis start driving in Los Angeles", "text": "Santa Monica first, employees and friends only. Atlanta started 13 Nov. Public waitlists come later.", "s": ["ev-zoox"]},
+        {"date": "2026-11-16", "title": "Zoox shows up in the Uber app in Las Vegas", "text": "Uber riders can be matched with a Zoox on eligible trips, starting with a small fleet.", "s": ["ev-zoox"]},
+        {"date": "2026-11-11", "title": "Vegas service grows beyond the Strip", "text": "Downtown and the Arts District added, hours extended to 6 a.m. to 3 a.m., redesigned vehicle debuts.", "s": ["zoox-lv"]}
+      ],
+      "link": {"label": "zoox.com", "u": "https://zoox.com/"}
+    },
+    {
+      "id": "may", "name": "May Mobility", "parent": "Independent (going public via SPAC)", "cat": ["us"],
+      "badge": "pilot", "badgeLabel": "Pilot / supervised",
+      "blurb": "Small-scale and partner-first. Rides on Lyft in Atlanta with a standby operator, a few driver-out sites, and a big ID. Buzz plan for later.",
+      "rows": {
+        "approach": {"t": "On-vehicle world model plus real-time reasoning, sold as autonomy-as-a-service to fleet partners", "s": ["may-buzz"]},
+        "status": {"t": "Commercial service, mostly with standby operators. Three driver-out deployments to date (company).", "s": ["may-buzz", "may-atl"]},
+        "markets": {"t": "Atlanta (Lyft), Eden Prairie and Grand Rapids MN, Ann Arbor (invite only). Arlington TX with Uber targeted for 2027. Pilot in Nagoya, Japan.", "s": ["may-buzz"]},
+        "scale": {"t": "600,000+ commercial autonomous rides, 1.1M miles in the US and Japan (company)", "s": ["may-buzz"]},
+        "hardware": {"t": "Toyota Sienna AVs today. VW ID. Buzz from 2028, targeting 10,000+ through 2031 (company target)", "s": ["may-atl", "may-buzz"]}
+      },
+      "specs": [
+        {"k": "Commercial rides", "v": "600,000+ (company)", "s": ["may-buzz"]},
+        {"k": "Driver-out sites", "v": "3 to date (company)", "s": ["may-buzz"]},
+        {"k": "Atlanta", "v": "Lyft, standby operator on every ride", "s": ["may-atl"]},
+        {"k": "Next vehicle", "v": "VW ID. Buzz, deliveries targeted 2028", "s": ["may-buzz"]}
+      ],
+      "milestones": [
+        {"date": "2026-11-17", "title": "CEO: Arlington goes driver-out around the new year", "text": "Edwin Olson says Arlington TX will be the fourth driver-out deployment, and the public listing likely slips into January.", "s": ["may-cnbc"]},
+        {"date": "2026-11-12", "title": "Volkswagen ID. Buzz picked as the scale vehicle", "text": "Targets 10,000+ autonomous ID. Buzz through 2031, US road testing in early 2027.", "s": ["may-buzz"]}
+      ],
+      "link": {"label": "maymobility.com", "u": "https://maymobility.com/"}
+    },
+    {
+      "id": "apollo", "name": "Baidu Apollo Go", "parent": "Baidu", "cat": ["global"],
+      "badge": "driverless", "badgeLabel": "Driverless public",
+      "blurb": "China's biggest robotaxi network, now in 30 cities and pushing into Dubai, London, Hong Kong and Switzerland.",
+      "rows": {
+        "approach": {"t": "Lidar + cameras L4 stack on purpose-built vehicles (38 sensors on the RT6)", "s": ["baidu-rt6"]},
+        "status": {"t": "Fully driverless commercial rides in China and Dubai. Testing in London (with Uber and Lyft) and on Hong Kong's Airport Island.", "s": ["baidu-q3"]},
+        "markets": {"t": "30 cities worldwide as of Oct 2026 (company)", "s": ["baidu-q3"]},
+        "scale": {"t": "390M+ autonomous km total by 31 Oct 2026, about 34M km in Q3 (company, unaudited)", "s": ["baidu-q3"]},
+        "hardware": {"t": "Apollo RT6: detachable steering wheel, 38 sensors incl. 8 lidars and 12 cameras, 1,200 TOPS", "s": ["baidu-rt6"]}
+      },
+      "specs": [
+        {"k": "Cities", "v": "30 (company)", "s": ["baidu-q3"]},
+        {"k": "Autonomous km", "v": "390M+ (company)", "s": ["baidu-q3"]},
+        {"k": "Shenzhen driverless rides", "v": "+170% QoQ in Q3 (company)", "s": ["baidu-q3"]},
+        {"k": "RT6 unit cost", "v": "RMB 250,000 (2022 company figure)", "s": ["baidu-rt6"]}
+      ],
+      "milestones": [
+        {"date": "2026-11-16", "title": "Q3: 30 cities, Dubai fleet doubled", "text": "Shenzhen fully driverless rides up about 170% quarter over quarter. No ride count or fleet size given.", "s": ["baidu-q3"]},
+        {"date": "2026-06-12", "title": "Swiss nod with PostBus", "text": "Regulators clear Apollo Go and PostBus for a robotaxi service in eastern Switzerland.", "s": ["reuters-baidu-ch"]}
+      ],
+      "link": {"label": "apollo.auto", "u": "https://www.apollo.auto/en/robotaxi"}
+    },
+    {
+      "id": "weride", "name": "WeRide", "parent": "Independent (Nasdaq: WRD)", "cat": ["global"],
+      "badge": "driverless", "badgeLabel": "Driverless public",
+      "blurb": "Most of its robotaxi money now comes from outside China, led by fully driverless service in Abu Dhabi and Dubai on Uber.",
+      "rows": {
+        "approach": {"t": "L4 robotaxis, robobuses and more, asset-light: WeRide supplies the tech and remote assistance, local partners fund and run fleets", "s": ["weride-q3"]},
+        "status": {"t": "Fully driverless commercial operations in Abu Dhabi and Dubai. Spain's first national L4 passenger permit.", "s": ["weride-q3", "weride-ir"]},
+        "markets": {"t": "China, UAE, Saudi Arabia, plus Spain, Switzerland, Belgium, France and testing in Slovakia", "s": ["weride-q3", "weride-ir"]},
+        "scale": {"t": "About 4,100 L4 vehicles incl. 2,300+ robotaxis (31 Oct 2026). Middle East robotaxi fleet about 600 (company).", "s": ["weride-q3"]},
+        "hardware": {"t": "-", "s": []}
+      },
+      "specs": [
+        {"k": "Robotaxis", "v": "2,300+ (company)", "s": ["weride-q3"]},
+        {"k": "Middle East fleet", "v": "~600, target 800 to 1,000 by year-end (company)", "s": ["weride-q3", "agbi-weride"]},
+        {"k": "Q3 robotaxi revenue", "v": "RMB 100M+, 90%+ overseas", "s": ["weride-q3"]},
+        {"k": "Uber", "v": "Largest Uber AV partner outside the US (company claim)", "s": ["weride-q3"]}
+      ],
+      "milestones": [
+        {"date": "2026-11-20", "title": "Q3: robotaxi revenue tops RMB 100M", "text": "Up 204% year over year, Guangzhou robotaxis hit positive unit economics, robotaxi fleet up 26% in the quarter.", "s": ["weride-q3"]},
+        {"date": "2026-11-26", "title": "Plans to roughly triple the Middle East fleet", "text": "CFO guides to 800 to 1,000 vehicles by end of December and about double that in 2027.", "s": ["agbi-weride"]}
+      ],
+      "link": {"label": "weride.ai", "u": "https://www.weride.ai/"}
+    },
+    {
+      "id": "pony", "name": "Pony.ai", "parent": "Independent (Nasdaq: PONY)", "cat": ["global"],
+      "badge": "driverless", "badgeLabel": "Driverless public",
+      "blurb": "Mass-producing Gen-7 robotaxis with Toyota, BAIC and GAC. Biggest single zone in Guangzhou, first driverless test rides in Europe.",
+      "rows": {
+        "approach": {"t": "L4 Virtual Driver trained with its PonyWorld world model and reinforcement learning", "s": ["pony-q3"]},
+        "status": {"t": "Fully driverless commercial rides in China. All three Gen-7 models in driverless commercial service.", "s": ["pony-q3"]},
+        "markets": {"t": "Guangzhou, Shanghai, Beijing, Shenzhen and more in China. Zagreb (driverless test rides), London and Manchester in the works.", "s": ["pony-q3", "pony-toyota"]},
+        "scale": {"t": "2,768 robotaxis on 30 Sep 2026, targeting 3,500 by year-end (company)", "s": ["pony-q3"]},
+        "hardware": {"t": "Gen-7 robotaxis built with Toyota (bZ4X), BAIC and GAC", "s": ["pony-q3", "pony-toyota"]}
+      },
+      "specs": [
+        {"k": "Robotaxi fleet", "v": "2,768 (company)", "s": ["pony-q3"]},
+        {"k": "Guangzhou zone", "v": "1,000+ sq km, contiguous", "s": ["pony-q3"]},
+        {"k": "Q3 robotaxi revenue", "v": "US$17.8M, +165% YoY", "s": ["pony-q3"]},
+        {"k": "Europe", "v": "Driverless test rides in Zagreb since Sep 2026", "s": ["pony-q3"]}
+      ],
+      "milestones": [
+        {"date": "2026-11-18", "title": "Q3: fleet at 2,768", "text": "Robotaxi revenue up 165% year over year; Hangzhou, Chongqing and Hengqin deployments started.", "s": ["pony-q3"]},
+        {"date": "2026-11-16", "title": "Toyota bZ4X robotaxi goes fully driverless", "text": "Joins the paid driverless fleet in Guangzhou, 24 hours a day. About 1,000 planned across China.", "s": ["pony-toyota"]}
+      ],
+      "link": {"label": "pony.ai", "u": "https://pony.ai/"}
+    },
+    {
+      "id": "comma", "name": "comma.ai (openpilot)", "parent": "comma.ai, founded by George Hotz", "cat": ["platform"], "featured": true,
+      "badge": "kit", "badgeLabel": "Aftermarket kit",
+      "blurb": "The car-agnostic wildcard. A $999 windshield box running open-source openpilot that adds lane centering and adaptive cruise to hundreds of cars you already own. It's driver assistance, not a robotaxi: you stay responsible and watching.",
+      "rows": {
+        "approach": {"t": "Open-source openpilot, end-to-end driving model (880M-parameter big model in 0.11.2). Driver assistance with an attentive driver.", "s": ["openpilot-rel", "comma-four"]},
+        "status": {"t": "On sale now. Supervised driver assistance (Level 2), driver monitoring on.", "s": ["comma-four", "comma-blog-0112"]},
+        "markets": {"t": "Ships worldwide. Supported cars listed for the US market unless noted.", "s": ["comma-four", "comma-cars"]},
+        "scale": {"t": "335 supported cars in the openpilot list (comma's site says 350+)", "s": ["comma-cars", "comma-vehicles"]},
+        "hardware": {"t": "comma four: dual 360° cameras + narrow cam, Snapdragon 845, no lidar. Plugs in with a car-specific harness.", "s": ["comma-four"]}
+      },
+      "specs": [
+        {"k": "Device", "v": "comma four (announced 25 Nov 2025)", "s": ["comma-four-blog"]},
+        {"k": "Price", "v": "$999 list, $799 on sale (checked 27 Nov 2026)", "s": ["comma-four"]},
+        {"k": "Supported cars", "v": "335 in openpilot's list", "s": ["comma-cars"]},
+        {"k": "Software", "v": "openpilot 0.11.2, open source", "s": ["openpilot-rel"]},
+        {"k": "Sensors", "v": "Cameras only, IR driver-monitoring cam", "s": ["comma-four"]},
+        {"k": "Trial", "v": "30-day money-back", "s": ["comma-four"]}
+      ],
+      "milestones": [
+        {"date": "2026-10-23", "title": "openpilot 0.11.2 ships", "text": "First \"chestnut\" driving models, an 880M-parameter big model that can run on an external GPU, better driver monitoring, and VW ID.4 as a new gold car.", "s": ["comma-blog-0112", "openpilot-rel"]},
+        {"date": "2026-06-05", "title": "openpilot 0.11.1", "text": "New driver-monitoring model; Rivian R1S/R1T 2025 and Acura MDX 2022-24 added.", "s": ["openpilot-rel"]},
+        {"date": "2025-11-25", "title": "comma four launches", "text": "Same compute and sensors as comma 3X in a box one-fifth the size.", "s": ["comma-four-blog", "comma-four"]}
+      ],
+      "link": {"label": "comma.ai", "u": "https://comma.ai/"}
+    },
+    {
+      "id": "wayve", "name": "Wayve", "parent": "Independent (UK)", "cat": ["platform"],
+      "badge": "pilot", "badgeLabel": "Pilot / testing",
+      "blurb": "London's embodied-AI bet. A mapless, hardware-agnostic AI Driver that automakers and Uber can drop into different cars.",
+      "rows": {
+        "approach": {"t": "End-to-end embodied AI, mapless and hardware-agnostic (\"AV2.0\")", "s": ["uber-wayve"]},
+        "status": {"t": "Supervised robotaxi rides on Uber in London since 3 Sep 2026, licensed driver onboard", "s": ["uber-wayve"]},
+        "markets": {"t": "London live (supervised). Tokyo pilot with Nissan LEAF planned. Uber deal covers 12 markets.", "s": ["uber-wayve"]},
+        "scale": {"t": "\"A small number of vehicles\" in London. No fleet count published.", "s": ["uber-wayve"]},
+        "hardware": {"t": "Ford Mustang Mach-E on Uber; Nissan next-gen ProPILOT from FY2027", "s": ["uber-wayve", "wayve-nissan"]}
+      },
+      "specs": [
+        {"k": "Live", "v": "London, supervised, on Uber", "s": ["uber-wayve"]},
+        {"k": "Uber markets planned", "v": "12", "s": ["uber-wayve"]},
+        {"k": "OEM deal", "v": "Nissan ProPILOT, first car in Japan FY2027", "s": ["wayve-nissan"]},
+        {"k": "Sensors", "v": "Works with varied setups (cameras, radar, lidar on Nissan)", "s": ["wayve-nissan"]}
+      ],
+      "milestones": [
+        {"date": "2026-10-23", "title": "Wayve, Stellantis and NVIDIA team up in France", "text": "Working with the French government on AV deployment in France and across the EU.", "s": ["wayve-nissan"]},
+        {"date": "2026-09-03", "title": "First autonomous rides in the UK, on Uber", "text": "UberX, Electric or Comfort riders in London can be matched with a supervised Wayve Mach-E at no extra cost.", "s": ["uber-wayve"]}
+      ],
+      "link": {"label": "wayve.ai", "u": "https://wayve.ai/"}
+    },
+    {
+      "id": "mobileye", "name": "Mobileye", "parent": "Mobileye Global (Nasdaq: MBLY)", "cat": ["platform"],
+      "badge": "oem", "badgeLabel": "OEM platform",
+      "blurb": "The chip-and-software supplier inside millions of cars, now edging into robotaxis through VW's ID. Buzz and transit partners.",
+      "rows": {
+        "approach": {"t": "EyeQ chips and software sold to automakers, from basic ADAS up to Mobileye Drive for robotaxis", "s": ["mbly-q3"]},
+        "status": {"t": "ADAS in production at scale. Robotaxi: public ridepooling in Hamburg with safety drivers, closed-group testing in Orlando.", "s": ["mbly-q3"]},
+        "markets": {"t": "Global OEM supply. Robotaxi work in Germany, the US (Orlando) and Norway (Holo permit).", "s": ["mbly-q3"]},
+        "scale": {"t": "9.5M EyeQ and SuperVision systems shipped in Q3 2026", "s": ["mbly-q3"]},
+        "hardware": {"t": "EyeQ SoCs; Mobileye Drive on VW ID. Buzz (MOIA) and HOLON Urban shuttles", "s": ["mbly-q3", "reuters-moia"]}
+      },
+      "specs": [
+        {"k": "Systems shipped Q3", "v": "9.5 million", "s": ["mbly-q3"]},
+        {"k": "Q3 revenue", "v": "US$492M, down 2% YoY", "s": ["mbly-q3"]},
+        {"k": "L4 test share in Germany", "v": ">60% of authorized vehicles (company estimate)", "s": ["mbly-q3"]},
+        {"k": "Robotaxi gate", "v": "Driver-out performance still to prove (company)", "s": ["mbly-q3"]}
+      ],
+      "milestones": [
+        {"date": "2026-10-29", "title": "Q3: Hamburg ridepooling, Deutsche Bahn picks HOLON", "text": "Public autonomous ridepooling in Hamburg with safety drivers, Holo permitted in Norway, Deutsche Bahn chooses the Mobileye-driven HOLON Urban.", "s": ["mbly-q3"]},
+        {"date": "2026-09-24", "title": "MOIA and Beep start ID. Buzz rides in Orlando", "text": "Invited riders in Mobileye-equipped ID. Buzz vehicles, with human operators onboard.", "s": ["reuters-moia"]}
+      ],
+      "link": {"label": "mobileye.com", "u": "https://www.mobileye.com/"}
+    }
+  ],
+  "sources": {
+    "reuters-tesla-approach": {"p": "Reuters, 28 Aug 2025", "u": "https://www.reuters.com/business/autos-transportation/how-tesla-waymos-radically-different-robotaxi-approaches-will-shape-industry-2025-08-28/"},
+    "tesla-safety": {"p": "Tesla Robotaxi page + this tracker's launch log", "u": "https://www.tesla.com/robotaxi/safety"},
+    "tesla-careers": {"p": "Tesla careers, this tracker's daily check", "u": "https://fsdriving.com/#map"},
+    "teslarati-cybercab": {"p": "Teslarati, Nov 2026", "u": "https://www.teslarati.com/tesla-cybercab-without-steering-wheel-pedals-expands-public-rides-dallas/"},
+    "tc-tesla-sa": {"p": "TechCrunch, 9 Nov 2026", "u": "https://techcrunch.com/2026/11/09/tesla-expands-robotaxi-service-to-san-antonio/"},
+    "nota-fw": {"p": "Not a Tesla App, Nov 2026", "u": "https://www.notateslaapp.com/news/4932/tesla-expands-robotaxi-service-launches-unsupervised-rides-in-fort-worth"},
+    "waymo-6th": {"p": "Waymo blog, 12 Feb 2026", "u": "https://waymo.com/blog/2026/02/ro-on-6th-gen-waymo-driver/"},
+    "waymo-ojai": {"p": "Waymo blog, 28 May 2026", "u": "https://waymo.com/blog/2026/05/welcoming-riders-in-the-ojai/"},
+    "waymo-rides": {"p": "Waymo rides page (checked 25 Nov 2026)", "u": "https://waymo.com/rides/"},
+    "tc-waymo-freeway": {"p": "TechCrunch, 17 Nov 2026", "u": "https://techcrunch.com/2026/11/17/waymo-suspends-freeway-rides-nationwide-after-california-dmv-order/"},
+    "tbbj-waymo": {"p": "Tampa Bay Business Journal, 16 Nov 2026", "u": "https://www.bizjournals.com/tampabay/news/2026/11/16/waymo-takes-first-step-toward-tpa-service.html"},
+    "zoox-lv": {"p": "Zoox journal, 11 Nov 2026", "u": "https://zoox.com/journal/las-vegas"},
+    "ev-zoox": {"p": "Electric Vehicles (eletric-vehicles.com), Nov 2026", "u": "https://eletric-vehicles.com/zoox/zoox-passes-one-million-riders-doubling-its-count-in-five-months/"},
+    "lat-zoox": {"p": "Los Angeles Times, 10 Aug 2026", "u": "https://www.latimes.com/business/story/2026-08-10/zoox-to-begin-paid-rides-following-regulatory-approval"},
+    "may-buzz": {"p": "May Mobility press release, 12 Nov 2026", "u": "https://maymobility.com/en/news/may-mobility-plans-to-bring-autonomous-volkswagen-id-buzz-vehicles-to-global-robotaxi-platforms"},
+    "may-atl": {"p": "May Mobility, Atlanta page", "u": "https://maymobility.com/en/get-a-may/atlanta"},
+    "may-cnbc": {"p": "CNBC interview transcript, SEC Form 425, 18 Nov 2026", "u": "https://www.sec.gov/Archives/edgar/data/2111542/000121390026121552/ea0312715-425_acpholding.htm"},
+    "baidu-q3": {"p": "Baidu Q3 2026 results (Form 6-K), 16 Nov 2026", "u": "https://baidu.gcs-web.com/static-files/4806161e-5ae2-44f3-b78f-6febb52a71f7"},
+    "baidu-rt6": {"p": "Baidu press release, 20 Jul 2022", "u": "https://www.prnewswire.com/news-releases/baidu-unveils-next-gen-autonomous-vehicle-ready-to-provide-driverless-robotaxi-half-of-taxi-fares-301590644.html"},
+    "reuters-baidu-ch": {"p": "Reuters, 12 Jun 2026", "u": "https://www.reuters.com/world/asia-pacific/baidu-postbus-get-regulatory-nod-robotaxi-service-eastern-switzerland-2026-06-12/"},
+    "weride-q3": {"p": "WeRide Q3 2026 results, 20 Nov 2026", "u": "https://ir.weride.ai/news-releases/news-release-details/overseas-revenue-1715-yoy-contributing-nearly-half-total-revenue"},
+    "weride-ir": {"p": "WeRide investor presentation, Nov 2026", "u": "https://ir.weride.ai/static-files/2ee3a94f-2de5-442c-a9de-260dc43ec884"},
+    "agbi-weride": {"p": "AGBI, 26 Nov 2026", "u": "https://www.agbi.com/transport/2026/11/chinas-weride-targets-threefold-middle-east-expansion/"},
+    "pony-q3": {"p": "Pony.ai Q3 2026 results, 18 Nov 2026", "u": "https://ir.pony.ai/news-releases/news-release-details/pony-ai-inc-reports-third-quarter-2026-financial-results-total"},
+    "pony-toyota": {"p": "Pony.ai press release, 16 Nov 2026", "u": "https://ir.pony.ai/news-releases/news-release-details/pony-ai-inc-and-toyota-launch-fully-driverless-commercial"},
+    "comma-four": {"p": "comma.ai shop, comma four (checked 27 Nov 2026)", "u": "https://comma.ai/shop/comma-four"},
+    "comma-four-blog": {"p": "comma.ai blog, 25 Nov 2025", "u": "https://blog.comma.ai/comma-four/"},
+    "comma-blog-0112": {"p": "comma.ai blog, 23 Oct 2026", "u": "https://blog.comma.ai/0112release/"},
+    "openpilot-rel": {"p": "openpilot releases, GitHub", "u": "https://github.com/commaai/openpilot/releases"},
+    "comma-cars": {"p": "openpilot CARS.md, GitHub", "u": "https://github.com/commaai/openpilot/blob/master/docs/CARS.md"},
+    "comma-vehicles": {"p": "comma.ai vehicles page", "u": "https://www.comma.ai/vehicles"},
+    "uber-wayve": {"p": "Uber press release, 3 Sep 2026", "u": "https://investor.uber.com/news-events/news/press-release-details/2026/Wayve-and-Uber-Launch-First-Ever-Autonomous-Rides-in-the-UK-2026-VoFQI1WbQi/default.aspx"},
+    "wayve-nissan": {"p": "Wayve press, Nissan agreement (10 Dec 2025)", "u": "https://wayve.ai/press/nissan-wayve-sign-definitive-agreements/"},
+    "mbly-q3": {"p": "Mobileye Q3 2026 results, 29 Oct 2026 (SEC)", "u": "https://www.sec.gov/Archives/edgar/data/1910139/000110465926119830/tm2628197d1_ex99-1.htm"},
+    "reuters-moia": {"p": "Reuters, 24 Sep 2026", "u": "https://www.reuters.com/business/moia-america-beep-begin-passenger-rides-orlando-2026-09-24/"}
+  }
+}
