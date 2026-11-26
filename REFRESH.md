@@ -419,3 +419,11 @@ Update checklist (weekly, and right after big events):
 - Model split (Cybercab / Model Y) is Texas AV Tracker's VIN-prefix classification (TxDMV lists VINs only); label it so.
 - Check: `python3 tools/fleet_shot.py <url> shots` (hover tooltip, Linear/Log, Waymo toggle, overflow, console errors;
   writes shots/desktop-fleet.png, desktop-fleet-log.png, mobile-fleet.png).
+
+## Economics page (/economics)
+- Built by `tools/economics_page.mjs` from `data/economics.json` (hand-checked facts) and `data/fleet.json` (refreshed daily by `tools/fleet_data.py`). The fleet baseline, growth rates and every KPI update automatically on each daily rebuild.
+- Tracked facts (update by hand, keep the source URL and date): `tsla` (close, market cap, shares outstanding from the latest 10-Q cover page), `throughput` (Waymo paid rides per week from Alphabet earnings), `benchmarks` (fare studies and receipt medians with city, window, takeaway, source).
+- Modelled estimates live only in the presets inside `economics_page.mjs` (utilization, trips per car, margin, cap, P/E). They are labelled as assumptions on the page; never present them as facts.
+- Suggested cadence: TSLA baseline weekly or after big moves; Robotaxi Tracker medians monthly (https://robotaxitracker.com/pricing); new Obi or other studies when published; shares after each 10-Q.
+- Check: `python3 tools/economics_shot.py <base> <outdir>` (status, console errors, overflow at 1440 and 390, presets, sliders, chart tooltip, fare buttons, sitemap, nav on all pages).
+- No em dashes in `data/economics.json`; the build fails if one appears.

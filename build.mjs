@@ -1,5 +1,5 @@
 // node build.mjs -> dist/ (index.html, data.json, 404.html, robots.txt, favicon.svg)
-import fs from 'node:fs'; import path from 'node:path'; import {execFileSync} from 'node:child_process'; import { ogHtml } from './tools/og_template.mjs'; import { competitorsHtml } from './tools/competitors_page.mjs'; import { fsdHtml } from './tools/fsd_page.mjs'; import { newsHtml } from './tools/news_page.mjs';
+import fs from 'node:fs'; import path from 'node:path'; import {execFileSync} from 'node:child_process'; import { ogHtml } from './tools/og_template.mjs'; import { competitorsHtml } from './tools/competitors_page.mjs'; import { fsdHtml } from './tools/fsd_page.mjs'; import { newsHtml } from './tools/news_page.mjs'; import { economicsHtml } from './tools/economics_page.mjs';
 import { geoAlbersUsa, geoEqualEarth, geoGraticule, geoPath } from 'd3-geo';
 import { buildPlaces } from './tools/places.mjs';
 import { feature, mesh } from 'topojson-client';
@@ -210,7 +210,7 @@ const relScript = `<script>(()=>{const f=()=>document.querySelectorAll('time[dat
 v.textContent=s<90?'just now':s<3600?Math.round(s/60)+' min ago':s<86400?Math.round(s/3600)+'h ago':Math.round(s/86400)+'d ago';t.title=d.toLocaleString([],{dateStyle:'medium',timeStyle:'short'})+' your time'});f();document.addEventListener('DOMContentLoaded',f);setInterval(f,6e4)})()</script>`;
 const updTag = (cls = 'upd') => `<time class="${cls}" data-rel datetime="${esc(last)}" title="${esc(utcLabel(last))}">Updated <span class="rv-t">${esc(utcLabel(last))}</span></time>`;
 const topHeader = page => `<header class="top"><a class="brand" href="/" aria-label="FSDriving home"><span class="dot"></span><span class="wm">FSD<b>riving</b></span></a>
-<nav class="tnav" aria-label="Site"><a href="/"${page === 'home' ? ' aria-current="page"' : ''}>Tracker</a><a href="/fsd"${page === 'fsd' ? ' aria-current="page"' : ''}>FSD</a><a href="/competitors"${page === 'competitors' ? ' aria-current="page"' : ''}>Competitors</a><a href="/news"${page === 'news' ? ' aria-current="page"' : ''}>News</a></nav>
+<nav class="tnav" aria-label="Site">${[['home', '/', 'Tracker', 'Tracker'], ['fsd', '/fsd', 'FSD', 'FSD'], ['economics', '/economics', 'Economics', 'Econ'], ['competitors', '/competitors', 'Competitors', 'Rivals'], ['news', '/news', 'News', 'News']].map(([k, h, l, sh]) => `<a href="${h}"${page === k ? ' aria-current="page"' : ''}>${l === sh ? l : `<span class="nl">${l}</span><span class="ns" aria-hidden="true">${sh}</span>`}</a>`).join('')}</nav>
 <div class="checked"><span class="live"></span>${updTag()}</div></header>${relScript}`;
 const sisterLink = `<p class="sister">Also tracking Tesla Optimus &amp; humanoid robots: <a href="https://optimistbot.com" target="_blank" rel="noopener">optimistbot.com</a></p>`;
 const MAPHTML = mapHtml();
@@ -308,6 +308,18 @@ fs.copyFileSync(path.join(root,'data/launches.json'),path.join(dist,'launches.js
   fs.mkdirSync(path.join(dist, 'news'), { recursive: true }); fs.writeFileSync(path.join(dist, 'news/index.html'), nh);
   console.log('news page:', N.items.length + 1, 'stories,', N.incidents.length, 'incidents,', N.videos.length, 'videos');
 }
+{ // /economics (tracked facts from data/fleet.json + data/economics.json; the rest are visitor-set assumptions)
+  const E = rd('data/economics.json');
+  if (/\u2014/.test(JSON.stringify(E))) { console.error('em dash in data/economics.json'); process.exit(1); }
+  const footerHtml = `<footer>
+  <p><b>Not affiliated with Tesla. Not financial advice.</b> Unofficial estimator. The fleet count, TSLA baseline and fare benchmarks are tracked facts with sources; utilization, trips, fare, margin, growth, cap and P/E are assumptions you set. The data lives in <a href="https://github.com/phelo1/fsdriving/blob/main/data/economics.json" target="_blank" rel="noopener">data/economics.json</a> and <a href="https://github.com/phelo1/fsdriving/blob/main/data/fleet.json" target="_blank" rel="noopener">data/fleet.json</a>.</p>
+  ${sisterLink}
+</footer>`;
+  const eh = economicsHtml({ E, FL: fleetSrc, fl, esc, headTags, topHeader, footerHtml, css });
+  if (/\u2014/.test(eh)) { console.error('em dash in economics page'); process.exit(1); }
+  fs.mkdirSync(path.join(dist, 'economics'), { recursive: true }); fs.writeFileSync(path.join(dist, 'economics/index.html'), eh);
+  console.log('economics page:', E.benchmarks.length, 'fare benchmarks, fleet', fleetSrc.operators.tesla.txdmvTotal);
+}
 fs.writeFileSync(path.join(dist,'history.json'),JSON.stringify(history,null,1));
 fs.writeFileSync(path.join(dist, 'data.json'), JSON.stringify(histAll, null, 1));
 for (const f of ['favicon.svg', 'favicon.ico', 'favicon.png', 'apple-touch-icon.png']) fs.copyFileSync(path.join(root, 'src/icons', f), path.join(dist, f));
@@ -316,7 +328,7 @@ fs.writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\nSitema
 { // sitemap.xml + rss.xml (only verified, sourced items from launches.json, fsd.json and news.json)
   const base = cfg.url.replace(/\/$/, ''), today = last.slice(0, 10);
   const xe = v => String(v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' }[c]));
-  fs.writeFileSync(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[['/', 'daily', '1.0'], ['/fsd', 'weekly', '0.8'], ['/competitors', 'weekly', '0.7'], ['/news', 'daily', '0.8']].map(([u, f, pr]) => `  <url><loc>${base}${u}</loc><lastmod>${today}</lastmod><changefreq>${f}</changefreq><priority>${pr}</priority></url>`).join('\n')}\n</urlset>\n`);
+  fs.writeFileSync(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[['/', 'daily', '1.0'], ['/fsd', 'weekly', '0.8'], ['/economics', 'weekly', '0.7'], ['/competitors', 'weekly', '0.7'], ['/news', 'daily', '0.8']].map(([u, f, pr]) => `  <url><loc>${base}${u}</loc><lastmod>${today}</lastmod><changefreq>${f}</changefreq><priority>${pr}</priority></url>`).join('\n')}\n</urlset>\n`);
   const N = rd('data/news.json'), F = rd('data/fsd.json'), items = [];
   items.push({ d: N.lead.date, t: `${N.lead.status}: ${N.lead.title}`, desc: N.lead.summary, link: `${base}/news#n-${N.lead.id}`, cat: 'News' });
   for (const i of N.items) items.push({ d: i.date, t: `${i.status}: ${i.title}`, desc: i.summary, link: `${base}/news#n-${i.id}`, cat: 'News' });

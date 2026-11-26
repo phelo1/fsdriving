@@ -1,0 +1,61 @@
+{
+ "checkedAt": "2026-11-27",
+ "about": "Verified inputs for /economics. Tracked facts only; every model assumption lives in presets and is labelled as an assumption on the page.",
+ "tsla": {
+  "price": 380.14,
+  "priceDate": "2026-11-25",
+  "priceNote": "Nasdaq close on 25 Nov 2026 (26 Nov was the Thanksgiving market holiday).",
+  "marketCap": 1502000000000,
+  "marketCapLabel": "$1.502T",
+  "sharesOutstanding": 3952757946,
+  "sharesDate": "2026-10-15",
+  "sources": [
+   {"publisher": "StockAnalysis (Nasdaq Data Link), close and market cap as of 25 Nov 2026", "url": "https://stockanalysis.com/stocks/tsla/market-cap/"},
+   {"publisher": "CompaniesMarketCap, $1.502T, November 2026", "url": "https://companiesmarketcap.com/tesla/marketcap/"},
+   {"publisher": "Tesla Form 10-Q for Q3 2026, cover page: 3,952,757,946 shares outstanding as of 15 Oct 2026", "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026066775/R1.htm"}
+  ]
+ },
+ "throughput": {
+  "waymoWeeklyRides": 500000,
+  "waymoWeeklyRidesDate": "2026-04-29",
+  "waymoWeeklyRidesSource": {"publisher": "Alphabet Q1 2026 earnings call, Sundar Pichai's remarks", "url": "https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q1-2026/"},
+  "note": "Waymo is the only operator that publishes paid ride volume. Tesla does not publish rides, active fleet or rides per vehicle."
+ },
+ "benchmarks": [
+  {"id": "rt-90d", "kind": "receipts", "city": "All tracked US cities", "period": "90 days to 26 Nov 2026", "date": "2026-11-26",
+   "title": "Community ride receipts: median fare",
+   "tesla": {"fare": 13.34, "perMile": 3.38, "trip": 5.3, "rides": 2455}, "waymo": {"fare": 14.72, "perMile": 3.76, "trip": 6.4, "rides": 1273},
+   "takeaway": "On what riders actually paid, Tesla's median ride now costs about 9% less than Waymo's, with shorter trips.",
+   "useFare": 13.34, "useLabel": "Tesla median, 90 days",
+   "source": {"publisher": "Robotaxi Tracker pricing (rider receipts, tax included, medians)", "url": "https://robotaxitracker.com/pricing"}},
+  {"id": "rt-cities", "kind": "receipts", "city": "Austin, Bay Area, Dallas", "period": "90 days to 26 Nov 2026", "date": "2026-11-26",
+   "title": "Same receipts, by city (median fare per ride)",
+   "rows": [
+    {"city": "Austin", "tesla": 14.98, "teslaPM": 3.52, "teslaN": 1490, "waymo": 16.96, "waymoPM": 2.35, "waymoN": 9},
+    {"city": "Bay Area", "tesla": 17.20, "teslaPM": 3.06, "teslaN": 258, "waymo": 15.05, "waymoPM": 4.82, "waymoN": 790},
+    {"city": "Dallas", "tesla": 9.72, "teslaPM": 3.76, "teslaN": 394, "waymo": 11.57, "waymoPM": 3.52, "waymoN": 28}
+   ],
+   "takeaway": "Tesla is cheaper per ride in Austin and Dallas; in the Bay Area its median ride is longer (8.4 mi) and costs more. Austin Waymo has only 9 logged rides.",
+   "useFare": 14.98, "useLabel": "Tesla Austin median",
+   "source": {"publisher": "Robotaxi Tracker pricing, by city", "url": "https://robotaxitracker.com/pricing"}},
+  {"id": "obi-q1", "kind": "study", "city": "San Francisco Bay Area", "period": "1 Mar to 14 Apr 2026", "date": "2026-04-21",
+   "title": "Obi: Tesla prices up 41%, still cheapest",
+   "changes": {"tesla": 41, "waymo": 18, "lyft": 12, "uber": 5},
+   "teslaDailyRange": [8.31, 14.59],
+   "takeaway": "Every service got pricier versus late 2025. Tesla rose most but was still the cheapest every day, roughly half Waymo's average price.",
+   "source": {"publisher": "Obi, Tesla Robotaxi Prices Are Up 41% In San Francisco (21 Apr 2026)", "url": "https://rideobi.com/teslaq1/"}},
+  {"id": "obi-sf", "kind": "study", "city": "San Francisco Bay Area", "period": "27 Nov 2025 to 1 Jan 2026", "date": "2026-01-27",
+   "title": "Obi: average price per ride, 94,348 quotes",
+   "avg": {"tesla": 8.17, "waymo": 19.69, "uber": 17.47, "lyft": 15.47},
+   "perKm": {"tesla": 1.99, "waymo": 5.72},
+   "takeaway": "Tesla (Bay Area rides with a safety driver) averaged $8.17 a ride against $15.47 to $19.69 for Lyft, Uber and Waymo.",
+   "useFare": 8.17, "useLabel": "Tesla SF average",
+   "source": {"publisher": "Obi, The Cost of Autonomy (27 Jan 2026)", "url": "https://rideobi.com/tesla/"}},
+  {"id": "austin-card", "kind": "card", "city": "Austin", "period": "Reported 12 Mar 2026", "date": "2026-03-12",
+   "title": "Reported Austin rate card",
+   "card": {"base": 3.00, "perMile": 1.40},
+   "takeaway": "$3.00 plus $1.40 a mile: a 5 mile ride is $10.00, a 10 mile ride $17.00. A reported card, not a live quote; the app prices each trip.",
+   "useFare": 10.00, "useLabel": "5 mile ride on the card",
+   "source": {"publisher": "Not a Tesla App, Tesla Raises Robotaxi Price Again With 40% Increase (12 Mar 2026)", "url": "https://www.notateslaapp.com/news/3779/tesla-raises-robotaxi-price-again-with-40-increase"}}
+ ]
+}
