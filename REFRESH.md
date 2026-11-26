@@ -398,3 +398,24 @@ Update checklist (weekly, and right after big events):
   sideways scroll, console errors; writes shots/desktop-home-top.png, shots/desktop-home-clean.png, shots/mobile-home-top.png).
   `tools/map_check.py` now expects Waymo off at load. `tools/vs_shot.py` and `tools/timeline_shot.py` are obsolete.
 - Heights 27 Nov 2026: before 16,813px desktop / 27,631px mobile; after about 6,480px desktop / 7,560px mobile.
+
+## Fleet growth (Texas registrations) (added 27 Nov 2026)
+- Section `#fleet` on `/` (between the Tesla vs Waymo scoreboard and the S-curve). Data: `data/fleet.json`, written by
+  `tools/fleet_data.py`, which `tools/refresh.sh` runs every day before the build (a failure keeps the last good file).
+- Primary source: Texas DMV public TxMCCS lookup (the JSON its own page uses):
+  `https://txmccs.txdmv.gov/api/TruckStop/companies?searchType=CompanyName&searchValue=<name>` to find the operator
+  (matched on the public AV authorization number: Tesla Robotaxi LLC `AV8313426653583`, Waymo LLC `AV8712526941758`), then
+  `/api/TruckStop/companies/<businessEntityId>/automated-motor-vehicles?limit=1` -> `total`. TxDMV only shows the current
+  list, so history comes from `https://texasavtracker.com/api/data?brand=tesla|waymo` (`history[]` = timestamp + count every
+  time the list changed). Points are copied verbatim; we add our own TxDMV reading each run. Never edit or interpolate points.
+- Build guard: the newest Tesla point must equal the TxDMV total or the build fails.
+- Stats (build.mjs `fl`): least-squares fit of ln(count) vs days over all Tesla points -> growth per week = e^(7b)-1,
+  doubling = ln2/b. "Last 30 days" = newest point vs the last point at least 30 days earlier. 27 Nov 2026: 1,841 Tesla,
+  ~15% a week, ~34-day doubling; last 30 days 15% (970 on 25 Oct 2026 -> 1,841). Matches @nymbusjp's 26 Nov 2026 post.
+- Waymo benchmark (hand-curated, `benchmark.waymoUS` in data/fleet.json, preserved by the updater): 4,488 driverless-capable
+  vehicles in NHTSA recall 26E086 (Waymo Part 573, submitted 19 Nov 2026,
+  https://static.nhtsa.gov/odi/rcl/2026/RCLRPT-26E086-1357.pdf). Replace it only with a newer primary figure (a newer recall
+  population or a Waymo-stated fleet size) and its URL. Waymo's Texas count comes from TxDMV automatically.
+- Model split (Cybercab / Model Y) is Texas AV Tracker's VIN-prefix classification (TxDMV lists VINs only); label it so.
+- Check: `python3 tools/fleet_shot.py <url> shots` (hover tooltip, Linear/Log, Waymo toggle, overflow, console errors;
+  writes shots/desktop-fleet.png, desktop-fleet-log.png, mobile-fleet.png).

@@ -169,10 +169,26 @@ mapMeta.liveByPid = liveByPid;
 const S = { live: liveM.length, driverless: liveM.filter(m => m.currentMode === 'driverless').length, driverNames: liveM.filter(m => m.currentMode === 'safety-driver').map(m => m.name),
   soon: soonM.length, soonNames: soonM.map(m => m.name), sup: sup.length, supCities: supCities.size, rt: mapMeta.head.rt, rtCities: mapMeta.head.rtCities,
   pins: heroLive.length + heroPend.length, pend: heroPend.length };
-const payload = { S, hero, places, mapMeta, compare, curve, history, launches, avgLead, leadN: leadVals.length, trackingStart, last, prev, firstRun: runs.length <= 1, runs: runs.length, jobs, roles: content.roles };
+// Fleet growth: Texas DMV automated-vehicle registrations (data/fleet.json, refreshed by tools/fleet_data.py).
+// Stats use ONLY the dated observations; nothing is interpolated. Fit = least squares on ln(count) vs days.
+const fleetSrc = rd('data/fleet.json'), FT = fleetSrc.operators.tesla, FW = fleetSrc.operators.waymo;
+const fl = (() => {
+  const pts = o => o.series.map(p => ({ t: Date.parse(p.t), n: p.n, src: p.src }));
+  const T = pts(FT), Wy = pts(FW), t0 = T[0].t, D = 864e5;
+  const xs = T.map(p => (p.t - t0) / D), ys = T.map(p => Math.log(p.n)), mx = xs.reduce((a, b) => a + b) / xs.length, my = ys.reduce((a, b) => a + b) / ys.length;
+  const b = xs.reduce((s, x, i) => s + (x - mx) * (ys[i] - my), 0) / xs.reduce((s, x) => s + (x - mx) ** 2, 0), a = my - b * mx;
+  const ssr = ys.reduce((s, y, i) => s + (y - (a + b * xs[i])) ** 2, 0), sst = ys.reduce((s, y) => s + (y - my) ** 2, 0);
+  const end = T[T.length - 1], at = (S, t) => S.filter(p => p.t <= t).pop();
+  const e2e = days => { const r = at(T, end.t - days * D); const d = (end.t - r.t) / D; return { from: r, days: d, wow: Math.pow(end.n / r.n, 7 / d) - 1, dbl: d * Math.log(2) / Math.log(end.n / r.n) }; };
+  const wEnd = Wy[Wy.length - 1], wRef = at(Wy, wEnd.t - 30 * D), wd = (wEnd.t - wRef.t) / D;
+  return { T, Wy, t0, a, b, r2: 1 - ssr / sst, wow: Math.exp(7 * b) - 1, dbl: Math.log(2) / b, end, m30: e2e(30), m60: e2e(60), wEnd, wWow30: Math.pow(wEnd.n / wRef.n, 7 / wd) - 1 };
+})();
+if (FT.txdmvTotal !== fl.end.n) { console.error('fleet: newest point', fl.end.n, 'differs from TxDMV total', FT.txdmvTotal); process.exit(1); }
+const fleetChart = { tesla: fl.T.map(p => [p.t, p.n]), waymo: fl.Wy.map(p => [p.t, p.n]), fit: { t0: fl.t0, a: fl.a, b: fl.b }, end: Date.parse(fleetSrc.checkedAt) };
+const payload = { fleet: fleetChart, S, hero, places, mapMeta, compare, curve, history, launches, avgLead, leadN: leadVals.length, trackingStart, last, prev, firstRun: runs.length <= 1, runs: runs.length, jobs, roles: content.roles };
 
 const css = fs.readFileSync(path.join(root, 'src/styles.css'), 'utf8');
-const js = fs.readFileSync(path.join(root, 'src/map.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/app.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/cities.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/hero.js'), 'utf8');
+const js = fs.readFileSync(path.join(root, 'src/map.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/app.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/cities.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/fleet.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/hero.js'), 'utf8');
 const desc = `Live Tesla Robotaxi tracker: ${S.live} live markets, ${S.soon} coming soon, ${S.sup} open Robotaxi supervisor roles in ${S.supCities} cities, plus FSD versions, competitors and fact-checked news. Every number sourced.`;
 const title = `${cfg.name} | Tesla Robotaxi, FSD & Autonomous Driving Tracker`;
 const ogImg = cfg.url.replace(/\/$/, '') + '/og.png?v=' + (last || '').slice(0, 10);
@@ -213,6 +229,8 @@ ${MAPHTML}
 
 ${scoreHtml()}
 
+${fleetHtml()}
+
 <section class="roles" id="curve"><div class="sec-h rv"><h2>Cities with Robotaxi supervisor ads, over time</h2><div class="filters cv-f" role="tablist" aria-label="Range"><button class="on" data-r="all">Full history</button><button data-r="recent">Last 100 days</button></div></div>
 <div class="filters cv-s" role="tablist" aria-label="Which roles"><button class="on" data-s="sup">Supervisor cities</button><button data-s="all">All Robotaxi role cities</button></div>
 <div class="tlwrap cvwrap"><svg id="cv" role="img" aria-label="Cumulative number of US cities where Tesla has posted Robotaxi Fleet Support Supervisor jobs, with Robotaxi launch dates"></svg><div class="tip" id="cvtip" hidden></div></div>
@@ -235,6 +253,7 @@ ${scoreHtml()}
 <h4>Time-lapse dates</h4><p>A live market appears in red on its first sourced hiring signal (when that predates launch) and turns green on launch day. A red pin appears on the earliest dated supervisor or fleet ad for any city in it (sourced X posts, news, archives or our own first sighting), or on the announcement date. Undated cities use the day this tracker started, ${esc(new Date(trackingStart).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }))}.</p>
 <h4>Supervisor cities over time</h4><p id="cvnote"></p>
 <h4>Lead times</h4><p>Hiring-to-launch gaps use the earliest fleet support or Robotaxi ops hiring signal we can date. Archives are incomplete, so these are minimum observed intervals, not original posting dates, and not forecasts. Autopilot test-driver hints are excluded.</p>
+<h4>Fleet growth</h4><p>Each point is a dated count of vehicles on an operator's Texas DMV automated motor vehicle list (public TxMCCS lookup). TxDMV shows only today's list, so the history comes from Texas AV Tracker, which snapshots the same list and logs every change; we add our own TxDMV reading on each daily check. The chart steps between real readings and never interpolates. Growth per week and doubling time come from a least-squares fit of ln(count) over all ${fl.T.length} Tesla readings (R&sup2; ${fl.r2.toFixed(2)}); the last-30-day figures compare the newest reading with the last reading at least 30 days earlier (${n0(fl.m30.from.n)} on ${esc(fmtDay(new Date(fl.m30.from.t).toISOString()))}). Registrations are statewide and include vehicles that are parked, charging or not yet in service. The model split is Texas AV Tracker's classification by VIN prefix. Waymo's US benchmark is the recall population in its latest NHTSA Part 573 report, which covers every Waymo vehicle able to drive without a driver.</p>
 <h4>Tesla vs Waymo</h4><p>Waymo statuses come from waymo.com (checked ${esc(fmtDay(compare.checkedAt))}); Waymo hiring is metros named in its open job ads${compare.waymoJobs.total ? ` (${compare.waymoJobs.total} jobs)` : ''}. The two companies hire very differently, so hiring is a signal, not a like-for-like count.</p>
 <p class="muted">Not affiliated with Tesla or Waymo. Raw data: <a href="/data.json">data.json</a> (every job with first and last seen), <a href="/launches.json">launches.json</a> (launch sources), <a href="/history.json">history.json</a>. ${runs.length} daily checks so far.</p>
 </div></details></section>
@@ -375,6 +394,7 @@ function mapHtml() {
 </section>`;
 }
 
+function n0(v) { return Number(v).toLocaleString('en-US'); }
 function fmtDay(d) { return new Date(d.slice(0, 10) + 'T12:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }); }
 function nextHtml() {
   const pl = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
@@ -389,6 +409,22 @@ ${src ? `<a class="nxs" href="${esc(src.url)}" target="_blank" rel="noopener">${
 <a class="nxs" href="${esc(cfg.sourceUrl)}" target="_blank" rel="noopener">Tesla careers &#8599;</a></div>`);
   return `<section class="nxt" id="next" aria-labelledby="nx-h"><div class="nxh"><h2 id="nx-h">Next up</h2><p class="muted">Cities Tesla has named, then the strongest open supervisor hiring with nothing announced. Hiring is a signal, not a promise. Tap a city to open it on the map.</p></div>
 <div class="nxgrid">${ann.join('')}${hot.join('')}</div></section>`;
+}
+function fleetHtml() {
+  const n = v => v.toLocaleString('en-US'), pct = v => Math.round(v * 100) + '%', wk = d => Math.round(d / 7);
+  const B = fleetSrc.benchmark && fleetSrc.benchmark.waymoUS, M = FT.models || {}, D = 864e5;
+  const first = new Date(fl.T[0].t).toISOString().slice(0, 10), m30 = fl.m30;
+  return `<section class="roles fleet" id="fleet"><div class="sec-h rv"><div><h2>Fleet growth</h2><p class="muted">Tesla Robotaxi vehicles registered with the Texas DMV, every dated change since ${esc(fmtDay(first))}.</p></div>
+<div class="flctl"><div class="filters fl-sc" role="group" aria-label="Scale"><button class="on" data-sc="lin" aria-pressed="true">Linear</button><button data-sc="log" aria-pressed="false">Log</button></div><button class="flw on" id="flw" type="button" aria-pressed="true"><i></i>Waymo (TX)</button></div></div>
+<div class="flkpi">
+<div class="fk t" title="Vehicles on Tesla Robotaxi, LLC's Texas DMV automated vehicle list (${esc(FT.av)}) at our last check."><b>${n(fl.end.n)}</b><span>registered in Texas<small>${M.Cybercab && M['Model Y'] ? `${n(M.Cybercab)} Cybercab, ${n(M['Model Y'])} Model Y by VIN prefix` : `as of ${esc(fmtDay(fleetSrc.checkedAt))}`}</small></span></div>
+<div class="fk g" title="Exponential least-squares fit to all ${fl.T.length} dated registry counts. End to end over the last ${Math.round(m30.days)} days: ${pct(m30.wow)} a week."><b>~${pct(fl.wow)}</b><span>growth per week<small>fit to ${fl.T.length} dated counts; last 30 days ${pct(m30.wow)}</small></span></div>
+<div class="fk d" title="ln(2) divided by the fitted daily growth rate."><b>~${Math.round(fl.dbl)} days</b><span>doubling time<small>about ${wk(fl.dbl)} weeks; last 30 days ${Math.round(m30.dbl)} days</small></span></div>
+${B ? `<div class="fk w" title="${esc(B.note)}"><b>${n(B.n)}</b><span>Waymo benchmark<small>driverless-capable, US-wide (<a href="${esc(B.url)}" target="_blank" rel="noopener">NHTSA, ${esc(fmtDay(B.date))}</a>); ${n(fl.wEnd.n)} registered in Texas</small></span></div>` : ''}
+</div>
+<div class="flwrap"><svg id="flsvg" role="img" aria-label="Step chart of Tesla Robotaxi vehicles registered in Texas, ${n(fl.T[0].n)} on ${esc(fmtDay(first))} to ${n(fl.end.n)} now, with Waymo's Texas registrations for comparison"></svg><div class="fltip" id="fltip" hidden></div></div>
+<div class="fllegend"><span><i class="t"></i>Tesla registered (TX)</span><span><i class="w"></i>Waymo registered (TX)</span><span><i class="f"></i>Exponential fit, ${pct(fl.wow)} a week</span></div>
+<p class="muted tlnote">Registered vehicles in Texas, not all on the road at the same time, and not a count of cars giving rides. Counts: <a href="${esc(FT.dmvUrl)}" target="_blank" rel="noopener">Texas DMV, Tesla Robotaxi LLC</a> and <a href="${esc(FW.dmvUrl)}" target="_blank" rel="noopener">Waymo LLC</a>, checked ${esc(fmtDay(fleetSrc.checkedAt))}; history: <a href="https://texasavtracker.com/tesla" target="_blank" rel="noopener">Texas AV Tracker</a> snapshots of the same list. <a href="#method">How we count</a></p></section>`;
 }
 function scoreHtml() {
   const W = compare.counts.waymo, both = compare.metros.filter(m => m.tesla && /^live/.test(m.tesla.status) && m.waymo && m.waymo.status === 'live').map(m => m.name);

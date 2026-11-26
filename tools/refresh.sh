@@ -12,6 +12,7 @@ python3 -c 'import playwright' || { echo 'Install: python3 -m pip install playwr
 if [ -n "${DISPLAY:-}" ]; then timeout 900 python3 tools/scrape.py
 else timeout 900 xvfb-run -a python3 tools/scrape.py; fi
 timeout 120 python3 tools/waymo_jobs.py || echo "waymo_jobs failed, keeping last good data/waymo-jobs.json"
+timeout 120 python3 tools/fleet_data.py || echo "fleet_data failed, keeping last good data/fleet.json"
 python3 tools/history.py
 python3 tools/geocode.py
 node build.mjs

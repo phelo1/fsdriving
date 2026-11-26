@@ -1,0 +1,423 @@
+{
+ "checkedAt": "2026-11-26T23:11:27Z",
+ "about": "Automated vehicles registered to each operator on the Texas DMV automated motor vehicle list. Registered, not necessarily on the road at the same time.",
+ "sources": {
+  "txdmv": {
+   "label": "Texas DMV, Automated Motor Vehicle Operator Lookup",
+   "url": "https://txmccs.txdmv.gov/automated-vehicles/operators/"
+  },
+  "tracker": {
+   "label": "Texas AV Tracker (daily TxDMV snapshots)",
+   "url": "https://texasavtracker.com/"
+  }
+ },
+ "benchmark": {
+  "waymoUS": {
+   "n": 4488,
+   "date": "2026-11-19",
+   "what": "Waymo vehicles with a driverless-capable 5th or 6th generation ADS, US-wide",
+   "publisher": "NHTSA recall 26E086, Waymo Part 573 report (submitted 19 Nov 2026)",
+   "url": "https://static.nhtsa.gov/odi/rcl/2026/RCLRPT-26E086-1357.pdf",
+   "note": "Recall population: every Waymo vehicle able to drive without a driver, not cars on the road at once. Hand-checked; update when Waymo files a newer recall or states a fleet size."
+  }
+ },
+ "operators": {
+  "tesla": {
+   "name": "Tesla Robotaxi, LLC",
+   "av": "AV8313426653583",
+   "grantedAt": "2026-05-14T20:25:27.417266+00:00",
+   "txdmvTotal": 1841,
+   "txdmvAt": "2026-11-26T23:11:27Z",
+   "trackerTotal": 1841,
+   "trackerCheckedAt": "2026-11-26T23:10:48.914Z",
+   "models": {
+    "Cybercab": 1107,
+    "Model Y": 734
+   },
+   "series": [
+    {
+     "t": "2026-05-28T00:00:00Z",
+     "n": 42,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-06-02T00:00:00Z",
+     "n": 42,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-06-05T18:31:33.681Z",
+     "n": 51,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-06-09T16:01:27.815Z",
+     "n": 59,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-06-11T00:54:11.592Z",
+     "n": 69,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-06-28T00:16:21.136Z",
+     "n": 84,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-07-02T13:50:21.156Z",
+     "n": 102,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-07-14T22:27:10.894Z",
+     "n": 117,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-07-15T20:42:31.732Z",
+     "n": 175,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-07-30T02:26:59.847Z",
+     "n": 181,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-08-11T18:14:04.261Z",
+     "n": 186,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-08-23T02:55:32.333Z",
+     "n": 191,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-08-27T15:21:49.803Z",
+     "n": 270,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-08-28T16:36:49.827Z",
+     "n": 269,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-08-31T18:44:27.825Z",
+     "n": 314,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-09-02T22:01:48.901Z",
+     "n": 420,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-09-03T14:34:48.987Z",
+     "n": 420,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-09-04T23:23:44.086Z",
+     "n": 432,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-09-09T03:37:34.543Z",
+     "n": 437,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-09-11T01:55:43.850Z",
+     "n": 439,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-09-19T00:04:04.573Z",
+     "n": 448,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-09-22T02:16:11.164Z",
+     "n": 476,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-09-22T20:48:59.829Z",
+     "n": 479,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-09-24T03:53:01.223Z",
+     "n": 489,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-09-25T20:46:55.959Z",
+     "n": 546,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-10-02T02:11:13.061Z",
+     "n": 578,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-10-02T18:32:59.487Z",
+     "n": 589,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-10-09T00:41:39.396Z",
+     "n": 739,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-10-15T02:32:25.105Z",
+     "n": 769,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-10-17T03:39:42.743Z",
+     "n": 803,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-10-22T03:53:40.017Z",
+     "n": 858,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-10-23T20:47:52.990Z",
+     "n": 927,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-10-25T04:51:53.032Z",
+     "n": 970,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-10-28T02:30:22.319Z",
+     "n": 1080,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-10-31T03:13:42.985Z",
+     "n": 1204,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-11-01T21:34:42.818Z",
+     "n": 1244,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-11-09T01:18:42.631Z",
+     "n": 1282,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-11-10T23:15:42.403Z",
+     "n": 1302,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-11-12T00:15:42.632Z",
+     "n": 1303,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-11-14T21:41:43.210Z",
+     "n": 1306,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-11-17T21:41:43.038Z",
+     "n": 1507,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-11-25T03:43:43.063Z",
+     "n": 1556,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-11-26T19:34:42.767Z",
+     "n": 1841,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-11-26T23:11:27Z",
+     "n": 1841,
+     "src": "txdmv"
+    }
+   ],
+   "dmvUrl": "https://txmccs.txdmv.gov/automated-vehicles/operators/AV8313426653583"
+  },
+  "waymo": {
+   "name": "Waymo LLC",
+   "av": "AV8712526941758",
+   "grantedAt": "2026-05-05T21:48:01.185924+00:00",
+   "txdmvTotal": 1409,
+   "txdmvAt": "2026-11-26T23:11:27Z",
+   "trackerTotal": 1409,
+   "trackerCheckedAt": "2026-11-26T23:10:48.914Z",
+   "models": {
+    "RT": 528,
+    "I-PACE": 881
+   },
+   "series": [
+    {
+     "t": "2026-05-28T00:00:00Z",
+     "n": 619,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-06-11T17:02:01.355Z",
+     "n": 620,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-06-25T03:14:21.419Z",
+     "n": 628,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-06-25T22:46:21.511Z",
+     "n": 640,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-07-01T23:07:21.325Z",
+     "n": 642,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-07-22T16:10:49.699Z",
+     "n": 677,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-08-11T18:14:08.550Z",
+     "n": 691,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-08-25T21:23:50.143Z",
+     "n": 736,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-09-02T17:55:51.614Z",
+     "n": 988,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-09-03T14:34:51.983Z",
+     "n": 988,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-09-23T01:10:04.716Z",
+     "n": 989,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-09-25T01:11:09.651Z",
+     "n": 1133,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-10-01T21:58:09.051Z",
+     "n": 1154,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-10-05T23:09:35.710Z",
+     "n": 1168,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-10-07T19:53:39.737Z",
+     "n": 1175,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-10-08T17:23:40.600Z",
+     "n": 1185,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-10-19T20:29:28.393Z",
+     "n": 1207,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-10-28T23:57:45.089Z",
+     "n": 1259,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-11-05T21:10:45.051Z",
+     "n": 1285,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-11-09T18:01:45.583Z",
+     "n": 1297,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-11-11T19:22:45.647Z",
+     "n": 1305,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-11-12T22:56:45.579Z",
+     "n": 1321,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-11-19T00:18:45.723Z",
+     "n": 1328,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-11-19T19:23:47.378Z",
+     "n": 1345,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-11-20T23:30:46.447Z",
+     "n": 1364,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-11-23T20:24:46.055Z",
+     "n": 1390,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-11-24T19:44:45.923Z",
+     "n": 1405,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-11-25T18:10:54.293Z",
+     "n": 1409,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-11-26T23:11:27Z",
+     "n": 1409,
+     "src": "txdmv"
+    }
+   ],
+   "dmvUrl": "https://txmccs.txdmv.gov/automated-vehicles/operators/AV8712526941758"
+  }
+ }
+}
