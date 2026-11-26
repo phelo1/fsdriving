@@ -18,6 +18,8 @@ with sync_playwright() as p:
         pg.locator('#map').scroll_into_view_if_needed(); pg.wait_for_timeout(700)
         n = lambda: pg.locator('#mmarks .node').count()
         cnt = lambda: pg.locator('#mcount').inner_text()
+        ok(pg.evaluate('window.__map.F.op.waymo') == 0, f'{name} waymo should start off')
+        pg.evaluate("window.__map.setOp('waymo', true)"); pg.wait_for_timeout(450)  # Waymo is off by default; the rest of this check runs with both on
         us = n(); ok(us > 15, f'{name} US pins {us}')
         pg.locator('#map').screenshot(path=f'{out}/{name}-map-us.png')
         c0 = cnt()

@@ -4,30 +4,17 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const key=j=>j.city+', '+j.st;
 const order={supervisor:0,specialist:1,operations:2};
-let filter='supervisor';
 // group by city
 const cities={};
 for(const j of D.jobs){const k=key(j);(cities[k]=cities[k]||{k,city:j.city,st:j.st,sn:j.sn,x:j.x,y:j.y,jobs:[]}).jobs.push(j)}
 const list=Object.values(cities);
 const isNew=j=>!D.firstRun&&j.fs===D.last;
 const cityNew=c=>!D.firstRun&&c.jobs.some(j=>j.a)&&c.jobs.every(j=>!j.a||j.fs===D.last)&&!c.jobs.some(j=>j.fs!==D.last);
-const visible=c=>c.jobs.filter(j=>j.a&&(filter==='all'||j.c==='supervisor'));
 // The interactive map lives in src/map.js.
 function slug(s){return s.toLowerCase().replace(/[^a-z0-9]+/g,'-')}
 const date=s=>new Date(s.slice(0,10)+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'Asia/Riyadh'});
 const dayDiff=(a,b=new Date().toLocaleDateString('en-CA',{timeZone:'Asia/Riyadh'}))=>Math.max(0,Math.floor((new Date(b.slice(0,10)+'T12:00:00Z')-new Date(a.slice(0,10)+'T12:00:00Z'))/864e5));
 
-// city cards
-function drawGrid(){const q=($('#q').value||'').trim().toLowerCase();
-  const rows=list.map(c=>({c,v:visible(c),gone:c.jobs.filter(j=>!j.a&&j.rm===D.last&&(filter==='all'||j.c==='supervisor'))}))
-    .filter(r=>(r.v.length||r.gone.length)&&(!q||(r.c.city+' '+r.c.st+' '+r.c.sn).toLowerCase().includes(q)))
-    .sort((a,b)=>b.v.length-a.v.length||a.c.city.localeCompare(b.c.city));
-  $('#grid').innerHTML=rows.length?rows.map(({c,v,gone})=>{const s=v.filter(j=>j.c==='supervisor').length;
-    const all=[...v].sort((a,b)=>order[a.c]-order[b.c]||a.t.localeCompare(b.t));
-    return `<article class="city" id="c-${slug(c.k)}"><div class="city-h"><h3>${esc(c.city)}<span class="stn">${esc(c.sn)}</span></h3><div class="count ${s?'':'r'}">${v.length}</div></div>
-    <div class="badges">${s?`<span class="badge">${s} supervisor</span>`:''}${v.length-s?`<span class="badge">${v.length-s} related</span>`:''}${cityNew(c)?'<span class="badge new">New city</span>':''}${!v.length?'<span class="badge">No openings now</span>':''}</div>
-    <ul class="jobs">${all.map(j=>`<li><a href="${esc(j.url)}" target="_blank" rel="noopener"><span class="role-tag ${j.c}">${esc(D.roles[j.c].short)}</span><span class="jt">${esc(j.t)}${isNew(j)?' <span class="badge new">New</span>':''}</span><span class="jid">#${esc(j.id)}</span></a><small class="jobmeta">Tesla careers · seen ${date(j.ls)}</small></li>`).join('')}
-    ${gone.map(j=>`<li class="gone"><a href="${esc(j.url)}" target="_blank" rel="noopener"><span class="role-tag ${j.c}">Gone</span><span class="jt">${esc(j.t)}</span><span class="jid">#${esc(j.id)}</span></a><small class="jobmeta">Tesla careers · seen ${date(j.ls)}</small></li>`).join('')}</ul></article>`}).join(''):'<div class="empty">No cities match that.</div>'}
 // changes
 function drawChanges(){const el=$('#changes');
   if(D.firstRun){el.innerHTML=`<div class="chg"><h3>What changed</h3><div class="muted">This is the very first check, so there's nothing to compare yet. From the next refresh on, new cities and closed postings show up right here.</div></div>`;return}
@@ -39,20 +26,16 @@ function drawChanges(){const el=$('#changes');
   ${newC.length?`<div><div class="muted" style="font-size:13px;margin-bottom:6px">New supervisor cities</div><div class="chips">${newC.map(c=>`<span class="chip new">${esc(c.city)}, ${esc(c.st)}</span>`).join('')}</div></div>`:''}
   ${goneC.length?`<div><div class="muted" style="font-size:13px;margin-bottom:6px">Supervisor cities that dropped off</div><div class="chips">${goneC.map(c=>`<span class="chip gone">${esc(c.city)}, ${esc(c.st)}</span>`).join('')}</div></div>`:''}
   ${!newC.length&&!goneC.length?'<div class="muted">No supervisor cities added or dropped.</div>':''}</div>`}
-function render(){drawGrid()}
-document.querySelectorAll('.grid-f button').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.f;document.querySelectorAll('.grid-f button').forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-selected',x===b)});render()}));
-$('#q').addEventListener('input',drawGrid);
-drawChanges();render();drawLead();
+drawChanges();drawLead();
 function sources(ss){return (ss||[]).map(s=>`<a target="_blank" rel="noopener" href="${esc(s.url)}">${esc(s.publisher)} ↗</a>`).join(' · ')}
 function drawLead(){
  const ms=D.launches.metros,live=ms.filter(m=>m.status==='live');
- $('#leadstats').innerHTML=`<div class="leadstats"><div><b>${live.length}</b><span>launched metros, including human-driven Bay Area</span></div><div><b>${D.avgLead==null?'N/A':D.avgLead+'d'}</b><span>average observed lead, ${D.leadN} metros with dated evidence</span></div></div><p class="muted">Not a forecast. Mixed role types and incomplete archives: these are minimum observed intervals, not original posting dates. Autopilot test-driver hints are excluded from the average. Green map diamonds mark metro launches, not exact ride coverage. Bay Area is human-driven (gold).</p><p><a href="/launches.json">Download launch sources & history ↗</a></p>`;
- $('#launchlist').innerHTML=live.sort((a,b)=>a.launch.date.localeCompare(b.launch.date)).map(m=>`<article class="launchcard" id="launch-${m.id}"><div class="launchhead"><h3>${esc(m.name)} <small>${esc(m.state)}</small></h3><span class="livebadge">${esc(m.currentMode)}</span></div><div class="leadbar"><i style="width:${m.leadDays==null?0:Math.min(100,m.leadDays/300*100)}%"></i></div><strong>${m.leadDays==null?'Before tracking began':m.leadDays+' days, at least'}</strong><p>${m.leadDays==null?esc(m.hiringGap||'No sourced pre-launch fleet support or Robotaxi ops hiring date.'):esc(m.leadSignal.role)+' seen by '+date(m.leadSignal.date)+' → launch '+date(m.launch.date)}</p><p>Launch: <b>${date(m.launch.date)}</b> · ${esc(m.launch.access)} · ${esc(m.launch.mode)}</p><p>${esc(m.launch.summary)}</p><small>${sources(m.launch.sources)}</small>${m.uncertain?`<p class="uncertain">${esc(m.uncertain)}</p>`:''}<details><summary>Hiring evidence & service milestones</summary>${m.hiringGap?`<p>${esc(m.hiringGap)}</p>`:''}${(m.hiringSignals||[]).map(s=>`<p><b>${date(s.date)}</b> · ${esc(s.kind)}<br>${esc(s.role)}<br><small>${esc(s.note)}<br>${sources(s.sources)}</small></p>`).join('')}${(m.milestones||[]).map(e=>`<p><b>${date(e.date)}</b> ${esc(e.text)}<br><small>${sources(e.sources)}</small></p>`).join('')}</details></article>`).join('');
+ $('#leadstats').innerHTML=`<div class="leadstats"><div><b>${live.length}</b><span>live markets${D.S&&D.S.driverNames.length?', '+esc(D.S.driverNames.join(', '))+' with a safety driver':''}</span></div><div><b>${D.avgLead==null?'N/A':D.avgLead+'d'}</b><span>average observed hiring-to-launch lead, ${D.leadN} markets with dated evidence</span></div></div>`;
+ $('#launchlist').innerHTML=live.sort((a,b)=>a.launch.date.localeCompare(b.launch.date)).map(m=>`<article class="launchcard" id="launch-${m.id}"><div class="launchhead"><h3>${esc(m.name)} <small>${esc(m.state)}</small></h3><span class="livebadge">${esc(m.currentMode)}</span></div><div class="leadbar"><i style="width:${m.leadDays==null?0:Math.min(100,m.leadDays/300*100)}%"></i></div><strong>${m.leadDays==null?'Before tracking began':m.leadDays+' days, at least'}</strong><p>${m.leadDays==null?esc(m.hiringGap||'No sourced pre-launch fleet support or Robotaxi ops hiring date.'):esc(m.leadSignal.role)+' seen by '+date(m.leadSignal.date)+' → launch '+date(m.launch.date)}</p><p>Launch: <b>${date(m.launch.date)}</b> · ${esc(m.launch.access)}</p><p class="lsum">${esc(m.launch.summary)}</p><small>${sources(m.launch.sources)}</small>${m.uncertain?`<p class="uncertain">${esc(m.uncertain)}</p>`:''}<details><summary>Hiring evidence & service milestones</summary>${m.hiringGap?`<p>${esc(m.hiringGap)}</p>`:''}${(m.hiringSignals||[]).map(s=>`<p><b>${date(s.date)}</b> · ${esc(s.kind)}<br>${esc(s.role)}<br><small>${esc(s.note)}<br>${sources(s.sources)}</small></p>`).join('')}${(m.milestones||[]).map(e=>`<p><b>${date(e.date)}</b> ${esc(e.text)}<br><small>${sources(e.sources)}</small></p>`).join('')}</details></article>`).join('');
  const ann=ms.filter(m=>m.status!=='live');
  const annRows=ann.map(m=>{const sig=m.leadSignal,cities=list.filter(c=>c.jobs.some(j=>j.a&&j.m===m.id));
   return `<div class="waitrow ann"><b>${esc(m.name)}, ${esc(m.state)} <span class="annbadge">announced, not live</span></b>${sig?`<span class="counter">${dayDiff(sig.date)} days since first seen hiring</span><small>${esc(sig.role)} · ${sig.kind==='tracker'?'first seen by this tracker':'seen by'} ${date(sig.date)}${sig.kind==='tracker'?'':' · '+sources((m.hiringSignals||[]).find(x=>x.date===sig.date&&x.role===sig.role)?.sources)}</small>`:`<span>No dated fleet support hiring signal yet</span>`}<small>${cities.length?cities.length+' tracked cit'+(cities.length===1?'y':'ies')+' hiring now: '+cities.map(c=>esc(c.city)).join(', '):(m.hiringGap?esc(m.hiringGap):'No openings on Tesla\'s site right now')}</small><small>Announced ${date(m.announced.date)}: ${esc(m.announced.text)} ${sources(m.announced.sources)}</small></div>`}).join('');
- const wait=list.filter(c=>c.jobs.some(j=>j.a)&&!c.jobs.some(j=>j.m));
- $('#waiting').innerHTML=annRows+'<h3 class="waith">Other cities hiring, nothing announced</h3><p class="muted">The clock starts when this tracker first saw a qualifying job, not when Tesla first posted it. Hiring doesn\'t mean a launch is coming.</p>'+wait.sort((a,b)=>a.jobs.map(j=>j.fs).sort()[0].localeCompare(b.jobs.map(j=>j.fs).sort()[0])||a.city.localeCompare(b.city)).map(c=>{const first=c.jobs.map(j=>j.fs).sort()[0];return `<div class="waitrow"><b>${esc(c.k)}</b><span class="counter">${dayDiff(first)} days since first seen hiring</span><small>first seen ${date(first)}</small></div>`}).join('');
+ $('#waiting').innerHTML=annRows;
 }
 setInterval(drawLead,60000);
 // counters + reveal

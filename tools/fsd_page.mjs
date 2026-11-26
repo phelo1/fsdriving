@@ -54,7 +54,7 @@ export function fsdHtml({ F, esc, headTags, topHeader, footerHtml, css }) {
   const tabs = [['all', 'All'], ['hw4', 'HW4'], ['hw3', 'HW3'], ['ct', 'Cybertruck'], ['semi', 'Semi']];
   const v15 = O.new_features_v15_as_marketed.map(f => `<div class="fft"><b>${esc(f.name)}</b><p>${esc(f.blurb)}</p></div>`).join('');
   const Q = R.consumer_unsupervised_status.q3_2026_earnings_plan, EU = R.regional_notes.europe;
-  const title = `Tesla FSD versions tracker: v${L4.fsd_version} on HW4, v14.3 Lite on HW3, Cybertruck and Semi | fsdriving.com`;
+  const title = `Tesla FSD versions tracker: v${L4.fsd_version} on HW4, v14.3 Lite on HW3, Cybertruck and Semi | FSDriving`;
   const desc = `Which FSD (Supervised) build is on which Tesla right now. v${L4.fsd_version} (${L4.firmware}) is rolling out to US HW4 Model Y; HW3 runs v14.3 Lite; Cybertruck v${LC.fsd_version}; Semi has no FSD yet. Every version linked to its source.`;
   return `<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">

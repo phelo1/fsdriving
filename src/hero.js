@@ -26,4 +26,32 @@ svg.querySelectorAll('.hd').forEach(g=>{
 tip.addEventListener('click',()=>{if(cur)open(cur)});
 document.addEventListener('click',e=>{if(!tip.hidden&&!wrap.contains(e.target))hide()});
 window.__hero={show:k=>{const g=svg.querySelector(`.hd[data-k="${k}"]`);if(g)show(g)},open:k=>{const g=svg.querySelector(`.hd[data-k="${k}"]`);if(g)open(g)}};
+
+// Time-lapse: replays sourced hiring signals and launch dates up to today. The final frame is the live state above.
+(()=>{const tl=document.getElementById('tlx'),btn=document.getElementById('tlplay'),rg=document.getElementById('tlrange'),dl=document.getElementById('tldate'),cn=document.getElementById('tlcnt');if(!tl||!btn||!rg)return;
+ const DAY=864e5,t0=Date.parse(H.start+'T12:00:00Z'),N=+rg.max,iso=i=>new Date(t0+i*DAY).toISOString().slice(0,10);
+ const lab=s=>new Date(s+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'});
+ const dots=[...svg.querySelectorAll('.hd')].map(g=>{const k=g.dataset.k,o=get(k);return{g,t:o.t,d:o.d}});
+ let raf=0,playing=false,last=-1;
+ function frame(i){i=Math.max(0,Math.min(N,Math.round(i)));if(i===last)return;last=i;const D=iso(i);let L=0,R=0;
+  for(const x of dots){let st;if(x.t==='l'){st=D>=x.d.date?'live':(x.d.hire&&D>=x.d.hire?'red':'off')}else st=D>=x.d.d?'red':'off';
+   const was=x.g.dataset.tl||'live';if(st!==was){x.g.dataset.tl=st;if(st!=='off'&&i<N){x.g.classList.remove('tlnew');void x.g.getBBox();x.g.classList.add('tlnew')}}
+   x.g.classList.toggle('tloff',st==='off');x.g.classList.toggle('tlred',st==='red');if(st==='live')L++;else if(st==='red')R++}
+  rg.value=i;rg.style.setProperty('--p',(i/N*100).toFixed(2)+'%');dl.textContent=lab(D);
+  cn.innerHTML=`<i class="g"></i>${L} live <i class="r"></i>${R} ${i===N?'hiring or next':'hiring or named'}`;tl.classList.toggle('past',i<N)}
+ function stop(){playing=false;cancelAnimationFrame(raf);btn.classList.remove('on');btn.setAttribute('aria-label','Play the time-lapse')}
+ function play(){if(last>=N||last<0)frame(0);playing=true;btn.classList.add('on');btn.setAttribute('aria-label','Pause the time-lapse');hide();
+  const dur=Math.min(14000,Math.max(7000,N*18)),s0=last,start=performance.now()-s0/N*dur;
+  const step=t=>{if(!playing)return;const i=(t-start)/dur*N;frame(i);if(i>=N){stop();return}raf=requestAnimationFrame(step)};raf=requestAnimationFrame(step)}
+ btn.addEventListener('click',()=>playing?stop():play());
+ rg.addEventListener('input',()=>{stop();frame(+rg.value)});
+ frame(N);window.__hero.tl={play,stop,frame,get playing(){return playing},get i(){return last},N};
+})();
+// Next up cards and the Tesla vs Waymo button both drive the main map.
+function toMap(cb){const m=document.getElementById('map');if(!m)return;m.scrollIntoView({behavior:'smooth',block:'start'});if(window.__map&&window.__map.mode!=='us'&&window.__map.goView)window.__map.goView('us',false);if(cb)setTimeout(cb,420)}
+document.querySelectorAll('.nxgo[data-pid]').forEach(b=>b.addEventListener('click',()=>toMap(()=>window.__map&&window.__map.openDrawer(b.dataset.pid,true))));
+const wb=document.getElementById('showWaymo');
+if(wb){const sync=on=>{wb.setAttribute('aria-pressed',on);wb.classList.toggle('on',on);wb.querySelector('span').textContent=on?'Hide Waymo on map':'Show Waymo on map'};
+ wb.addEventListener('click',()=>{if(!window.__map)return;const on=!window.__map.F.op.waymo;window.__map.setOp('waymo',on);if(on)toMap()});
+ document.addEventListener('mapop',e=>{if(e.detail.op==='waymo')sync(e.detail.on)});}
 })();

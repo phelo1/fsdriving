@@ -141,7 +141,20 @@ const heroLive = launches.metros.filter(m => m.status === 'live' && m.x != null)
 const livePids = new Set(heroLive.map(l => l.pid).filter(Boolean));
 const heroPend = places.filter(p => p.cc === 'US' && p.us && !livePids.has(p.id) && !(p.tesla && /^live/.test(p.tesla.status)) && ((p.tesla && p.tesla.status === 'announced') || rtOpen(p).length))
   .map(p => ({ pid: p.id, name: p.name, st: p.sub, x: p.us[0], y: p.us[1], soon: !!(p.tesla && p.tesla.status === 'announced'), roles: rtOpen(p).length, sup: rtOpen(p).filter(j => j.c === 'supervisor').length }));
-const hero = { live: heroLive, pend: heroPend };
+// Time-lapse dates (all from real data): live dots appear red at their first sourced hiring signal and turn green on
+// launch day; hiring/pending dots appear on the earliest of their dated supervisor/fleet ad (backfill or tracker) or announcement.
+const curveDate = new Map(); for (const c of [...curve.all, ...curve.sup]) { const k = `${c.city}, ${c.st}`; if (!curveDate.has(k) || c.d < curveDate.get(k)) curveDate.set(k, c.d); }
+const placeById = new Map(places.map(p => [p.id, p]));
+const annByPid = new Map(); for (const m of launches.metros) if (m.status === 'announced' && m.geo) { const p = placeOf(m.geo.lat, m.geo.lon); if (p) annByPid.set(p.id, m); }
+for (const l of heroLive) { const m = launches.metros.find(x => x.id === l.id); l.hire = m.leadSignal && m.leadSignal.date < l.date ? m.leadSignal.date : null; }
+for (const h of heroPend) { const p = placeById.get(h.pid), c = [];
+  for (const ci of p.cities) if (curveDate.has(ci.k)) c.push(curveDate.get(ci.k));
+  for (const j of rtOpen(p)) c.push(j.fs.slice(0, 10));
+  const a = annByPid.get(h.pid); if (a && a.announced) c.push(a.announced.date);
+  if (a && a.leadSignal) c.push(a.leadSignal.date);
+  h.d = c.sort()[0] || trackingStart.slice(0, 10); h.mid = a ? a.id : null; }
+const hero = { live: heroLive, pend: heroPend, end: last.slice(0, 10) };
+hero.start = [...heroLive.map(l => l.hire || l.date), ...heroPend.map(h => h.d)].sort()[0];
 const actAll = Object.values(histAll.jobs).filter(j => j.active);
 const ckey = j => `${j.city}, ${j.country && j.country !== 'US' ? j.country : j.state}`;
 const rtAct = actAll.filter(j => j.category !== 'selfdriving'), sdAct = actAll.filter(j => j.category === 'selfdriving');
@@ -149,14 +162,21 @@ const mapMeta = { presets, last, waymoChecked: wj.checkedAt || null, waymoSource
   head: { sup: sup.length, supCities: supCities.size, fleet: active.length, rt: rtAct.length, rtCities: new Set(rtAct.map(ckey)).size,
     sd: sdAct.length, sdCities: new Set(sdAct.map(ckey)).size, sdCountries: new Set(sdAct.map(j => j.country || 'US')).size,
     wLive: compare.counts.waymo.live, wAnn: compare.counts.waymo.announced, wIntl: compare.counts.waymo.intl } };
-const payload = { hero, places, mapMeta, compare, curve, history, launches, avgLead, leadN: leadVals.length, trackingStart, last, prev, firstRun: runs.length <= 1, runs: runs.length, jobs, roles: content.roles };
+const liveM = launches.metros.filter(m => m.status === 'live'), soonM = launches.metros.filter(m => m.status === 'announced');
+const liveByPid = {}; for (const l of heroLive) if (l.pid) liveByPid[l.pid] = (liveByPid[l.pid] || 0) + 1;
+mapMeta.liveByPid = liveByPid;
+// ONE set of headline numbers, used everywhere on the home page (hero, map readout, scoreboard, lead section)
+const S = { live: liveM.length, driverless: liveM.filter(m => m.currentMode === 'driverless').length, driverNames: liveM.filter(m => m.currentMode === 'safety-driver').map(m => m.name),
+  soon: soonM.length, soonNames: soonM.map(m => m.name), sup: sup.length, supCities: supCities.size, rt: mapMeta.head.rt, rtCities: mapMeta.head.rtCities,
+  pins: heroLive.length + heroPend.length, pend: heroPend.length };
+const payload = { S, hero, places, mapMeta, compare, curve, history, launches, avgLead, leadN: leadVals.length, trackingStart, last, prev, firstRun: runs.length <= 1, runs: runs.length, jobs, roles: content.roles };
 
 const css = fs.readFileSync(path.join(root, 'src/styles.css'), 'utf8');
-const js = fs.readFileSync(path.join(root, 'src/map.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/app.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/timeline.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/cities.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/compare.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/hero.js'), 'utf8');
-const desc = `Live map of every US city where Tesla is hiring Robotaxi Fleet Support Supervisors, pulled straight from Tesla's careers site. ${sup.length} openings in ${supCities.size} cities right now.`;
-const title = `Where Tesla is hiring Robotaxi Fleet Support Supervisors | ${cfg.name}`;
+const js = fs.readFileSync(path.join(root, 'src/map.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/app.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/cities.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/hero.js'), 'utf8');
+const desc = `Live Tesla Robotaxi tracker: ${S.live} live markets, ${S.soon} coming soon, ${S.sup} open Robotaxi supervisor roles in ${S.supCities} cities, plus FSD versions, competitors and fact-checked news. Every number sourced.`;
+const title = `${cfg.name} | Tesla Robotaxi, FSD & Autonomous Driving Tracker`;
 const ogImg = cfg.url.replace(/\/$/, '') + '/og.png?v=' + (last || '').slice(0, 10);
-const ogAlt = `Glowing map of ${supCities.size} US cities where Tesla is hiring Robotaxi supervisors, with a Cybercab`;
+const ogAlt = `FSDriving: glowing US map of ${heroLive.length} live Tesla Robotaxi markets and ${heroPend.length} metros hiring or coming soon, with a Cybercab`;
 const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#07080c"/><circle cx="32" cy="32" r="18" fill="none" stroke="#ff3b3b" stroke-width="3" opacity=".45"/><circle cx="32" cy="32" r="8" fill="#ff3b3b"/></svg>`;
 
 const roleCards = Object.entries(content.roles).map(([k, r]) => `
@@ -168,10 +188,14 @@ const headTags = ({ title, desc, path: pth }) => { const url = cfg.url + (pth ||
 <meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${url}">
 <meta property="og:site_name" content="${esc(cfg.name)}"><meta property="og:image" content="${ogImg}"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(ogAlt)}">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${ogImg}"><meta name="twitter:image:alt" content="${esc(ogAlt)}">
-<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png">`; };
-const topHeader = page => `<header class="top"><a class="brand" href="/"><span class="dot"></span>Robotaxi Hiring Map</a>
+<link rel="alternate" type="application/rss+xml" title="FSDriving updates" href="/rss.xml"><link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png">`; };
+const utcLabel = iso => new Date(iso).toLocaleString('en-GB', { timeZone: 'UTC', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false }) + ' UTC';
+const relScript = `<script>(()=>{const f=()=>document.querySelectorAll('time[data-rel]').forEach(t=>{const d=new Date(t.dateTime),s=(Date.now()-d)/1e3,v=t.querySelector('.rv-t')||t;
+v.textContent=s<90?'just now':s<3600?Math.round(s/60)+' min ago':s<86400?Math.round(s/3600)+'h ago':Math.round(s/86400)+'d ago';t.title=d.toLocaleString([],{dateStyle:'medium',timeStyle:'short'})+' your time'});f();document.addEventListener('DOMContentLoaded',f);setInterval(f,6e4)})()</script>`;
+const updTag = (cls = 'upd') => `<time class="${cls}" data-rel datetime="${esc(last)}" title="${esc(utcLabel(last))}">Updated <span class="rv-t">${esc(utcLabel(last))}</span></time>`;
+const topHeader = page => `<header class="top"><a class="brand" href="/" aria-label="FSDriving home"><span class="dot"></span><span class="wm">FSD<b>riving</b></span></a>
 <nav class="tnav" aria-label="Site"><a href="/"${page === 'home' ? ' aria-current="page"' : ''}>Tracker</a><a href="/fsd"${page === 'fsd' ? ' aria-current="page"' : ''}>FSD</a><a href="/competitors"${page === 'competitors' ? ' aria-current="page"' : ''}>Competitors</a><a href="/news"${page === 'news' ? ' aria-current="page"' : ''}>News</a></nav>
-<div class="checked"><span class="live"></span>Last checked <b>${esc(fmt(last))}</b> <span class="tz">Riyadh time</span></div></header>`;
+<div class="checked"><span class="live"></span>${updTag()}</div></header>${relScript}`;
 const sisterLink = `<p class="sister">Also tracking Tesla Optimus &amp; humanoid robots: <a href="https://optimistbot.com" target="_blank" rel="noopener">optimistbot.com</a></p>`;
 const MAPHTML = mapHtml();
 const html = `<!doctype html><html lang="en"><head><meta charset="utf-8">
@@ -182,43 +206,41 @@ ${headTags({ title, desc, path: "" })}
 ${topHeader('home')}
 <main>
 ${heroHtml()}
-
+${nextHtml()}
 ${MAPHTML}
 
 <section class="changes rv" id="changes"></section>
 
-<section class="roles vs" id="vs"><div class="sec-h rv"><h2>Tesla vs Waymo, city by city</h2><div class="filters vs-f" role="tablist" aria-label="Which company"><button class="on" data-c="both">Both</button><button data-c="tesla">Tesla</button><button data-c="waymo">Waymo</button></div></div>
-<p class="muted vslede">US metros only. Live means anyone (or a waitlist) can hail a ride today. Announced means the company itself named the city, but there are no public rides yet. Hiring is shown separately because the two companies hire very differently.</p>
-<div class="vsgrid" id="vscount"></div>
-<div class="map vsmap"><svg id="vsmap" viewBox="0 0 975 610" role="img" aria-label="Map of US metros where Tesla and Waymo run or plan robotaxi service"><path class="nation" d="${nationPath}"/><path class="states" d="${statesPath}"/><g id="vspins"></g></svg><div class="tip vstip" id="vstip" hidden></div></div>
-<div class="legend" id="vslegend"></div>
-<div class="vstablewrap"><table class="vstable" id="vstable"><thead><tr><th>Metro</th><th class="t">Tesla</th><th class="w">Waymo</th></tr></thead><tbody></tbody></table></div>
-<div id="vsintl"></div>
-<div class="muted tlnote" id="vsnote"></div></section>
-
-<section class="list" id="cities">
-  <div class="sec-h rv"><h2>City by city</h2><div class="filters grid-f" role="tablist" aria-label="Which roles"><button class="on" data-f="supervisor">Supervisors</button><button data-f="all">All fleet roles</button></div><div class="search"><input id="q" type="search" placeholder="Filter cities or states" aria-label="Filter cities"></div></div>
-  <div class="grid" id="grid"></div>
-</section>
+${scoreHtml()}
 
 <section class="roles" id="curve"><div class="sec-h rv"><h2>Cities with Robotaxi supervisor ads, over time</h2><div class="filters cv-f" role="tablist" aria-label="Range"><button class="on" data-r="all">Full history</button><button data-r="recent">Last 100 days</button></div></div>
 <div class="filters cv-s" role="tablist" aria-label="Which roles"><button class="on" data-s="sup">Supervisor cities</button><button data-s="all">All Robotaxi role cities</button></div>
 <div class="tlwrap cvwrap"><svg id="cv" role="img" aria-label="Cumulative number of US cities where Tesla has posted Robotaxi Fleet Support Supervisor jobs, with Robotaxi launch dates"></svg><div class="tip" id="cvtip" hidden></div></div>
 <div class="legend"><span><i class="lg s"></i>New city, dated from a source</span><span><i class="lg" style="background:none;border:2px solid #ff4a3d"></i>Estimated date</span><span><i class="lg" style="background:none;border:1px dashed #ff8a7a"></i>No date found, open at our first check</span><span><i class="lg" style="background:#65efad;border-radius:2px;transform:rotate(45deg)"></i>Robotaxi launch</span><span><i class="lg" style="background:#ffd78c;border-radius:2px;transform:rotate(45deg)"></i>Launch, human driver</span></div>
-<p class="muted tlnote" id="cvnote"></p></section>
-<section class="roles" id="timeline"><div class="sec-h rv"><h2>Hiring to launch, metro by metro</h2><div class="filters tl-f" role="tablist" aria-label="Timeline range"><button class="on" data-r="all">Since 2025</button><button data-r="tracked">Since tracking began</button></div></div>
-<div class="filters tl-s" role="tablist" aria-label="Postings series"><button class="on" data-s="lines">Supervisors + all roles</button><button data-s="states">Supervisors by state</button></div>
-<div class="tlwrap"><svg id="tl" role="img" aria-label="Timeline of open postings, hiring signals and Robotaxi launches"></svg><div class="tip" id="tltip" hidden></div></div>
-<div class="legend"><span><i class="lg s"></i>Supervisor openings</span><span><i class="lg r"></i>All robotaxi fleet roles</span><span><i class="lg" style="background:#ff8a7a"></i>First sourced hiring signal</span><span><i class="lg" style="background:#65efad;border-radius:2px;transform:rotate(45deg)"></i>Launch</span><span><i class="lg" style="background:#ffd78c;border-radius:2px;transform:rotate(45deg)"></i>Launch, human driver</span><span><i class="lg" style="background:none;border:1px solid #8a91a3"></i>Autopilot test-driver hint</span></div>
-<p class="muted tlnote">Heads up: our own postings count starts on 20 Nov 2026, the day this tracker went live, so the line only covers the right edge for now and grows one point a day. Everything earlier on the chart is sourced hiring sightings and launch dates from news and archives, not posting counts. Drag or pinch to zoom.</p></section>
-<section class="roles" id="lead"><div class="sec-h"><h2>From hiring to hailing</h2></div><p class="muted">First sourced hiring signal to first service launch. Observations, not predictions. Older dates mean the job was seen by that day, not the day it went up.</p><div id="leadstats"></div><div id="launchlist"></div><h3 class="waith">Still waiting: hiring, no launch yet</h3><div id="waiting"></div></section><section class="roles" id="role">
+<p class="muted tlnote">One dot per city, dated from the earliest source we found. <a href="#method">How the dates work</a>.</p></section>
+
+<section class="roles" id="lead"><div class="sec-h"><h2>From hiring to hailing</h2></div><p class="muted">First sourced hiring signal to first ride, for every live market. Minimum observed intervals, not predictions.</p><div id="leadstats"></div><p class="swipe">Swipe for every market &#8594;</p><div id="launchlist" class="launchgrid"></div><h3 class="waith">Announced, not live yet</h3><div id="waiting" class="waitgrid"></div></section>
+<section class="roles" id="role">
   <div class="sec-h rv"><h2>So what's the job?</h2><p class="muted">Straight from the posting text, boiled down.</p></div>
   <div class="rolegrid">${roleCards}</div>
 </section>
+<section class="roles methwrap"><details class="method" id="method"><summary><span>How we count</span><small>Sources, definitions and caveats for every number on this page</small></summary>
+<div class="methb">
+<h4>The headline numbers</h4><ul>
+<li><b>${S.live} live markets</b>: cities where Tesla says public Robotaxi rides run (data/launches.json, each with a launch source). ${S.driverless} are driverless${S.driverNames.length ? `; ${esc(S.driverNames.join(', '))} has a human safety driver` : ''}. Dallas and Fort Worth launched separately, so they count as two markets but share one metro pin on the maps.</li>
+<li><b>${S.soon} coming soon</b>: ${esc(S.soonNames.join(', '))}, named by Tesla with no launch date.</li>
+<li><b>${S.sup} supervisor roles in ${S.supCities} cities</b>: open "Robotaxi Fleet Support Supervisor" postings on tesla.com/careers at the last check.</li>
+<li><b>${S.rt} Robotaxi roles in ${S.rtCities} cities</b>: every open US posting with "Robotaxi" in the title (supervisors included). Self-driving test roles (vehicle operators, data collection) are not Robotaxi jobs and are never counted. Closed ads never count.</li>
+<li><b>${S.pins} hero pins</b>: ${heroLive.length} live markets in green plus ${S.pend} metros in red that are coming soon or have open Robotaxi roles. Postings within ${mapMeta.radius} miles of a metro are grouped onto its pin.</li></ul>
+<h4>Time-lapse dates</h4><p>A live market appears in red on its first sourced hiring signal (when that predates launch) and turns green on launch day. A red pin appears on the earliest dated supervisor or fleet ad for any city in it (sourced X posts, news, archives or our own first sighting), or on the announcement date. Undated cities use the day this tracker started, ${esc(new Date(trackingStart).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }))}.</p>
+<h4>Supervisor cities over time</h4><p id="cvnote"></p>
+<h4>Lead times</h4><p>Hiring-to-launch gaps use the earliest fleet support or Robotaxi ops hiring signal we can date. Archives are incomplete, so these are minimum observed intervals, not original posting dates, and not forecasts. Autopilot test-driver hints are excluded.</p>
+<h4>Tesla vs Waymo</h4><p>Waymo statuses come from waymo.com (checked ${esc(fmtDay(compare.checkedAt))}); Waymo hiring is metros named in its open job ads${compare.waymoJobs.total ? ` (${compare.waymoJobs.total} jobs)` : ''}. The two companies hire very differently, so hiring is a signal, not a like-for-like count.</p>
+<p class="muted">Not affiliated with Tesla or Waymo. Raw data: <a href="/data.json">data.json</a> (every job with first and last seen), <a href="/launches.json">launches.json</a> (launch sources), <a href="/history.json">history.json</a>. ${runs.length} daily checks so far.</p>
+</div></details></section>
 </main>
 <footer>
-  <p><b>Not affiliated with Tesla.</b> Unofficial tracker. Job data comes from Tesla's public careers listings (<a href="${cfg.sourceUrl}" rel="noopener" target="_blank">tesla.com/careers</a>). Openings can close any time, so always check the posting itself.</p>
-  <p class="muted">Data for nerds: <a href="/data.json">data.json</a> keeps first-seen and last-seen for every job. ${runs.length} check${runs.length === 1 ? '' : 's'} so far.</p>
+  <p><b>Not affiliated with Tesla.</b> Unofficial tracker. Job data comes from Tesla's public careers listings (<a href="${cfg.sourceUrl}" rel="noopener" target="_blank">tesla.com/careers</a>). Openings can close any time, so always check the posting itself. <a href="#method">How we count</a> &middot; <a href="/rss.xml">RSS</a></p>
   ${sisterLink}
 </footer>
 <script id="data" type="application/json">${JSON.stringify(payload).replace(/\u2014/g, '-').replace(/</g, '\\u003c')}</script>
@@ -271,8 +293,30 @@ fs.writeFileSync(path.join(dist,'history.json'),JSON.stringify(history,null,1));
 fs.writeFileSync(path.join(dist, 'data.json'), JSON.stringify(histAll, null, 1));
 for (const f of ['favicon.svg', 'favicon.ico', 'favicon.png', 'apple-touch-icon.png']) fs.copyFileSync(path.join(root, 'src/icons', f), path.join(dist, f));
 fs.copyFileSync(path.join(root, 'src/hero-cybercab.jpg'), path.join(dist, 'cybercab.jpg'));
-fs.writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\n`);
+fs.writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${cfg.url.replace(/\/$/, '')}/sitemap.xml\n`);
+{ // sitemap.xml + rss.xml (only verified, sourced items from launches.json, fsd.json and news.json)
+  const base = cfg.url.replace(/\/$/, ''), today = last.slice(0, 10);
+  const xe = v => String(v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' }[c]));
+  fs.writeFileSync(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[['/', 'daily', '1.0'], ['/fsd', 'weekly', '0.8'], ['/competitors', 'weekly', '0.7'], ['/news', 'daily', '0.8']].map(([u, f, pr]) => `  <url><loc>${base}${u}</loc><lastmod>${today}</lastmod><changefreq>${f}</changefreq><priority>${pr}</priority></url>`).join('\n')}\n</urlset>\n`);
+  const N = rd('data/news.json'), F = rd('data/fsd.json'), items = [];
+  items.push({ d: N.lead.date, t: `${N.lead.status}: ${N.lead.title}`, desc: N.lead.summary, link: `${base}/news#n-${N.lead.id}`, cat: 'News' });
+  for (const i of N.items) items.push({ d: i.date, t: `${i.status}: ${i.title}`, desc: i.summary, link: `${base}/news#n-${i.id}`, cat: 'News' });
+  const VL = { confirmed: 'Confirmed', debunked: 'Debunked', review: 'Under review' };
+  for (const i of N.incidents) if (/^\d{4}-\d{2}-\d{2}$/.test(i.date)) items.push({ d: i.date, t: `Fact-check (${VL[i.verdict] || i.verdict}): ${i.title}`, desc: i.finding, link: `${base}/news#i-${i.id}`, cat: 'Fact-check' });
+  for (const r of F.releases) if (r.kind === 'release' && /^\d{4}-\d{2}-\d{2}$/.test(r.date)) items.push({ d: r.date, t: `FSD ${/^\d/.test(r.v) ? 'v' + r.v : r.v}${r.fw ? ' (' + r.fw + ')' : ''}`, desc: `${r.fleet ? r.fleet + '. ' : ''}${r.text}`, link: `${base}/fsd`, cat: 'FSD' });
+  for (const m of launches.metros) if (m.status === 'live' && m.launch && /^\d{4}-\d{2}-\d{2}$/.test(m.launch.date)) items.push({ d: m.launch.date, t: `Robotaxi launch: ${m.name}, ${m.state}`, desc: m.launch.summary, link: `${base}/#lead`, cat: 'Robotaxi' });
+  for (const m of launches.metros) if (m.status === 'announced' && m.announced) items.push({ d: m.announced.date, t: `Robotaxi coming soon: ${m.name}, ${m.state}`, desc: m.announced.text, link: `${base}/#next`, cat: 'Robotaxi' });
+  const seen = new Set(), feed = items.filter(i => /^\d{4}-\d{2}-\d{2}$/.test(i.d) && !seen.has(i.t) && seen.add(i.t)).sort((a, b) => b.d.localeCompare(a.d)).slice(0, 30);
+  const rss = `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>\n<title>FSDriving: Tesla Robotaxi, FSD &amp; autonomy updates</title><link>${base}/</link><atom:link href="${base}/rss.xml" rel="self" type="application/rss+xml"/>\n<description>Sourced Tesla Robotaxi launches, FSD releases and fact-checked autonomy news from fsdriving.com.</description><language>en</language><lastBuildDate>${new Date(last).toUTCString()}</lastBuildDate>\n${feed.map(i => `<item><title>${xe(i.t)}</title><link>${xe(i.link)}</link><guid isPermaLink="false">${xe(i.cat + ':' + i.d + ':' + i.t)}</guid><pubDate>${new Date(i.d + 'T12:00:00Z').toUTCString()}</pubDate><category>${xe(i.cat)}</category><description>${xe(i.desc)}</description></item>`).join('\n')}\n</channel></rss>\n`;
+  fs.writeFileSync(path.join(dist, 'rss.xml'), rss);
+  console.log('sitemap.xml + rss.xml:', feed.length, 'feed items');
+}
 fs.writeFileSync(path.join(dist, '404.html'), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Not found | ${cfg.name}</title><meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${cfg.url}"><meta property="og:image" content="${ogImg}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${ogImg}"><link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#07080c;color:#e9ecf2;font:16px/1.5 system-ui,sans-serif;text-align:center}a{color:#ff5a4f}</style></head><body><div><h1>Nothing parked here</h1><p><a href="/">Back to the map</a></p></div></body></html>`);
+{ // site-wide em dash guard: every text file in dist
+  const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]);
+  const bad = walk(dist).filter(f => /\.(html|xml|json|txt|js)$/.test(f) && /\u2014/.test(fs.readFileSync(f, 'utf8')));
+  if (bad.length) { console.error('em dash found in:', bad.map(f => path.relative(dist, f)).join(', ')); process.exit(1); }
+}
 console.log(`built: ${sup.length} supervisor openings in ${supCities.size} cities, ${active.length} total in ${allCities.size} cities; html ${(html.length/1024).toFixed(0)} KB`);
 
 // social card: real active supervisor cities, rendered to dist/og.png
@@ -291,19 +335,13 @@ function mapHtml() {
   const H = mapMeta.head;
   const chip = (g, v, label, on, extra = '') => `<button class="mchip ${g}${on ? ' on' : ''}" data-g="${g}" data-v="${v}" aria-pressed="${on}"${extra}><i></i>${label}</button>`;
   return `<section class="mapwrap mx" id="map">
-  <div class="mhead">
-    <div class="mstat t"><b>${H.sup}</b><span>supervisor roles<br>${H.supCities} cities</span></div>
-    <div class="mstat t2"><b>${H.rt}</b><span>Robotaxi-titled roles<br>${H.rtCities} US cities</span></div>
-    <div class="mstat w"><b>${H.wLive}</b><span>Waymo live<br>${H.wAnn} US + ${H.wIntl} abroad up next</span></div>
-    <div class="mstat g"><b>${H.sd}</b><span>self-driving test roles<br>${H.sdCities} cities, ${H.sdCountries} countries</span></div>
-  </div>
   <div class="mbar">
     <div class="mrow">
       <div class="mseg" role="group" aria-label="Map view">${[['us', 'US'], ['world', 'World'], ['europe', 'Europe'], ['asia', 'Asia-Pacific']].map(([k, l], i) => `<button data-view="${k}" class="${i ? '' : 'on'}" aria-pressed="${!i}">${l}</button>`).join('')}</div>
       <div class="msearch"><input id="msq" type="search" placeholder="Jump to a city" autocomplete="off" aria-label="Search cities" role="combobox" aria-expanded="false" aria-controls="msres"><ul id="msres" role="listbox" hidden></ul></div>
     </div>
     <div class="mrow chips">
-      <div class="mgrp"><span class="mglab">Who</span>${chip('op', 'tesla', 'Tesla', true)}${chip('op', 'waymo', 'Waymo', true)}</div>
+      <div class="mgrp"><span class="mglab">Who</span>${chip('op', 'tesla', 'Tesla', true)}${chip('op', 'waymo', 'Waymo', false)}</div>
       <div class="mgrp"><span class="mglab">Status</span>${chip('st', 'live', 'Live service', true)}${chip('st', 'ann', 'Upcoming', true)}${chip('st', 'hire', 'Hiring', true)}${chip('st', 'closed', 'Closed ads', false)}</div>
       <div class="mgrp"><span class="mglab">Tesla roles</span>${chip('role', 'supervisor', 'Supervisors', true)}${chip('role', 'fleet', 'Specialists & ops', true)}${chip('role', 'other', 'Other Robotaxi', true)}${chip('role', 'selfdriving', 'Self-driving tests', false)}</div>
     </div>
@@ -333,28 +371,54 @@ function mapHtml() {
     <span><i class="lgT live"></i>Tesla live</span><span><i class="lgT drv"></i>Tesla live, safety driver</span><span><i class="lgT ann"></i>Tesla coming soon</span><span><i class="lgT hire"></i>Tesla hiring (size = open roles)</span><span><i class="lgT sd"></i>Self-driving tests only</span>
     <span><i class="lgW live"></i>Waymo live</span><span><i class="lgW ann"></i>Waymo up next</span><span><i class="lgW hire"></i>Waymo job ads</span><span><i class="lgD"></i>Both in one metro</span><span><i class="lgC"></i>Closed ads only</span>
   </div>
-  <p class="muted mnote">Pins are metros: Tesla postings within ${mapMeta.radius} miles of a named metro are grouped onto it, the drawer lists each city. Robotaxi-titled roles are US jobs with "Robotaxi" in the title. Self-driving test roles (vehicle operators, data collection) are not Robotaxi jobs and are off by default. Closed ads never count toward totals. Waymo statuses come from waymo.com, Waymo job ads from its public Greenhouse board.</p>
+  <p class="muted mnote">Pins group Tesla postings within ${mapMeta.radius} miles of a metro; the drawer lists each city. <a href="#method">How we count</a>.</p>
 </section>`;
 }
 
+function fmtDay(d) { return new Date(d.slice(0, 10) + 'T12:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }); }
+function nextHtml() {
+  const pl = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+  const ann = heroPend.filter(h => h.soon).map(h => { const m = launches.metros.find(x => x.id === h.mid);
+    const src = m && m.announced && m.announced.sources && m.announced.sources[0];
+    return `<div class="nxc soon"><button class="nxgo" type="button" data-pid="${esc(h.pid)}"><span class="nxb">Coming soon</span><b>${esc(h.name)}${h.st ? ', ' + esc(h.st) : ''}</b>
+<span>${m && m.announced ? 'Named ' + esc(fmtDay(m.announced.date)) : 'Named by Tesla'} &middot; ${h.roles ? pl(h.roles, 'open Robotaxi role') : 'no open roles yet'}</span>${m && m.leadSignal ? `<small>First hiring signal ${esc(fmtDay(m.leadSignal.date))}</small>` : ''}</button>
+${src ? `<a class="nxs" href="${esc(src.url)}" target="_blank" rel="noopener">${esc(src.publisher)} &#8599;</a>` : ''}</div>`; });
+  const hot = heroPend.filter(h => !h.soon && h.sup).sort((a, b) => b.sup - a.sup || b.roles - a.roles || a.d.localeCompare(b.d)).slice(0, 3).map(h =>
+    `<div class="nxc hot"><button class="nxgo" type="button" data-pid="${esc(h.pid)}"><span class="nxb">Hiring signal</span><b>${esc(h.name)}${h.st ? ', ' + esc(h.st) : ''}</b>
+<span>${pl(h.sup, 'supervisor role')} &middot; ${pl(h.roles, 'Robotaxi role')} open</span><small>First seen hiring ${esc(fmtDay(h.d))}</small></button>
+<a class="nxs" href="${esc(cfg.sourceUrl)}" target="_blank" rel="noopener">Tesla careers &#8599;</a></div>`);
+  return `<section class="nxt" id="next" aria-labelledby="nx-h"><div class="nxh"><h2 id="nx-h">Next up</h2><p class="muted">Cities Tesla has named, then the strongest open supervisor hiring with nothing announced. Hiring is a signal, not a promise. Tap a city to open it on the map.</p></div>
+<div class="nxgrid">${ann.join('')}${hot.join('')}</div></section>`;
+}
+function scoreHtml() {
+  const W = compare.counts.waymo, both = compare.metros.filter(m => m.tesla && /^live/.test(m.tesla.status) && m.waymo && m.waymo.status === 'live').map(m => m.name);
+  const row = (lab, t, tn, w, wn) => `<div class="scr"><div class="scl">${lab}</div><div class="sct"><b>${t}</b><span>${tn}</span></div><div class="scw"><b>${w}</b><span>${wn}</span></div></div>`;
+  return `<section class="roles vs" id="vs"><div class="sec-h rv"><h2>Tesla vs Waymo</h2><button class="wbtn" id="showWaymo" type="button" aria-pressed="false"><i></i><span>Show Waymo on map</span></button></div>
+<div class="score"><div class="scr hd"><div class="scl"></div><div class="sct"><b>Tesla</b></div><div class="scw"><b>Waymo</b></div></div>
+${row('Live service', S.live, `markets, ${S.driverless} driverless`, W.live, `US metros, all driverless${W.live - W.open ? `, ${W.open} open to all riders` : ''}`)}
+${row('Coming next', S.soon, esc(S.soonNames.join(', ')), W.announced + W.intl, `${W.announced} US + ${W.intl} abroad on its Up Next list`)}
+${row('Hiring signal', S.rt, `open Robotaxi roles in ${S.rtCities} US cities`, W.hiring, `US metros named in its ${compare.waymoJobs.total ? compare.waymoJobs.total + ' ' : ''}open job ads`)}
+<div class="scr both"><div class="scl">Both live</div><div class="scx"><b>${both.length}</b><span>metros: ${esc(both.join(', '))}. Dallas and Fort Worth count as one metro here.</span></div></div></div>
+<p class="muted tlnote">Waymo from waymo.com and its job board, checked ${esc(fmtDay(compare.checkedAt))}. <a href="/competitors">Full competitor comparison</a> &middot; <a href="#method">How we count</a></p></section>`;
+}
 function heroHtml() {
-  const H = mapMeta.head, nLive = heroLive.length, nPend = heroPend.length, nSoon = heroPend.filter(p => p.soon).length;
+  const tlDays = days(hero.start, hero.end), H = mapMeta.head, nLive = heroLive.length, nPend = heroPend.length, nSoon = heroPend.filter(p => p.soon).length;
   const maxR = Math.max(1, ...heroPend.map(p => p.roles));
-  const pend = heroPend.slice().sort((a, b) => a.roles - b.roles).map((p, i) => { const r = (4.5 + 6.5 * Math.sqrt(p.roles / maxR)).toFixed(1);
+  const pend = heroPend.map((p, i) => [p, i]).sort((a, b) => a[0].roles - b[0].roles).map(([p, i]) => { const r = (4.5 + 6.5 * Math.sqrt(p.roles / maxR)).toFixed(1);
     return `<g class="hd p${p.soon ? ' soon' : ''}" data-k="p${i}" tabindex="0" role="button" transform="translate(${p.x},${p.y})" aria-label="${esc(p.name)}: ${p.soon ? 'coming soon' : 'hiring'}, ${p.roles} open Robotaxi roles"><circle class="hh" r="${(r * 3.6).toFixed(1)}"/>${p.soon ? `<circle class="hs" r="${(+r + 4).toFixed(1)}"/>` : ''}<circle class="hc" r="${r}"/><circle class="hi" r="${(r * .4).toFixed(1)}"/><circle class="hit" r="${Math.max(12, +r + 6)}"/></g>`; }).join('');
   const live = heroLive.map((l, i) => `<g class="hd l" data-k="l${i}" tabindex="0" role="button" transform="translate(${l.x},${l.y})" aria-label="${esc(l.name)}: Robotaxi service live since ${l.date}"><circle class="hh" r="30"/><circle class="hp" r="9"/><circle class="hp d2" r="9"/><circle class="hc" r="9"/><circle class="hi" r="3.6"/><circle class="hit" r="14"/></g>`).join('');
   return `<section class="hx" id="top">
   <div class="hxbg" aria-hidden="true"></div><div class="hxgrid" aria-hidden="true"></div>
   <div class="hxin">
     <div class="hxtxt">
-      <div class="hxkick rv"><span class="hxlive"></span>Live tracker</div>
-      <h1 class="hxh rv d1">Where Tesla is hiring <em>Robotaxi supervisors</em></h1>
-      <p class="hxlede rv d2">Pulled straight from Tesla's careers site and launch news, rebuilt every day. Green is Robotaxi service you can ride today. Red is where Tesla is hiring or has said it's coming next.</p>
+      <div class="hxkick rv"><span class="hxlive"></span>Live tracker<span class="hxu"> &middot; ${updTag('hxupd')}</span></div>
+      <h1 class="hxh rv d1">Where Tesla Robotaxi is live, <em>and hiring next</em></h1>
+      <p class="hxlede rv d2">Every live Robotaxi market and every US city where Tesla is hiring Robotaxi staff, rebuilt daily from Tesla's careers site and sourced launch news. Press play to watch it spread.</p>
       <div class="hxstats rv d3">
-        <div class="hxs g"><b data-count="${nLive}">${nLive}</b><span>live service cities${livePids.size < nLive ? ` in ${livePids.size} metros` : ''}</span></div>
-        <div class="hxs r"><b data-count="${nPend}">${nPend}</b><span>hiring or pending${nSoon ? `, ${nSoon} coming soon` : ''}</span></div>
-        <div class="hxs w"><b data-count="${H.sup}">${H.sup}</b><span>open supervisor roles in ${H.supCities} cities</span></div>
-        <div class="hxs c"><b data-count="${H.rt}">${H.rt}</b><span>Robotaxi-titled roles in ${H.rtCities} cities</span></div>
+        <div class="hxs g" title="Cities with public Tesla Robotaxi rides (sourced launch dates). ${esc(S.driverNames.join(', '))} has a human safety driver."><b data-count="${S.live}">${S.live}</b><span>live markets<small>${S.driverless} driverless${S.driverNames.length ? `, ${esc(S.driverNames.join(', '))} with a safety driver` : ''}</small></span></div>
+        <div class="hxs a" title="Cities Tesla has named as coming soon, with no launch date yet."><b data-count="${S.soon}">${S.soon}</b><span>coming soon<small>${esc(S.soonNames.join(', '))}</small></span></div>
+        <div class="hxs w" title="Open Robotaxi Fleet Support Supervisor postings on tesla.com/careers at the last check."><b data-count="${S.sup}">${S.sup}</b><span>supervisor roles open<small>in ${S.supCities} US cities</small></span></div>
+        <div class="hxs c" title="Every open US posting with Robotaxi in the title, supervisors included. Self-driving test roles excluded."><b data-count="${S.rt}">${S.rt}</b><span>Robotaxi roles open<small>in ${S.rtCities} US cities</small></span></div>
       </div>
     </div>
     <div class="hxmap rv d2">
@@ -369,7 +433,10 @@ function heroHtml() {
         <g class="hxdots">${pend}${live}</g>
       </svg>
       <div class="hxtip" id="hxtip" hidden></div>
-      <div class="hxleg"><span><i class="g"></i>Live service</span><span><i class="r"></i>Hiring / pending</span><a href="#map" class="hxgo">Full Tesla + Waymo map &#8595;</a></div>
+      <div class="tlx" id="tlx"><button class="tlplay" id="tlplay" type="button" aria-label="Play the time-lapse"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="ip" d="M8 5v14l11-7z"/><path class="ipa" d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button>
+        <input type="range" id="tlrange" min="0" max="${tlDays}" value="${tlDays}" step="1" aria-label="Time-lapse date">
+        <div class="tlread"><b id="tldate">${esc(fmtDay(hero.end))}</b><span id="tlcnt"><i class="g"></i>${heroLive.length} live <i class="r"></i>${S.pend} hiring or next</span></div></div>
+      <div class="hxleg"><span><i class="g"></i>Live service</span><span><i class="r"></i>Hiring or coming soon (size = open roles)</span><a href="#map" class="hxgo">Full map &#8595;</a></div>
     </div>
   </div>
   <img class="hxcar" src="/cybercab.jpg" alt="" aria-hidden="true" width="1280" height="720" decoding="async">

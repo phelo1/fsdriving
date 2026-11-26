@@ -29,7 +29,7 @@ ${c.featured ? '<div class="cfeat">Car-agnostic pick: upgrades cars people alrea
 <a class="cout" href="${esc(c.link.u)}"${c.link.u.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>${esc(c.link.label)} &#8594;</a>
 </article>`).join('\n');
   const tabs = [['all', 'All'], ...C.categories.map(c => [c.id, c.label])];
-  const title = 'Tesla Robotaxi vs Waymo, Zoox, comma.ai, Baidu, WeRide, Pony.ai and more | fsdriving.com';
+  const title = 'Tesla Robotaxi vs Waymo, Zoox, comma.ai, Baidu, WeRide, Pony.ai and more | FSDriving';
   const desc = `Who else is driving itself? ${C.companies.length} self-driving programs side by side: live status, markets, fleet size and the latest milestones, every fact linked to its source. Checked ${fmtD(C.checkedAt)}.`;
   return `<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">

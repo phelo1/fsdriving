@@ -1,4 +1,4 @@
-# Robotaxi Hiring Map: daily refresh, start here
+# FSDriving (fsdriving.com): daily refresh, start here
 
 Source directory: the repo root (box working copy and private ids are in `OPS.local.md`, gitignored).
 Public repo: https://github.com/phelo1/fsdriving (every update is committed and pushed, see "Git: commit and push").
@@ -156,7 +156,7 @@ If Cloudflare fails, keep the prior live deployment. Inspect only this deploymen
 went live, report it; do not silently change other projects. Rebuild last known good local data and redeploy this
 same project if needed. JSON backups can be copied locally before a refresh. Do not overwrite firstSeen history.
 
-## Postings timeline (added 21 Nov 2026)
+## Postings timeline (added 21 Nov 2026, REMOVED from the page 27 Nov 2026; data still built, see FSDriving section)
 
 `data/history.json` is the daily open-postings series. `tools/refresh.sh` runs `python3 tools/history.py` right after
 merging the scrape. It seeds 20 Nov (42 supervisors, 92 all roles) and 21 Nov (43, 93) from the actual recorded
@@ -220,7 +220,7 @@ it. For each city it has `sup` (supervisor) and optionally `all` (any Robotaxi f
 - Wayback (web.archive.org) refused connections from the box on 24 Nov 2026; if it works again, per-job captures
   (`https://web.archive.org/cdx/search/cdx?url=tesla.com/careers/search/job/*<id>`) can firm up the estimates.
 
-## Tesla vs Waymo comparison (added 25 Nov 2026)
+## Tesla vs Waymo comparison (added 25 Nov 2026; static map REMOVED 27 Nov 2026, now a scoreboard, see FSDriving section)
 
 Section `#vs` (between "What changed" and "City by city"): head-to-head counters, a two-layer metro map
 (Tesla dot left/red, Waymo dot right/blue, Both/Tesla/Waymo toggle), a sortable-by-status table, Waymo's
@@ -371,3 +371,30 @@ Update checklist (weekly, and right after big events):
 4. Only add a debunk when a named source shows the claim false (driver, Tesla account, fact-checker, telemetry). Disputed cases go to Under review.
 5. Every URL must open (Reuters, Bloomberg, nhtsa.gov and tesla.com block scripts, so check those in a browser). No em dashes; the build fails on one.
 6. Bump `checkedAt`, rebuild, deploy, run news_shot.py on the live site, then git_sync.
+
+## FSDriving rebrand and homepage declutter (added 27 Nov 2026)
+- Brand: `config.json` name is `FSDriving`; header wordmark `FSDriving`; home title `FSDriving | Tesla Robotaxi, FSD & Autonomous Driving Tracker`;
+  sub-page titles end `| FSDriving`. Mobile header is ONE row (wordmark + 4 tabs, time hidden); `--hh` in styles.css is the header height
+  (71px desktop, 52px at <=640px) and every sticky sub-nav (.ctabs, .ftabs, .nbar) uses `top:var(--hh)`. Change both together.
+- Timestamps: `updTag()` in build.mjs prints `<time data-rel datetime=ISO>` with UTC text as the no-JS fallback; the inline `relScript`
+  turns it into "Updated 2h ago" in the visitor's own zone (exact local time on hover). No Riyadh-time labels on the site any more.
+- ONE headline number set `S` (build.mjs, also in the page payload as `D.S`), used by the hero counters, map readout, scoreboard, lead
+  stats and the How we count card: live markets (launches.json, Dallas and Fort Worth counted separately), coming soon, supervisor roles
+  in N cities, Robotaxi-titled roles in N cities. The map counts live MARKETS via `mapMeta.liveByPid` (dfw = 2) so it agrees with the hero.
+  The scoreboard's "Both live" row comes from compare.json, where DFW is one metro; the row says so.
+- Removed from `/`: map stat strip (.mhead), static Tesla vs Waymo map (src/compare.js deleted from the bundle), 43-card city grid,
+  Gantt postings timeline (src/timeline.js no longer bundled), "Other cities hiring" filler list, scattered caveat paragraphs.
+  The caveats now live in ONE `<details id="method">` "How we count" card at the bottom. compare.js / timeline.js stay in src/ unused.
+- Waymo is OFF by default on the main map; the scoreboard button `#showWaymo` calls `__map.setOp('waymo', true)` and smooth-scrolls to #map.
+- Hero time-lapse (`#tlx`, end of src/hero.js): live dots appear red on `l.hire` (launches.json leadSignal date, when it predates launch)
+  and turn green on `l.date`; red dots appear on `h.d` = earliest of the curve date for any city in the pin (backfill.json / tracker),
+  the pin's open-role first-seen dates, the announcement date and the metro leadSignal. Start = earliest of these, end = last check.
+  The last frame must equal the live state (check: 0 `.hd.tloff` at the end).
+- "Next up" board (`nextHtml()`): announced metros (date + first source link) then the top 3 non-announced pins by open supervisor roles.
+- sitemap.xml (4 pages) and rss.xml (30 newest dated items: news.json items/lead/incidents, fsd.json releases, launches.json launches and
+  announcements) are built into dist/; robots.txt has the Sitemap line; every page head links the feed.
+- Build guard: the build fails if ANY html/xml/json/txt/js file in dist contains an em dash.
+- Checks: `python3 tools/home_shot.py <url> shots` (counters, time-lapse play/pause/end state, Waymo button, Next-up drawer, heights,
+  sideways scroll, console errors; writes shots/desktop-home-top.png, shots/desktop-home-clean.png, shots/mobile-home-top.png).
+  `tools/map_check.py` now expects Waymo off at load. `tools/vs_shot.py` and `tools/timeline_shot.py` are obsolete.
+- Heights 27 Nov 2026: before 16,813px desktop / 27,631px mobile; after about 6,480px desktop / 7,560px mobile.

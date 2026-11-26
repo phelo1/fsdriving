@@ -66,13 +66,13 @@ h1 em{font-style:normal;background:linear-gradient(90deg,#ff5a4f,#ff9a6b);-webki
 </svg>
 <img class="car" src="${carUrl}">
 <div class="txt">
- <div class="kick"><span class="live"></span>Live tracker</div>
- <h1>Where Tesla is hiring <em>Robotaxi supervisors</em></h1>
+ <div class="kick"><span class="live"></span>FSDriving · Live tracker</div>
+ <h1>Where Tesla Robotaxi is live, <em>and hiring next</em></h1>
  <div class="stat"><div class="big">${nCities}<small>cities</small></div>
   <div class="sub"><b>${nSup}</b> open supervisor roles<br>across <b>${nStates}</b> states</div></div>
 </div>
 <div class="vig"></div>
-<div class="leg"><span><i class="g"></i>${live.length} live service</span><span><i class="r"></i>${pend.length} hiring / pending</span></div>
+<div class="leg"><span><i class="g"></i>${live.length} live markets</span><span><i class="r"></i>${pend.length} hiring or coming soon</span></div>
 <div class="foot"><span class="url"><i></i>fsdriving.com</span><span>Live from Tesla careers · Updated ${checked} · Not affiliated with Tesla</span></div>
 </body></html>`;
 }

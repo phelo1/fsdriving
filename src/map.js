@@ -4,7 +4,7 @@ const D=JSON.parse(document.getElementById('data').textContent),P=D.places,M=D.m
 const $=s=>document.querySelector(s),esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fd=s=>s?new Date(s.slice(0,10)+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}):'';
 const slug=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,'-');
-const F={op:{tesla:1,waymo:1},st:{live:1,ann:1,hire:1,closed:0},role:{supervisor:1,fleet:1,other:1,selfdriving:0}};
+const F={op:{tesla:1,waymo:0},st:{live:1,ann:1,hire:1,closed:0},role:{supervisor:1,fleet:1,other:1,selfdriving:0}};
 const RK=c=>c==='supervisor'?'supervisor':c==='other'?'other':c==='selfdriving'?'selfdriving':'fleet';
 const svg=d3.select('#msvg'),vp=d3.select('#mvp'),fitG=d3.select('#mfit'),LK=d3.select('#mlinks'),MK=d3.select('#mmarks'),LB=d3.select('#mlabels');
 const stage=$('#mstage'),tip=$('#mtip'),drawer=$('#mdrawer'),hover=matchMedia('(hover:hover)').matches;
@@ -154,14 +154,14 @@ $('#mzreset').onclick=()=>goView(view==='us'?'us':view);
 document.querySelectorAll('.mchip').forEach(b=>b.onclick=()=>{const g=b.dataset.g,v=b.dataset.v;F[g][v]=F[g][v]?0:1;b.classList.toggle('on',!!F[g][v]);b.setAttribute('aria-pressed',!!F[g][v]);
  document.querySelectorAll('.mchip[data-g=role]').forEach(x=>x.disabled=!F.op.tesla);draw();counts();if(sel)$('#mdbody').innerHTML=body(byId.get(sel))});
 function counts(){const inView=P.filter(p=>xy(p));let pins=0,tl=0,tlD=0,ta=0,wl=0,wa=0,wh=0;const jobs=[],cities=new Set();
- for(const p of inView){const t=tState(p),w=wState(p);if(t||w)pins++;if(t==='live'||t==='live-driver')tl++;if(t==='live-driver')tlD++;if(t==='ann')ta++;if(w==='live')wl++;if(w==='ann')wa++;if(wState(p,{...F,st:{hire:F.st.hire}})==='hire')wh++;
+ for(const p of inView){const t=tState(p),w=wState(p);if(t||w)pins++;const nm=(M.liveByPid&&M.liveByPid[p.id])||1;if(t==='live'||t==='live-driver')tl+=nm;if(t==='live-driver')tlD++;if(t==='ann')ta++;if(w==='live')wl++;if(w==='ann')wa++;if(wState(p,{...F,st:{hire:F.st.hire}})==='hire')wh++;
   for(const j of openJobs(p)){jobs.push(j);cities.add(j.city)}}
  const sd=jobs.filter(j=>j.c==='selfdriving').length,rt=jobs.length-sd;
  const part=[];
  if(F.op.tesla){const b=[];if(F.st.hire){const rc=new Set(jobs.filter(j=>j.c!=='selfdriving').map(j=>j.city)),sc=new Set(jobs.filter(j=>j.c==='selfdriving').map(j=>j.city));
   if(F.role.supervisor||F.role.fleet||F.role.other)b.push(`<b>${rt}</b> Robotaxi role${rt===1?'':'s'} in <b>${rc.size}</b> cit${rc.size===1?'y':'ies'}`);
   if(F.role.selfdriving)b.push(`<b>${sd}</b> self-driving test role${sd===1?'':'s'} in <b>${sc.size}</b> cit${sc.size===1?'y':'ies'}`)}
-  if(F.st.live)b.push(`<b>${tl}</b> live metro${tl===1?'':'s'}${tlD?` (${tlD} with safety driver)`:''}`);if(F.st.ann)b.push(`<b>${ta}</b> coming soon`);part.push(`<span class="mcT"><i></i>Tesla ${b.join(' · ')}</span>`)}
+  if(F.st.live)b.push(`<b>${tl}</b> live market${tl===1?'':'s'}${tlD?` (${tlD} with safety driver)`:''}`);if(F.st.ann)b.push(`<b>${ta}</b> coming soon`);part.push(`<span class="mcT"><i></i>Tesla ${b.join(' · ')}</span>`)}
  if(F.op.waymo){const b=[];if(F.st.live)b.push(`<b>${wl}</b> live`);if(F.st.ann)b.push(`<b>${wa}</b> up next`);if(F.st.hire)b.push(`<b>${wh}</b> with job ads`);part.push(`<span class="mcW"><i></i>Waymo ${b.join(' · ')}</span>`)}
  $('#mcount').innerHTML=`<span class="mcN"><b>${pins}</b> pins ${mode==='us'?'in the US':'worldwide'}</span>${part.join('')}${!pins?'<span class="mcE">Nothing matches. Turn a filter back on.</span>':''}`}
 // ---- search
@@ -179,5 +179,9 @@ function pick(h){closeRes();q.value=h.label;q.blur();if(!h.p.us&&mode==='us')goV
 new ResizeObserver(()=>resize()).observe(stage);
 resize();counts();
 const m0=(location.hash.match(/^#place=([\w-]+)/)||[])[1];if(m0&&byId.has(m0))setTimeout(()=>openDrawer(m0,true),50);
-window.__map={goView,openDrawer,closeDrawer,F,get mode(){return mode},get sel(){return sel}};
+function setOp(v,on){F.op[v]=on?1:0;const b=document.querySelector(`.mchip[data-g=op][data-v=${v}]`);if(b){b.classList.toggle('on',!!on);b.setAttribute('aria-pressed',!!on)}
+ document.querySelectorAll('.mchip[data-g=role]').forEach(x=>x.disabled=!F.op.tesla);draw();counts();if(sel)$('#mdbody').innerHTML=body(byId.get(sel));document.dispatchEvent(new CustomEvent('mapop',{detail:{op:v,on:!!on}}))}
+// chip clicks also announce operator changes (keeps the scoreboard button in sync)
+document.querySelectorAll('.mchip[data-g=op]').forEach(b=>b.addEventListener('click',()=>document.dispatchEvent(new CustomEvent('mapop',{detail:{op:b.dataset.v,on:!!F.op[b.dataset.v]}}))));
+window.__map={goView,openDrawer,closeDrawer,setOp,F,get mode(){return mode},get sel(){return sel}};
 })();

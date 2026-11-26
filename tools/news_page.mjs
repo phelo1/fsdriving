@@ -23,7 +23,7 @@ ${i.video ? `<a class="nxv" href="${esc(i.video.url)}" target="_blank" rel="noop
 <img src="https://i.ytimg.com/vi/${esc(v.id)}/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360"><span class="nplay big" aria-hidden="true"></span><span class="ndur">${dur(v.seconds)}</span></button>
 <div class="nvb"><div class="ntags">${v.tags.map(t => `<span>${esc(t)}</span>`).join('')}</div><h3><a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.title)}</a></h3>
 <p>${esc(v.blurb)}</p><div class="nby"><a href="${esc(v.authorUrl)}" target="_blank" rel="noopener">${esc(v.author)}</a> &middot; <time datetime="${esc(v.published)}">${fmtD(v.published)}</time> &middot; <a href="${esc(v.url)}" target="_blank" rel="noopener">YouTube &#8599;</a></div></div></article>`;
-  const title = 'Tesla Robotaxi & FSD news, rumours and fact-checks | fsdriving.com';
+  const title = 'Tesla Robotaxi & FSD news, rumours and fact-checks | FSDriving';
   const desc = `Sourced Tesla FSD, Robotaxi and Cybercab news: ${C.length} confirmed stories, ${R.length + 1} rumours and pending items incl. the 15 Dec EU TCMV vote, ${I.length} incidents fact-checked (${cnt('confirmed')} confirmed, ${cnt('debunked')} debunked) and ${V.length} verified videos.`;
   const tabs = [['all', 'All'], ['rumours', 'Rumours'], ['confirmed', 'Confirmed'], ['incidents', 'Incidents'], ['videos', 'Videos']];
   const sub = [['all', 'All incidents'], ['confirmed', 'Confirmed'], ['debunked', 'Debunked'], ['review', 'Under review']];
