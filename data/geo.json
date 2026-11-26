@@ -1,0 +1,547 @@
+{
+ "Wesley Chapel, FL": {
+  "lat": 28.1866014,
+  "lon": -82.366121,
+  "name": "Wesley Chapel, Pasco County, Florida, United States"
+ },
+ "Saint Petersburg, FL": {
+  "lat": 27.7712264,
+  "lon": -82.6340259,
+  "name": "Saint Petersburg, Pinellas County, Florida, United States"
+ },
+ "Eatonville, FL": {
+  "lat": 28.6182634,
+  "lon": -81.3828884,
+  "name": "Eatonville, Orange County, Florida, United States"
+ },
+ "The Woodlands, TX": {
+  "lat": 30.1734194,
+  "lon": -95.504686,
+  "name": "The Woodlands, Montgomery County, Texas, United States"
+ },
+ "League City, TX": {
+  "lat": 29.5074538,
+  "lon": -95.0949303,
+  "name": "League City, Galveston County, Texas, 77573, United States"
+ },
+ "Richmond, TX": {
+  "lat": 29.5821811,
+  "lon": -95.7607832,
+  "name": "Richmond, Fort Bend County, Texas, 44769, United States"
+ },
+ "Houston, TX": {
+  "lat": 29.7589382,
+  "lon": -95.3676974,
+  "name": "Houston, Harris County, Texas, United States"
+ },
+ "South San Francisco, CA": {
+  "lat": 37.6535403,
+  "lon": -122.4168664,
+  "name": "South San Francisco, San Mateo County, California, United States"
+ },
+ "Las Vegas, NV": {
+  "lat": 36.1674263,
+  "lon": -115.1484131,
+  "name": "Las Vegas, Clark County, Nevada, United States"
+ },
+ "Vienna, VA": {
+  "lat": 38.9013729,
+  "lon": -77.2651762,
+  "name": "Vienna, Fairfax County, Virginia, United States"
+ },
+ "Nashville, TN": {
+  "lat": 36.1622767,
+  "lon": -86.7742984,
+  "name": "Nashville, Davidson County, Middle Tennessee, Tennessee, United States"
+ },
+ "Matthews, NC": {
+  "lat": 35.1159532,
+  "lon": -80.7224386,
+  "name": "Matthews, Mecklenburg County, North Carolina, United States"
+ },
+ "Sarasota, FL": {
+  "lat": 27.3365805,
+  "lon": -82.5308545,
+  "name": "Sarasota, Sarasota County, Florida, United States"
+ },
+ "Tampa, FL": {
+  "lat": 27.9449854,
+  "lon": -82.4583107,
+  "name": "Tampa, Hillsborough County, Florida, United States"
+ },
+ "Clermont, FL": {
+  "lat": 28.5551912,
+  "lon": -81.7669488,
+  "name": "Clermont, Lake County, Florida, 32711, United States"
+ },
+ "Orlando, FL": {
+  "lat": 28.5421218,
+  "lon": -81.379045,
+  "name": "Orlando, Orange County, Florida, United States"
+ },
+ "Fort Lauderdale, FL": {
+  "lat": 26.1223084,
+  "lon": -80.1433786,
+  "name": "Fort Lauderdale, Broward County, Florida, United States"
+ },
+ "Doral, FL": {
+  "lat": 25.8195424,
+  "lon": -80.3553302,
+  "name": "Doral, Miami-Dade County, Florida, United States"
+ },
+ "Austin, TX": {
+  "lat": 30.2649261,
+  "lon": -97.7474086,
+  "name": "Austin, Travis County, Texas, United States"
+ },
+ "Plano, TX": {
+  "lat": 33.0136764,
+  "lon": -96.6925096,
+  "name": "Plano, Collin County, Texas, United States"
+ },
+ "Flower Mound, TX": {
+  "lat": 33.0283854,
+  "lon": -97.0867203,
+  "name": "Flower Mound, Denton County, Texas, United States"
+ },
+ "West Palm Beach, FL": {
+  "lat": 26.715364,
+  "lon": -80.0532942,
+  "name": "West Palm Beach, Palm Beach County, Florida, United States"
+ },
+ "Fort Worth, TX": {
+  "lat": 32.753177,
+  "lon": -97.3327459,
+  "name": "Fort Worth, Tarrant County, Texas, United States"
+ },
+ "San Antonio, TX": {
+  "lat": 29.4246002,
+  "lon": -98.4951405,
+  "name": "San Antonio, Bexar County, Texas, United States"
+ },
+ "Opa-locka, FL": {
+  "lat": 25.9023168,
+  "lon": -80.2503271,
+  "name": "Opa-locka, Miami-Dade County, Florida, 33054, United States"
+ },
+ "Miami Gardens, FL": {
+  "lat": 25.9420377,
+  "lon": -80.2456045,
+  "name": "Miami Gardens, Miami-Dade County, Florida, United States"
+ },
+ "Southfield, MI": {
+  "lat": 42.4733689,
+  "lon": -83.2218731,
+  "name": "Southfield, Oakland County, Michigan, United States"
+ },
+ "Atlanta, GA": {
+  "lat": 33.7544657,
+  "lon": -84.3898151,
+  "name": "Atlanta, Fulton County, Georgia, United States"
+ },
+ "Peabody, MA": {
+  "lat": 42.5258965,
+  "lon": -70.9272446,
+  "name": "Peabody, Essex County, Massachusetts, 01960, United States"
+ },
+ "Dallas, TX": {
+  "lat": 32.7762719,
+  "lon": -96.7968559,
+  "name": "Dallas, Dallas County, Texas, United States"
+ },
+ "Torrance, CA": {
+  "lat": 33.8371392,
+  "lon": -118.3413606,
+  "name": "Torrance, Los Angeles County, California, United States"
+ },
+ "Chicago, IL": {
+  "lat": 41.8755616,
+  "lon": -87.6244212,
+  "name": "Chicago, South Chicago Township, Cook County, Illinois, United States"
+ },
+ "Palo Alto, CA": {
+  "lat": 37.4443293,
+  "lon": -122.1598465,
+  "name": "Palo Alto, Santa Clara County, California, United States"
+ },
+ "Phoenix, AZ": {
+  "lat": 33.4484367,
+  "lon": -112.074141,
+  "name": "Phoenix, Maricopa County, Arizona, United States"
+ },
+ "Bellevue, WA": {
+  "lat": 47.6144219,
+  "lon": -122.192337,
+  "name": "Bellevue, King County, Washington, United States"
+ },
+ "Devon, PA": {
+  "lat": 40.0492751,
+  "lon": -75.4290819,
+  "name": "Devon, Easttown Township, Chester County, Pennsylvania, 19333, United States"
+ },
+ "El Paso, TX": {
+  "lat": 31.7601001,
+  "lon": -106.4870476,
+  "name": "El Paso, El Paso County, Texas, United States"
+ },
+ "Tyler, TX": {
+  "lat": 32.3512601,
+  "lon": -95.3010624,
+  "name": "Tyler, Smith County, Texas, United States"
+ },
+ "Lubbock, TX": {
+  "lat": 33.5855677,
+  "lon": -101.8470215,
+  "name": "Lubbock, Lubbock County, Texas, United States"
+ },
+ "Tucson, AZ": {
+  "lat": 32.2228765,
+  "lon": -110.974847,
+  "name": "Tucson, Pima County, Arizona, United States"
+ },
+ "Corpus Christi, TX": {
+  "lat": 27.7635302,
+  "lon": -97.4033191,
+  "name": "Corpus Christi, Nueces County, Texas, United States"
+ },
+ "Olmito, TX": {
+  "lat": 26.0194434,
+  "lon": -97.5347089,
+  "name": "Olmito, Cameron County, Texas, 78575, United States"
+ },
+ "Wexford, PA": {
+  "lat": 40.6264561,
+  "lon": -80.055891,
+  "name": "Wexford, Pine Township, Allegheny County, Pennsylvania, 15090, United States"
+ },
+ "Miami, FL": {
+  "lat": 25.7741566,
+  "lon": -80.1935973,
+  "name": "Miami, Miami-Dade County, Florida, United States"
+ },
+ "San Francisco, CA": {
+  "lat": 37.7879363,
+  "lon": -122.4075201,
+  "name": "San Francisco, California, United States"
+ },
+ "Jacksonville, FL": {
+  "lat": 30.3262247,
+  "lon": -81.6579179,
+  "name": "Jacksonville, Duval County, Florida, United States"
+ },
+ "Owings Mills, MD": {
+  "lat": 39.4041967,
+  "lon": -76.7956745,
+  "name": "Owings Mills, Baltimore County, Maryland, 21117, United States"
+ },
+ "West Bloomfield Township, MI": {
+  "lat": 42.5684073,
+  "lon": -83.3740333,
+  "name": "West Bloomfield Township, Oakland County, Michigan, United States"
+ },
+ "Bartlett, TN": {
+  "lat": 35.2045329,
+  "lon": -89.8739753,
+  "name": "Bartlett, Shelby County, West Tennessee, Tennessee, United States"
+ },
+ "Knoxville, TN": {
+  "lat": 35.9603948,
+  "lon": -83.9210261,
+  "name": "Knoxville, Knox County, East Tennessee, Tennessee, United States"
+ },
+ "New Orleans, LA": {
+  "lat": 29.9574657,
+  "lon": -90.0629493,
+  "name": "New Orleans, Orleans Parish, Louisiana, United States"
+ },
+ "Norfolk, VA": {
+  "lat": 36.8493695,
+  "lon": -76.2899539,
+  "name": "Norfolk, Virginia, United States"
+ },
+ "Decatur, GA": {
+  "lat": 33.7737582,
+  "lon": -84.296069,
+  "name": "Decatur, DeKalb County, Georgia, 30030, United States"
+ },
+ "Barcelona, ES": {
+  "lat": 41.3825802,
+  "lon": 2.177073,
+  "name": "Barcelona, Barcelonès, Barcelona, Catalunya, España"
+ },
+ "Reno, NV": {
+  "lat": 39.5261788,
+  "lon": -119.812658,
+  "name": "Reno, Washoe County, Nevada, United States"
+ },
+ "Charlotte, NC": {
+  "lat": 35.2272086,
+  "lon": -80.8430827,
+  "name": "Charlotte, Mecklenburg County, North Carolina, United States"
+ },
+ "Delray Beach, FL": {
+  "lat": 26.4614625,
+  "lon": -80.0728201,
+  "name": "Delray Beach, Palm Beach County, Florida, United States"
+ },
+ "Ząbki, PL": {
+  "lat": 52.2934961,
+  "lon": 21.1157408,
+  "name": "Ząbki, powiat wołomiński, województwo mazowieckie, Polska"
+ },
+ "Grand Rapids, MI": {
+  "lat": 42.9632425,
+  "lon": -85.6678639,
+  "name": "Grand Rapids, Kent County, Michigan, United States"
+ },
+ "Lyndhurst, OH": {
+  "lat": 41.520052,
+  "lon": -81.488732,
+  "name": "Lyndhurst, Cuyahoga County, Ohio, 44124, United States"
+ },
+ "Portland, OR": {
+  "lat": 45.5202471,
+  "lon": -122.674194,
+  "name": "Portland, Multnomah County, Oregon, United States"
+ },
+ "Bernalillo, NM": {
+  "lat": 35.3009305,
+  "lon": -106.551425,
+  "name": "Bernalillo, Sandoval County, New Mexico, 87004, United States"
+ },
+ "Fremont, CA": {
+  "lat": 37.5482697,
+  "lon": -121.988571,
+  "name": "Fremont, Alameda County, California, United States"
+ },
+ "Bailly-romainvilliers, FR": {
+  "lat": 48.8468159,
+  "lon": 2.8212923,
+  "name": "Bailly-Romainvilliers, Torcy, Seine-et-Marne, Île-de-France, France métropolitaine, 77700, France"
+ },
+ "Bridgeville, PA": {
+  "lat": 40.3561805,
+  "lon": -80.1100556,
+  "name": "Bridgeville, Allegheny County, Pennsylvania, United States"
+ },
+ "Tallahassee, FL": {
+  "lat": 30.4380832,
+  "lon": -84.2809332,
+  "name": "Tallahassee, Leon County, Florida, United States"
+ },
+ "Indianapolis, IN": {
+  "lat": 39.7683331,
+  "lon": -86.1583502,
+  "name": "Indianapolis, Center Township, Marion County, Indiana, United States"
+ },
+ "Louisville, KY": {
+  "lat": 38.2542376,
+  "lon": -85.759407,
+  "name": "Louisville, Jefferson County, Kentucky, United States"
+ },
+ "Glen Allen, VA": {
+  "lat": 37.6659781,
+  "lon": -77.506374,
+  "name": "Glen Allen, Henrico County, Virginia, 23060, United States"
+ },
+ "Columbus, OH": {
+  "lat": 39.9622601,
+  "lon": -83.0007065,
+  "name": "Columbus, Franklin County, Ohio, United States"
+ },
+ "Cincinnati, OH": {
+  "lat": 39.1012809,
+  "lon": -84.5127405,
+  "name": "Cincinnati, Hamilton County, Ohio, United States"
+ },
+ "Oklahoma City, OK": {
+  "lat": 35.4729886,
+  "lon": -97.5170536,
+  "name": "Oklahoma City, Oklahoma County, Oklahoma, United States"
+ },
+ "Pruhonice, CZ": {
+  "lat": 50.0017798,
+  "lon": 14.5606434,
+  "name": "Průhonice, okres Praha-západ, Středočeský kraj, 252 43, Česko"
+ },
+ "Marina Del Rey, CA": {
+  "lat": 33.9776848,
+  "lon": -118.448647,
+  "name": "Marina del Rey, Los Angeles County, California, 90292, United States"
+ },
+ "Kowloon, HK": {
+  "lat": 22.3049255,
+  "lon": 114.1616003,
+  "name": "九龍 Kowloon, 演薈廣場 Civic Square, 西九龍 West Kowloon, 油麻地 Yau Ma Tei, 油尖旺區 Yau Tsim Mong District, 九龍 Kowloon, 香港 Hong Kong, 中国"
+ },
+ "Toa Payoh, SG": {
+  "lat": 1.335592,
+  "lon": 103.8481461,
+  "name": "Toa Payoh, Central Region, Singapore"
+ },
+ "London, GB": {
+  "lat": 51.5074456,
+  "lon": -0.1277653,
+  "name": "Greater London, England, United Kingdom"
+ },
+ "Littleton, CO": {
+  "lat": 39.613321,
+  "lon": -105.016649,
+  "name": "Littleton, Arapahoe County, Colorado, United States"
+ },
+ "Busan, KR": {
+  "lat": 35.1799528,
+  "lon": 129.0752365,
+  "name": "부산광역시, 대한민국"
+ },
+ "Seongnam-si, KR": {
+  "lat": 37.4201556,
+  "lon": 127.1262092,
+  "name": "성남시, 경기도, 대한민국"
+ },
+ "Auckland, NZ": {
+  "lat": -36.852095,
+  "lon": 174.7631803,
+  "name": "Auckland, Waitematā, Auckland, 1010, New Zealand / Aotearoa"
+ },
+ "Petah Tikva, IL": {
+  "lat": 32.0877639,
+  "lon": 34.8859985,
+  "name": "פתח תקווה, נפת פתח תקווה, מחוז המרכז, ישראל"
+ },
+ "North Hollywood, CA": {
+  "lat": 34.1649502,
+  "lon": -118.374752,
+  "name": "North Hollywood Neighborhood Council District, Los Angeles, Los Angeles County, California, United States"
+ },
+ "Santa Ana, CA": {
+  "lat": 33.7494951,
+  "lon": -117.873221,
+  "name": "Santa Ana, Orange County, California, United States"
+ },
+ "Sunnyvale, CA": {
+  "lat": 37.3688301,
+  "lon": -122.036349,
+  "name": "Sunnyvale, Santa Clara County, California, United States"
+ },
+ "Montebello, CA": {
+  "lat": 34.0159398,
+  "lon": -118.111975,
+  "name": "Montebello, Los Angeles County, California, United States"
+ },
+ "Norwell, MA": {
+  "lat": 42.1617681,
+  "lon": -70.7939307,
+  "name": "Norwell, Plymouth County, Massachusetts, 02061, United States"
+ },
+ "Mumbai, IN": {
+  "lat": 19.1309844,
+  "lon": 72.8894618,
+  "name": "Mumbai Suburban District, Maharashtra, India"
+ },
+ "Tel Aviv-yafo, IL": {
+  "lat": 32.0852997,
+  "lon": 34.7818064,
+  "name": "תל־אביב–יפו, נפת תל אביב, מחוז תל אביב, ישראל"
+ },
+ "Red Hill, AU": {
+  "lat": -27.4545228,
+  "lon": 153.0071405,
+  "name": "Red Hill, Brisbane, Queensland, Australia"
+ },
+ "Alexandria, AU": {
+  "lat": -33.9091568,
+  "lon": 151.1921281,
+  "name": "Alexandria, Sydney, New South Wales, 2015, Australia"
+ },
+ "Raleigh, NC": {
+  "lat": 35.7803977,
+  "lon": -78.6390989,
+  "name": "Raleigh, Wake County, North Carolina, United States"
+ },
+ "Fayetteville, NY": {
+  "lat": 43.0297887,
+  "lon": -76.0043643,
+  "name": "Village of Fayetteville, Town of Manlius, Onondaga County, New York, 13066, United States"
+ },
+ "Aurora, CO": {
+  "lat": 39.7401441,
+  "lon": -104.8733376,
+  "name": "Aurora, Adams County, Colorado, United States"
+ },
+ "Lakeland, FL": {
+  "lat": 28.0394654,
+  "lon": -81.9498042,
+  "name": "Lakeland, Polk County, Florida, United States"
+ },
+ "Albany, NY": {
+  "lat": 42.6511674,
+  "lon": -73.754968,
+  "name": "City of Albany, Albany County, New York, United States"
+ },
+ "Eden Prairie, MN": {
+  "lat": 44.8546856,
+  "lon": -93.470786,
+  "name": "Eden Prairie, Hennepin County, Minnesota, United States"
+ },
+ "Lenexa, KS": {
+  "lat": 38.9697458,
+  "lon": -94.7845837,
+  "name": "Lenexa, Johnson County, Kansas, United States"
+ },
+ "San Diego, CA": {
+  "lat": 32.7157062,
+  "lon": -117.1638284,
+  "name": "San Diego, San Diego County, California, United States"
+ },
+ "Tempe, AZ": {
+  "lat": 33.4255117,
+  "lon": -111.940016,
+  "name": "Tempe, Maricopa County, Arizona, United States"
+ },
+ "Rocklin, CA": {
+  "lat": 38.7907339,
+  "lon": -121.2357828,
+  "name": "Rocklin, Placer County, California, United States"
+ },
+ "Draper, UT": {
+  "lat": 40.5247777,
+  "lon": -111.8627989,
+  "name": "Draper, Salt Lake County, Utah, 84020, United States"
+ },
+ "waymo:London": {
+  "lat": 51.5074456,
+  "lon": -0.1277653,
+  "name": "Greater London, England, United Kingdom"
+ },
+ "waymo:Tokyo": {
+  "lat": 35.6768601,
+  "lon": 139.7638947,
+  "name": "東京都, 日本"
+ },
+ "waymo:Munich": {
+  "lat": 48.1371079,
+  "lon": 11.5753822,
+  "name": "München, Bayern, Deutschland"
+ },
+ "waymo:Madrid region": {
+  "lat": 40.416782,
+  "lon": -3.703507,
+  "name": "Madrid, Comunidad de Madrid, España"
+ },
+ "waymo:Toronto": {
+  "lat": 43.6534817,
+  "lon": -79.3839347,
+  "name": "Toronto, Ontario, Canada"
+ },
+ "waymo:Singapore": {
+  "lat": 1.357107,
+  "lon": 103.8194992,
+  "name": "Singapore"
+ },
+ "Newbridge, GB": {
+  "lat": 55.9391687,
+  "lon": -3.4079986,
+  "name": "Newbridge, City of Edinburgh, Alba / Scotland, EH28 8SR, United Kingdom"
+ }
+}

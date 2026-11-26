@@ -1,0 +1,852 @@
+{
+ "about": "Researched first-posting dates for cities that were already open at this tracker's first check (20 Nov 2026). Hand-curated; never written by the refresh scripts. A date is the earliest credible evidence that the role was up in that city, so it's an upper bound on the real posting date. kind: x-post / news / aggregator / archive count as confirmed; id-batch, id-interpolation and ambiguous-post are estimates.",
+ "researchedAt": "2026-11-24",
+ "notTried": "Wayback Machine (web.archive.org) refused connections from our research machine on 24 Nov 2026, so per-job archive captures couldn't be checked this time. The archived careers snapshots we already had stop at May 2025, before any Robotaxi supervisor role existed.",
+ "idCalibration": {
+  "note": "Tesla job ids grow roughly in order. Anchors with dated evidence, mid 2026: about 106 new ids a day. Only used where no direct evidence exists.",
+  "anchors": [
+   [
+    273504,
+    "2026-06-13",
+    "Las Vegas supervisor, X post"
+   ],
+   [
+    281962,
+    "2026-09-01",
+    "Atlanta/Nashville/Southfield/Torrance batch, X post"
+   ],
+   [
+    285693,
+    "2026-10-05",
+    "El Paso supervisor, posted date per X post"
+   ],
+   [
+    287076,
+    "2026-10-17",
+    "Matthews supervisor, X post"
+   ],
+   [
+    289555,
+    "2026-11-13",
+    "Miami Gardens supervisor, X post"
+   ],
+   [
+    290345,
+    "2026-11-18",
+    "Sarasota supervisor, X post"
+   ],
+   [
+    290809,
+    "2026-11-20",
+    "highest id at our first check"
+   ],
+   [
+    290915,
+    "2026-11-24",
+    "Jacksonville supervisor, first seen by us"
+   ]
+  ]
+ },
+ "cities": {
+  "Atlanta, GA": {
+   "sup": {
+    "date": "2026-09-01",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "supervisor",
+    "evidence": "\"Tesla just posted 12 new job listings for Supervisor, Robotaxi Fleet Support (Night Shift)\" naming Atlanta, Bellevue, Devon, Englewood, Nashville, Peabody, San Diego, Southfield, Torrance, Washington DC and Wexford.",
+    "sources": [
+     {
+      "publisher": "@scotsrule08 on X",
+      "url": "https://x.com/scotsrule08/status/2094773009580269687"
+     }
+    ],
+    "reportedAt": "2026-09-01"
+   }
+  },
+  "Nashville, TN": {
+   "sup": {
+    "date": "2026-09-01",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "supervisor",
+    "evidence": "\"Tesla just posted 12 new job listings for Supervisor, Robotaxi Fleet Support (Night Shift)\" naming Atlanta, Bellevue, Devon, Englewood, Nashville, Peabody, San Diego, Southfield, Torrance, Washington DC and Wexford.",
+    "sources": [
+     {
+      "publisher": "@scotsrule08 on X",
+      "url": "https://x.com/scotsrule08/status/2094773009580269687"
+     }
+    ],
+    "reportedAt": "2026-09-01"
+   }
+  },
+  "Peabody, MA": {
+   "sup": {
+    "date": "2026-09-01",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "supervisor",
+    "evidence": "\"Tesla just posted 12 new job listings for Supervisor, Robotaxi Fleet Support (Night Shift)\" naming Atlanta, Bellevue, Devon, Englewood, Nashville, Peabody, San Diego, Southfield, Torrance, Washington DC and Wexford.",
+    "sources": [
+     {
+      "publisher": "@scotsrule08 on X",
+      "url": "https://x.com/scotsrule08/status/2094773009580269687"
+     }
+    ],
+    "reportedAt": "2026-09-01"
+   }
+  },
+  "Southfield, MI": {
+   "sup": {
+    "date": "2026-09-01",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "supervisor",
+    "evidence": "\"Tesla just posted 12 new job listings for Supervisor, Robotaxi Fleet Support (Night Shift)\" naming Atlanta, Bellevue, Devon, Englewood, Nashville, Peabody, San Diego, Southfield, Torrance, Washington DC and Wexford.",
+    "sources": [
+     {
+      "publisher": "@scotsrule08 on X",
+      "url": "https://x.com/scotsrule08/status/2094773009580269687"
+     }
+    ],
+    "reportedAt": "2026-09-01"
+   }
+  },
+  "Torrance, CA": {
+   "sup": {
+    "date": "2026-09-01",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "supervisor",
+    "evidence": "\"Tesla just posted 12 new job listings for Supervisor, Robotaxi Fleet Support (Night Shift)\" naming Atlanta, Bellevue, Devon, Englewood, Nashville, Peabody, San Diego, Southfield, Torrance, Washington DC and Wexford.",
+    "sources": [
+     {
+      "publisher": "@scotsrule08 on X",
+      "url": "https://x.com/scotsrule08/status/2094773009580269687"
+     }
+    ],
+    "reportedAt": "2026-09-01"
+   }
+  },
+  "Bellevue, WA": {
+   "all": {
+    "date": "2026-09-01",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "supervisor",
+    "evidence": "\"Tesla just posted 12 new job listings for Supervisor, Robotaxi Fleet Support (Night Shift)\" naming Atlanta, Bellevue, Devon, Englewood, Nashville, Peabody, San Diego, Southfield, Torrance, Washington DC and Wexford.",
+    "sources": [
+     {
+      "publisher": "@scotsrule08 on X",
+      "url": "https://x.com/scotsrule08/status/2094773009580269687"
+     }
+    ],
+    "reportedAt": "2026-09-01"
+   }
+  },
+  "Devon, PA": {
+   "all": {
+    "date": "2026-09-01",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "supervisor",
+    "evidence": "\"Tesla just posted 12 new job listings for Supervisor, Robotaxi Fleet Support (Night Shift)\" naming Atlanta, Bellevue, Devon, Englewood, Nashville, Peabody, San Diego, Southfield, Torrance, Washington DC and Wexford.",
+    "sources": [
+     {
+      "publisher": "@scotsrule08 on X",
+      "url": "https://x.com/scotsrule08/status/2094773009580269687"
+     }
+    ],
+    "reportedAt": "2026-09-01"
+   }
+  },
+  "Wexford, PA": {
+   "all": {
+    "date": "2026-09-01",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "supervisor",
+    "evidence": "\"Tesla just posted 12 new job listings for Supervisor, Robotaxi Fleet Support (Night Shift)\" naming Atlanta, Bellevue, Devon, Englewood, Nashville, Peabody, San Diego, Southfield, Torrance, Washington DC and Wexford.",
+    "sources": [
+     {
+      "publisher": "@scotsrule08 on X",
+      "url": "https://x.com/scotsrule08/status/2094773009580269687"
+     }
+    ],
+    "reportedAt": "2026-09-01"
+   }
+  },
+  "Vienna, VA": {
+   "sup": {
+    "date": "2026-09-01",
+    "kind": "id-batch",
+    "confidence": "medium",
+    "role": "supervisor",
+    "evidence": "Tesla job 281964 sits inside the Atlanta (281963), Nashville (281965), Southfield (281966) and Torrance (281958) supervisor batch reported as just posted on 1 Sep 2026. That post listed \"Washington, D.C.\"; Vienna is a DC suburb.",
+    "sources": [
+     {
+      "publisher": "@scotsrule08 on X",
+      "url": "https://x.com/scotsrule08/status/2094773009580269687"
+     }
+    ]
+   }
+  },
+  "Las Vegas, NV": {
+   "sup": {
+    "date": "2026-06-14",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "supervisor",
+    "evidence": "\"Tesla Posts Robotaxi Fleet Support Supervisor Role in Las Vegas\". @MattWallaceTech posted the same the next morning.",
+    "sources": [
+     {
+      "publisher": "@TeslaZoa on X",
+      "url": "https://x.com/TeslaZoa/status/2065912802288755075"
+     }
+    ],
+    "reportedAt": "2026-06-14"
+   },
+   "all": {
+    "date": "2025-10-15",
+    "kind": "news",
+    "confidence": "high",
+    "role": "Rideshare / Robotaxi Fleet Support Specialist",
+    "evidence": "Rideshare Fleet Support Specialist roles reported in Dallas, Houston, Las Vegas, Tempe and Palo Alto. @teslayoda noted the same day these were renamed Robotaxi Fleet Support.",
+    "sources": [
+     {
+      "publisher": "Tesla Mag (quoting @TeslaNewswire, 15 Oct 2025)",
+      "url": "https://www.tesla-mag.com/le-deploiement-des-robotaxis-tesla-mis-en-lumiere-par-une-campagne-de-recrutement/"
+     }
+    ],
+    "reportedAt": "2025-10-15"
+   }
+  },
+  "Austin, TX": {
+   "sup": {
+    "date": "2026-07-03",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "supervisor",
+    "evidence": "\"Tesla Hiring Night Shift Robotaxi Fleet Supervisor in Austin\".",
+    "sources": [
+     {
+      "publisher": "@TeslaZoa on X",
+      "url": "https://x.com/TeslaZoa/status/2072925402570674221"
+     }
+    ],
+    "reportedAt": "2026-07-03"
+   },
+   "all": {
+    "date": "2025-11-01",
+    "kind": "news",
+    "confidence": "high",
+    "role": "Robotaxi Fleet Support Specialist",
+    "evidence": "Night-shift Robotaxi Fleet Support Specialist open in Austin, Dallas, Houston, Las Vegas, Tempe, Palo Alto, Tampa, Doral and Orlando.",
+    "sources": [
+     {
+      "publisher": "Teslarati (quoting @teslayoda, 1 Nov 2025)",
+      "url": "https://www.teslarati.com/tesla-job-listings-247-robotaxi-operations-several-states/"
+     }
+    ],
+    "reportedAt": "2025-11-01"
+   }
+  },
+  "Dallas, TX": {
+   "sup": {
+    "date": "2026-08-06",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "supervisor",
+    "evidence": "\"Tesla is hiring a Supervisor, Robotaxi Fleet Support (Night Shift) in Dallas, Texas.\"",
+    "sources": [
+     {
+      "publisher": "@TeslaZoa on X",
+      "url": "https://x.com/TeslaZoa/status/2085236791993589979"
+     }
+    ],
+    "reportedAt": "2026-08-06"
+   },
+   "all": {
+    "date": "2025-10-15",
+    "kind": "news",
+    "confidence": "high",
+    "role": "Rideshare / Robotaxi Fleet Support Specialist",
+    "evidence": "Rideshare Fleet Support Specialist roles reported in Dallas, Houston, Las Vegas, Tempe and Palo Alto. @teslayoda noted the same day these were renamed Robotaxi Fleet Support.",
+    "sources": [
+     {
+      "publisher": "Tesla Mag (quoting @TeslaNewswire, 15 Oct 2025)",
+      "url": "https://www.tesla-mag.com/le-deploiement-des-robotaxis-tesla-mis-en-lumiere-par-une-campagne-de-recrutement/"
+     }
+    ],
+    "reportedAt": "2025-10-15"
+   }
+  },
+  "Houston, TX": {
+   "sup": {
+    "date": "2026-09-18",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "supervisor",
+    "evidence": "\"Tesla is currently hiring a Supervisor, Robotaxi Fleet Support (Night Shift) in Houston, Texas.\" Upper bound: the post says \"currently hiring\", so it may have gone up earlier.",
+    "sources": [
+     {
+      "publisher": "@TeslaZoa on X",
+      "url": "https://x.com/TeslaZoa/status/2100856840649376222"
+     }
+    ],
+    "reportedAt": "2026-09-18"
+   },
+   "all": {
+    "date": "2025-10-15",
+    "kind": "news",
+    "confidence": "high",
+    "role": "Rideshare / Robotaxi Fleet Support Specialist",
+    "evidence": "Rideshare Fleet Support Specialist roles reported in Dallas, Houston, Las Vegas, Tempe and Palo Alto. @teslayoda noted the same day these were renamed Robotaxi Fleet Support.",
+    "sources": [
+     {
+      "publisher": "Tesla Mag (quoting @TeslaNewswire, 15 Oct 2025)",
+      "url": "https://www.tesla-mag.com/le-deploiement-des-robotaxis-tesla-mis-en-lumiere-par-une-campagne-de-recrutement/"
+     }
+    ],
+    "reportedAt": "2025-10-15"
+   }
+  },
+  "Fort Worth, TX": {
+   "sup": {
+    "date": "2026-09-29",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "supervisor",
+    "evidence": "Fort Worth Fleet Support team \"plus a supervisor\" had been \"posted since at least Sep 29\".",
+    "sources": [
+     {
+      "publisher": "@teslayoda on X",
+      "url": "https://x.com/teslayoda/status/2117715584691343415"
+     }
+    ],
+    "reportedAt": "2026-11-03"
+   }
+  },
+  "El Paso, TX": {
+   "sup": {
+    "date": "2026-10-05",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "supervisor",
+    "evidence": "El Paso Fleet Support Specialist and Supervisor, night shift, \"posted Oct 5\".",
+    "sources": [
+     {
+      "publisher": "@TreyHODL_TSLA on X",
+      "url": "https://x.com/TreyHODL_TSLA/status/2116565536817713600"
+     }
+    ],
+    "reportedAt": "2026-10-31"
+   }
+  },
+  "Corpus Christi, TX": {
+   "sup": {
+    "date": "2026-10-05",
+    "kind": "id-batch",
+    "confidence": "medium",
+    "role": "supervisor",
+    "evidence": "Tesla job 285684 is in the same consecutive id batch (285682 to 285693) as the El Paso supervisor job 285693, reported as posted 5 Oct 2026.",
+    "sources": [
+     {
+      "publisher": "@TreyHODL_TSLA on X",
+      "url": "https://x.com/TreyHODL_TSLA/status/2116565536817713600"
+     }
+    ]
+   }
+  },
+  "Olmito, TX": {
+   "sup": {
+    "date": "2026-10-05",
+    "kind": "id-batch",
+    "confidence": "medium",
+    "role": "supervisor",
+    "evidence": "Tesla job 285682 is in the El Paso batch (285682 to 285693), reported as posted 5 Oct 2026. Confirmed open by 15 Nov 2026 (@GetNovaBound).",
+    "sources": [
+     {
+      "publisher": "@TreyHODL_TSLA on X",
+      "url": "https://x.com/TreyHODL_TSLA/status/2116565536817713600"
+     }
+    ]
+   }
+  },
+  "Tucson, AZ": {
+   "sup": {
+    "date": "2026-10-05",
+    "kind": "id-batch",
+    "confidence": "medium",
+    "role": "supervisor",
+    "evidence": "Tesla job 285686 is in the El Paso batch (285682 to 285693), reported as posted 5 Oct 2026.",
+    "sources": [
+     {
+      "publisher": "@TreyHODL_TSLA on X",
+      "url": "https://x.com/TreyHODL_TSLA/status/2116565536817713600"
+     }
+    ]
+   }
+  },
+  "Lubbock, TX": {
+   "sup": {
+    "date": "2026-10-05",
+    "kind": "id-batch",
+    "confidence": "medium",
+    "role": "supervisor",
+    "evidence": "Tesla job 285688 is in the El Paso batch (285682 to 285693), reported as posted 5 Oct 2026. Confirmed open by 7 Nov 2026 (@TreyHODL_TSLA).",
+    "sources": [
+     {
+      "publisher": "@TreyHODL_TSLA on X",
+      "url": "https://x.com/TreyHODL_TSLA/status/2116565536817713600"
+     }
+    ]
+   }
+  },
+  "Tyler, TX": {
+   "sup": {
+    "date": "2026-10-05",
+    "kind": "id-batch",
+    "confidence": "medium",
+    "role": "supervisor",
+    "evidence": "Tesla job 285690 is in the El Paso batch (285682 to 285693), reported as posted 5 Oct 2026.",
+    "sources": [
+     {
+      "publisher": "@TreyHODL_TSLA on X",
+      "url": "https://x.com/TreyHODL_TSLA/status/2116565536817713600"
+     }
+    ]
+   }
+  },
+  "Matthews, NC": {
+   "sup": {
+    "date": "2026-10-17",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "supervisor",
+    "evidence": "\"Tesla just posted a Robotaxi Fleet Support Supervisor (Night Shift) role in Matthews, North Carolina\".",
+    "sources": [
+     {
+      "publisher": "@teslayoda on X",
+      "url": "https://x.com/teslayoda/status/2111495262820868130"
+     }
+    ],
+    "reportedAt": "2026-10-17"
+   }
+  },
+  "West Palm Beach, FL": {
+   "sup": {
+    "date": "2026-10-24",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "supervisor",
+    "evidence": "New night-shift openings appeared \"all at once\", including \"West Palm Beach, Florida: Robotaxi Fleet Support Supervisor\", plus Fleet Support in Atlanta, Torrance, Nashville and Chicago.",
+    "sources": [
+     {
+      "publisher": "@TeslaZoa on X",
+      "url": "https://x.com/TeslaZoa/status/2113873579200958609"
+     }
+    ],
+    "reportedAt": "2026-10-24"
+   }
+  },
+  "Chicago, IL": {
+   "all": {
+    "date": "2026-10-24",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "Robotaxi Fleet Support Specialist",
+    "evidence": "New night-shift openings appeared \"all at once\", including \"West Palm Beach, Florida: Robotaxi Fleet Support Supervisor\", plus Fleet Support in Atlanta, Torrance, Nashville and Chicago.",
+    "sources": [
+     {
+      "publisher": "@TeslaZoa on X",
+      "url": "https://x.com/TeslaZoa/status/2113873579200958609"
+     }
+    ],
+    "reportedAt": "2026-10-24"
+   }
+  },
+  "Miami Gardens, FL": {
+   "sup": {
+    "date": "2026-11-13",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "supervisor",
+    "evidence": "\"Miami Gardens, FL: Fleet Support Supervisor (Night Shift)\".",
+    "sources": [
+     {
+      "publisher": "@TeslaZoa on X",
+      "url": "https://x.com/TeslaZoa/status/2121166025844732316"
+     }
+    ],
+    "reportedAt": "2026-11-13"
+   }
+  },
+  "Opa-locka, FL": {
+   "sup": {
+    "date": "2026-11-13",
+    "kind": "id-batch",
+    "confidence": "medium",
+    "role": "supervisor",
+    "evidence": "Tesla job 289554 is next to the Miami Gardens supervisor job 289555, reported on 13 Nov 2026.",
+    "sources": [
+     {
+      "publisher": "@TeslaZoa on X",
+      "url": "https://x.com/TeslaZoa/status/2121166025844732316"
+     }
+    ]
+   }
+  },
+  "Sarasota, FL": {
+   "sup": {
+    "date": "2026-11-18",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "supervisor",
+    "evidence": "\"Sarasota is the newest, with a Robotaxi Fleet Support Supervisor (Night Shift) opening.\"",
+    "sources": [
+     {
+      "publisher": "@teslayoda on X",
+      "url": "https://x.com/teslayoda/status/2123039781537902930"
+     }
+    ],
+    "reportedAt": "2026-11-18"
+   }
+  },
+  "Doral, FL": {
+   "sup": {
+    "date": "2026-11-18",
+    "kind": "id-batch",
+    "confidence": "medium",
+    "role": "supervisor",
+    "evidence": "Supervisor job 290333 is in the Florida batch 290333 to 290345 with Sarasota (290345), reported 18 Nov 2026.",
+    "sources": [
+     {
+      "publisher": "@teslayoda on X",
+      "url": "https://x.com/teslayoda/status/2123039781537902930"
+     }
+    ]
+   },
+   "all": {
+    "date": "2025-11-01",
+    "kind": "news",
+    "confidence": "high",
+    "role": "Robotaxi Fleet Support Specialist",
+    "evidence": "Night-shift Robotaxi Fleet Support Specialist open in Austin, Dallas, Houston, Las Vegas, Tempe, Palo Alto, Tampa, Doral and Orlando.",
+    "sources": [
+     {
+      "publisher": "Teslarati (quoting @teslayoda, 1 Nov 2025)",
+      "url": "https://www.teslarati.com/tesla-job-listings-247-robotaxi-operations-several-states/"
+     }
+    ],
+    "reportedAt": "2025-11-01"
+   }
+  },
+  "Fort Lauderdale, FL": {
+   "sup": {
+    "date": "2026-11-18",
+    "kind": "id-batch",
+    "confidence": "medium",
+    "role": "supervisor",
+    "evidence": "Tesla job 290334 is in the Florida batch with Sarasota (290345), reported 18 Nov 2026.",
+    "sources": [
+     {
+      "publisher": "@teslayoda on X",
+      "url": "https://x.com/teslayoda/status/2123039781537902930"
+     }
+    ]
+   }
+  },
+  "Eatonville, FL": {
+   "sup": {
+    "date": "2026-11-18",
+    "kind": "id-batch",
+    "confidence": "medium",
+    "role": "supervisor",
+    "evidence": "Tesla job 290336 is in the Florida batch with Sarasota (290345), reported 18 Nov 2026.",
+    "sources": [
+     {
+      "publisher": "@teslayoda on X",
+      "url": "https://x.com/teslayoda/status/2123039781537902930"
+     }
+    ]
+   }
+  },
+  "Clermont, FL": {
+   "sup": {
+    "date": "2026-11-18",
+    "kind": "id-batch",
+    "confidence": "medium",
+    "role": "supervisor",
+    "evidence": "Tesla job 290337 is in the Florida batch with Sarasota (290345), reported 18 Nov 2026.",
+    "sources": [
+     {
+      "publisher": "@teslayoda on X",
+      "url": "https://x.com/teslayoda/status/2123039781537902930"
+     }
+    ]
+   }
+  },
+  "Wesley Chapel, FL": {
+   "sup": {
+    "date": "2026-11-18",
+    "kind": "id-batch",
+    "confidence": "medium",
+    "role": "supervisor",
+    "evidence": "Tesla job 290341 is in the Florida batch with Sarasota (290345), reported 18 Nov 2026.",
+    "sources": [
+     {
+      "publisher": "@teslayoda on X",
+      "url": "https://x.com/teslayoda/status/2123039781537902930"
+     }
+    ]
+   }
+  },
+  "Saint Petersburg, FL": {
+   "sup": {
+    "date": "2026-11-18",
+    "kind": "id-batch",
+    "confidence": "medium",
+    "role": "supervisor",
+    "evidence": "Tesla job 290342 is in the Florida batch with Sarasota (290345), reported 18 Nov 2026.",
+    "sources": [
+     {
+      "publisher": "@teslayoda on X",
+      "url": "https://x.com/teslayoda/status/2123039781537902930"
+     }
+    ]
+   }
+  },
+  "Orlando, FL": {
+   "sup": {
+    "date": "2026-06-01",
+    "kind": "ambiguous-post",
+    "confidence": "low",
+    "role": "supervisor",
+    "evidence": "A 1 Jun 2026 X post lists supervisor and specialist openings across Palo Alto, Tampa, San Antonio, Orlando, San Francisco and Miami without saying which city had which role. The current Orlando supervisor job (290335) is in the 18 Nov 2026 Florida batch.",
+    "sources": [
+     {
+      "publisher": "@MAduroshak47673 on X",
+      "url": "https://x.com/MAduroshak47673/status/2061399757986181481"
+     }
+    ]
+   },
+   "all": {
+    "date": "2025-11-01",
+    "kind": "news",
+    "confidence": "high",
+    "role": "Robotaxi Fleet Support Specialist",
+    "evidence": "Night-shift Robotaxi Fleet Support Specialist open in Austin, Dallas, Houston, Las Vegas, Tempe, Palo Alto, Tampa, Doral and Orlando.",
+    "sources": [
+     {
+      "publisher": "Teslarati (quoting @teslayoda, 1 Nov 2025)",
+      "url": "https://www.teslarati.com/tesla-job-listings-247-robotaxi-operations-several-states/"
+     }
+    ],
+    "reportedAt": "2025-11-01"
+   }
+  },
+  "Tampa, FL": {
+   "sup": {
+    "date": "2026-06-01",
+    "kind": "ambiguous-post",
+    "confidence": "low",
+    "role": "supervisor",
+    "evidence": "A 1 Jun 2026 X post lists supervisor and specialist openings across Palo Alto, Tampa, San Antonio, Orlando, San Francisco and Miami without saying which city had which role. The current Tampa supervisor job (290339) is in the 18 Nov 2026 Florida batch.",
+    "sources": [
+     {
+      "publisher": "@MAduroshak47673 on X",
+      "url": "https://x.com/MAduroshak47673/status/2061399757986181481"
+     }
+    ]
+   },
+   "all": {
+    "date": "2025-11-01",
+    "kind": "news",
+    "confidence": "high",
+    "role": "Robotaxi Fleet Support Specialist",
+    "evidence": "Night-shift Robotaxi Fleet Support Specialist open in Austin, Dallas, Houston, Las Vegas, Tempe, Palo Alto, Tampa, Doral and Orlando.",
+    "sources": [
+     {
+      "publisher": "Teslarati (quoting @teslayoda, 1 Nov 2025)",
+      "url": "https://www.teslarati.com/tesla-job-listings-247-robotaxi-operations-several-states/"
+     }
+    ],
+    "reportedAt": "2025-11-01"
+   }
+  },
+  "Miami, FL": {
+   "sup": {
+    "date": "2026-06-01",
+    "kind": "ambiguous-post",
+    "confidence": "low",
+    "role": "supervisor",
+    "evidence": "A 1 Jun 2026 X post lists supervisor and specialist openings across Palo Alto, Tampa, San Antonio, Orlando, San Francisco and Miami without saying which city had which role. Id interpolation for the current Miami job (285308) gives about 1 Oct 2026.",
+    "sources": [
+     {
+      "publisher": "@MAduroshak47673 on X",
+      "url": "https://x.com/MAduroshak47673/status/2061399757986181481"
+     }
+    ]
+   }
+  },
+  "Phoenix, AZ": {
+   "sup": {
+    "date": "2026-07-31",
+    "kind": "id-interpolation",
+    "confidence": "low",
+    "role": "supervisor",
+    "evidence": "Tesla job 278637 interpolated between Las Vegas supervisor 273504 (13 Jun 2026) and the 1 Sep 2026 batch (281958 to 281966), about 106 new Tesla job ids a day. Careers site showed Phoenix Robotaxi Fleet Support by 29 Sep 2026 (@TeslaZoa).",
+    "sources": [
+     {
+      "publisher": "@TeslaZoa on X",
+      "url": "https://x.com/TeslaZoa/status/2104800582062276657"
+     }
+    ]
+   }
+  },
+  "League City, TX": {
+   "sup": {
+    "date": "2026-11-20",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "supervisor",
+    "evidence": "Night-shift supervisor in Richmond, TX; \"Houston, The Woodlands and League City got the same night-shift supervisor role in the same batch\".",
+    "sources": [
+     {
+      "publisher": "@teslayoda on X",
+      "url": "https://x.com/teslayoda/status/2123561569359417511"
+     }
+    ],
+    "reportedAt": "2026-11-20"
+   }
+  },
+  "The Woodlands, TX": {
+   "sup": {
+    "date": "2026-11-20",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "supervisor",
+    "evidence": "Night-shift supervisor in Richmond, TX; \"Houston, The Woodlands and League City got the same night-shift supervisor role in the same batch\".",
+    "sources": [
+     {
+      "publisher": "@teslayoda on X",
+      "url": "https://x.com/teslayoda/status/2123561569359417511"
+     }
+    ],
+    "reportedAt": "2026-11-20"
+   }
+  },
+  "Richmond, TX": {
+   "sup": {
+    "date": "2026-11-20",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "supervisor",
+    "evidence": "Night-shift supervisor in Richmond, TX; \"Houston, The Woodlands and League City got the same night-shift supervisor role in the same batch\".",
+    "sources": [
+     {
+      "publisher": "@teslayoda on X",
+      "url": "https://x.com/teslayoda/status/2123561569359417511"
+     }
+    ],
+    "reportedAt": "2026-11-20"
+   }
+  },
+  "Flower Mound, TX": {
+   "sup": {
+    "date": "2026-11-19",
+    "kind": "aggregator",
+    "confidence": "medium",
+    "role": "supervisor",
+    "evidence": "Job aggregator structured data gives datePosted 2026-11-19 for Supervisor, Robotaxi Fleet Support in Flower Mound, TX.",
+    "sources": [
+     {
+      "publisher": "RobotTraining.jobs listing (datePosted)",
+      "url": "https://robottraining.jobs/jobs/tesla-optimus/supervisor-robotaxi-fleet-support"
+     }
+    ],
+    "reportedAt": "2026-11-19"
+   }
+  },
+  "Plano, TX": {
+   "sup": {
+    "date": "2026-11-19",
+    "kind": "id-batch",
+    "confidence": "medium",
+    "role": "supervisor",
+    "evidence": "Tesla jobs 290219 and 290222 are next to the Flower Mound supervisor job 290218, which a job aggregator dates 19 Nov 2026.",
+    "sources": [
+     {
+      "publisher": "RobotTraining.jobs listing (datePosted)",
+      "url": "https://robottraining.jobs/jobs/tesla-optimus/supervisor-robotaxi-fleet-support"
+     }
+    ]
+   }
+  },
+  "Palo Alto, CA": {
+   "all": {
+    "date": "2025-10-15",
+    "kind": "news",
+    "confidence": "high",
+    "role": "Rideshare / Robotaxi Fleet Support Specialist",
+    "evidence": "Rideshare Fleet Support Specialist roles reported in Dallas, Houston, Las Vegas, Tempe and Palo Alto. @teslayoda noted the same day these were renamed Robotaxi Fleet Support.",
+    "sources": [
+     {
+      "publisher": "Tesla Mag (quoting @TeslaNewswire, 15 Oct 2025)",
+      "url": "https://www.tesla-mag.com/le-deploiement-des-robotaxis-tesla-mis-en-lumiere-par-une-campagne-de-recrutement/"
+     }
+    ],
+    "reportedAt": "2025-10-15"
+   }
+  },
+  "San Antonio, TX": {
+   "all": {
+    "date": "2026-09-29",
+    "kind": "x-post",
+    "confidence": "medium",
+    "role": "Robotaxi Fleet Support",
+    "evidence": "Careers site \"currently shows Robotaxi Fleet Support hiring\" in Austin, Dallas, Houston, Fort Worth, San Antonio, Phoenix, Las Vegas, San Francisco, South San Francisco, Fremont, Palo Alto and Reno.",
+    "sources": [
+     {
+      "publisher": "@TeslaZoa on X",
+      "url": "https://x.com/TeslaZoa/status/2104800582062276657"
+     }
+    ],
+    "reportedAt": "2026-09-29"
+   }
+  },
+  "South San Francisco, CA": {
+   "all": {
+    "date": "2026-09-29",
+    "kind": "x-post",
+    "confidence": "medium",
+    "role": "Robotaxi Fleet Support",
+    "evidence": "Careers site \"currently shows Robotaxi Fleet Support hiring\" in Austin, Dallas, Houston, Fort Worth, San Antonio, Phoenix, Las Vegas, San Francisco, South San Francisco, Fremont, Palo Alto and Reno.",
+    "sources": [
+     {
+      "publisher": "@TeslaZoa on X",
+      "url": "https://x.com/TeslaZoa/status/2104800582062276657"
+     }
+    ],
+    "reportedAt": "2026-09-29"
+   }
+  },
+  "Jacksonville, FL": {
+   "all": {
+    "date": "2026-11-04",
+    "kind": "x-post",
+    "confidence": "high",
+    "role": "Robotaxi Fleet Support",
+    "evidence": "\"Fleet Support roles are now open in 6 Florida cities: Miami, Doral, West Palm Beach, Orlando, Tampa and Jacksonville.\"",
+    "sources": [
+     {
+      "publisher": "@teslayoda on X",
+      "url": "https://x.com/teslayoda/status/2117767547936444532"
+     }
+    ],
+    "reportedAt": "2026-11-04"
+   }
+  }
+ }
+}

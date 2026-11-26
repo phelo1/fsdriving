@@ -1,0 +1,145 @@
+{
+ "captures": [
+  "20240307025402",
+  "20240307145322",
+  "20240308181906",
+  "20240314221543",
+  "20240317223008",
+  "20240324162835",
+  "20240403034410",
+  "20240509153002",
+  "20240513020846",
+  "20240519082748",
+  "20240608080620",
+  "20240609213520",
+  "20240613152514",
+  "20240627232123",
+  "20240705023636",
+  "20240730182931",
+  "20240816205310",
+  "20240819000526",
+  "20240820174818",
+  "20240828180729",
+  "20240902023004",
+  "20240904025722",
+  "20240910195541",
+  "20240912184439",
+  "20240924071852",
+  "20240927051854",
+  "20250125221012",
+  "20250131140506",
+  "20250201052516",
+  "20250203184449",
+  "20250208170807",
+  "20250215204840",
+  "20250223024031",
+  "20250313145342",
+  "20250315194937",
+  "20250323140519",
+  "20250325074532",
+  "20250327075820",
+  "20250404165257",
+  "20250409230349",
+  "20250410130618",
+  "20250428034937",
+  "20250519111730"
+ ],
+ "signals": [
+  {
+   "location": "Palo Alto, California",
+   "kind": "vehicle-operator",
+   "title": "Vehicle Operator, Autopilot (Night Shift)",
+   "jobId": "235222",
+   "firstCapture": "20250125221012",
+   "captureUrl": "https://web.archive.org/web/20250125221012/https://www.tesla.com/cua-api/apps/careers/state"
+  },
+  {
+   "location": "Peabody, Massachusetts",
+   "kind": "vehicle-operator",
+   "title": "Vehicle Operator, Autopilot (Afternoon Shift)",
+   "jobId": "229682",
+   "firstCapture": "20250125221012",
+   "captureUrl": "https://web.archive.org/web/20250125221012/https://www.tesla.com/cua-api/apps/careers/state"
+  },
+  {
+   "location": "Lenexa, Kansas",
+   "kind": "vehicle-operator",
+   "title": "Vehicle Operator, Autopilot (Afternoon Shift)",
+   "jobId": "231369",
+   "firstCapture": "20250125221012",
+   "captureUrl": "https://web.archive.org/web/20250125221012/https://www.tesla.com/cua-api/apps/careers/state"
+  },
+  {
+   "location": "Houston, Texas",
+   "kind": "vehicle-operator",
+   "title": "Vehicle Operator, Autopilot",
+   "jobId": "229651",
+   "firstCapture": "20250125221012",
+   "captureUrl": "https://web.archive.org/web/20250125221012/https://www.tesla.com/cua-api/apps/careers/state"
+  },
+  {
+   "location": "Farmer's Branch, Texas",
+   "kind": "vehicle-operator",
+   "title": "Vehicle Operator, Autopilot",
+   "jobId": "235994",
+   "firstCapture": "20250131140506",
+   "captureUrl": "https://web.archive.org/web/20250131140506/https://www.tesla.com/cua-api/apps/careers/state"
+  },
+  {
+   "location": "Marina Del Rey, California",
+   "kind": "vehicle-operator",
+   "title": "Vehicle Operator, Autopilot",
+   "jobId": "236851",
+   "firstCapture": "20250215204840",
+   "captureUrl": "https://web.archive.org/web/20250215204840/https://www.tesla.com/cua-api/apps/careers/state"
+  },
+  {
+   "location": "Henderson, Nevada",
+   "kind": "vehicle-operator",
+   "title": "Vehicle Operator, Autopilot",
+   "jobId": "236858",
+   "firstCapture": "20250215204840",
+   "captureUrl": "https://web.archive.org/web/20250215204840/https://www.tesla.com/cua-api/apps/careers/state"
+  },
+  {
+   "location": "Austin, Texas",
+   "kind": "vehicle-operator",
+   "title": "Vehicle Operator, Autopilot",
+   "jobId": "229531",
+   "firstCapture": "20250223024031",
+   "captureUrl": "https://web.archive.org/web/20250223024031/https://www.tesla.com/cua-api/apps/careers/state"
+  },
+  {
+   "location": "San Francisco, California",
+   "kind": "vehicle-operator",
+   "title": "Vehicle Operator, Autopilot",
+   "jobId": "237794",
+   "firstCapture": "20250223024031",
+   "captureUrl": "https://web.archive.org/web/20250223024031/https://www.tesla.com/cua-api/apps/careers/state"
+  },
+  {
+   "location": "Austin, Texas",
+   "kind": "robotaxi-ops",
+   "title": "Diagnostics Engineer, Robotaxi Operations",
+   "jobId": "238644",
+   "firstCapture": "20250313145342",
+   "captureUrl": "https://web.archive.org/web/20250313145342/https://www.tesla.com/cua-api/apps/careers/state"
+  },
+  {
+   "location": "New Delhi, Dl",
+   "kind": "vehicle-operator",
+   "title": "Vehicle Operator, Autopilot (Delhi)",
+   "jobId": "242393",
+   "firstCapture": "20250519111730",
+   "captureUrl": "https://web.archive.org/web/20250519111730/https://www.tesla.com/cua-api/apps/careers/state"
+  },
+  {
+   "location": "Mumbai Suburban, Maharashtra",
+   "kind": "vehicle-operator",
+   "title": "Vehicle Operator, Autopilot (Mumbai)",
+   "jobId": "242391",
+   "firstCapture": "20250519111730",
+   "captureUrl": "https://web.archive.org/web/20250519111730/https://www.tesla.com/cua-api/apps/careers/state"
+  }
+ ]
+}

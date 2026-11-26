@@ -1,0 +1,35 @@
+{
+  "roles": {
+    "supervisor": {
+      "label": "Fleet Support Supervisor",
+      "short": "Supervisor",
+      "blurb": "The headline role. Titles read either \"Robotaxi Fleet Support Supervisor\" or \"Supervisor, Robotaxi Fleet Support\", same posting text.",
+      "points": [
+        "Leads a team of Robotaxi Fleet Support Specialists so the fleet stays properly maintained and charged and hits daily deadlines.",
+        "Owns daily fleet readiness: interior and exterior cleaning, upkeep standards, charging coordination and condition checks.",
+        "Moves and positions cars by status (deployment, charging, service, repair) and works the Service/Repair Offline Queue to cut downtime.",
+        "Launches and supports AP Drivers, runs safety and quality audits, keeps supplies stocked.",
+        "Asks for 3+ years leading teams in a fast-paced ops setting and a flexible schedule, including evenings, weekends, holidays and on-call. Most are night shift, often 10:00PM to 06:30AM."
+      ]
+    },
+    "specialist": {
+      "label": "Fleet Support Specialist",
+      "short": "Specialist",
+      "blurb": "Related role. The crew the supervisors lead.",
+      "points": [
+        "Keeps every robotaxi in excellent condition to support 24/7 operations.",
+        "Vehicle prep and inspections, cleaning (car wash and minor detailing), lot management, safely moving and charging cars.",
+        "Valid driver's license required, and it's listed as a safety-critical position."
+      ]
+    },
+    "operations": {
+      "label": "Robotaxi Operations",
+      "short": "Ops",
+      "blurb": "Related roles: Robotaxi Operations Advisor and Robotaxi Operations Manager.",
+      "points": [
+        "Advisors handle compliance, regulatory and logistics work so the fleet runs smoothly, including DMV registrations and plates.",
+        "They also support vehicle activation and daily operations, and help riders get lost items back."
+      ]
+    }
+  }
+}

@@ -1,0 +1,699 @@
+{
+  "updated": "2026-11-26",
+  "about": "Tesla Robotaxi service launches by metro, plus the earliest dated hiring signal we could source for each. Dates are as reported; 'reported-by' means the posting existed by that date (it may have gone up earlier), so lead times are minimums. Nothing here is guessed: if no credible date was found the field is null and the site says so.",
+  "signalKinds": {
+    "fleet-support": "A Robotaxi (or Rideshare) Fleet Support role, the same family this site tracks",
+    "robotaxi-ops": "Another Robotaxi-titled operations role",
+    "vehicle-operator": "Autopilot vehicle operator (test driver) roles. Reporting tied these to Robotaxi expansion, but they are not Robotaxi-titled, so they are shown as a hint and never used for lead time"
+  },
+  "metros": [
+    {
+      "id": "austin",
+      "name": "Austin",
+      "state": "TX",
+      "anchor": "Austin, TX",
+      "radiusMi": 30,
+      "status": "live",
+      "currentMode": "driverless",
+      "currentModeNote": "Mix: some cars with no safety monitor since 22 Jan 2026, others still carry one (reported).",
+      "launch": {
+        "date": "2025-06-22",
+        "mode": "safety-monitor",
+        "access": "invite-only",
+        "summary": "Invite-only rides in a small South Austin zone, flat $4.20, Tesla employee in the front passenger seat.",
+        "sources": [
+          {
+            "publisher": "Reuters",
+            "title": "Tesla rolls out robotaxis in Texas test",
+            "url": "https://www.reuters.com/business/autos-transportation/tesla-tiptoes-into-long-promised-robotaxi-service-2025-06-22/"
+          },
+          {
+            "publisher": "TechCrunch",
+            "title": "Tesla launches robotaxi rides in Austin with big promises and unanswered questions",
+            "url": "https://techcrunch.com/2025/06/22/tesla-launches-robotaxi-rides-in-austin-with-big-promises-and-unanswered-questions/"
+          }
+        ]
+      },
+      "milestones": [
+        {
+          "date": "2026-01-22",
+          "text": "Some rides start with no safety monitor in the car (reporting says chase cars followed at first).",
+          "sources": [
+            {
+              "publisher": "Reuters",
+              "title": "Tesla starts robotaxi rides without safety monitors in Austin",
+              "url": "https://www.reuters.com/business/autos-transportation/tesla-starts-robotaxi-rides-without-safety-monitors-austin-2026-01-22/"
+            },
+            {
+              "publisher": "Electrek",
+              "title": "Tesla didn't remove the Robotaxi 'safety monitor', it just moved them to a trailing car",
+              "url": "https://electrek.co/2026/01/22/tesla-didnt-remove-the-robotaxi-safety-monitor-it-just-moved-them-to-a-trailing-car/"
+            }
+          ]
+        },
+        {
+          "date": "2026-09-03",
+          "text": "Cybercab rides start in Austin.",
+          "sources": [
+            {
+              "publisher": "Teslarati",
+              "title": "Tesla Cybercab without steering wheel and pedals expands public rides to Dallas",
+              "url": "https://www.teslarati.com/tesla-cybercab-without-steering-wheel-pedals-expands-public-rides-dallas/"
+            }
+          ]
+        }
+      ],
+      "hiringSignals": [
+        {
+          "date": "2025-03-13",
+          "dateKind": "archived-by",
+          "kind": "robotaxi-ops",
+          "role": "Diagnostics Engineer, Robotaxi Operations (Austin, job 238644)",
+          "note": "First shows up in an archived copy of Tesla's own careers data on 13 Mar 2025. It wasn't in the previous capture (23 Feb 2025), so it went up somewhere in between.",
+          "sources": [
+            {
+              "publisher": "Wayback Machine (tesla.com careers data)",
+              "title": "Archived tesla.com careers state, 13 Mar 2025",
+              "url": "https://web.archive.org/web/20250313145342/https://www.tesla.com/cua-api/apps/careers/state"
+            }
+          ]
+        },
+        {
+          "date": "2025-02-23",
+          "dateKind": "archived-by",
+          "kind": "vehicle-operator",
+          "role": "Vehicle Operator, Autopilot (Austin)",
+          "note": "Autopilot test-driver role in Austin in Tesla's archived careers data.",
+          "sources": [
+            {
+              "publisher": "Wayback Machine (tesla.com careers data)",
+              "title": "Archived tesla.com careers state, 23 Feb 2025",
+              "url": "https://web.archive.org/web/20250223024031/https://www.tesla.com/cua-api/apps/careers/state"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bay-area",
+      "name": "SF Bay Area",
+      "state": "CA",
+      "anchor": "San Francisco, CA",
+      "radiusMi": 50,
+      "status": "live",
+      "currentMode": "safety-driver",
+      "currentModeNote": "A human safety driver is behind the wheel on every ride. Tesla runs it under a California charter-party permit, not a driverless permit.",
+      "launch": {
+        "date": "2025-07-31",
+        "mode": "safety-driver",
+        "access": "invite-only",
+        "summary": "Ride-hailing with a safety driver in the driver's seat, invite-only at first.",
+        "sources": [
+          {
+            "publisher": "Reuters",
+            "title": "No mention of robotaxi as Tesla launches ride-hailing in San Francisco",
+            "url": "https://www.reuters.com/business/autos-transportation/no-mention-robotaxi-tesla-launches-ride-hailing-san-francisco-2025-07-31/"
+          },
+          {
+            "publisher": "Electrek",
+            "title": "Tesla's Robotaxis are officially powered by human drivers as it launches ride-hailing in Bay Area",
+            "url": "https://electrek.co/2025/07/31/teslas-robotaxis-officially-powered-by-human-drivers-as-it-launches-ride-hailing-bay-area/"
+          }
+        ]
+      },
+      "milestones": [],
+      "hiringSignals": [
+        {
+          "date": "2025-10-15",
+          "dateKind": "reported-by",
+          "kind": "fleet-support",
+          "role": "Rideshare Fleet Support Specialist (Palo Alto)",
+          "note": "Reported after the Bay Area service had already started, so it doesn't give a lead time.",
+          "sources": [
+            {
+              "publisher": "Tesla Mag (quoting @TeslaNewswire, 15 Oct 2025)",
+              "title": "Le deploiement des Robotaxis Tesla mis en lumiere par une campagne de recrutement",
+              "url": "https://www.tesla-mag.com/le-deploiement-des-robotaxis-tesla-mis-en-lumiere-par-une-campagne-de-recrutement/"
+            }
+          ]
+        },
+        {
+          "date": "2025-01-25",
+          "dateKind": "archived-by",
+          "kind": "vehicle-operator",
+          "role": "Vehicle Operator, Autopilot (Palo Alto, and San Francisco by 23 Feb 2025)",
+          "note": "Autopilot test-driver roles in Tesla's archived careers data.",
+          "sources": [
+            {
+              "publisher": "Wayback Machine (tesla.com careers data)",
+              "title": "Archived tesla.com careers state, 25 Jan 2025",
+              "url": "https://web.archive.org/web/20250125221012/https://www.tesla.com/cua-api/apps/careers/state"
+            }
+          ]
+        }
+      ],
+      "hiringGap": "Fleet support hiring in Palo Alto was only reported after the Bay Area service started (Oct 2025), so there's no pre-launch date. Before tracking began."
+    },
+    {
+      "id": "dallas",
+      "name": "Dallas",
+      "state": "TX",
+      "anchor": "Dallas, TX",
+      "radiusMi": 30,
+      "status": "live",
+      "currentMode": "driverless",
+      "currentModeNote": "Launch video showed no one in the front seats. Cybercab added 19 Nov 2026.",
+      "launch": {
+        "date": "2026-04-18",
+        "mode": "driverless",
+        "access": "public",
+        "summary": "Rolled out with Model Ys and nobody in the front seats in Tesla's launch video, small zone around Highland Park.",
+        "sources": [
+          {
+            "publisher": "Reuters",
+            "title": "Tesla expands robotaxi service to Dallas, Houston",
+            "url": "https://www.reuters.com/business/autos-transportation/tesla-rolls-out-robotaxis-dallas-houston-2026-04-18/"
+          },
+          {
+            "publisher": "TechCrunch",
+            "title": "Tesla brings its robotaxi service to Dallas and Houston",
+            "url": "https://techcrunch.com/2026/04/18/tesla-brings-its-robotaxi-service-to-dallas-and-houston/"
+          }
+        ]
+      },
+      "milestones": [
+        {
+          "date": "2026-11-19",
+          "text": "Cybercab public rides arrive in Dallas.",
+          "sources": [
+            {
+              "publisher": "Teslarati",
+              "title": "Tesla Cybercab without steering wheel and pedals expands public rides to Dallas",
+              "url": "https://www.teslarati.com/tesla-cybercab-without-steering-wheel-pedals-expands-public-rides-dallas/"
+            }
+          ]
+        }
+      ],
+      "hiringSignals": [
+        {
+          "date": "2025-10-15",
+          "dateKind": "reported-by",
+          "kind": "fleet-support",
+          "role": "Rideshare Fleet Support Specialist (Dallas)",
+          "note": "Reported by @TeslaNewswire on 15 Oct 2025, LinkedIn post the next day.",
+          "sources": [
+            {
+              "publisher": "Tesla Mag (quoting @TeslaNewswire, 15 Oct 2025)",
+              "title": "Le deploiement des Robotaxis Tesla mis en lumiere par une campagne de recrutement",
+              "url": "https://www.tesla-mag.com/le-deploiement-des-robotaxis-tesla-mis-en-lumiere-par-une-campagne-de-recrutement/"
+            },
+            {
+              "publisher": "LinkedIn (Christian Reik, 16 Oct 2025)",
+              "title": "New job postings for Rideshare Fleet Support Specialists in Houston, Dallas, Tempe, Las Vegas",
+              "url": "https://www.linkedin.com/posts/christianreik_tesla-is-serious-about-robotaxi-expansion-activity-7384487030564704256-17oy"
+            }
+          ]
+        },
+        {
+          "date": "2025-08-05",
+          "dateKind": "reported-by",
+          "kind": "vehicle-operator",
+          "role": "Vehicle Operator, Autopilot (Farmers Branch)",
+          "note": "Reported as Robotaxi operator hiring. Tesla's archived careers data shows the Farmers Branch role as early as 31 Jan 2025.",
+          "sources": [
+            {
+              "publisher": "Not a Tesla App",
+              "title": "Tesla Hiring Robotaxi Operators in New Cities",
+              "url": "https://www.notateslaapp.com/news/2993/tesla-hiring-robotaxi-operators-in-new-cities-is-yours-one-of-them"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "houston",
+      "name": "Houston",
+      "state": "TX",
+      "anchor": "Houston, TX",
+      "radiusMi": 35,
+      "status": "live",
+      "currentMode": "driverless",
+      "currentModeNote": "Launch video showed no one in the front seats. Zone grew about 10x in late Oct 2026.",
+      "launch": {
+        "date": "2026-04-18",
+        "mode": "driverless",
+        "access": "public",
+        "summary": "Rolled out the same day as Dallas, about 25 sq mi in northwest Houston at first.",
+        "sources": [
+          {
+            "publisher": "Reuters",
+            "title": "Tesla expands robotaxi service to Dallas, Houston",
+            "url": "https://www.reuters.com/business/autos-transportation/tesla-rolls-out-robotaxis-dallas-houston-2026-04-18/"
+          },
+          {
+            "publisher": "Electrek",
+            "title": "Tesla launches 'Robotaxi' in Houston and Dallas with tiny geofences",
+            "url": "https://electrek.co/2026/04/18/tesla-robotaxi-launches-dallas-houston-small-geofences/"
+          }
+        ]
+      },
+      "milestones": [],
+      "hiringSignals": [
+        {
+          "date": "2025-10-15",
+          "dateKind": "reported-by",
+          "kind": "fleet-support",
+          "role": "Rideshare Fleet Support Specialist (Houston)",
+          "note": "Reported by @TeslaNewswire on 15 Oct 2025, LinkedIn post the next day.",
+          "sources": [
+            {
+              "publisher": "Tesla Mag (quoting @TeslaNewswire, 15 Oct 2025)",
+              "title": "Le deploiement des Robotaxis Tesla mis en lumiere par une campagne de recrutement",
+              "url": "https://www.tesla-mag.com/le-deploiement-des-robotaxis-tesla-mis-en-lumiere-par-une-campagne-de-recrutement/"
+            },
+            {
+              "publisher": "LinkedIn (Christian Reik, 16 Oct 2025)",
+              "title": "New job postings for Rideshare Fleet Support Specialists in Houston, Dallas, Tempe, Las Vegas",
+              "url": "https://www.linkedin.com/posts/christianreik_tesla-is-serious-about-robotaxi-expansion-activity-7384487030564704256-17oy"
+            }
+          ]
+        },
+        {
+          "date": "2025-01-25",
+          "dateKind": "archived-by",
+          "kind": "vehicle-operator",
+          "role": "Vehicle Operator, Autopilot (Houston)",
+          "note": "Autopilot test-driver role in Tesla's archived careers data. Not a Tesla App also listed Houston operator hiring on 5 Aug 2025.",
+          "sources": [
+            {
+              "publisher": "Wayback Machine (tesla.com careers data)",
+              "title": "Archived tesla.com careers state, 25 Jan 2025",
+              "url": "https://web.archive.org/web/20250125221012/https://www.tesla.com/cua-api/apps/careers/state"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "miami",
+      "name": "Miami",
+      "state": "FL",
+      "anchor": "Miami, FL",
+      "radiusMi": 20,
+      "status": "live",
+      "currentMode": "driverless",
+      "currentModeNote": "Reported as driverless Model Ys only. Tesla hasn't said whether every car is unsupervised.",
+      "uncertain": "Driverless status is from reporting, not a Tesla statement.",
+      "launch": {
+        "date": "2026-07-03",
+        "mode": "driverless",
+        "access": "public",
+        "summary": "Small zone west of downtown (West Miami, toward Doral and Sweetwater).",
+        "sources": [
+          {
+            "publisher": "Reuters (via Investing.com)",
+            "title": "Tesla rolls out robotaxi service in Miami",
+            "url": "https://www.investing.com/news/stock-market-news/tesla-rolls-out-robotaxi-service-in-miami-4775262"
+          },
+          {
+            "publisher": "Electrek",
+            "title": "Tesla maps a tiny Robotaxi zone in Miami",
+            "url": "https://electrek.co/2026/07/03/tesla-robotaxi-miami-service-area-map/"
+          }
+        ]
+      },
+      "milestones": [],
+      "hiringSignals": [
+        {
+          "date": "2025-11-01",
+          "dateKind": "reported-by",
+          "kind": "fleet-support",
+          "role": "Robotaxi Fleet Support Specialist, Night Shift (Doral)",
+          "note": "Spotted on Tesla's careers site by @teslayoda on 1 Nov 2025, written up by Teslarati on 3 Nov.",
+          "sources": [
+            {
+              "publisher": "Teslarati",
+              "title": "Tesla job listings hint at 24/7 Robotaxi operations in several states",
+              "url": "https://www.teslarati.com/tesla-job-listings-247-robotaxi-operations-several-states/"
+            }
+          ]
+        },
+        {
+          "date": "2025-08-05",
+          "dateKind": "reported-by",
+          "kind": "vehicle-operator",
+          "role": "Vehicle Operator, Autopilot (Miami)",
+          "note": "Reported as Robotaxi operator hiring.",
+          "sources": [
+            {
+              "publisher": "Not a Tesla App",
+              "title": "Tesla Hiring Robotaxi Operators in New Cities",
+              "url": "https://www.notateslaapp.com/news/2993/tesla-hiring-robotaxi-operators-in-new-cities-is-yours-one-of-them"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orlando",
+      "name": "Orlando",
+      "state": "FL",
+      "anchor": "Orlando, FL",
+      "radiusMi": 25,
+      "status": "live",
+      "currentMode": "driverless",
+      "currentModeNote": "Unsupervised Model Ys, per TechCrunch and Not a Tesla App.",
+      "launch": {
+        "date": "2026-07-21",
+        "mode": "driverless",
+        "access": "public",
+        "summary": "Eastern and southeastern Orlando (Conway, Lee Vista), launched the day before Q2 earnings.",
+        "sources": [
+          {
+            "publisher": "TechCrunch",
+            "title": "Tesla spins up robotaxi pilots in Orlando and Tampa ahead of Q2 earnings",
+            "url": "https://techcrunch.com/2026/07/21/tesla-spins-up-robotaxi-pilots-in-orlando-and-tampa-ahead-of-q2-earnings/"
+          },
+          {
+            "publisher": "Not a Tesla App",
+            "title": "Tesla Robotaxi Launches Unsupervised Rides in Orlando, Tampa",
+            "url": "https://www.notateslaapp.com/news/4470/tesla-robotaxi-launches-unsupervised-rides-in-orlando-tampa"
+          }
+        ]
+      },
+      "milestones": [],
+      "hiringSignals": [
+        {
+          "date": "2025-11-01",
+          "dateKind": "reported-by",
+          "kind": "fleet-support",
+          "role": "Robotaxi Fleet Support Specialist, Night Shift (Orlando)",
+          "note": "Spotted on Tesla's careers site by @teslayoda on 1 Nov 2025, written up by Teslarati on 3 Nov.",
+          "sources": [
+            {
+              "publisher": "Teslarati",
+              "title": "Tesla job listings hint at 24/7 Robotaxi operations in several states",
+              "url": "https://www.teslarati.com/tesla-job-listings-247-robotaxi-operations-several-states/"
+            }
+          ]
+        },
+        {
+          "date": "2025-08-05",
+          "dateKind": "reported-by",
+          "kind": "vehicle-operator",
+          "role": "Vehicle Operator, Autopilot (Clermont)",
+          "note": "Reported as Robotaxi operator hiring.",
+          "sources": [
+            {
+              "publisher": "Not a Tesla App",
+              "title": "Tesla Hiring Robotaxi Operators in New Cities",
+              "url": "https://www.notateslaapp.com/news/2993/tesla-hiring-robotaxi-operators-in-new-cities-is-yours-one-of-them"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tampa",
+      "name": "Tampa",
+      "state": "FL",
+      "anchor": "Tampa, FL",
+      "radiusMi": 25,
+      "status": "live",
+      "currentMode": "driverless",
+      "currentModeNote": "Unsupervised Model Ys, per TechCrunch and Not a Tesla App.",
+      "launch": {
+        "date": "2026-07-21",
+        "mode": "driverless",
+        "access": "public",
+        "summary": "Central Tampa north of downtown (West Tampa, Tampa Heights, Seminole Heights).",
+        "sources": [
+          {
+            "publisher": "TechCrunch",
+            "title": "Tesla spins up robotaxi pilots in Orlando and Tampa ahead of Q2 earnings",
+            "url": "https://techcrunch.com/2026/07/21/tesla-spins-up-robotaxi-pilots-in-orlando-and-tampa-ahead-of-q2-earnings/"
+          },
+          {
+            "publisher": "Tampa Bay 28",
+            "title": "Tesla launches driverless Robotaxi service in Tampa",
+            "url": "https://www.tampabay28.com/news/region-hillsborough/tesla-launches-driverless-robotaxi-service-in-tampa"
+          }
+        ]
+      },
+      "milestones": [],
+      "hiringSignals": [
+        {
+          "date": "2025-11-01",
+          "dateKind": "reported-by",
+          "kind": "fleet-support",
+          "role": "Robotaxi Fleet Support Specialist, Night Shift (Tampa)",
+          "note": "Spotted on Tesla's careers site by @teslayoda on 1 Nov 2025, written up by Teslarati on 3 Nov.",
+          "sources": [
+            {
+              "publisher": "Teslarati",
+              "title": "Tesla job listings hint at 24/7 Robotaxi operations in several states",
+              "url": "https://www.teslarati.com/tesla-job-listings-247-robotaxi-operations-several-states/"
+            }
+          ]
+        },
+        {
+          "date": "2025-08-05",
+          "dateKind": "reported-by",
+          "kind": "vehicle-operator",
+          "role": "Vehicle Operator, Autopilot (Tampa)",
+          "note": "Reported as Robotaxi operator hiring.",
+          "sources": [
+            {
+              "publisher": "Not a Tesla App",
+              "title": "Tesla Hiring Robotaxi Operators in New Cities",
+              "url": "https://www.notateslaapp.com/news/2993/tesla-hiring-robotaxi-operators-in-new-cities-is-yours-one-of-them"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fort-worth",
+      "name": "Fort Worth",
+      "state": "TX",
+      "anchor": "Fort Worth, TX",
+      "radiusMi": 22,
+      "status": "live",
+      "currentMode": "driverless",
+      "currentModeNote": "No safety monitor in the car, per Not a Tesla App.",
+      "launch": {
+        "date": "2026-11-02",
+        "mode": "driverless",
+        "access": "public",
+        "summary": "About 143 sq mi from Saginaw to Benbrook. It wasn't on any of Tesla's announced lists.",
+        "sources": [
+          {
+            "publisher": "Not a Tesla App",
+            "title": "Tesla Expands Robotaxi Service, Launches Unsupervised Rides in Fort Worth",
+            "url": "https://www.notateslaapp.com/news/4932/tesla-expands-robotaxi-service-launches-unsupervised-rides-in-fort-worth"
+          },
+          {
+            "publisher": "Fort Worth Star-Telegram",
+            "title": "Tesla Robotaxis rolled out in Fort Worth. What to know",
+            "url": "https://www.star-telegram.com/news/local/fort-worth/article317965952.html"
+          }
+        ]
+      },
+      "milestones": [],
+      "hiringSignals": [],
+      "hiringGap": "Job aggregators show Fort Worth fleet support and ops postings, but none carry a trustworthy original posting date, so the first hiring date is before tracking began."
+    },
+    {
+      "id": "san-antonio",
+      "name": "San Antonio",
+      "state": "TX",
+      "anchor": "San Antonio, TX",
+      "radiusMi": 25,
+      "status": "live",
+      "currentMode": "driverless",
+      "currentModeNote": "Not a Tesla App reports unsupervised rides. TechCrunch says Tesla didn't confirm whether monitors are on board.",
+      "uncertain": "Driverless status not confirmed by Tesla.",
+      "launch": {
+        "date": "2026-11-09",
+        "mode": "driverless",
+        "access": "public",
+        "summary": "About 274 sq mi from Loop 1604 to just south of downtown, Tesla's biggest zone at launch.",
+        "sources": [
+          {
+            "publisher": "TechCrunch",
+            "title": "Tesla expands robotaxi service to San Antonio",
+            "url": "https://techcrunch.com/2026/11/09/tesla-expands-robotaxi-service-to-san-antonio/"
+          },
+          {
+            "publisher": "Not a Tesla App",
+            "title": "Tesla Launches Robotaxi in San Antonio, Its 9th and Largest Region Yet",
+            "url": "https://www.notateslaapp.com/news/4969/tesla-launches-largest-robotaxi-zone-yet-in-san-antonio"
+          }
+        ]
+      },
+      "milestones": [],
+      "hiringSignals": [
+        {
+          "date": "2025-08-05",
+          "dateKind": "reported-by",
+          "kind": "vehicle-operator",
+          "role": "Vehicle Operator, Autopilot (San Antonio)",
+          "note": "Reported as Robotaxi operator hiring.",
+          "sources": [
+            {
+              "publisher": "Not a Tesla App",
+              "title": "Tesla Hiring Robotaxi Operators in New Cities",
+              "url": "https://www.notateslaapp.com/news/2993/tesla-hiring-robotaxi-operators-in-new-cities-is-yours-one-of-them"
+            }
+          ]
+        }
+      ],
+      "hiringGap": "No dated source found for the first San Antonio fleet support posting, so it's before tracking began. The vehicle operator hint above is the earliest we found."
+    },
+    {
+      "id": "las-vegas",
+      "name": "Las Vegas",
+      "state": "NV",
+      "anchor": "Las Vegas, NV",
+      "radiusMi": 25,
+      "status": "announced",
+      "announced": {
+        "date": "2026-10-21",
+        "text": "Named as a next Robotaxi city, no launch date.",
+        "sources": [
+          {
+            "publisher": "News4JAX",
+            "title": "Tesla Robotaxis are listed as 'coming soon' to Jacksonville",
+            "url": "https://www.news4jax.com/news/local/2026/10/26/tesla-robotaxis-are-listed-as-coming-soon-to-jacksonville-when-could-rides-start/"
+          },
+          {
+            "publisher": "Not a Tesla App",
+            "title": "Tesla Expands Robotaxi Service, Launches Unsupervised Rides in Fort Worth",
+            "url": "https://www.notateslaapp.com/news/4932/tesla-expands-robotaxi-service-launches-unsupervised-rides-in-fort-worth"
+          }
+        ]
+      },
+      "launch": null,
+      "milestones": [],
+      "hiringSignals": [
+        {
+          "date": "2025-10-15",
+          "dateKind": "reported-by",
+          "kind": "fleet-support",
+          "role": "Rideshare Fleet Support Specialist (Las Vegas)",
+          "note": "Reported by @TeslaNewswire on 15 Oct 2025.",
+          "sources": [
+            {
+              "publisher": "Tesla Mag (quoting @TeslaNewswire, 15 Oct 2025)",
+              "title": "Le deploiement des Robotaxis Tesla mis en lumiere par une campagne de recrutement",
+              "url": "https://www.tesla-mag.com/le-deploiement-des-robotaxis-tesla-mis-en-lumiere-par-une-campagne-de-recrutement/"
+            }
+          ]
+        },
+        {
+          "date": "2025-02-15",
+          "dateKind": "archived-by",
+          "kind": "vehicle-operator",
+          "role": "Vehicle Operator, Autopilot (Henderson)",
+          "note": "Autopilot test-driver role in Tesla's archived careers data.",
+          "sources": [
+            {
+              "publisher": "Wayback Machine (tesla.com careers data)",
+              "title": "Archived tesla.com careers state, 15 Feb 2025",
+              "url": "https://web.archive.org/web/20250215204840/https://www.tesla.com/cua-api/apps/careers/state"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phoenix",
+      "name": "Phoenix",
+      "state": "AZ",
+      "anchor": "Phoenix, AZ",
+      "radiusMi": 30,
+      "status": "announced",
+      "announced": {
+        "date": "2026-10-21",
+        "text": "Named as a next Robotaxi city, no launch date.",
+        "sources": [
+          {
+            "publisher": "News4JAX",
+            "title": "Tesla Robotaxis are listed as 'coming soon' to Jacksonville",
+            "url": "https://www.news4jax.com/news/local/2026/10/26/tesla-robotaxis-are-listed-as-coming-soon-to-jacksonville-when-could-rides-start/"
+          }
+        ]
+      },
+      "launch": null,
+      "milestones": [],
+      "hiringSignals": [
+        {
+          "date": "2025-10-15",
+          "dateKind": "reported-by",
+          "kind": "fleet-support",
+          "role": "Rideshare Fleet Support Specialist (Tempe)",
+          "note": "Reported by @TeslaNewswire on 15 Oct 2025.",
+          "sources": [
+            {
+              "publisher": "Tesla Mag (quoting @TeslaNewswire, 15 Oct 2025)",
+              "title": "Le deploiement des Robotaxis Tesla mis en lumiere par une campagne de recrutement",
+              "url": "https://www.tesla-mag.com/le-deploiement-des-robotaxis-tesla-mis-en-lumiere-par-une-campagne-de-recrutement/"
+            }
+          ]
+        },
+        {
+          "date": "2025-08-05",
+          "dateKind": "reported-by",
+          "kind": "vehicle-operator",
+          "role": "Vehicle Operator, Autopilot (Tempe)",
+          "note": "Reported as Robotaxi operator hiring.",
+          "sources": [
+            {
+              "publisher": "Not a Tesla App",
+              "title": "Tesla Hiring Robotaxi Operators in New Cities",
+              "url": "https://www.notateslaapp.com/news/2993/tesla-hiring-robotaxi-operators-in-new-cities-is-yours-one-of-them"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jacksonville",
+      "name": "Jacksonville",
+      "state": "FL",
+      "anchor": "Jacksonville, FL",
+      "radiusMi": 25,
+      "status": "announced",
+      "announced": {
+        "date": "2026-10-21",
+        "text": "Listed as 'coming soon' by Tesla's Robotaxi account, no launch date or zone.",
+        "sources": [
+          {
+            "publisher": "News4JAX",
+            "title": "Tesla Robotaxis are listed as 'coming soon' to Jacksonville",
+            "url": "https://www.news4jax.com/news/local/2026/10/26/tesla-robotaxis-are-listed-as-coming-soon-to-jacksonville-when-could-rides-start/"
+          }
+        ]
+      },
+      "launch": null,
+      "milestones": [],
+      "hiringSignals": [
+        {
+          "date": "2025-08-05",
+          "dateKind": "reported-by",
+          "kind": "vehicle-operator",
+          "role": "Vehicle Operator, Autopilot (Jacksonville)",
+          "note": "Reported as Robotaxi operator hiring.",
+          "sources": [
+            {
+              "publisher": "Not a Tesla App",
+              "title": "Tesla Hiring Robotaxi Operators in New Cities",
+              "url": "https://www.notateslaapp.com/news/2993/tesla-hiring-robotaxi-operators-in-new-cities-is-yours-one-of-them"
+            }
+          ]
+        }
+      ],
+      "hiringGap": "No Jacksonville fleet support openings on Tesla's site right now, and no dated source for when they first appeared."
+    }
+  ]
+}

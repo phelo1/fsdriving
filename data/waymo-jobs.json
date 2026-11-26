@@ -1,0 +1,496 @@
+{
+ "source": "https://boards-api.greenhouse.io/v1/boards/waymo/jobs",
+ "checkedAt": "2026-11-27T00:25:31+03:00",
+ "totalJobs": 356,
+ "skippedRemoteOrCatchAll": 6,
+ "metros": {
+  "bay-area": {
+   "count": 259,
+   "firstPublished": "2025-01-23",
+   "examples": [
+    {
+     "id": 8415223,
+     "title": "2027 Summer Intern, PhD, Driver Understanding and Evaluation, Large Model Evaluation",
+     "location": "Mountain View, California, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8415223",
+     "firstPublished": "2026-11-25"
+    },
+    {
+     "id": 8354618,
+     "title": "Rapid Deploy Program Manager",
+     "location": "Mountain View, CA, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8354618",
+     "firstPublished": "2026-11-25"
+    },
+    {
+     "id": 8354601,
+     "title": "Rapid Deploy Specialist, AMER West",
+     "location": "Mountain View, CA, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8354601",
+     "firstPublished": "2026-11-25"
+    },
+    {
+     "id": 8393471,
+     "title": "Director of Construction & Project Delivery",
+     "location": "Mountain View, CA, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8393471",
+     "firstPublished": "2026-11-24"
+    }
+   ]
+  },
+  "los-angeles": {
+   "count": 3,
+   "firstPublished": "2025-10-28",
+   "examples": [
+    {
+     "id": 8198582,
+     "title": "2027 Summer Intern, MBA, Salesforce Product Owner",
+     "location": "Los Angeles, California, United States",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8198582",
+     "firstPublished": "2026-09-15"
+    },
+    {
+     "id": 8187386,
+     "title": "Field Safety – Operations Performance",
+     "location": "Mountain View, CA, USA; Los Angeles, CA, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8187386",
+     "firstPublished": "2026-09-10"
+    },
+    {
+     "id": 7361677,
+     "title": "System Safety Engineer, Operations & Fleet Response",
+     "location": "Mountain View, CA, USA; San Francisco, CA, USA; Los Angeles, CA, USA; Kirkland, WA, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=7361677",
+     "firstPublished": "2025-10-28"
+    }
+   ]
+  },
+  "london": {
+   "count": 19,
+   "firstPublished": "2026-02-05",
+   "examples": [
+    {
+     "id": 8381008,
+     "title": "Construction Project Specialist, Europe",
+     "location": "London, United Kingdom, UK",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8381008",
+     "firstPublished": "2026-11-18"
+    },
+    {
+     "id": 8375524,
+     "title": "Vehicle Outbound Logistics Manager, UK",
+     "location": "London, United Kingdom",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8375524",
+     "firstPublished": "2026-11-13"
+    },
+    {
+     "id": 8348309,
+     "title": "Utilities Specialist, Europe",
+     "location": "London, United Kingdom, UK",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8348309",
+     "firstPublished": "2026-11-10"
+    },
+    {
+     "id": 8347690,
+     "title": "Commercial Real Estate Facility Strategy Planning Analyst, Europe",
+     "location": "London, United Kingdom, UK",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8347690",
+     "firstPublished": "2026-11-09"
+    }
+   ]
+  },
+  "phoenix": {
+   "count": 14,
+   "firstPublished": "2026-06-26",
+   "examples": [
+    {
+     "id": 8396592,
+     "title": "Fleet Development & Readiness (FD&R) Training Program Manager",
+     "location": "San Francisco, CA; Mountain View, CA; Phoenix, AZ",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8396592",
+     "firstPublished": "2026-11-17"
+    },
+    {
+     "id": 8357292,
+     "title": "Security Operations Center Watch Lead",
+     "location": "Tempe, AZ, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8357292",
+     "firstPublished": "2026-11-12"
+    },
+    {
+     "id": 8347977,
+     "title": "Badging Program Manager",
+     "location": "Tempe, AZ, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8347977",
+     "firstPublished": "2026-11-11"
+    },
+    {
+     "id": 8346963,
+     "title": "Security Operations Technical Program Manager",
+     "location": "Tempe, AZ, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8346963",
+     "firstPublished": "2026-11-08"
+    }
+   ]
+  },
+  "tokyo": {
+   "count": 6,
+   "firstPublished": "2026-02-25",
+   "examples": [
+    {
+     "id": 8329360,
+     "title": "Operations Rider-Only Readiness Manager, Japan / ライダー オンリー（完全無人運転）運用準備マネージャー（オペレーション部門、日本）",
+     "location": "Tokyo, Japan",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8329360",
+     "firstPublished": "2026-11-16"
+    },
+    {
+     "id": 8383986,
+     "title": "Vehicle Outbound Logistics Manager, APAC / 車両アウトバウンド物流マネージャー（APAC)",
+     "location": "Tokyo, Japan",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8383986",
+     "firstPublished": "2026-11-13"
+    },
+    {
+     "id": 8314165,
+     "title": "Indirect Procurement Category Manager | 間接購買カテゴリマネージャ",
+     "location": "Tokyo, Japan",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8314165",
+     "firstPublished": "2026-11-09"
+    },
+    {
+     "id": 8329325,
+     "title": "Safety Assurance Manager / 安全性保証マネージャー",
+     "location": "Tokyo, Japan",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8329325",
+     "firstPublished": "2026-11-09"
+    }
+   ]
+  },
+  "chicago": {
+   "count": 5,
+   "firstPublished": "2026-10-29",
+   "examples": [
+    {
+     "id": 8386415,
+     "title": "Construction Project Specialist, Central US",
+     "location": "Chicago, Illinois, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8386415",
+     "firstPublished": "2026-11-18"
+    },
+    {
+     "id": 8353971,
+     "title": "Real Estate Manager, North America, Central",
+     "location": "Chicago, Illinois, USA; New York City, New York, USA; Washington, D.C., USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8353971",
+     "firstPublished": "2026-11-17"
+    },
+    {
+     "id": 8357254,
+     "title": "Facilities Manager East & Central",
+     "location": "Chicago, IL, USA; New York, NY, USA; Washington, DC, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8357254",
+     "firstPublished": "2026-11-06"
+    },
+    {
+     "id": 8357285,
+     "title": "Facilities Market Specialist, Chicago",
+     "location": "Chicago, IL, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8357285",
+     "firstPublished": "2026-11-06"
+    }
+   ]
+  },
+  "munich": {
+   "count": 6,
+   "firstPublished": "2026-09-15",
+   "examples": [
+    {
+     "id": 8327902,
+     "title": "Market Operations Lead - Germany",
+     "location": "Munich, Germany",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8327902",
+     "firstPublished": "2026-11-03"
+    },
+    {
+     "id": 8248456,
+     "title": "Field Safety Engineer, Germany",
+     "location": "Munich, Bavaria, Germany",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8248456",
+     "firstPublished": "2026-10-07"
+    },
+    {
+     "id": 8068431,
+     "title": "Senior Privacy Counsel, Germany",
+     "location": "Munich, Germany",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8068431",
+     "firstPublished": "2026-09-23"
+    },
+    {
+     "id": 8109449,
+     "title": "Emergency Services Liaison, Germany",
+     "location": "Munich, Bavaria, Germany",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8109449",
+     "firstPublished": "2026-09-17"
+    }
+   ]
+  },
+  "singapore": {
+   "count": 7,
+   "firstPublished": "2026-10-12",
+   "examples": [
+    {
+     "id": 8360529,
+     "title": "Intel Regional lead, APAC",
+     "location": "Singapore, Singapore",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8360529",
+     "firstPublished": "2026-11-17"
+    },
+    {
+     "id": 8248451,
+     "title": "Emergency Services Liaison, Singapore",
+     "location": "Singapore, Singapore",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8248451",
+     "firstPublished": "2026-11-10"
+    },
+    {
+     "id": 8231680,
+     "title": "Singapore Market Operations Lead",
+     "location": "Singapore",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8231680",
+     "firstPublished": "2026-11-10"
+    },
+    {
+     "id": 8157504,
+     "title": "Legal Counsel - Singapore",
+     "location": "Singapore, Singapore",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8157504",
+     "firstPublished": "2026-11-09"
+    }
+   ]
+  },
+  "madrid": {
+   "count": 3,
+   "firstPublished": "2026-10-20",
+   "examples": [
+    {
+     "id": 8327904,
+     "title": "Market Operations Lead- Spain",
+     "location": "Madrid, Spain",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8327904",
+     "firstPublished": "2026-11-03"
+    },
+    {
+     "id": 8104309,
+     "title": "Emergency Services Liaison, Spain",
+     "location": "Madrid, Spain",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8104309",
+     "firstPublished": "2026-10-21"
+    },
+    {
+     "id": 8157161,
+     "title": "Legal Counsel - Spain",
+     "location": "Madrid, Spain",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8157161",
+     "firstPublished": "2026-10-20"
+    }
+   ]
+  },
+  "new-york": {
+   "count": 20,
+   "firstPublished": "2025-12-08",
+   "examples": [
+    {
+     "id": 8350109,
+     "title": "Rapid Deploy Specialist, AMER East",
+     "location": "New York City, NY, USA; Washington, D.C.",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8350109",
+     "firstPublished": "2026-11-25"
+    },
+    {
+     "id": 8353971,
+     "title": "Real Estate Manager, North America, Central",
+     "location": "Chicago, Illinois, USA; New York City, New York, USA; Washington, D.C., USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8353971",
+     "firstPublished": "2026-11-17"
+    },
+    {
+     "id": 8357254,
+     "title": "Facilities Manager East & Central",
+     "location": "Chicago, IL, USA; New York, NY, USA; Washington, DC, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8357254",
+     "firstPublished": "2026-11-06"
+    },
+    {
+     "id": 8354804,
+     "title": "Staff Machine Learning Engineer, AI Infrastructure",
+     "location": "Mountain View, CA, USA; San Francisco, CA, USA;  New York, NY, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8354804",
+     "firstPublished": "2026-11-05"
+    }
+   ]
+  },
+  "washington-dc": {
+   "count": 6,
+   "firstPublished": "2026-11-05",
+   "examples": [
+    {
+     "id": 8350109,
+     "title": "Rapid Deploy Specialist, AMER East",
+     "location": "New York City, NY, USA; Washington, D.C.",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8350109",
+     "firstPublished": "2026-11-25"
+    },
+    {
+     "id": 8354441,
+     "title": "Policy Manager, Federal Affairs - Congress",
+     "location": "Washington DC, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8354441",
+     "firstPublished": "2026-11-17"
+    },
+    {
+     "id": 8353971,
+     "title": "Real Estate Manager, North America, Central",
+     "location": "Chicago, Illinois, USA; New York City, New York, USA; Washington, D.C., USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8353971",
+     "firstPublished": "2026-11-17"
+    },
+    {
+     "id": 8357254,
+     "title": "Facilities Manager East & Central",
+     "location": "Chicago, IL, USA; New York, NY, USA; Washington, DC, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8357254",
+     "firstPublished": "2026-11-06"
+    }
+   ]
+  },
+  "detroit": {
+   "count": 6,
+   "firstPublished": "2025-12-26",
+   "examples": [
+    {
+     "id": 8315980,
+     "title": "Industrialization Engineer",
+     "location": "Mountain View, CA, USA; Novi, MI, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8315980",
+     "firstPublished": "2026-10-30"
+    },
+    {
+     "id": 8275507,
+     "title": "Senior SDS Component Homologation Engineer",
+     "location": "Mountain View, CA, USA; Novi, MI,USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8275507",
+     "firstPublished": "2026-10-14"
+    },
+    {
+     "id": 8222061,
+     "title": "Product Quality Engineer, Vehicle Systems",
+     "location": "Mountain View, CA, USA; Novi, MI, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8222061",
+     "firstPublished": "2026-09-22"
+    },
+    {
+     "id": 8110214,
+     "title": "Senior Vehicle Interior Engineer",
+     "location": "Mountain View, Ca USA;Novi, Mi, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8110214",
+     "firstPublished": "2026-08-10"
+    }
+   ]
+  },
+  "toronto": {
+   "count": 1,
+   "firstPublished": "2026-10-16",
+   "examples": [
+    {
+     "id": 8157449,
+     "title": "Legal Counsel - Canada",
+     "location": "Toronto, Ontario, Canada",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8157449",
+     "firstPublished": "2026-10-16"
+    }
+   ]
+  },
+  "pittsburgh": {
+   "count": 3,
+   "firstPublished": "2025-12-15",
+   "examples": [
+    {
+     "id": 8039191,
+     "title": "Machine Learning Engineer, Driver Refinement & Validation",
+     "location": "Mountain View, CA, USA; San Francisco, CA, USA; Pittsburgh, PA, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8039191",
+     "firstPublished": "2026-06-30"
+    },
+    {
+     "id": 8001059,
+     "title": "Staff Machine Learning Engineer, Driver Refinement & Validation",
+     "location": "Mountain View, CA, USA; San Francisco, CA, USA; Pittsburgh, PA, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8001059",
+     "firstPublished": "2026-06-11"
+    },
+    {
+     "id": 7456936,
+     "title": "Senior Machine Learning Engineer, Driver Refinement & Validation",
+     "location": "Mountain View, CA, USA; San Francisco, CA, USA; Pittsburgh, PA, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=7456936",
+     "firstPublished": "2025-12-15"
+    }
+   ]
+  },
+  "austin": {
+   "count": 2,
+   "firstPublished": "2026-09-24",
+   "examples": [
+    {
+     "id": 8244713,
+     "title": "Southwest Policy Manager",
+     "location": "Austin, TX, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8244713",
+     "firstPublished": "2026-10-27"
+    },
+    {
+     "id": 8231377,
+     "title": "Network Operations Manager",
+     "location": "Austin, TX, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8231377",
+     "firstPublished": "2026-09-24"
+    }
+   ]
+  },
+  "seattle": {
+   "count": 4,
+   "firstPublished": "2025-10-28",
+   "examples": [
+    {
+     "id": 8165872,
+     "title": "Research Scientist, RL for Autonomous Planning & World Modeling",
+     "location": "Mountain View, CA, USA; San Francisco, CA, USA; Kirkland, WA, USA; New York City, NY, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8165872",
+     "firstPublished": "2026-08-29"
+    },
+    {
+     "id": 8075587,
+     "title": "Staff Research Scientist, Foundation Models Recipes",
+     "location": "Mountain View, CA, US; San Francisco, CA, US; Kirkland, WA, US",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8075587",
+     "firstPublished": "2026-08-03"
+    },
+    {
+     "id": 8003626,
+     "title": "Senior Research Scientist, Perception",
+     "location": "Mountain View, CA, USA ; San Francisco, CA, USA ; Kirkland, WA, USA ; New York City, NY, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=8003626",
+     "firstPublished": "2026-06-12"
+    },
+    {
+     "id": 7361677,
+     "title": "System Safety Engineer, Operations & Fleet Response",
+     "location": "Mountain View, CA, USA; San Francisco, CA, USA; Los Angeles, CA, USA; Kirkland, WA, USA",
+     "url": "https://careers.withwaymo.com/jobs?gh_jid=7361677",
+     "firstPublished": "2025-10-28"
+    }
+   ]
+  }
+ }
+}

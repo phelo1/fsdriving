@@ -1,0 +1,23 @@
+# Secrets and local-only notes
+.env*
+*.local.md
+*.pem
+*.key
+
+# Dependencies and build output (rebuilt by build.mjs / tools/pack.mjs)
+node_modules/
+dist/
+og-build/
+deploy/
+shots/
+
+# Raw scrape snapshots and archives (large; derived data is tracked in data/*.json)
+data/raw/
+
+# Logs, locks, caches
+logs/
+*.log
+*.lock
+__pycache__/
+*.pyc
+.DS_Store

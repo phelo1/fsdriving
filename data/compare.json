@@ -1,0 +1,867 @@
+{
+ "about": "Tesla vs Waymo robotaxi status by US metro. Hand-curated from each company's own pages, checked 25 Nov 2026. Statuses: live = public riders today; live-driver = public riders with a human safety driver; announced = the company named the city but no public rides yet. Hiring signals are computed at build time and kept separate.",
+ "checkedAt": "2026-11-25",
+ "definitions": {
+  "tesla": {
+   "live": "Public Robotaxi rides today (Tesla Robotaxi Safety Report page and launch reports). Bay Area counted separately as live with a safety driver.",
+   "announced": "Cities Tesla lists as coming soon on its Robotaxi pages.",
+   "hiring": "Cities with open Robotaxi Fleet Support Supervisor postings on Tesla's US careers site (this tracker's daily check)."
+  },
+  "waymo": {
+   "live": "Cities on Waymo's rides page under Serving Riders In, including Austin and Atlanta (rides via Uber) and Las Vegas (riders added gradually).",
+   "announced": "Cities on Waymo's rides page under Up Next. Waymo drives, maps or tests in these before opening, so this bucket includes testing-stage cities.",
+   "hiring": "US metros named in Waymo's own open job postings (Greenhouse board waymo), any role, ignoring remote and catch-all postings that list 6+ cities. Waymo's board is mostly engineering and corporate roles, and some day-to-day fleet work is done by partners such as Moove, so this is a weaker signal than Tesla's."
+  }
+ },
+ "notes": [
+  {
+   "text": "Waymo has partnered with Moove to run fleet operations in Phoenix and Miami.",
+   "sources": [
+    {
+     "publisher": "TechCrunch (5 Dec 2024)",
+     "url": "https://techcrunch.com/2024/12/05/waymo-outsources-fleet-operations-to-african-fintech-moove-in-phoenix-and-miami/"
+    }
+   ]
+  },
+  {
+   "text": "Tesla's Robotaxi Safety Report lists Austin, Dallas, Fort Worth, Houston, Miami, Orlando, San Antonio and Tampa as operating, and Las Vegas, Jacksonville and Phoenix as coming soon. Musk statements are not counted as announcements here.",
+   "sources": [
+    {
+     "publisher": "Tesla Robotaxi Safety Report page",
+     "url": "https://www.tesla.com/robotaxi/safety"
+    }
+   ]
+  }
+ ],
+ "metros": [
+  {
+   "id": "austin",
+   "name": "Austin",
+   "state": "TX",
+   "lat": 30.267,
+   "lon": -97.743,
+   "tesla": {
+    "status": "live",
+    "note": "Driverless public rides (no safety monitor), Tesla Robotaxi app.",
+    "sources": [
+     {
+      "publisher": "Tesla Robotaxi Safety Report page",
+      "url": "https://www.tesla.com/robotaxi/safety"
+     }
+    ]
+   },
+   "waymo": {
+    "status": "live",
+    "note": "Public rides through Uber (Waymo partner app), fully autonomous.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     },
+     {
+      "publisher": "Waymo FAQ",
+      "url": "https://waymo.com/faq/"
+     }
+    ],
+    "via": "Uber"
+   }
+  },
+  {
+   "id": "bay-area",
+   "name": "SF Bay Area",
+   "state": "CA",
+   "lat": 37.6,
+   "lon": -122.2,
+   "tesla": {
+    "status": "live-driver",
+    "note": "Public rides, but with a human safety driver behind the wheel (California rules).",
+    "sources": [
+     {
+      "publisher": "Electrek, Bay Area launch with human drivers (31 Jul 2025)",
+      "url": "https://electrek.co/2025/07/31/teslas-robotaxis-officially-powered-by-human-drivers-as-it-launches-ride-hailing-bay-area/"
+     },
+     {
+      "publisher": "Tesla Robotaxi Safety Report page",
+      "url": "https://www.tesla.com/robotaxi/safety"
+     }
+    ]
+   },
+   "waymo": {
+    "status": "live",
+    "note": "Public rides in the Waymo app, fully autonomous.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     },
+     {
+      "publisher": "Waymo FAQ",
+      "url": "https://waymo.com/faq/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "dfw",
+   "name": "Dallas-Fort Worth",
+   "state": "TX",
+   "lat": 32.82,
+   "lon": -97.0,
+   "tesla": {
+    "status": "live",
+    "note": "Driverless rides in Dallas and, since 2 Nov 2026, a separate Fort Worth zone.",
+    "sources": [
+     {
+      "publisher": "Tesla Robotaxi Safety Report page",
+      "url": "https://www.tesla.com/robotaxi/safety"
+     },
+     {
+      "publisher": "Not a Tesla App, Fort Worth launch (2 Nov 2026)",
+      "url": "https://www.notateslaapp.com/news/4932/tesla-expands-robotaxi-service-launches-unsupervised-rides-in-fort-worth"
+     }
+    ]
+   },
+   "waymo": {
+    "status": "live",
+    "note": "Public rides in the Waymo app, fully autonomous.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     },
+     {
+      "publisher": "Waymo FAQ",
+      "url": "https://waymo.com/faq/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "houston",
+   "name": "Houston",
+   "state": "TX",
+   "lat": 29.76,
+   "lon": -95.37,
+   "tesla": {
+    "status": "live",
+    "note": "Driverless public rides (no safety monitor), Tesla Robotaxi app.",
+    "sources": [
+     {
+      "publisher": "Tesla Robotaxi Safety Report page",
+      "url": "https://www.tesla.com/robotaxi/safety"
+     }
+    ]
+   },
+   "waymo": {
+    "status": "live",
+    "note": "Public rides in the Waymo app, fully autonomous.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     },
+     {
+      "publisher": "Waymo FAQ",
+      "url": "https://waymo.com/faq/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "san-antonio",
+   "name": "San Antonio",
+   "state": "TX",
+   "lat": 29.42,
+   "lon": -98.49,
+   "tesla": {
+    "status": "live",
+    "note": "Driverless rides since 9 Nov 2026.",
+    "sources": [
+     {
+      "publisher": "Tesla Robotaxi Safety Report page",
+      "url": "https://www.tesla.com/robotaxi/safety"
+     },
+     {
+      "publisher": "TechCrunch, San Antonio launch (9 Nov 2026)",
+      "url": "https://techcrunch.com/2026/11/09/tesla-expands-robotaxi-service-to-san-antonio/"
+     }
+    ]
+   },
+   "waymo": {
+    "status": "live",
+    "note": "Public rides in the Waymo app, fully autonomous.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     },
+     {
+      "publisher": "Waymo FAQ",
+      "url": "https://waymo.com/faq/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "miami",
+   "name": "Miami",
+   "state": "FL",
+   "lat": 25.77,
+   "lon": -80.19,
+   "tesla": {
+    "status": "live",
+    "note": "Driverless public rides (no safety monitor), Tesla Robotaxi app.",
+    "sources": [
+     {
+      "publisher": "Tesla Robotaxi Safety Report page",
+      "url": "https://www.tesla.com/robotaxi/safety"
+     }
+    ]
+   },
+   "waymo": {
+    "status": "live",
+    "note": "Public rides in the Waymo app, fully autonomous.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     },
+     {
+      "publisher": "Waymo FAQ",
+      "url": "https://waymo.com/faq/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "orlando",
+   "name": "Orlando",
+   "state": "FL",
+   "lat": 28.54,
+   "lon": -81.38,
+   "tesla": {
+    "status": "live",
+    "note": "Driverless public rides (no safety monitor), Tesla Robotaxi app.",
+    "sources": [
+     {
+      "publisher": "Tesla Robotaxi Safety Report page",
+      "url": "https://www.tesla.com/robotaxi/safety"
+     }
+    ]
+   },
+   "waymo": {
+    "status": "live",
+    "note": "Public rides in the Waymo app, fully autonomous.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     },
+     {
+      "publisher": "Waymo FAQ",
+      "url": "https://waymo.com/faq/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "tampa",
+   "name": "Tampa",
+   "state": "FL",
+   "lat": 27.95,
+   "lon": -82.46,
+   "tesla": {
+    "status": "live",
+    "note": "Driverless public rides (no safety monitor), Tesla Robotaxi app.",
+    "sources": [
+     {
+      "publisher": "Tesla Robotaxi Safety Report page",
+      "url": "https://www.tesla.com/robotaxi/safety"
+     }
+    ]
+   },
+   "waymo": {
+    "status": "live",
+    "note": "Public rides in the Waymo app, fully autonomous.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     },
+     {
+      "publisher": "Waymo FAQ",
+      "url": "https://waymo.com/faq/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "phoenix",
+   "name": "Phoenix",
+   "state": "AZ",
+   "lat": 33.45,
+   "lon": -112.07,
+   "tesla": {
+    "status": "announced",
+    "note": "Listed as coming soon. No launch date given.",
+    "sources": [
+     {
+      "publisher": "Tesla Robotaxi Safety Report page",
+      "url": "https://www.tesla.com/robotaxi/safety"
+     },
+     {
+      "publisher": "@robotaxi on X, coming soon list (21 Oct 2026)",
+      "url": "https://x.com/robotaxi/status/2112988567500902438"
+     }
+    ]
+   },
+   "waymo": {
+    "status": "live",
+    "note": "Public rides in the Waymo app, fully autonomous.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     },
+     {
+      "publisher": "Waymo FAQ",
+      "url": "https://waymo.com/faq/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "las-vegas",
+   "name": "Las Vegas",
+   "state": "NV",
+   "lat": 36.17,
+   "lon": -115.14,
+   "tesla": {
+    "status": "announced",
+    "note": "Listed as coming soon. No launch date given.",
+    "sources": [
+     {
+      "publisher": "Tesla Robotaxi Safety Report page",
+      "url": "https://www.tesla.com/robotaxi/safety"
+     },
+     {
+      "publisher": "@robotaxi on X, coming soon list (21 Oct 2026)",
+      "url": "https://x.com/robotaxi/status/2112988567500902438"
+     }
+    ]
+   },
+   "waymo": {
+    "status": "live",
+    "note": "Public rides started 14 Sep 2026, riders added gradually from a waitlist.",
+    "sources": [
+     {
+      "publisher": "Waymo Help: Now serving Las Vegas (14 Sep 2026)",
+      "url": "https://support.google.com/waymo/announcements/12766613?hl=en"
+     },
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     }
+    ],
+    "gradual": true
+   }
+  },
+  {
+   "id": "jacksonville",
+   "name": "Jacksonville",
+   "state": "FL",
+   "lat": 30.33,
+   "lon": -81.66,
+   "tesla": {
+    "status": "announced",
+    "note": "Listed as coming soon. No launch date given.",
+    "sources": [
+     {
+      "publisher": "Tesla Robotaxi Safety Report page",
+      "url": "https://www.tesla.com/robotaxi/safety"
+     },
+     {
+      "publisher": "@robotaxi on X, coming soon list (21 Oct 2026)",
+      "url": "https://x.com/robotaxi/status/2112988567500902438"
+     }
+    ]
+   },
+   "waymo": null
+  },
+  {
+   "id": "atlanta",
+   "name": "Atlanta",
+   "state": "GA",
+   "lat": 33.75,
+   "lon": -84.39,
+   "tesla": null,
+   "waymo": {
+    "status": "live",
+    "note": "Public rides through Uber (Waymo partner app), fully autonomous.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     },
+     {
+      "publisher": "Waymo FAQ",
+      "url": "https://waymo.com/faq/"
+     }
+    ],
+    "via": "Uber"
+   }
+  },
+  {
+   "id": "los-angeles",
+   "name": "Los Angeles",
+   "state": "CA",
+   "lat": 34.05,
+   "lon": -118.24,
+   "tesla": null,
+   "waymo": {
+    "status": "live",
+    "note": "Public rides in the Waymo app, fully autonomous.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     },
+     {
+      "publisher": "Waymo FAQ",
+      "url": "https://waymo.com/faq/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "san-diego",
+   "name": "San Diego",
+   "state": "CA",
+   "lat": 32.72,
+   "lon": -117.16,
+   "tesla": null,
+   "waymo": {
+    "status": "live",
+    "note": "Public rides in the Waymo app, fully autonomous.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     },
+     {
+      "publisher": "Waymo FAQ",
+      "url": "https://waymo.com/faq/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "denver",
+   "name": "Denver",
+   "state": "CO",
+   "lat": 39.74,
+   "lon": -104.99,
+   "tesla": null,
+   "waymo": {
+    "status": "live",
+    "note": "Public rides in the Waymo app, fully autonomous.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     },
+     {
+      "publisher": "Waymo FAQ",
+      "url": "https://waymo.com/faq/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "nashville",
+   "name": "Nashville",
+   "state": "TN",
+   "lat": 36.16,
+   "lon": -86.78,
+   "tesla": null,
+   "waymo": {
+    "status": "live",
+    "note": "Public rides in the Waymo app, fully autonomous.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     },
+     {
+      "publisher": "Waymo FAQ",
+      "url": "https://waymo.com/faq/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "baltimore",
+   "name": "Baltimore",
+   "state": "MD",
+   "lat": 39.29,
+   "lon": -76.61,
+   "tesla": null,
+   "waymo": {
+    "status": "announced",
+    "note": "Listed as Up Next on Waymo's rides page. No public rides yet.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "boston",
+   "name": "Boston",
+   "state": "MA",
+   "lat": 42.36,
+   "lon": -71.06,
+   "tesla": null,
+   "waymo": {
+    "status": "announced",
+    "note": "Listed as Up Next on Waymo's rides page. No public rides yet.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "charlotte",
+   "name": "Charlotte",
+   "state": "NC",
+   "lat": 35.23,
+   "lon": -80.84,
+   "tesla": null,
+   "waymo": {
+    "status": "announced",
+    "note": "Listed as Up Next on Waymo's rides page. No public rides yet.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "chicago",
+   "name": "Chicago",
+   "state": "IL",
+   "lat": 41.88,
+   "lon": -87.63,
+   "tesla": null,
+   "waymo": {
+    "status": "announced",
+    "note": "Listed as Up Next on Waymo's rides page. No public rides yet.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "detroit",
+   "name": "Detroit",
+   "state": "MI",
+   "lat": 42.33,
+   "lon": -83.05,
+   "tesla": null,
+   "waymo": {
+    "status": "announced",
+    "note": "Listed as Up Next on Waymo's rides page. No public rides yet.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "minneapolis",
+   "name": "Minneapolis",
+   "state": "MN",
+   "lat": 44.98,
+   "lon": -93.27,
+   "tesla": null,
+   "waymo": {
+    "status": "announced",
+    "note": "Listed as Up Next on Waymo's rides page. No public rides yet.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "new-orleans",
+   "name": "New Orleans",
+   "state": "LA",
+   "lat": 29.95,
+   "lon": -90.07,
+   "tesla": null,
+   "waymo": {
+    "status": "announced",
+    "note": "Listed as Up Next on Waymo's rides page. No public rides yet.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "new-york",
+   "name": "New York",
+   "state": "NY",
+   "lat": 40.71,
+   "lon": -74.01,
+   "tesla": null,
+   "waymo": {
+    "status": "announced",
+    "note": "Listed as Up Next on Waymo's rides page. No public rides yet.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "philadelphia",
+   "name": "Philadelphia",
+   "state": "PA",
+   "lat": 39.95,
+   "lon": -75.17,
+   "tesla": null,
+   "waymo": {
+    "status": "announced",
+    "note": "Listed as Up Next on Waymo's rides page. No public rides yet.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "pittsburgh",
+   "name": "Pittsburgh",
+   "state": "PA",
+   "lat": 40.44,
+   "lon": -80.0,
+   "tesla": null,
+   "waymo": {
+    "status": "announced",
+    "note": "Listed as Up Next on Waymo's rides page. No public rides yet.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "portland",
+   "name": "Portland",
+   "state": "OR",
+   "lat": 45.52,
+   "lon": -122.68,
+   "tesla": null,
+   "waymo": {
+    "status": "announced",
+    "note": "Listed as Up Next on Waymo's rides page. No public rides yet.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "sacramento",
+   "name": "Sacramento",
+   "state": "CA",
+   "lat": 38.58,
+   "lon": -121.49,
+   "tesla": null,
+   "waymo": {
+    "status": "announced",
+    "note": "Listed as Up Next on Waymo's rides page. No public rides yet.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "seattle",
+   "name": "Seattle",
+   "state": "WA",
+   "lat": 47.61,
+   "lon": -122.33,
+   "tesla": null,
+   "waymo": {
+    "status": "announced",
+    "note": "Listed as Up Next on Waymo's rides page. No public rides yet.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "st-louis",
+   "name": "St. Louis",
+   "state": "MO",
+   "lat": 38.63,
+   "lon": -90.2,
+   "tesla": null,
+   "waymo": {
+    "status": "announced",
+    "note": "Listed as Up Next on Waymo's rides page. No public rides yet.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "washington-dc",
+   "name": "Washington, DC",
+   "state": "DC",
+   "lat": 38.9,
+   "lon": -77.04,
+   "tesla": null,
+   "waymo": {
+    "status": "announced",
+    "note": "Listed as Up Next. Waymo said in Mar 2025 it would be ready for riders in 2026; no public rides yet.",
+    "sources": [
+     {
+      "publisher": "Waymo, Where we operate (rides page)",
+      "url": "https://waymo.com/rides/"
+     },
+     {
+      "publisher": "Waymo blog, Next stop: Washington, D.C. (Mar 2025)",
+      "url": "https://waymo.com/blog/2025/03/next-stop-for-waymo-one-washingtondc/"
+     }
+    ]
+   }
+  }
+ ],
+ "waymoInternational": [
+  {
+   "name": "London",
+   "country": "UK",
+   "status": "announced",
+   "note": "Up Next on Waymo's rides page.",
+   "sources": [
+    {
+     "publisher": "Waymo, Where we operate (rides page)",
+     "url": "https://waymo.com/rides/"
+    }
+   ],
+   "geocode": "London, United Kingdom",
+   "id": "london"
+  },
+  {
+   "name": "Tokyo",
+   "country": "Japan",
+   "status": "announced",
+   "note": "Up Next on Waymo's rides page.",
+   "sources": [
+    {
+     "publisher": "Waymo, Where we operate (rides page)",
+     "url": "https://waymo.com/rides/"
+    }
+   ],
+   "geocode": "Tokyo, Japan",
+   "id": "tokyo"
+  },
+  {
+   "name": "Munich",
+   "country": "Germany",
+   "status": "announced",
+   "year": 2027,
+   "note": "Waymo aims for fully autonomous service in Germany in 2027.",
+   "sources": [
+    {
+     "publisher": "Waymo in Munich",
+     "url": "https://waymo.com/waymo-in-germany/"
+    }
+   ],
+   "geocode": "Munich, Germany",
+   "id": "munich"
+  },
+  {
+   "name": "Madrid region",
+   "country": "Spain",
+   "status": "announced",
+   "year": 2027,
+   "note": "First riders aimed for 2027.",
+   "sources": [
+    {
+     "publisher": "Waymo blog, Madrid (Oct 2026)",
+     "url": "https://waymo.com/blog/2026/10/waymo-in-madrid-region/"
+    }
+   ],
+   "geocode": "Madrid, Spain",
+   "id": "madrid"
+  },
+  {
+   "name": "Toronto",
+   "country": "Canada",
+   "status": "announced",
+   "year": 2028,
+   "note": "First riders aimed for 2028.",
+   "sources": [
+    {
+     "publisher": "Waymo blog, Toronto (16 Oct 2026)",
+     "url": "https://waymo.com/blog/2026/10/waymo-in-toronto/"
+    }
+   ],
+   "geocode": "Toronto, Canada",
+   "id": "toronto"
+  },
+  {
+   "name": "Singapore",
+   "country": "Singapore",
+   "status": "announced",
+   "year": 2028,
+   "note": "Service intended to open in 2028.",
+   "sources": [
+    {
+     "publisher": "Waymo in Singapore",
+     "url": "https://waymo.com/waymo-in-singapore/"
+    }
+   ],
+   "geocode": "Singapore",
+   "id": "singapore"
+  }
+ ]
+}
