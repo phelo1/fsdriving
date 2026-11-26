@@ -1,0 +1,1025 @@
+{
+ "checkedAt": "2026-11-27",
+ "about": "No version numbers, build strings, or dates were invented. Every version entry has a verified date and a clickable source URL. Where a figure is Tesla marketing, a roadmap claim, or only reported by a tracker, it is labeled as such.",
+ "releases": [
+  {
+   "v": "15.0.1",
+   "fw": "2026.38.6.11",
+   "date": "2026-11-21",
+   "tracks": [
+    "hw4"
+   ],
+   "kind": "release",
+   "fleet": "HW4 Model Y, US only (first wave)",
+   "text": "First consumer v15. Upgraded end-to-end network and vision encoder, Reality View, learned trip start and end navigation, pothole and debris detection, Bike Rack Mode. Supervised.",
+   "src": [
+    "https://x.com/Tesla/status/2124222447855743019",
+    "https://www.notateslaapp.com/software-updates/version/2026.38.6.11/release-notes",
+    "https://teslascope.com/software/2026.38.6.11",
+    "https://www.notateslaapp.com/news/5092/tesla-fsd-v15-rolls-out-to-model-ys-without-front-bumper-cameras"
+   ]
+  },
+  {
+   "v": "15 wide release",
+   "fw": null,
+   "date": "2026-12",
+   "tracks": [
+    "hw4"
+   ],
+   "kind": "planned",
+   "fleet": "HW4 fleet (target)",
+   "text": "Musk: \"FSD V15 goes to wide release next month.\" He said yes when asked if it comes with the 2026 Holiday Update. A stated target, not a completed release.",
+   "src": [
+    "https://x.com/elonmusk/status/2124042864891982292",
+    "https://www.notateslaapp.com/news/5057/tesla-fsd-v15-coming-next-month-with-holiday-update-musk",
+    "https://www.teslarati.com/tesla-full-self-driving-v15-gets-release-date-elon-musk/"
+   ]
+  },
+  {
+   "v": "14.3.13",
+   "fw": "2026.44.1",
+   "date": "2026-11-16",
+   "tracks": [
+    "hw4",
+    "ct"
+   ],
+   "kind": "release",
+   "fleet": "Broad HW4 fleet incl. Cybertruck; HW3 gets v14.3 Lite on the same firmware",
+   "text": "The broad 2026.44 update carries v14.3.13 to HW4 cars (TeslaFi sample on Not a Tesla App: 5,373 cars, 43.6%). Teslascope logged Cybertruck installs on 21 Nov 2026. Its notes list Automatic Collision Evasion for New S, 3, New X, Y and CT.",
+   "src": [
+    "https://teslascope.com/software/2026.44.1",
+    "https://www.notateslaapp.com/software-updates/version/2026.44.1/release-notes",
+    "https://www.notateslaapp.com/news/5054/tesla-update-202644-brings-fsd-v143-and-v143-lite-to-every-owner",
+    "https://teslascope.com/software/history?country=&model=cybertruck&version="
+   ]
+  },
+  {
+   "v": "14.3.13",
+   "fw": "2026.38.5.10",
+   "date": "2026-10-20",
+   "tracks": [
+    "hw4",
+    "ct"
+   ],
+   "kind": "release",
+   "fleet": "HW4, incl. Cybertruck",
+   "text": "Latest v14.3 point release: upgraded RL training and vision encoder, MLIR rewrite with 20% faster reactions, parking improvements, emergency vehicle, school bus and traffic light work, unified Summon/FSD/Robotaxi model.",
+   "src": [
+    "https://www.fsdupdate.com/version/fsd-14-3-13",
+    "https://www.notateslaapp.com/software-updates/version/2026.38.5.10/release-notes"
+   ]
+  },
+  {
+   "v": "14.3.4",
+   "fw": "2026.14.6.10",
+   "date": "2026-06-11",
+   "tracks": [
+    "hw4",
+    "ct"
+   ],
+   "kind": "release",
+   "fleet": "HW4, incl. Cybertruck",
+   "text": "Parking options shown on the map at the destination. Actually Smart Summon and Dumb Summon arrive on Cybertruck, which also gets the unified Summon/FSD/Robotaxi model in this build.",
+   "src": [
+    "https://www.notateslaapp.com/software-updates/version/2026.14.6.10/release-notes",
+    "https://www.notateslaapp.com/news/4289/tesla-releases-actually-smart-summon-on-cybertruck"
+   ]
+  },
+  {
+   "v": "14.3.3",
+   "fw": "2026.14.6.7",
+   "date": "2026-06-02",
+   "tracks": [
+    "hw4"
+   ],
+   "kind": "release",
+   "fleet": "HW4 (S/3/X/Y)",
+   "text": "Actually Smart Summon max speed raised to 8 mph (13 km/h), not on Cybertruck. Intervention-free distance and streak in the Self-Driving app. Also on 2026.16.6 (18 Jun 2026).",
+   "src": [
+    "https://teslascope.com/software/full-self-driving",
+    "https://www.notateslaapp.com/software-updates/version/2026.38.5.13/release-notes"
+   ]
+  },
+  {
+   "v": "14.3.2",
+   "fw": "2026.2.9.10",
+   "date": "2026-05-01",
+   "tracks": [
+    "hw4"
+   ],
+   "kind": "release",
+   "fleet": "HW4 (S/3/X/Y)",
+   "text": "Unified model between Actually Smart Summon, FSD and Robotaxi, plus a prompt asking why you intervened.",
+   "src": [
+    "https://teslascope.com/software/full-self-driving",
+    "https://www.notateslaapp.com/software-updates/version/2026.38.5.13/release-notes"
+   ]
+  },
+  {
+   "v": "14.3",
+   "fw": "2026.2.9.6",
+   "date": "2026-04-07",
+   "tracks": [
+    "hw4"
+   ],
+   "kind": "release",
+   "fleet": "HW4",
+   "text": "First FSD v14.3 release on HW4.",
+   "src": [
+    "https://www.notateslaapp.com/software-updates/version/2026.2.9.6/release-notes",
+    "https://www.notateslaapp.com/news/3925/tesla-releases-fsd-143-fleet-learning-20-faster-reactions-and-more"
+   ]
+  },
+  {
+   "v": "14.2",
+   "fw": "2025.38.9.5",
+   "date": "2025-11-21",
+   "tracks": [
+    "hw4"
+   ],
+   "kind": "release",
+   "fleet": "HW4",
+   "text": "First FSD v14.2 build listed on Teslascope.",
+   "src": [
+    "https://teslascope.com/software/full-self-driving"
+   ]
+  },
+  {
+   "v": "14.1.1",
+   "fw": "2025.32.8.6",
+   "date": "2025-10-15",
+   "tracks": [
+    "hw4"
+   ],
+   "kind": "release",
+   "fleet": "HW4",
+   "text": "Early v14.1 point release. v14.1.2 listed the same day on 2025.32.8.10.",
+   "src": [
+    "https://teslascope.com/software/full-self-driving"
+   ]
+  },
+  {
+   "v": "14.3 Lite",
+   "fw": "2026.33.5",
+   "date": "2026-10-06",
+   "tracks": [
+    "hw3"
+   ],
+   "kind": "release",
+   "fleet": "HW3 (S/3/X/Y)",
+   "text": "HW4 v14 intelligence distilled into HW3. Adds parking, unparking and reversing, Arrival Options, Speed Profiles incl. a new SLOTH mode, and Start Self-Driving from Park. Now on the broad 2026.44.1 too.",
+   "src": [
+    "https://teslascope.com/software/2026.44.1",
+    "https://www.notateslaapp.com/software-updates/version/2026.44.1/release-notes",
+    "https://www.notateslaapp.com/news/5054/tesla-update-202644-brings-fsd-v143-and-v143-lite-to-every-owner",
+    "https://www.fsdupdate.com/latest-fsd-version",
+    "https://www.notateslaapp.com/software-updates/version/2026.44.3.1/release-notes"
+   ]
+  },
+  {
+   "v": "14.2 Lite",
+   "fw": "2026.27.6",
+   "date": "2026-09-08",
+   "tracks": [
+    "hw3"
+   ],
+   "kind": "release",
+   "fleet": "HW3",
+   "text": "Teslascope lists 14.2 Lite on 2026.27.6 (8 Sep), 2026.27.10 (18 Sep), 2026.27.11 (22 Sep) and 2026.38.4.5 (9 Nov 2026).",
+   "src": [
+    "https://teslascope.com/software/full-self-driving"
+   ]
+  },
+  {
+   "v": "14.1 Lite",
+   "fw": "2026.21.6",
+   "date": "2026-08-08",
+   "tracks": [
+    "hw3"
+   ],
+   "kind": "release",
+   "fleet": "HW3",
+   "text": "Also on 2026.26.6.5 (25 Aug 2026).",
+   "src": [
+    "https://teslascope.com/software/full-self-driving"
+   ]
+  },
+  {
+   "v": "14 Lite",
+   "fw": "2026.20.5.1",
+   "date": "2026-06-28",
+   "tracks": [
+    "hw3"
+   ],
+   "kind": "release",
+   "fleet": "HW3 (early access, wider from 21 Jul on 2026.20.6.11)",
+   "text": "First v14 for HW3. Early access in late June, wider rollout with 2026.20.6.11 in July.",
+   "src": [
+    "https://www.notateslaapp.com/software-updates/version/2026.20.5.1/release-notes",
+    "https://electrek.co/2026/06/29/tesla-fsd-v14-lite-hw3-rollout/",
+    "https://www.teslaoracle.com/2026/07/23/tesla-fsd-v14-lite-finally-goes-wide-release-with-software-update-version-2026-20-6-11/",
+    "https://teslascope.com/software/full-self-driving"
+   ]
+  },
+  {
+   "v": "12.6.4",
+   "fw": "2026.8",
+   "date": "2026-03-12",
+   "tracks": [
+    "hw3"
+   ],
+   "kind": "release",
+   "fleet": "HW3",
+   "text": "Last v12.6 family before the v14 Lite branch. Also on 2026.8.3 (18 Mar) and 2026.8.6 (1 Apr 2026).",
+   "src": [
+    "https://teslascope.com/software/full-self-driving"
+   ]
+  },
+  {
+   "v": "12.6.3",
+   "fw": "2024.45.32.15",
+   "date": "2025-02-07",
+   "tracks": [
+    "hw3"
+   ],
+   "kind": "release",
+   "fleet": "HW3",
+   "text": "Listed on Teslascope.",
+   "src": [
+    "https://teslascope.com/software/full-self-driving"
+   ]
+  },
+  {
+   "v": "HW3 ceiling",
+   "fw": null,
+   "date": "2026-04-22",
+   "tracks": [
+    "hw3"
+   ],
+   "kind": "event",
+   "fleet": "HW3",
+   "text": "Q1 2026 earnings call: Musk says HW3 cannot reach unsupervised FSD (one-eighth the memory bandwidth of HW4). A discounted AI4 trade-in or a computer-plus-cameras retrofit was offered in principle; no price or date yet.",
+   "src": [
+    "https://www.theverge.com/transportation/917167/elon-musk-tesla-hw3-fsd",
+    "https://www.teslaoracle.com/2026/04/23/tesla-hw3-vehicles-cant-achieve-unsupervised-fsd-v14-lite-to-be-released-by-june-musk-on-q1-2026-earnings-call/"
+   ]
+  },
+  {
+   "v": "Semi volume production",
+   "fw": null,
+   "date": "2026-09-24",
+   "tracks": [
+    "semi"
+   ],
+   "kind": "event",
+   "fleet": "Tesla Semi",
+   "text": "Sparks, Nevada factory opens; Tesla says high-volume production and deliveries start now, with capacity designed for 50,000 trucks a year. Every deployed Semi is human-driven.",
+   "src": [
+    "https://electrek.co/2026/09/25/tesla-semi-volume-production-launch-nevada-factory/",
+    "https://www.cnbc.com/2026/09/24/tesla-aims-to-scale-semi-truck-production-with-nevada-factory-opening.html",
+    "https://www.freightwaves.com/news/tesla-semi-europe-delivery-timeline"
+   ]
+  },
+  {
+   "v": "Electric steering",
+   "fw": null,
+   "date": "2026-09-25",
+   "tracks": [
+    "semi"
+   ],
+   "kind": "event",
+   "fleet": "Tesla Semi",
+   "text": "Official @tesla_semi: the first heavy-duty truck with electric steering, which \"also lays the groundwork for future autonomy.\" Future capability, not FSD today.",
+   "src": [
+    "https://x.com/tesla_semi/status/2103292313019801841"
+   ]
+  },
+  {
+   "v": "Semi autonomy plan",
+   "fw": null,
+   "date": "2026-09-18",
+   "tracks": [
+    "semi"
+   ],
+   "kind": "event",
+   "fleet": "Tesla Semi",
+   "text": "Semi chief Dan Priestley at IAA: driver assistance and safety features first, human-driven trucks gather training data, no date for full autonomy.",
+   "src": [
+    "https://www.freightwaves.com/news/tesla-semi-europe-delivery-timeline",
+    "https://www.frandroid.com/marques/tesla/3252483_a-bord-du-tesla-semi-son-responsable-nous-explique-comment-le-fsd-va-debarquer"
+   ]
+  },
+  {
+   "v": "Semi self-driving target",
+   "fw": null,
+   "date": "2026-07-22",
+   "tracks": [
+    "semi"
+   ],
+   "kind": "planned",
+   "fleet": "Tesla Semi (roadmap)",
+   "text": "Q2 2026 call: Musk said Semi self-driving should start \"working\" around the end of 2026 or early 2027. A development target, not a customer release.",
+   "src": [
+    "https://www.teslarati.com/tesla-semi-fsd-self-driving/",
+    "https://www.cnbc.com/2026/09/24/tesla-aims-to-scale-semi-truck-production-with-nevada-factory-opening.html"
+   ]
+  }
+ ],
+ "research": {
+  "generated_at": "2026-11-27T01:22:00+03:00",
+  "timezone": "Asia/Riyadh (UTC+3)",
+  "timezone_note": "generated_at and converted_local fields use Asia/Riyadh. Source timestamps that arrived in UTC or PT are converted and labeled.",
+  "research_type": "read_only",
+  "as_of": "late November 2026, checked 27 Nov 2026 around 01:22 Asia/Riyadh",
+  "disclaimer": "No version numbers, build strings, or dates were invented. Every version entry has a verified date and a clickable source URL. Where a figure is Tesla marketing, a roadmap claim, or only reported by a tracker, it is labeled as such.",
+  "summary": {
+   "hw4_ai4": {
+    "latest_confirmed_fsd": "FSD (Supervised) v15.0.1",
+    "firmware": "2026.38.6.11",
+    "first_rollout_date": "2026-11-21",
+    "status": "Supervised only. Early US rollout, still limited to HW4/AI4 Model Y (including some pre-Juniper Model Ys without a front bumper camera as of 24-26 Nov 2026). No confirmed Model 3, S, X, or Cybertruck v15 installs. Musk said wide release is next month (December 2026) with the Holiday Update.",
+    "unsupervised": false
+   },
+   "hw3_ai3": {
+    "latest_confirmed_fsd": "FSD (Supervised) v14.3 Lite",
+    "latest_broad_firmware": "2026.44.1",
+    "also_on_firmware": [
+     "2026.33.5",
+     "2026.38.5",
+     "2026.38.5.1",
+     "2026.38.5.10",
+     "2026.38.5.11",
+     "2026.44.1",
+     "2026.44.3.1"
+    ],
+    "first_listed_date": "2026-10-06",
+    "status": "Supervised only. No v15 or v15 Lite has been announced for HW3. Musk said on the Q1 2026 earnings call that HW3 cannot achieve unsupervised FSD. A computer-plus-cameras retrofit or discounted AI4 trade-in has been offered in principle, with no public price or start date as of this check.",
+    "unsupervised": false
+   },
+   "cybertruck": {
+    "latest_confirmed_fsd": "FSD (Supervised) v14.3.13",
+    "hardware": "HW4/AI4",
+    "latest_broad_firmware": "2026.44.1",
+    "also_on_firmware": [
+     "2026.38.5.10",
+     "2026.38.5.11",
+     "2026.38.5.12",
+     "2026.38.5.13",
+     "2026.44.1",
+     "2026.44.3.1"
+    ],
+    "status": "Supervised only. Teslascope recorded Cybertruck installs of 2026.44.1 on 21 Nov 2026. No confirmed v15 install. Actually Smart Summon and Dumb Summon arrived in v14.3.4 (firmware 2026.14.6.10, 11 Jun 2026). Official notes still say the 8 mph (13 km/h) Actually Smart Summon speed increase is not available on Cybertruck. Banish is not in the v14.3.13 or v15.0.1 notes and has not been announced as released on any Tesla.",
+    "unsupervised": false
+   },
+   "tesla_semi": {
+    "latest_confirmed_fsd": null,
+    "autopilot_or_fsd_shipping": false,
+    "status": "Confirmed: volume production began at the Sparks, Nevada factory in September 2026, and all deployed Semis are human-driven. Official Tesla Semi account said electric steering 'lays the groundwork for future autonomy.' Semi program head Dan Priestley said Tesla is first adding driver-assistance and active-safety features and is using human-driven trucks to train future autonomy, with no date for full autonomy. Planned/unconfirmed: Musk said on the Q2 2026 earnings call that self-driving on Semi should start 'working' around the end of 2026 or early 2027. That is a development target, not a confirmed customer FSD or unsupervised rollout."
+   }
+  },
+  "official_tesla_fsd_site": {
+   "url": "https://www.tesla.com/fsd",
+   "safety_report_url": "https://www.tesla.com/fsd/safety",
+   "support_url": "https://www.tesla.com/support/fsd",
+   "hero_poster_image": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/FSD-Hero-Poster-Desktop.jpg",
+   "safety_social_image": "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/FSD-Safety-Report-Social.jpg",
+   "fetched_at": "2026-11-27T01:18:00+03:00",
+   "product_name_on_page": "Full Self-Driving (Supervised)",
+   "live_status_chip": {
+    "text": "v15 Rolling Out Now",
+    "footnote": "Only available for eligible vehicles.",
+    "note": "The official marketing page does not name a build string, hardware (HW3 vs HW4), or model eligibility. Tracker and Tesla X evidence shows the live consumer build is FSD (Supervised) v15.0.1 on firmware 2026.38.6.11, still limited to HW4 Model Y in the US at the time of this check."
+   },
+   "new_features_v15_as_marketed": [
+    {
+     "name": "Reality View",
+     "blurb": "High-fidelity visualizations show you what's ahead and lets you change course with a tap."
+    },
+    {
+     "name": "Pothole Detection",
+     "blurb": "Sees and responds to potholes, road debris, puddles, animals, signs and more."
+    },
+    {
+     "name": "Personalized Navigation",
+     "blurb": "Learns how you like to start and end your rides, including preferred routes and parking spaces."
+    },
+    {
+     "name": "Speed Reactivity",
+     "blurb": "Adjusts driving speeds according to road conditions, weather and zoning requirements."
+    }
+   ],
+   "live_stats_observed": [
+    {
+     "page": "https://www.tesla.com/fsd",
+     "observed_at": "2026-11-27T01:18:00+03:00",
+     "miles_driven": 18096033941,
+     "miles_driven_label": "18,096,033,941",
+     "safety_headline": "7x Safer Than a Human Driver When FSD (Supervised) Is Engaged",
+     "countries": 19,
+     "countries_label": "19 Countries And Counting",
+     "notes": "The miles figure is a live counter. Tesla's footnote says counters increment at the average rate of Tesla fleet mileage per second and may not include mileage increases for the growing fleet and free trials."
+    },
+    {
+     "page": "https://www.tesla.com/fsd/safety",
+     "observed_at": "2026-11-27T01:20:00+03:00",
+     "miles_driven": 18096045074,
+     "miles_driven_label": "18,096,045,074",
+     "city_miles_driven": 7204263921,
+     "city_miles_driven_label": "7,204,263,921",
+     "safety_multiples_vs_estimated_us_average": {
+      "fewer_major_collisions": "9x",
+      "fewer_minor_collisions": "7x",
+      "fewer_off_highway_collisions": "6x",
+      "footnote": "Compared to the estimated U.S. average"
+     },
+     "extrapolated_claims": {
+      "improves_us_road_safety_by": "over 80%",
+      "lives_potentially_saved_per_year": 32000,
+      "injuries_potentially_avoided_per_year": 1900000,
+      "nhtsa_context": "NHTSA reported 40,900+ fatalities and 2,400,000+ injuries on US roads in 2023.",
+      "footnote": "Injury and fatality estimates extrapolate current FSD (Supervised) collision reductions to 2024 total U.S. vehicle miles traveled and injury/fatality data and assume that fewer collisions reduce injuries and fatalities. These are Tesla extrapolations, not independently audited counts."
+     },
+     "notes": "The two miles counters differed by about 11,133 miles between the two page fetches a couple of minutes apart, which is consistent with a live incrementing counter. A 'Miles Driven Before a Collision' chart is on the safety page, but the exact miles-per-collision numbers did not appear in the extracted text, so they are not recorded here. A human-error comparison chart (drunk driving, seatbelts, speeding, distracted driving) also did not parse reliably, so those percentages are omitted rather than guessed."
+    }
+   ],
+   "approved_markets_listed_on_safety_page": [
+    "United States",
+    "Canada",
+    "Mexico",
+    "Puerto Rico",
+    "Australia",
+    "New Zealand",
+    "South Korea",
+    "The Netherlands",
+    "Lithuania",
+    "Estonia",
+    "Denmark",
+    "Belgium",
+    "Slovenia",
+    "Czech Republic",
+    "Croatia",
+    "Slovakia",
+    "Latvia",
+    "Finland",
+    "Italy"
+   ],
+   "approved_markets_count": 19,
+   "italy_confirmation": {
+    "ashok_elluswamy_post": "https://x.com/aelluswamy/status/2123834247781970327",
+    "created_at_utc": "2026-11-20T17:41:58.000Z",
+    "created_at_riyadh": "2026-11-20T20:41:58+03:00",
+    "text": "You can now enjoy Italy on FSD."
+   },
+   "key_copy_and_milestones_from_official_pages": [
+    "Tesla uses billions of miles of anonymous real-world driving data to train FSD (Supervised).",
+    "When enabled, the vehicle will drive you almost anywhere with your active supervision, requiring minimal intervention.",
+    "Currently available in select markets across North America, Europe and Asia Pacific, with expansion to additional regions expected with future updates.",
+    "Feature availability depends on regulatory approval and other factors, which may take longer in some jurisdictions.",
+    "Currently enabled features require active driver supervision and do not make the vehicle autonomous.",
+    "The page highlights Actually Smart Summon ('Drives to You'), FSD Supervised lane changes ('Drives for You'), and Autopark ('Parks for You').",
+    "Trained on what Tesla describes as over 100 years of anonymous real-world driving scenarios from a fleet of over six million vehicles. Tesla says the fleet collectively experiences a lifetime of driving scenarios in 10 minutes.",
+    "Eight external cameras; the system 'processes over one million pixels of visual data every millisecond.'",
+    "Closing section, 'The Future Is Autonomous,' treats Full Self-Driving (Unsupervised), a robotaxi fleet, and Cybercab as future, not as a current consumer feature: 'With Full Self-Driving (Unsupervised), autonomous driving will be made possible, unlocking our fleet of robotaxis and making Cybercab a reality.'",
+    "CTA on the marketing page is to schedule a demo drive."
+   ],
+   "safety_report_methodology_highlights": {
+    "collision_definition": "Tesla records collision events in accordance with 49 C.F.R. § 563.5: a crash or physical occurrence that deploys a non-reversible deployable restraint, or a Delta-V of 8 km/h or more within 150 milliseconds.",
+    "major_vs_minor": "Major collisions are deployment (airbag or other non-reversible pyrotechnic restraint) events. Minor collisions are non-deployment events that still meet the Delta-V threshold.",
+    "engagement_rule": "If FSD (Supervised) was active at any point within five seconds leading up to a collision, Tesla counts it as an FSD-engaged collision.",
+    "fault": "Tesla does not attribute fault in the reported data.",
+    "baseline": "Safety multiples are compared to an estimated U.S. average built from U.S. government data, and Tesla also compares against manually driven Teslas with and without active safety features.",
+    "update_cadence": "Collision rate metrics are updated every quarter and use a rolling twelve-month aggregation of miles and collisions.",
+    "exclusions": "The Vehicle Safety Report excludes data from China.",
+    "miles_counter_caveat": "Mileage counters increment at the average rate of Tesla fleet mileage per second and may not include mileage increases for the growing fleet and free trials."
+   },
+   "footnotes_from_tesla_com_fsd": {
+    "1": "Only available for eligible vehicles.",
+    "2": "Availability of all features depends on regulatory approval and other factors, which may take longer in some jurisdictions.",
+    "3": "Currently enabled features require active driver supervision and do not make the vehicle autonomous.",
+    "4": "Counters increment at the average rate of Tesla fleet mileage per second. This number may not include mileage increases for the growing fleet and free trials offered.",
+    "5": "Compared to the estimated U.S. average",
+    "6": "The sixth footnote, attached to '19 Countries And Counting,' was truncated in the page extract. The 19-market list on https://www.tesla.com/fsd/safety is the official list used in this file."
+   },
+   "design_and_layout_takeaways": {
+    "purpose": "Inspiration for an FSD tracker page. tesla.com/fsd is a cinematic marketing page, not a version tracker. It does not split HW3, HW4, Cybertruck, or Semi.",
+    "visual_system": [
+     "Dark, full-bleed cinematic hero with an interior driving video and a still poster (FSD-Hero-Poster-Desktop.jpg).",
+     "Very large product title: 'Full Self-Driving (Supervised)', with Supervised kept in the name everywhere.",
+     "A small live status chip under or near the title ('v15 Rolling Out Now') is a strong pattern for a tracker to copy, but a tracker should also show the exact build and which cars have it.",
+     "Four simple latest-version feature cards with short verbs and no version table.",
+     "Video-first feature walkthroughs: Summon, FSD driving / lane change, Autopark, plus a 'world's first autonomous car delivery' film.",
+     "A mid-page training-data section with fleet-scale claims and looping video, then an attentive-cameras safety pitch.",
+     "A three-stat scoreboard (live miles, safety multiple, country count) in huge numerals. The miles figure ticks upward.",
+     "A clearly separated future section for Unsupervised / Robotaxi / Cybercab, so current Supervised capability is not confused with the roadmap.",
+     "Heavy footnotes and repeated 'active supervision / not autonomous' legal language.",
+     "Bottom CTA is a demo drive, not release notes.",
+     "Sibling safety report page uses the same dark typography, live counters, and big multiples, then a long methodology FAQ.",
+     "Tesla red / white on black, lots of motion, almost no chrome UI, almost no version history."
+    ],
+    "what_a_tracker_page_should_do_better": [
+     "Keep the cinematic hero and a live status chip, but immediately show four hardware tracks: HW4, HW3, Cybertruck, Semi.",
+     "Show exact FSD version + firmware build + first-seen date + source links, which tesla.com/fsd omits.",
+     "Call out eligibility (for example v15 still on HW4 Model Y only) instead of a vague 'eligible vehicles' footnote.",
+     "Keep Supervised vs Unsupervised visually separate, matching Tesla's own split.",
+     "Optionally re-source Tesla's live miles / 19-country / safety-multiple stats with a link back to tesla.com/fsd and tesla.com/fsd/safety, labeled as Tesla's figures.",
+     "Add a dated version timeline and remaining feature gaps (for example Cybertruck ASS 8 mph cap, Banish not released, HW3 stuck on v14.3 Lite)."
+    ]
+   }
+  },
+  "tracks": {
+   "hw4_ai4": {
+    "display_name": "HW4 (AI4) Model S/3/X/Y",
+    "latest": {
+     "fsd_version": "15.0.1",
+     "label": "FSD (Supervised) v15.0.1",
+     "firmware": "2026.38.6.11",
+     "supervision": "Supervised",
+     "unsupervised": false,
+     "first_rollout_date": "2026-11-21",
+     "rollout_status": "Early access / first wave. Still limited to HW4 Model Y in the United States as of 26 Nov 2026, including some older pre-Juniper HW4 Model Ys without a front bumper camera from 24 Nov 2026. Teslascope and Not a Tesla App both said this is not yet a broad wave, and no Model 3, S, X, or Cybertruck v15 installs were confirmed in the sources checked.",
+     "teslafi_on_nata_page": {
+      "cars": 82,
+      "percent_of_fleet_sample": "0.7%",
+      "installs_pending": 6,
+      "source": "https://www.notateslaapp.com/software-updates/version/2026.38.6.11/release-notes",
+      "note": "TeslaFi sample as shown on the Not a Tesla App notes page at fetch time. Teslascope showed a smaller recorded-install count (30), 100% Model Y, 100% HW4, 100% United States."
+     },
+     "key_features_from_official_notes_and_tesla_post": [
+      "Upgrades every part of the end-to-end driving network.",
+      "Upgraded vision encoder shared between FSD, Robotaxi, and Optimus, trained on millions of internet videos; Tesla says this improves the critical intervention rate by 25x.",
+      "Tesla Reality View: a live / generative visualization that replaces explicit model signals with a single end-to-end view, using less total compute. Upcoming turns show in the visualization. Users can tap a point to send the car there (Musk).",
+      "Navigation for the start and end of the trip now learns end-to-end from fleet route preferences. Later v15 releases will expand this to the entire route (Tesla official post).",
+      "Improved parking location selection using personalized parking history; the map shows multiple parking options.",
+      "Better detection of signs, animals, debris, potholes, road details, chains, and deep standing water.",
+      "More natural speed handling in school zones, speed limits, and inclement weather.",
+      "FSD can slow for speed cameras. Cancel twice at the same camera to save and skip it.",
+      "Bike Rack Mode lets owners engage FSD (Supervised) and Autosteer with a bike rack or similar hitch accessory. When enabled, FSD pulls over near the destination and does not reverse; Autopark, Summon, and backup chimes are disabled.",
+      "Improved driver monitoring with hats and sunglasses, and lower strictness in higher-speed profiles.",
+      "Improved Autoshift by unifying with FSD-based gear predictions."
+     ],
+     "wide_release_plan": {
+      "status": "planned",
+      "musk_statement": "FSD V15 goes to wide release next month. It will be something special.",
+      "holiday_update": "Musk replied 'Yeah' when asked if v15 would arrive with the 2026 Holiday Update (reported by Not a Tesla App and Teslarati). That is a stated target for December 2026, not a completed wide release.",
+      "sources": [
+       "https://x.com/elonmusk/status/2124042864891982292",
+       "https://www.notateslaapp.com/news/5057/tesla-fsd-v15-coming-next-month-with-holiday-update-musk",
+       "https://www.teslarati.com/tesla-full-self-driving-v15-gets-release-date-elon-musk/"
+      ]
+     },
+     "sources": [
+      {
+       "title": "Tesla official FSD v15 rollout post",
+       "url": "https://x.com/Tesla/status/2124222447855743019",
+       "date": "2026-11-21",
+       "created_at_utc": "2026-11-21T19:24:32.000Z",
+       "created_at_riyadh": "2026-11-21T22:24:32+03:00"
+      },
+      {
+       "title": "Ashok Elluswamy: FSD v15 releasing to the first wave of customers today",
+       "url": "https://x.com/aelluswamy/status/2124224924512641512",
+       "date": "2026-11-21"
+      },
+      {
+       "title": "2026.38.6.11 official release notes (Not a Tesla App)",
+       "url": "https://www.notateslaapp.com/software-updates/version/2026.38.6.11/release-notes",
+       "date": "2026-11-21"
+      },
+      {
+       "title": "Teslascope 2026.38.6.11 / AI4 V15.0.1",
+       "url": "https://teslascope.com/software/2026.38.6.11",
+       "date": "2026-11-21"
+      },
+      {
+       "title": "Not a Tesla App: v15 reaches pre-Juniper Model Ys without a front bumper camera",
+       "url": "https://www.notateslaapp.com/news/5092/tesla-fsd-v15-rolls-out-to-model-ys-without-front-bumper-cameras",
+       "date": "2026-11-26"
+      },
+      {
+       "title": "FSD Update latest version cross-check",
+       "url": "https://www.fsdupdate.com/latest-fsd-version",
+       "date": "2026-11-24"
+      },
+      {
+       "title": "tesla.com/fsd marketing page ('v15 Rolling Out Now')",
+       "url": "https://www.tesla.com/fsd",
+       "date": "2026-11-27"
+      }
+     ]
+    },
+    "current_broad_fleet_build": {
+     "note": "Most HW4 cars not yet on the v15 first wave are still on FSD (Supervised) v14.3.13. That build is on several firmwares, including the broad 2026.44.1 branch and 2026.38.5.10 through 2026.38.5.13. A very early 2026.44.3.1 (dated 26 Nov 2026 on Not a Tesla App, 1 TeslaFi car at fetch) carries the same FSD versions plus manual battery preconditioning, not a new FSD version.",
+     "fsd_version": "14.3.13",
+     "firmwares": [
+      {
+       "firmware": "2026.38.5.10",
+       "first_listed": "2026-10-20",
+       "source": "https://www.notateslaapp.com/software-updates/version/2026.38.5.10/release-notes"
+      },
+      {
+       "firmware": "2026.38.5.13",
+       "first_listed": "2026-11-13",
+       "source": "https://www.notateslaapp.com/software-updates/version/2026.38.5.13/release-notes"
+      },
+      {
+       "firmware": "2026.44.1",
+       "first_listed_teslascope": "2026-11-16",
+       "first_listed_nata": "2026-11-17",
+       "teslafi_on_nata_page": "5,373 cars / 43.6% of that sample, 248 pending",
+       "source_teslascope": "https://teslascope.com/software/2026.44.1",
+       "source_nata": "https://www.notateslaapp.com/software-updates/version/2026.44.1/release-notes",
+       "source_article": "https://www.notateslaapp.com/news/5054/tesla-update-202644-brings-fsd-v143-and-v143-lite-to-every-owner"
+      },
+      {
+       "firmware": "2026.44.3.1",
+       "first_listed": "2026-11-26",
+       "source": "https://www.notateslaapp.com/software-updates/version/2026.44.3.1/release-notes",
+       "note": "Same FSD v14.3.13 / v14.3 Lite payload. Early, 1 TeslaFi car at fetch."
+      }
+     ]
+    },
+    "major_point_releases": [
+     {
+      "fsd_version": "15.0.1",
+      "firmware": "2026.38.6.11",
+      "date": "2026-11-21",
+      "notes": "First consumer v15. HW4 Model Y, US, Supervised.",
+      "source": "https://www.notateslaapp.com/software-updates/version/2026.38.6.11/release-notes"
+     },
+     {
+      "fsd_version": "14.3.13",
+      "firmware": "2026.38.5.10",
+      "date": "2026-10-20",
+      "notes": "Latest v14.3 point release. Official notes include upgraded RL training, vision encoder, MLIR rewrite with 20% faster reaction time, parking improvements, emergency vehicle / school bus / traffic light work, unified ASS/FSD/Robotaxi model, and the 8 mph ASS cap (not on Cybertruck). Later firmwares including 2026.38.5.13 and 2026.44.1 carry the same FSD version.",
+      "source": "https://www.fsdupdate.com/version/fsd-14-3-13",
+      "source_notes": "https://www.notateslaapp.com/software-updates/version/2026.38.5.10/release-notes"
+     },
+     {
+      "fsd_version": "14.3.4",
+      "firmware": "2026.14.6.10",
+      "date": "2026-06-11",
+      "notes": "Parking options display on the map at the destination. Actually Smart Summon and Dumb Summon arrive for Cybertruck. Unified ASS/FSD/Robotaxi model is new for Cybertruck in this build (it was new for non-Cybertrucks in v14.3.2).",
+      "source": "https://www.notateslaapp.com/software-updates/version/2026.14.6.10/release-notes"
+     },
+     {
+      "fsd_version": "14.3.3",
+      "notes": "Official later notes attribute to v14.3.3: Actually Smart Summon max speed increased to 8 mph (13 km/h), not available on Cybertruck; intervention-free distance and streak in the Self-Driving app. Teslascope lists v14.3.3 on firmware 2026.16.6 (18 Jun 2026) and 2026.14.6.7 (2 Jun 2026).",
+      "teslascope_firmwares": [
+       {
+        "firmware": "2026.14.6.7",
+        "date": "2026-06-02"
+       },
+       {
+        "firmware": "2026.16.6",
+        "date": "2026-06-18"
+       }
+      ],
+      "source": "https://teslascope.com/software/full-self-driving",
+      "source_notes": "https://www.notateslaapp.com/software-updates/version/2026.38.5.13/release-notes"
+     },
+     {
+      "fsd_version": "14.3.2",
+      "firmware": "2026.2.9.10",
+      "date": "2026-05-01",
+      "notes": "Official later notes say the unified model between Actually Smart Summon, FSD, and Robotaxi, and the post-intervention reason prompt, were new in v14.3.2 for non-Cybertrucks.",
+      "source": "https://teslascope.com/software/full-self-driving",
+      "source_notes": "https://www.notateslaapp.com/software-updates/version/2026.38.5.13/release-notes"
+     },
+     {
+      "fsd_version": "14.3",
+      "firmware": "2026.2.9.6",
+      "date": "2026-04-07",
+      "notes": "First FSD v14.3 release on HW4.",
+      "source": "https://www.notateslaapp.com/software-updates/version/2026.2.9.6/release-notes",
+      "source_article": "https://www.notateslaapp.com/news/3925/tesla-releases-fsd-143-fleet-learning-20-faster-reactions-and-more"
+     },
+     {
+      "fsd_version": "14.2",
+      "firmware": "2025.38.9.5",
+      "date": "2025-11-21",
+      "notes": "First FSD v14.2 listed on Teslascope.",
+      "source": "https://teslascope.com/software/full-self-driving"
+     },
+     {
+      "fsd_version": "14.1.1",
+      "firmware": "2025.32.8.6",
+      "date": "2025-10-15",
+      "notes": "Early v14.1 point release listed on Teslascope. v14.1.2 is also listed the same date on 2025.32.8.10.",
+      "source": "https://teslascope.com/software/full-self-driving"
+     }
+    ],
+    "additional_teslascope_ai4_table": {
+     "url": "https://teslascope.com/software/full-self-driving",
+     "note": "Teslascope maintains a fuller AI4 point-release table (v14.3.5 through v14.3.12, plus lingering v13.2.x and v14.2.2.x builds). Those rows were visible on 27 Nov 2026 but are not all expanded here. Use that page for the complete list rather than inventing intermediate dates."
+    }
+   },
+   "hw3_ai3": {
+    "display_name": "HW3 (AI3) Model S/3/X/Y",
+    "latest": {
+     "fsd_version": "14.3 Lite",
+     "label": "FSD (Supervised) v14.3 Lite",
+     "supervision": "Supervised",
+     "unsupervised": false,
+     "first_listed_date": "2026-10-06",
+     "first_listed_firmware": "2026.33.5",
+     "latest_broad_firmware": "2026.44.1",
+     "firmwares_carrying_it": [
+      "2026.33.5",
+      "2026.38.5",
+      "2026.38.5.1",
+      "2026.38.5.10",
+      "2026.38.5.11",
+      "2026.44.1",
+      "2026.44.3.1"
+     ],
+     "key_features_from_official_notes": [
+      "Distilled the intelligence from HW4 V14 into HW3, so HW3 can learn scenarios using HW4 V14 as a guide, including Reinforcement Learning and offline models.",
+      "Improved proactive and reactive responsiveness: navigation, merges and forks, pedestrians, traffic lights, and cut-ins.",
+      "Fewer false slowdowns, smoother steering, more consistent lane centering.",
+      "Introduced parking, unparking, and reversing capabilities.",
+      "Arrival Options: Parking Lot, Street, Driveway, or Pull Over, saved per destination.",
+      "Speed Profiles available at all times, including a new SLOTH profile that is slower and more conservative than CHILL.",
+      "Start Self-Driving from Park, with a button when the driver is seated, buckled, and the cabin camera is unobstructed. Official notes say this does not make the vehicle autonomous."
+     ],
+     "v15_status": "No v15 or v15 Lite has been announced for HW3. Not a Tesla App, FSD Update, and Teslascope all report HW3 remaining on the v14.3 Lite branch.",
+     "sources": [
+      "https://teslascope.com/software/2026.44.1",
+      "https://www.notateslaapp.com/software-updates/version/2026.44.1/release-notes",
+      "https://www.notateslaapp.com/news/5054/tesla-update-202644-brings-fsd-v143-and-v143-lite-to-every-owner",
+      "https://www.fsdupdate.com/latest-fsd-version",
+      "https://www.notateslaapp.com/software-updates/version/2026.44.3.1/release-notes"
+     ]
+    },
+    "earlier_lite_and_v12_milestones": [
+     {
+      "fsd_version": "14.2 Lite",
+      "example_firmware": "2026.38.4.5",
+      "date": "2026-11-09",
+      "notes": "Teslascope also lists earlier 14.2 Lite firmwares 2026.27.11 (22 Sep 2026), 2026.27.10 (18 Sep 2026), and 2026.27.6 (8 Sep 2026).",
+      "source": "https://teslascope.com/software/full-self-driving"
+     },
+     {
+      "fsd_version": "14.1 Lite",
+      "firmware": "2026.26.6.5",
+      "date": "2026-08-25",
+      "also": {
+       "firmware": "2026.21.6",
+       "date": "2026-08-08"
+      },
+      "source": "https://teslascope.com/software/full-self-driving"
+     },
+     {
+      "fsd_version": "14 Lite",
+      "first_early_access_firmware": "2026.20.5.1",
+      "first_early_access_date": "2026-06-28",
+      "notes": "Not a Tesla App dates 2026.20.5.1 as FSD 14 Lite. Electrek reported the HW3 v14 Lite early-access rollout on 29 Jun 2026. Tesla Oracle reported a wider HW3 rollout with 2026.20.6.11 on 21 Jul 2026. Teslascope lists v14 Lite on 2026.20.6.11 (21 Jul 2026), 2026.20.6.10 (19 Jul 2026), and 2026.20.5.1 (28 Jun 2026).",
+      "sources": [
+       "https://www.notateslaapp.com/software-updates/version/2026.20.5.1/release-notes",
+       "https://electrek.co/2026/06/29/tesla-fsd-v14-lite-hw3-rollout/",
+       "https://www.teslaoracle.com/2026/07/23/tesla-fsd-v14-lite-finally-goes-wide-release-with-software-update-version-2026-20-6-11/",
+       "https://teslascope.com/software/full-self-driving"
+      ]
+     },
+     {
+      "fsd_version": "12.6.4",
+      "firmware": "2026.8.6",
+      "date": "2026-04-01",
+      "notes": "Last v12.6 family build listed on Teslascope before the v14 Lite branch. Earlier 12.6.4 firmwares: 2026.8.3 (18 Mar 2026) and 2026.8 (12 Mar 2026).",
+      "source": "https://teslascope.com/software/full-self-driving"
+     },
+     {
+      "fsd_version": "12.6.3",
+      "firmware": "2024.45.32.15",
+      "date": "2025-02-07",
+      "source": "https://teslascope.com/software/full-self-driving"
+     }
+    ],
+    "hardware_upgrade_or_retrofit": {
+     "unsupervised_on_hw3": {
+      "official_position": "HW3 cannot achieve unsupervised FSD.",
+      "reason_given": "Musk said HW3 has only one-eighth the memory bandwidth of Hardware 4, and memory bandwidth is a key element needed for unsupervised FSD.",
+      "date": "2026-04-22",
+      "event": "Tesla Q1 2026 earnings call",
+      "sources": [
+       "https://www.theverge.com/transportation/917167/elon-musk-tesla-hw3-fsd",
+       "https://www.teslaoracle.com/2026/04/23/tesla-hw3-vehicles-cant-achieve-unsupervised-fsd-v14-lite-to-be-released-by-june-musk-on-q1-2026-earnings-call/"
+      ]
+     },
+     "offered_paths": {
+      "confirmed_in_principle": [
+       "Discounted trade-in toward a car with AI4 hardware, for customers who bought FSD.",
+       "An in-car upgrade replacing the computer and the cameras, because cameras also have to change to go to Hardware 4.",
+       "Tesla said it would need to set up 'microfactories' or small factories in major metropolitan areas, because doing the work at service centers would be too slow."
+      ],
+      "musk_also_said": "Over time it will make sense to convert all Hardware 3 cars to Hardware 4, because that enables them to enter the robotaxi fleet and have unsupervised FSD.",
+      "as_of_this_check": "No public retrofit price, start date, locations, or sign-up process was found in the official or major secondary sources checked in late November 2026."
+     },
+     "ai5_context": {
+      "note": "On 22 Nov 2026 Musk replied that AI5 is going to Optimus and 'Cars will remain at AI4. That’s enough to solve superhuman driving.' That statement is about future car computers staying on AI4, not a new HW3 retrofit timeline.",
+      "url": "https://x.com/elonmusk/status/2124475458150334900",
+      "created_at_utc": "2026-11-22T12:09:54.000Z",
+      "created_at_riyadh": "2026-11-22T15:09:54+03:00"
+     }
+    }
+   },
+   "cybertruck": {
+    "display_name": "Cybertruck (HW4/AI4)",
+    "hardware": "HW4 / AI4",
+    "latest": {
+     "fsd_version": "14.3.13",
+     "label": "FSD (Supervised) v14.3.13",
+     "supervision": "Supervised",
+     "unsupervised": false,
+     "latest_broad_firmware": "2026.44.1",
+     "teslascope_cybertruck_2026_44_1_examples": [
+      {
+       "time_utc_or_source_local": "2026-11-21 05:22",
+       "model": "Cybertruck Cyberbeast (2025)",
+       "hw": "4.0",
+       "country": "United States",
+       "from": "2026.38.5.11"
+      },
+      {
+       "time_utc_or_source_local": "2026-11-21 02:38",
+       "model": "Cybertruck AWD (2025)",
+       "hw": "4.0",
+       "country": "United States",
+       "from": "2026.38.5.11"
+      }
+     ],
+     "source_history": "https://teslascope.com/software/history?country=&model=cybertruck&version=",
+     "v15_status": "No confirmed Cybertruck install of FSD v15.0.1 as of 26-27 Nov 2026. Teslascope's 2026.38.6.11 install list in this check was 100% Model Y.",
+     "sources": [
+      "https://teslascope.com/software/history?country=&model=cybertruck&version=",
+      "https://www.notateslaapp.com/software-updates/version/2026.44.1/release-notes",
+      "https://teslascope.com/software/2026.38.6.11",
+      "https://www.fsdupdate.com/latest-fsd-version"
+     ]
+    },
+    "feature_parity_and_gaps": {
+     "actually_smart_summon": {
+      "status": "released",
+      "first_confirmed": {
+       "fsd_version": "14.3.4",
+       "firmware": "2026.14.6.10",
+       "date": "2026-06-11",
+       "official_note": "ASS (Actually Smart Summon) and Dumb Summon are now available for Cybertruck!",
+       "source": "https://www.notateslaapp.com/software-updates/version/2026.14.6.10/release-notes",
+       "source_article": "https://www.notateslaapp.com/news/4289/tesla-releases-actually-smart-summon-on-cybertruck"
+      },
+      "unified_model": "Official notes: unified model between Actually Smart Summon, FSD, and Robotaxi was new in FSD v14.3.2 for non-Cybertrucks, and new in FSD v14.3.4 for the Cybertruck."
+     },
+     "ass_8mph_speed_increase": {
+      "status": "not available on Cybertruck",
+      "official_note": "Actually Smart Summon max speed is now increased to 8mph (13km/h). (Added in FSD v14.3.3, not available on Cybertruck)",
+      "still_present_in_notes_for": [
+       "2026.14.6.10",
+       "2026.38.5.13",
+       "2026.44.1",
+       "2026.44.3.1"
+      ],
+      "sources": [
+       "https://www.notateslaapp.com/software-updates/version/2026.38.5.13/release-notes",
+       "https://www.notateslaapp.com/software-updates/version/2026.44.1/release-notes"
+      ]
+     },
+     "parking_options_on_map": {
+      "status": "released",
+      "added_in": "FSD v14.3.4",
+      "source": "https://www.notateslaapp.com/software-updates/version/2026.14.6.10/release-notes"
+     },
+     "banish": {
+      "status": "not released",
+      "scope": "Not announced as released on Cybertruck or on any other Tesla model in the official v14.3.13 or v15.0.1 notes.",
+      "v15_notes_mention_banish": false,
+      "note": "Owner forums and secondary roundups discuss Banish as a future unattended park-at-destination feature. That is not an official release. Do not list it as shipping.",
+      "sources": [
+       "https://www.notateslaapp.com/software-updates/version/2026.38.6.11/release-notes",
+       "https://www.notateslaapp.com/software-updates/version/2026.38.5.13/release-notes",
+       "https://www.autopilotreview.com/full-self-driving-update/"
+      ]
+     },
+     "automatic_collision_evasion": {
+      "status": "released on HW4 including Cybertruck",
+      "listed_models": "New S, 3, New X, Y, CT",
+      "source": "https://www.notateslaapp.com/software-updates/version/2026.44.1/release-notes"
+     },
+     "improved_turning_radius": {
+      "status": "vehicle/OTA feature, not an FSD version increment",
+      "reporting": "Not a Tesla App reported a tighter turning radius rolling out with software 2026.44 or later for model-year 2027 Cybertrucks. This was not used as an FSD version data point.",
+      "source": "https://www.notateslaapp.com/news/5058/tesla-tightens-cybertrucks-turning-radius-with-ota-update"
+     }
+    }
+   },
+   "tesla_semi": {
+    "display_name": "Tesla Semi",
+    "fsd_or_autopilot_currently_shipping_to_customers": false,
+    "confirmed": {
+     "production": {
+      "fact": "Tesla opened its dedicated Semi factory in Sparks, Nevada, and said high-volume production and customer deliveries 'start now.' Tesla said the plant is designed for 50,000 trucks a year, or about 1,000 a week. Variants mentioned: Standard Range, Long Range, and a European spec on the same line.",
+      "event_date": "2026-09-24",
+      "sources": [
+       "https://electrek.co/2026/09/25/tesla-semi-volume-production-launch-nevada-factory/",
+       "https://www.cnbc.com/2026/09/24/tesla-aims-to-scale-semi-truck-production-with-nevada-factory-opening.html"
+      ]
+     },
+     "operation_today": {
+      "fact": "Every deployed Semi described in the official and major press sources is human-driven. Tesla has not announced a customer FSD or unsupervised Autopilot package shipping on Semi.",
+      "sources": [
+       "https://www.freightwaves.com/news/tesla-semi-europe-delivery-timeline",
+       "https://www.cnbc.com/2026/09/24/tesla-aims-to-scale-semi-truck-production-with-nevada-factory-opening.html"
+      ]
+     },
+     "electric_steering_and_future_autonomy": {
+      "fact": "Tesla's official Semi account said the production Semi is the first heavy-duty truck with electric steering, eliminating hydraulic compressors and fluids, and that this 'also lays the groundwork for future autonomy.' That is official wording about future capability, not a claim that FSD is enabled today.",
+      "url": "https://x.com/tesla_semi/status/2103292313019801841",
+      "created_at_utc": "2026-09-25T01:15:39.000Z",
+      "created_at_riyadh": "2026-09-25T04:15:39+03:00",
+      "author": "@tesla_semi"
+     },
+     "priestley_iaa_2026": {
+      "who": "Dan Priestley, head of Semi at Tesla",
+      "date": "2026-09-18",
+      "event": "IAA Transportation 2026, Hannover",
+      "confirmed_statements": [
+       "Tesla is concentrating on driver assistance and safety features (Priestley cited adaptive cruise, automatic emergency braking, and forward collision warning in a related interview) and will introduce autonomy over time.",
+       "Tesla is using human-driven trucks to gather training data toward eventual full autonomy. Quote reported by Frandroid: 'We need to get trucks out in the world that are human-driven to train the autonomy.'",
+       "He set no date for full autonomy on the Semi.",
+       "A large articulated vehicle is a related but different problem from a passenger car. Tesla is carrying over the systems and training architecture behind supervised FSD on the car side.",
+       "European demonstrations are planned in the first half of 2027, with customer deliveries targeted by the end of 2027. First European trucks will be built in Nevada.",
+       "Priestley said the Semi fleet had run more than 28 million km (about 17.4 million miles), including 19 million km (about 11.8 million miles) by customers, and put 2026 uptime at 98%."
+      ],
+      "sources": [
+       "https://www.freightwaves.com/news/tesla-semi-europe-delivery-timeline",
+       "https://www.frandroid.com/marques/tesla/3252483_a-bord-du-tesla-semi-son-responsable-nous-explique-comment-le-fsd-va-debarquer"
+      ]
+     },
+     "cameras": {
+      "reporting": "Analyst and press reports describe a production Semi exterior camera array (Nic Cruz Patane said 10 AI4-based cameras in April 2026). This is third-party reporting about hardware fitment, not an official statement that FSD software is enabled.",
+      "source_mentioned_by_teslarati": "https://www.teslarati.com/tesla-semi-fsd-self-driving/"
+     }
+    },
+    "planned_or_unconfirmed": {
+     "musk_q2_2026_earnings": {
+      "date": "2026-07-22",
+      "label": "planned / unconfirmed as a shipped customer feature",
+      "statements_as_reported": [
+       "Self-driving on the Tesla Semi is expected to start working 'around the end of this year or early next year.'",
+       "Autonomous Semi development was 'taking a bit of a backseat for the next six months or so' because the self-driving team was focused on Model 3, Model Y, and Cybercab.",
+       "It 'will definitely be working next year and in time for the scale-up to high production of the Tesla Semi.'",
+       "Musk pointed to a shortage of truck drivers as a reason autonomy on Semi matters."
+      ],
+      "interpretation": "Teslarati and CNBC both note this describes internal validation / 'working,' not a public unsupervised or customer FSD rollout. Treat as a Tesla roadmap statement, not a confirmed shipping status.",
+      "sources": [
+       "https://www.teslarati.com/tesla-semi-fsd-self-driving/",
+       "https://www.cnbc.com/2026/09/24/tesla-aims-to-scale-semi-truck-production-with-nevada-factory-opening.html"
+      ]
+     }
+    },
+    "what_not_to_claim": [
+     "Do not list a Semi FSD version number. None was found in official notes, Teslascope, TeslaFi, or Tesla's FSD site.",
+     "Do not say FSD or Autopilot is a current Semi customer feature.",
+     "Do not say the Semi is unsupervised or Level 4."
+    ]
+   }
+  },
+  "consumer_unsupervised_status": {
+   "consumer_fsd_as_of_late_nov_2026": "Supervised. Official product name on tesla.com/fsd, in release notes, and in Tesla's v15 announcement is Full Self-Driving (Supervised). The official site treats Unsupervised as future.",
+   "robotaxi_is_separate": "Tesla operates a Robotaxi service in some US cities. That is a Tesla-managed service, not the same as unsupervised FSD being unlocked on privately owned cars everywhere.",
+   "q3_2026_earnings_plan": {
+    "date": "2026-10-21",
+    "who": "Ashok Elluswamy, Tesla VP of AI, on the Q3 2026 earnings call",
+    "quote_as_reported": "We suspect somewhere around Q2 next year is when we can turn on some of the first customer vehicles to be part of the Robotaxi fleet.",
+    "label": "planned",
+    "meaning": "The first customer-owned cars joining Tesla's managed Robotaxi network, running unsupervised software inside Tesla geofences, is targeted around Q2 2027. This is not a promise of unsupervised FSD on all public roads.",
+    "sources": [
+     "https://www.notateslaapp.com/news/4879/tesla-to-launch-unsupervised-fsd-let-owners-join-robotaxi-network-in-q2-2027",
+     "https://electrek.co/2026/10/21/tesla-unsupervised-fsd-q2-2027-robotaxi-fleet/"
+    ]
+   },
+   "hw3": "Officially cannot achieve unsupervised FSD without a hardware upgrade. See tracks.hw3_ai3.hardware_upgrade_or_retrofit."
+  },
+  "regional_notes": {
+   "north_america": "Primary track for the latest v15.0.1 and v14.3.13 / v14.3 Lite builds described above.",
+   "europe": {
+    "note": "Not a Tesla App lists FSD 14.2.2.6 on firmware 2026.39.6, labeled Europe, dated 29 Oct 2026. FSD Update and Teslant report the same. Teslascope shows 2026.39.6 installing in European countries but, as of the 24 Nov 2026 FSD Update cross-check, had no FSD 14.2.2.6 version page. This is a regional branch, not the latest US HW4 or HW3 build.",
+    "sources": [
+     "https://www.fsdupdate.com/latest-fsd-version",
+     "https://teslascope.com/software"
+    ]
+   }
+  },
+  "layout_inspiration_for_fsdriving_fsd_page": {
+   "borrow_from_tesla_com_fsd": [
+    "Cinematic dark hero, Supervised in the product name, live 'now rolling out' chip.",
+    "Four latest-feature cards plus a live stats row (Tesla miles / safety multiple / country count, clearly attributed to Tesla).",
+    "A distinct Unsupervised / Robotaxi future block so current software is not oversold.",
+    "Repeated supervision disclaimer."
+   ],
+   "do_not_copy_blindly": [
+    "Tesla's page hides hardware splits, build numbers, and eligibility. The fsdriving /fsd page should lead with HW4 vs HW3 vs Cybertruck vs Semi.",
+    "Tesla's 25x / 7x / 9x safety claims should be shown as Tesla's figures with a link to tesla.com/fsd/safety and the methodology caveats, not as independently verified facts."
+   ]
+  }
+ }
+}

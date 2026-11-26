@@ -336,7 +336,21 @@ errors; writes shots/{desktop,mobile}-map-*.png). Deep links: `/#place=<id>` (e.
 - Rules: never invent numbers; label company-reported figures; use "-" when unpublished; update `checkedAt` and the
   milestone lists when re-checking (newest first is automatic). No em dashes.
 - Routing: tools/pack.mjs serves `/x` and `/x/` from `dist/x/index.html` with 200 (no redirect).
-- Shared header nav (Tracker / Competitors) and the footer sister link to https://optimistbot.com live in build.mjs
+- Shared header nav (Tracker / FSD / Competitors) and the footer sister link to https://optimistbot.com live in build.mjs
   (`topHeader`, `sisterLink`).
 - Check: `python3 tools/competitors_shot.py https://fsdriving.com shots` (status, overflow at 1440/390, tabs,
   sources, comma card, optimistbot link, console errors; writes shots/{desktop,mobile}-competitors.png).
+
+## /fsd page (added 27 Nov 2026)
+Tesla FSD versions per hardware track (HW4, HW3, Cybertruck, Semi). Built by `tools/fsd_page.mjs` from `data/fsd.json`; check with `python3 tools/fsd_shot.py <base> shots`.
+`data/fsd.json` has `research` (verified facts by track, each with sources) and `releases` (the timeline). `tools/fsd_data.py <research.json>` regenerates both from a full fresh research file and overwrites hand edits, so for small updates edit `data/fsd.json` directly.
+
+Update checklist (weekly, or when a new FSD build ships):
+1. Check Teslascope's FSD table (teslascope.com/software/full-self-driving), Not a Tesla App release notes, fsdupdate.com/latest-fsd-version, and @Tesla / @aelluswamy / @elonmusk on X.
+2. New build: add a `releases` entry (`v`, `fw`, `date` YYYY-MM-DD, `tracks` from hw4/hw3/ct/semi, `kind` release/event/planned, `fleet`, `text`, `src` URLs). Only builds with a date and a source.
+3. Update the track's `latest` block under `research.tracks` (version, firmware, date, rollout status, sources). The hero pill and matrix cards read from there.
+4. Wide rollout reached (e.g. v15 to the whole HW4 fleet)? Remove or reword the `planned` entry and update `current_broad_fleet_build`.
+5. Cybertruck parity: re-check `feature_parity_and_gaps` (8 mph ASS, Banish, v15) against the newest release notes.
+6. Tesla counters (miles, city miles, markets, safety multiples): copy from tesla.com/fsd and tesla.com/fsd/safety into `official_tesla_fsd_site.live_stats_observed` with the observed time. Always shown as Tesla's figures.
+7. Plans and claims (Musk/Tesla dates) stay `planned` until shipped. Never invent a version, build, date or stat.
+8. Bump `checkedAt`, rebuild, deploy, run fsd_shot.py on the live site, then git_sync.
