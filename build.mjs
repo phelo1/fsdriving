@@ -127,19 +127,36 @@ const compare = { checkedAt: cmpSrc.checkedAt, definitions: cmpSrc.definitions, 
     waymo: { live: cnt(m => m.waymo && m.waymo.status === 'live'), open: cnt(m => m.waymo && m.waymo.status === 'live' && !m.waymo.gradual), announced: cnt(m => m.waymo && m.waymo.status === 'announced'), intl: cmpSrc.waymoInternational.length, hiring: cnt(m => m.wh) },
     both: { live: cnt(m => m.tesla && /^live/.test(m.tesla.status) && m.waymo && m.waymo.status === 'live'), planned: cnt(m => m.tesla && m.waymo), any: cnt(m => (m.tesla || m.th.n) && m.waymo) } } };
 for (const m of allCmp) if (m.x === null) console.warn('compare: no projection for', m.id);
+// Tesla hiring for the footprint bars: ALL active US Robotaxi roles (every category except selfdriving), grouped to metros
+// with the same rule as above (45 mi to a compare metro, else 35 mi clustering into extra metros). Kept separate from m.th
+// (supervisor-only) so the map and its popups are unchanged.
+const rtUS = Object.values(histAll.jobs).filter(j => j.active && j.category !== 'selfdriving' && (!j.country || j.country === 'US'));
+const sdUSCities = new Set(Object.values(histAll.jobs).filter(j => j.active && j.category === 'selfdriving' && (!j.country || j.country === 'US')).map(j => `${j.city}, ${j.state}`));
+const rtByCity = new Map();
+for (const j of rtUS) { const k = `${j.city}, ${j.state}`, g = geo[k]; if (!g) { console.warn('footprint: no coords for', k); continue; } const c = rtByCity.get(k) || { k, n: 0, g }; c.n++; rtByCity.set(k, c); }
+const rh = new Map(), rtExtra = [];
+for (const c of [...rtByCity.values()].sort((a, b) => b.n - a.n || a.k.localeCompare(b.k))) {
+  let best = null;
+  for (const m of cmpMetros) { const d = hav(c.g, m); if (d <= 45 && (!best || d < best.d)) best = { d, m }; }
+  if (!best) for (const m of rtExtra) { const d = hav(c.g, m); if (d <= 35 && (!best || d < best.d)) best = { d, m }; }
+  if (!best) { const [city, st] = c.k.split(', '); const m = { id: 'rh-' + c.k.toLowerCase().replace(/[^a-z]+/g, '-'), name: city + ' area', state: st, lat: c.g.lat, lon: c.g.lon, tesla: null, waymo: null, wh: null, extra: true }; rtExtra.push(m); best = { m }; }
+  const e = rh.get(best.m.id) || { n: 0, cities: [] }; e.n += c.n; e.cities.push(c.k); rh.set(best.m.id, e);
+}
+const rtMetroCount = rh.size, rtBig = [...rh.entries()].map(([id, e]) => ({ id, ...e, name: ([...cmpMetros, ...rtExtra].find(m => m.id === id) || {}).name })).sort((a, b) => b.cities.length - a.cities.length)[0];
 // US metro footprint: each metro counted once per operator, in its furthest stage (live > announced > hiring only)
 const footprint = (() => {
   const nm = m => m.name.replace(/ area$/, ''), byName = a => a.map(nm).sort((x, y) => x.localeCompare(y));
-  const T = { live: allCmp.filter(m => m.tesla && /^live/.test(m.tesla.status)), ann: allCmp.filter(m => m.tesla && m.tesla.status === 'announced'), hire: allCmp.filter(m => !m.tesla && m.th.n > 0) };
+  const TU = [...cmpMetros, ...rtExtra];
+  const T = { live: TU.filter(m => m.tesla && /^live/.test(m.tesla.status)), ann: TU.filter(m => m.tesla && m.tesla.status === 'announced'), hire: TU.filter(m => !m.tesla && rh.has(m.id)) };
   const W = { live: allCmp.filter(m => m.waymo && m.waymo.status === 'live'), ann: allCmp.filter(m => m.waymo && m.waymo.status === 'announced'), hire: allCmp.filter(m => !m.waymo && m.wh) };
   for (const [op, o] of [['tesla', T], ['waymo', W]]) {
     const ids = [...o.live, ...o.ann, ...o.hire].map(m => m.id);
     if (new Set(ids).size !== ids.length) { console.error('footprint: metro counted twice for', op); process.exit(1); }
-    const known = allCmp.filter(m => op === 'tesla' ? (m.tesla || m.th.n > 0) : (m.waymo || m.wh)).length;
+    const known = (op === 'tesla' ? TU : allCmp).filter(m => op === 'tesla' ? (m.tesla || rh.has(m.id)) : (m.waymo || m.wh)).length;
     if (known !== ids.length) { console.error('footprint: unclassified metros for', op, known, ids.length); process.exit(1); }
   }
   const pack = o => ({ live: byName(o.live), ann: byName(o.ann), hire: byName(o.hire), driver: o.live.filter(m => m.tesla && m.tesla.status === 'live-driver').map(nm) });
-  return { tesla: pack(T), waymo: { ...pack(W), driver: [] } };
+  return { tesla: { ...pack(T), hireCities: rtByCity.size, hireMetros: rtMetroCount, sdCities: sdUSCities.size, big: rtBig ? { name: rtBig.name, cities: rtBig.cities.length } : null }, waymo: { ...pack(W), driver: [] } };
 })();
 console.log('footprint: Tesla', footprint.tesla.live.length, footprint.tesla.ann.length, footprint.tesla.hire.length, '| Waymo', footprint.waymo.live.length, footprint.waymo.ann.length, footprint.waymo.hire.length);
 const sdCC = {}; for (const j of Object.values(histAll.jobs)) if (j.country && j.country !== 'US') sdCC[j.country] = 1;
@@ -477,12 +494,12 @@ ${ms ? `<div class="cbvms"><p>Registration rate as the highest VIN climbed</p><o
 function fpHtml() {
   const F = footprint, tot = o => o.live.length + o.ann.length + o.hire.length, mx = Math.max(tot(F.tesla), tot(F.waymo)) || 1;
   const seg = (op, k, cls, label) => { const n = F[op][k].length; return n ? `<button type="button" class="fps ${cls}" style="flex:${n} 1 0" data-op="${op}" data-k="${k}" aria-label="${label}: ${n} metros, ${esc(F[op][k].join(', '))}">${n}</button>` : ''; };
-  const bar = (op, name) => `<div class="fpr ${op}"><div class="fpn">${name}</div><div class="fpt"><div class="fpb" style="width:${(tot(F[op]) / mx * 100).toFixed(2)}%">${seg(op, 'live', 'lv', 'Live')}${seg(op, 'ann', 'an', 'Announced')}${seg(op, 'hire', 'hi', 'Hiring only')}</div><b class="fptot">${tot(F[op])}</b></div></div>`;
+  const bar = (op, name) => `<div class="fpr ${op}"><div class="fpn">${name}</div><div class="fpt"><div class="fpi"><div class="fpb" style="width:${(tot(F[op]) / mx * 100).toFixed(2)}%">${seg(op, 'live', 'lv', 'Live')}${seg(op, 'ann', 'an', 'Announced')}${seg(op, 'hire', 'hi', 'Hiring only')}</div><b class="fptot" style="left:calc(${(tot(F[op]) / mx * 100).toFixed(2)}% + 10px)">${tot(F[op])}</b></div></div></div>`;
   const intl = compare.intl.length, drv = F.tesla.driver;
   return `<div class="fpc" id="vs-bars"><div class="fph"><div><b>US metro footprint</b><span>Each metro counted once, at its furthest stage</span></div><span class="fpbrand"><i></i>FSDriving.com</span></div>
 <div class="fpbars">${bar('tesla', 'Tesla')}${bar('waymo', 'Waymo')}<div class="fptip" id="fptip" hidden></div></div>
 <div class="fplg"><span><i class="lv"></i>Live public rides</span><span><i class="tan"></i><i class="wan"></i>Announced, not live</span><span><i class="thi"></i><i class="whi"></i>Hiring or job ads only</span></div>
-<p class="fpfoot">Live = public rides today${drv.length ? ` (Tesla's ${esc(drv.join(', '))} rides have a safety driver)` : ''}; Dallas and Fort Worth count as one metro. Announced = Tesla Coming Soon or Waymo Up Next. Hiring only = open job ads, no announcement${F.waymo.hire.length ? '' : ' (Waymo job ads name no US metro beyond its live and announced ones)'}. Waymo also lists ${intl} international cities, not shown. Tesla hires fleet supervisors directly; Waymo uses partners such as Moove for some fleet ops. FSDriving.com, statuses checked ${esc(fmtDay(compare.checkedAt))}, jobs ${esc(fmtDay((last || '').slice(0, 10)))}.</p></div>
+<p class="fpfoot">Live = public rides today${drv.length ? ` (Tesla's ${esc(drv.join(', '))} rides have a safety driver)` : ''}; Dallas and Fort Worth count as one metro. Announced = Tesla Coming Soon or Waymo Up Next. Hiring only = open job ads, no announcement${F.waymo.hire.length ? '' : ' (Waymo job ads name no US metro beyond its live and announced ones)'}. Tesla's ${F.tesla.hireCities} US cities with open Robotaxi roles (supervisor, specialist, operations and other) group into ${F.tesla.hireMetros} US metros: suburbs within 45 miles merge to match Waymo's metro-level counts${F.tesla.big && F.tesla.big.cities > 1 ? ` (${esc(F.tesla.big.name.replace(/ area$/, ''))}'s ${F.tesla.big.cities} posting cities count as 1 metro)` : ''}; its separate self-driving test-driver ads (${F.tesla.sdCities} US cities) are excluded. Waymo also lists ${intl} international cities, not shown. Tesla hires fleet supervisors directly; Waymo uses partners such as Moove for some fleet ops. FSDriving.com, statuses checked ${esc(fmtDay(compare.checkedAt))}, jobs ${esc(fmtDay((last || '').slice(0, 10)))}.</p></div>
 <script>addEventListener('DOMContentLoaded',()=>{const F=JSON.parse(document.getElementById('data').textContent).footprint,c=document.getElementById('vs-bars'),tip=document.getElementById('fptip'),L={live:'Live',ann:'Announced, not live',hire:'Hiring or job ads only'};if(!F||!c)return;let cur=null;
 const show=b=>{const op=b.dataset.op,k=b.dataset.k,a=F[op][k],d=F[op].driver||[];cur=b;c.querySelectorAll('.fps').forEach(x=>x.classList.toggle('on',x===b));
 tip.innerHTML='<b>'+(op==='tesla'?'Tesla':'Waymo')+': '+L[k]+' <em>'+a.length+'</em></b><span>'+a.map(n=>d.includes(n)?n+' (safety driver)':n).join(', ')+'</span>';tip.hidden=false;
@@ -499,7 +516,7 @@ ${fpHtml()}
 <div class="score"><div class="scr hd"><div class="scl"></div><div class="sct"><b>Tesla</b></div><div class="scw"><b>Waymo</b></div></div>
 ${row('Live service', S.live, `markets, ${S.driverless} driverless`, W.live, `US metros, all driverless${W.live - W.open ? `, ${W.open} open to all riders` : ''}`)}
 ${row('Coming next', S.soon, esc(S.soonNames.join(', ')), W.announced + W.intl, `${W.announced} US + ${W.intl} abroad on its Up Next list`)}
-${row('Hiring signal', S.rt, `open Robotaxi roles in ${S.rtCities} US cities`, W.hiring, `US metros named in its ${compare.waymoJobs.total ? compare.waymoJobs.total + ' ' : ''}open job ads`)}
+${row('Hiring signal', S.rt, `open Robotaxi roles in ${footprint.tesla.hireCities} US cities, ${footprint.tesla.hireMetros} metros`, W.hiring, `US metros named in its ${compare.waymoJobs.total ? compare.waymoJobs.total + ' ' : ''}open job ads`)}
 <div class="scr both"><div class="scl">Both live</div><div class="scx"><b>${both.length}</b><span>metros: ${esc(both.join(', '))}. Dallas and Fort Worth count as one metro here.</span></div></div></div>
 <p class="muted tlnote">Waymo from waymo.com and its job board, checked ${esc(fmtDay(compare.checkedAt))}. <a href="/competitors">Full competitor comparison</a> &middot; <a href="#method">How we count</a></p></section>`;
 }

@@ -437,6 +437,7 @@ Update checklist (weekly, and right after big events):
 
 ### US metro footprint bars (added 27 Nov 2026, top of #vs on /)
 - `footprint` in build.mjs: from the same `allCmp` list that feeds the scoreboard (data/compare.json + Tesla supervisor postings + data/waymo-jobs.json). Each metro is counted once per operator at its furthest stage: Live (status live or live-driver) > Announced (status announced) > Hiring only (job ads, no status). The build exits if a metro lands in two buckets or one is left out.
+- Tesla's hiring bucket uses ALL active US Robotaxi roles (every category except selfdriving), grouped by `rh` in build.mjs with the same 45 mi / 35 mi rules; `m.th` (supervisor only) still drives the map popups. The caption states the city count, metro count, the largest merged metro and the excluded self-driving test-driver cities.
 - Rendered by `fpHtml()` as two flex bars on one shared scale, with city-list tooltips (hover, tap, focus) and an in-card caption (Bay Area safety driver, DFW as one metro, Waymo's international count, Moove note, checked dates).
 - Check: `python3 tools/vs_bars_shot.py <url> shots` (counts, clipping, tooltips, overflow; writes shots/desktop-vs-bars.png and shots/mobile-vs-bars.png).
 

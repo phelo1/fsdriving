@@ -754,3 +754,5 @@ footer p{margin:6px 0}footer a{color:var(--ink)}
 .fpfoot{margin:10px 0 0;padding-top:9px;border-top:1px solid rgba(255,255,255,.06);font-size:11.5px;line-height:1.5;color:#8a91a3}
 @media (max-width:640px){.fpc{padding:14px 12px 10px}.fpr{grid-template-columns:56px minmax(0,1fr);gap:8px}.fpn{font-size:14px}.fpb{height:34px;gap:2px}.fps{font-size:13.5px;min-width:24px;padding:0 4px}.fptot{font-size:20px}.fph b{font-size:15.5px}}
 .fph div span{display:block;line-height:1.4;margin-top:2px}
+.fpt{display:block;padding-right:50px}.fpi{position:relative}.fptot{position:absolute;top:50%;transform:translateY(-50%);line-height:1}
+@media (max-width:640px){.fpt{padding-right:38px}}
