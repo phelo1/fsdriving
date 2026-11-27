@@ -46,6 +46,29 @@
  },
  "items": [
   {
+   "id": "eu-geofences-firmware",
+   "kind": "rumour",
+   "status": "Rumour",
+   "date": "2026-11-26",
+   "title": "9 European Robotaxi testing geofences spotted in Tesla firmware",
+   "summary": "Firmware researcher @atris_eth posted nine European city polygons he says come from data in Tesla car firmware: Barcelona, Berlin, Dortmund, Hamburg, Helsinki, Madrid, Munich, Rome and Toulouse. He describes them as internal testing geofences, not announced public launches. Tesla has said nothing about them and no other firmware researcher has independently corroborated them yet.",
+   "sources": [
+    {
+     "label": "@atris_eth on X: the 9 city map",
+     "url": "https://x.com/atris_eth/status/2126054125540700362",
+     "primary": true
+    },
+    {
+     "label": "@atris_eth on X: 'data in tesla car firmware'",
+     "url": "https://x.com/atris_eth/status/2126092949293338871"
+    },
+    {
+     "label": "@atris_eth on X: 'these are internal geofences'",
+     "url": "https://x.com/atris_eth/status/2126095258920333695"
+    }
+   ]
+  },
+  {
    "id": "v15-wide",
    "kind": "rumour",
    "status": "Pending",

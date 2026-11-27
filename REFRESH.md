@@ -372,6 +372,12 @@ Update checklist (weekly, and right after big events):
 5. Every URL must open (Reuters, Bloomberg, nhtsa.gov and tesla.com block scripts, so check those in a browser). No em dashes; the build fails on one.
 6. Bump `checkedAt`, rebuild, deploy, run news_shot.py on the live site, then git_sync.
 
+### X accounts to watch (leads only)
+- `@atris_eth`: Robotaxi geofences and other data extracted from Tesla firmware.
+- `@nymbusjp`: Texas Robotaxi fleet growth analysis (cross-check against TxDMV via `tools/fleet_data.py`).
+- `@tslaming`: EU regulatory and TCMV updates (cross-check against the Commission agenda and RDW).
+- A post from these accounts is a lead, not a source of truth. Every item still needs primary-source verification before it is marked Confirmed or Pending; otherwise publish it as Rumour (status `Rumour`) and say who claimed it. Firmware-only or rumoured cities never go into the Live / Hiring map counters.
+
 ## FSDriving rebrand and homepage declutter (added 27 Nov 2026)
 - Brand: `config.json` name is `FSDriving`; header wordmark `FSDriving`; home title `FSDriving | Tesla Robotaxi, FSD & Autonomous Driving Tracker`;
   sub-page titles end `| FSDriving`. Mobile header is ONE row (wordmark + 4 tabs, time hidden); `--hh` in styles.css is the header height
