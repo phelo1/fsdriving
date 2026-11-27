@@ -426,6 +426,15 @@ Update checklist (weekly, and right after big events):
 - Check: `python3 tools/fleet_shot.py <url> shots` (hover tooltip, Linear/Log, Waymo toggle, overflow, console errors;
   writes shots/desktop-fleet.png, desktop-fleet-log.png, mobile-fleet.png).
 
+### Cybercab VIN production (added 27 Nov 2026, inside #fleet on /)
+- `tools/fleet_data.py` now pages through the full TxDMV VIN list for Tesla Robotaxi, LLC (`/api/TruckStop/companies/<businessEntityId>/automated-motor-vehicles?limit=100&offset=N`; TxDMV caps `limit` at 100). If the VIN count differs from `total` it warns and keeps the previous VIN stats.
+- VIN rules: 5YJ + model code A (position 4) + plant A (position 11, Austin) = Cybercab; 7SA + Y = Model Y; anything else = Other. Serial = positions 12 to 17. Model year = position 10 (T = 2026, V = 2027). The build cross-checks against Texas AV Tracker's model labels and warns on any disagreement.
+- Stored in `data/fleet.json` under `operators.tesla`: `txdmvModels` (exact counts from TxDMV VINs) and `cybercabVin` (`highestSerial`, `lowestSerial`, `registeredCount`, `registrationRatePct`, `modelYears`, 500-serial `buckets`, `history`, `milestones`). No raw VINs are stored.
+- `history`: one point per Texas AV Tracker snapshot (its `/api/data?brand=tesla` history carries the full VIN list for each snapshot, so highest serial and Cybercab count are computed from real lists) plus our own TxDMV reading each run (repeats dropped). `milestones` = the first snapshot where the highest serial reached 2,000 / 3,000 / 4,000 / ...
+- Page: `cvinHtml()` in build.mjs + `src/cybercab.js` (vanilla SVG; ids and classes use the `cbv` prefix because `#cv` / `#cvtip` already belong to the cities S-curve). Gold accent #f5c542, Model Y emerald #3ddc97.
+- Method note on the page: highest serial is a lower bound on production (German tank method); unregistered serials may be in transit, in testing or outside Texas. Registration rate = registered Cybercabs / highest serial.
+- Check: `python3 tools/fleet_shot.py <url> shots` also reads the VIN KPIs, milestones and three batch tooltips (hover on desktop, tap on mobile) and writes shots/desktop-cybercab-vin.png and shots/mobile-cybercab-vin.png.
+
 ## Economics page (/economics)
 - Built by `tools/economics_page.mjs` from `data/economics.json` (hand-checked facts) and `data/fleet.json` (refreshed daily by `tools/fleet_data.py`). The fleet baseline, growth rates and every KPI update automatically on each daily rebuild.
 - Tracked facts (update by hand, keep the source URL and date): `tsla` (close, market cap, shares outstanding from the latest 10-Q cover page), `throughput` (Waymo paid rides per week from Alphabet earnings), `benchmarks` (fare studies and receipt medians with city, window, takeaway, source).

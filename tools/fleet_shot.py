@@ -1,4 +1,4 @@
-# python3 tools/fleet_shot.py <base url> [shots dir] : Fleet growth section checks (hover, linear/log, Waymo toggle) + screenshot
+# python3 tools/fleet_shot.py <base url> [shots dir] : Fleet growth section checks (hover, linear/log, Waymo toggle) + Cybercab VIN block (KPIs, batch tooltips) + screenshots
 import sys, json
 from playwright.sync_api import sync_playwright
 base = sys.argv[1].rstrip('/'); shots = sys.argv[2] if len(sys.argv) > 2 else 'shots'; out = {}
@@ -28,6 +28,18 @@ with sync_playwright() as p:
         pg.click('#flw'); pg.wait_for_timeout(200); r['waymoOn'] = pg.evaluate('document.querySelectorAll("#flsvg .flline.w").length') == 1
         r['fit'] = pg.evaluate('document.querySelectorAll("#flsvg .flfit").length'); r['dots'] = pg.evaluate('document.querySelectorAll("#flsvg .fldot").length')
         r['height'] = round(sec.bounding_box()['height']); r['pageH'] = pg.evaluate('document.documentElement.scrollHeight')
+        cv = pg.locator('#cybercab-vin'); cv.scroll_into_view_if_needed(); pg.wait_for_timeout(400)
+        r['cvKpi'] = pg.evaluate('[...document.querySelectorAll("#cybercab-vin .ck")].map(e=>e.innerText.replace(/\\s+/g," "))')
+        r['cvBatches'] = pg.evaluate('window.__cvin.batches'); r['cvBars'] = pg.evaluate('window.__cvin.bars')
+        r['cvMilestones'] = pg.evaluate('[...document.querySelectorAll("#cybercab-vin .cbvms li")].map(e=>e.innerText.replace(/\\s+/g," "))')
+        hb = pg.locator('#cbvsvg .cbvhitbox'); tips = []
+        for i in [2, hb.count() - 3, hb.count() - 1]:
+            bx = hb.nth(i).bounding_box()
+            if mob: pg.touchscreen.tap(bx['x'] + bx['width'] / 2, bx['y'] + bx['height'] * .7)
+            else: pg.mouse.move(bx['x'] + bx['width'] / 2, bx['y'] + bx['height'] * .7)
+            pg.wait_for_timeout(200); tips.append(pg.evaluate('(()=>{const t=document.getElementById("cbvtip");return t.hidden?null:t.innerText.replace(/\\s+/g," ")})()'))
+        r['cvTips'] = tips
+        cv.screenshot(path=f'{shots}/{name}-cybercab-vin.png')
         r['overflow'] = pg.evaluate('document.documentElement.scrollWidth') - vw; r['errors'] = errs
         out[name] = r; ctx.close()
     b.close()

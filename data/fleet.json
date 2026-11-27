@@ -1,5 +1,5 @@
 {
- "checkedAt": "2026-11-26T23:11:27Z",
+ "checkedAt": "2026-11-27T05:33:55Z",
  "about": "Automated vehicles registered to each operator on the Texas DMV automated motor vehicle list. Registered, not necessarily on the road at the same time.",
  "sources": {
   "txdmv": {
@@ -23,13 +23,366 @@
  },
  "operators": {
   "tesla": {
+   "txdmvModels": {
+    "Cybercab": 1107,
+    "Model Y": 734
+   },
+   "txdmvModelsAt": "2026-11-27T05:33:55Z",
+   "cybercabVin": {
+    "highestSerial": 5363,
+    "lowestSerial": 1291,
+    "registeredCount": 1107,
+    "registrationRatePct": 20.6,
+    "modelYears": {
+     "2026": 573,
+     "2027": 534
+    },
+    "bucketSize": 500,
+    "buckets": [
+     {
+      "label": "#1 to #500",
+      "start": 1,
+      "end": 500,
+      "registered": 0,
+      "batchSize": 500,
+      "pct": 0.0
+     },
+     {
+      "label": "#501 to #1,000",
+      "start": 501,
+      "end": 1000,
+      "registered": 0,
+      "batchSize": 500,
+      "pct": 0.0
+     },
+     {
+      "label": "#1,001 to #1,500",
+      "start": 1001,
+      "end": 1500,
+      "registered": 6,
+      "batchSize": 500,
+      "pct": 1.2
+     },
+     {
+      "label": "#1,501 to #2,000",
+      "start": 1501,
+      "end": 2000,
+      "registered": 16,
+      "batchSize": 500,
+      "pct": 3.2
+     },
+     {
+      "label": "#2,001 to #2,500",
+      "start": 2001,
+      "end": 2500,
+      "registered": 27,
+      "batchSize": 500,
+      "pct": 5.4
+     },
+     {
+      "label": "#2,501 to #3,000",
+      "start": 2501,
+      "end": 3000,
+      "registered": 0,
+      "batchSize": 500,
+      "pct": 0.0
+     },
+     {
+      "label": "#3,001 to #3,500",
+      "start": 3001,
+      "end": 3500,
+      "registered": 102,
+      "batchSize": 500,
+      "pct": 20.4
+     },
+     {
+      "label": "#3,501 to #4,000",
+      "start": 3501,
+      "end": 4000,
+      "registered": 208,
+      "batchSize": 500,
+      "pct": 41.6
+     },
+     {
+      "label": "#4,001 to #4,500",
+      "start": 4001,
+      "end": 4500,
+      "registered": 300,
+      "batchSize": 500,
+      "pct": 60.0
+     },
+     {
+      "label": "#4,501 to #5,000",
+      "start": 4501,
+      "end": 5000,
+      "registered": 286,
+      "batchSize": 500,
+      "pct": 57.2
+     },
+     {
+      "label": "#5,001 to #5,363",
+      "start": 5001,
+      "end": 5363,
+      "registered": 162,
+      "batchSize": 363,
+      "pct": 44.6
+     }
+    ],
+    "history": [
+     {
+      "t": "2026-08-31T18:44:27.825Z",
+      "highestSerial": 2493,
+      "registeredCount": 45,
+      "registrationRatePct": 1.8,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-09-02T22:01:48.901Z",
+      "highestSerial": 2493,
+      "registeredCount": 45,
+      "registrationRatePct": 1.8,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-09-03T14:34:48.987Z",
+      "highestSerial": 2493,
+      "registeredCount": 45,
+      "registrationRatePct": 1.8,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-09-04T23:23:44.086Z",
+      "highestSerial": 2493,
+      "registeredCount": 45,
+      "registrationRatePct": 1.8,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-09-09T03:37:34.543Z",
+      "highestSerial": 2493,
+      "registeredCount": 49,
+      "registrationRatePct": 2.0,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-09-11T01:55:43.850Z",
+      "highestSerial": 2493,
+      "registeredCount": 49,
+      "registrationRatePct": 2.0,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-09-19T00:04:04.573Z",
+      "highestSerial": 3358,
+      "registeredCount": 58,
+      "registrationRatePct": 1.7,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-09-22T02:16:11.164Z",
+      "highestSerial": 3361,
+      "registeredCount": 67,
+      "registrationRatePct": 2.0,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-09-22T20:48:59.829Z",
+      "highestSerial": 3361,
+      "registeredCount": 69,
+      "registrationRatePct": 2.1,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-09-24T03:53:01.223Z",
+      "highestSerial": 3361,
+      "registeredCount": 69,
+      "registrationRatePct": 2.1,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-09-25T20:46:55.959Z",
+      "highestSerial": 3628,
+      "registeredCount": 126,
+      "registrationRatePct": 3.5,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-10-02T02:11:13.061Z",
+      "highestSerial": 3628,
+      "registeredCount": 158,
+      "registrationRatePct": 4.4,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-10-02T18:32:59.487Z",
+      "highestSerial": 3628,
+      "registeredCount": 169,
+      "registrationRatePct": 4.7,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-10-09T00:41:39.396Z",
+      "highestSerial": 3861,
+      "registeredCount": 319,
+      "registrationRatePct": 8.3,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-10-15T02:32:25.105Z",
+      "highestSerial": 3945,
+      "registeredCount": 349,
+      "registrationRatePct": 8.8,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-10-17T03:39:42.743Z",
+      "highestSerial": 3945,
+      "registeredCount": 349,
+      "registrationRatePct": 8.8,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-10-22T03:53:40.017Z",
+      "highestSerial": 4055,
+      "registeredCount": 351,
+      "registrationRatePct": 8.7,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-10-23T20:47:52.990Z",
+      "highestSerial": 4292,
+      "registeredCount": 420,
+      "registrationRatePct": 9.8,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-10-25T04:51:53.032Z",
+      "highestSerial": 4356,
+      "registeredCount": 463,
+      "registrationRatePct": 10.6,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-10-28T02:30:22.319Z",
+      "highestSerial": 4394,
+      "registeredCount": 573,
+      "registrationRatePct": 13.0,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-10-31T03:13:42.985Z",
+      "highestSerial": 4394,
+      "registeredCount": 573,
+      "registrationRatePct": 13.0,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-11-01T21:34:42.818Z",
+      "highestSerial": 4394,
+      "registeredCount": 573,
+      "registrationRatePct": 13.0,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-11-09T01:18:42.631Z",
+      "highestSerial": 4394,
+      "registeredCount": 573,
+      "registrationRatePct": 13.0,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-11-10T23:15:42.403Z",
+      "highestSerial": 4394,
+      "registeredCount": 573,
+      "registrationRatePct": 13.0,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-11-12T00:15:42.632Z",
+      "highestSerial": 4394,
+      "registeredCount": 573,
+      "registrationRatePct": 13.0,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-11-14T21:41:43.210Z",
+      "highestSerial": 4394,
+      "registeredCount": 573,
+      "registrationRatePct": 13.0,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-11-17T21:41:43.038Z",
+      "highestSerial": 4744,
+      "registeredCount": 773,
+      "registrationRatePct": 16.3,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-11-25T03:43:43.063Z",
+      "highestSerial": 4853,
+      "registeredCount": 822,
+      "registrationRatePct": 16.9,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-11-26T19:34:42.767Z",
+      "highestSerial": 5363,
+      "registeredCount": 1107,
+      "registrationRatePct": 20.6,
+      "src": "tracker"
+     },
+     {
+      "t": "2026-11-27T05:33:55Z",
+      "highestSerial": 5363,
+      "registeredCount": 1107,
+      "registrationRatePct": 20.6,
+      "src": "txdmv"
+     }
+    ],
+    "milestones": [
+     {
+      "serial": 2000,
+      "t": "2026-08-31T18:44:27.825Z",
+      "highestSerial": 2493,
+      "registeredCount": 45,
+      "registrationRatePct": 1.8,
+      "src": "tracker"
+     },
+     {
+      "serial": 3000,
+      "t": "2026-09-19T00:04:04.573Z",
+      "highestSerial": 3358,
+      "registeredCount": 58,
+      "registrationRatePct": 1.7,
+      "src": "tracker"
+     },
+     {
+      "serial": 4000,
+      "t": "2026-10-22T03:53:40.017Z",
+      "highestSerial": 4055,
+      "registeredCount": 351,
+      "registrationRatePct": 8.7,
+      "src": "tracker"
+     },
+     {
+      "serial": 5000,
+      "t": "2026-11-26T19:34:42.767Z",
+      "highestSerial": 5363,
+      "registeredCount": 1107,
+      "registrationRatePct": 20.6,
+      "src": "tracker"
+     }
+    ],
+    "method": "Serial = VIN positions 12 to 17 of every Cybercab VIN (5YJ, model A, plant A) on the TxDMV list. History points come from Texas AV Tracker snapshots, each of which carries the full VIN list it saw, plus our own daily TxDMV reading."
+   },
    "name": "Tesla Robotaxi, LLC",
    "av": "AV8313426653583",
    "grantedAt": "2026-05-14T20:25:27.417266+00:00",
    "txdmvTotal": 1841,
-   "txdmvAt": "2026-11-26T23:11:27Z",
+   "txdmvAt": "2026-11-27T05:33:55Z",
    "trackerTotal": 1841,
-   "trackerCheckedAt": "2026-11-26T23:10:48.914Z",
+   "trackerCheckedAt": "2026-11-27T05:33:48.670Z",
    "models": {
     "Cybercab": 1107,
     "Model Y": 734
@@ -251,7 +604,7 @@
      "src": "tracker"
     },
     {
-     "t": "2026-11-26T23:11:27Z",
+     "t": "2026-11-27T05:33:55Z",
      "n": 1841,
      "src": "txdmv"
     }
@@ -263,9 +616,9 @@
    "av": "AV8712526941758",
    "grantedAt": "2026-05-05T21:48:01.185924+00:00",
    "txdmvTotal": 1409,
-   "txdmvAt": "2026-11-26T23:11:27Z",
+   "txdmvAt": "2026-11-27T05:33:55Z",
    "trackerTotal": 1409,
-   "trackerCheckedAt": "2026-11-26T23:10:48.914Z",
+   "trackerCheckedAt": "2026-11-27T05:33:48.670Z",
    "models": {
     "RT": 528,
     "I-PACE": 881
@@ -412,7 +765,7 @@
      "src": "tracker"
     },
     {
-     "t": "2026-11-26T23:11:27Z",
+     "t": "2026-11-27T05:33:55Z",
      "n": 1409,
      "src": "txdmv"
     }

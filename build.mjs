@@ -185,10 +185,11 @@ const fl = (() => {
 })();
 if (FT.txdmvTotal !== fl.end.n) { console.error('fleet: newest point', fl.end.n, 'differs from TxDMV total', FT.txdmvTotal); process.exit(1); }
 const fleetChart = { tesla: fl.T.map(p => [p.t, p.n]), waymo: fl.Wy.map(p => [p.t, p.n]), fit: { t0: fl.t0, a: fl.a, b: fl.b }, end: Date.parse(fleetSrc.checkedAt) };
-const payload = { fleet: fleetChart, S, hero, places, mapMeta, compare, curve, history, launches, avgLead, leadN: leadVals.length, trackingStart, last, prev, firstRun: runs.length <= 1, runs: runs.length, jobs, roles: content.roles };
+const cvin = FT.cybercabVin ? { highestSerial: FT.cybercabVin.highestSerial, bucketSize: FT.cybercabVin.bucketSize, buckets: FT.cybercabVin.buckets } : null;
+const payload = { fleet: fleetChart, cvin, S, hero, places, mapMeta, compare, curve, history, launches, avgLead, leadN: leadVals.length, trackingStart, last, prev, firstRun: runs.length <= 1, runs: runs.length, jobs, roles: content.roles };
 
 const css = fs.readFileSync(path.join(root, 'src/styles.css'), 'utf8');
-const js = fs.readFileSync(path.join(root, 'src/map.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/app.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/cities.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/fleet.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/hero.js'), 'utf8');
+const js = fs.readFileSync(path.join(root, 'src/map.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/app.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/cities.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/fleet.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/cybercab.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/hero.js'), 'utf8');
 const desc = `Live Tesla Robotaxi tracker: ${S.live} live markets, ${S.soon} coming soon, ${S.sup} open Robotaxi supervisor roles in ${S.supCities} cities, plus FSD versions, competitors and fact-checked news. Every number sourced.`;
 const title = `${cfg.name} | Tesla Robotaxi, FSD & Autonomous Driving Tracker`;
 const ogImg = cfg.url.replace(/\/$/, '') + '/og.png?v=' + (last || '').slice(0, 10);
@@ -424,19 +425,39 @@ ${src ? `<a class="nxs" href="${esc(src.url)}" target="_blank" rel="noopener">${
 }
 function fleetHtml() {
   const n = v => v.toLocaleString('en-US'), pct = v => Math.round(v * 100) + '%', wk = d => Math.round(d / 7);
-  const B = fleetSrc.benchmark && fleetSrc.benchmark.waymoUS, M = FT.models || {}, D = 864e5;
+  const B = fleetSrc.benchmark && fleetSrc.benchmark.waymoUS, M = FT.txdmvModels || FT.models || {}, D = 864e5;
   const first = new Date(fl.T[0].t).toISOString().slice(0, 10), m30 = fl.m30;
   return `<section class="roles fleet" id="fleet"><div class="sec-h rv"><div><h2>Fleet growth</h2><p class="muted">Tesla Robotaxi vehicles registered with the Texas DMV, every dated change since ${esc(fmtDay(first))}.</p></div>
 <div class="flctl"><div class="filters fl-sc" role="group" aria-label="Scale"><button class="on" data-sc="lin" aria-pressed="true">Linear</button><button data-sc="log" aria-pressed="false">Log</button></div><button class="flw on" id="flw" type="button" aria-pressed="true"><i></i>Waymo (TX)</button></div></div>
 <div class="flkpi">
-<div class="fk t" title="Vehicles on Tesla Robotaxi, LLC's Texas DMV automated vehicle list (${esc(FT.av)}) at our last check."><b>${n(fl.end.n)}</b><span>registered in Texas<small>${M.Cybercab && M['Model Y'] ? `${n(M.Cybercab)} Cybercab, ${n(M['Model Y'])} Model Y by VIN prefix` : `as of ${esc(fmtDay(fleetSrc.checkedAt))}`}</small></span></div>
+<div class="fk t" title="Vehicles on Tesla Robotaxi, LLC's Texas DMV automated vehicle list (${esc(FT.av)}) at our last check."><b>${n(fl.end.n)}</b><span>registered in Texas<small>${M.Cybercab && M['Model Y'] ? `${n(M.Cybercab)} Cybercab, ${n(M['Model Y'])} Model Y by VIN` : `as of ${esc(fmtDay(fleetSrc.checkedAt))}`}</small></span></div>
 <div class="fk g" title="Exponential least-squares fit to all ${fl.T.length} dated registry counts. End to end over the last ${Math.round(m30.days)} days: ${pct(m30.wow)} a week."><b>~${pct(fl.wow)}</b><span>growth per week<small>fit to ${fl.T.length} dated counts; last 30 days ${pct(m30.wow)}</small></span></div>
 <div class="fk d" title="ln(2) divided by the fitted daily growth rate."><b>~${Math.round(fl.dbl)} days</b><span>doubling time<small>about ${wk(fl.dbl)} weeks; last 30 days ${Math.round(m30.dbl)} days</small></span></div>
 ${B ? `<div class="fk w" title="${esc(B.note)}"><b>${n(B.n)}</b><span>Waymo benchmark<small>driverless-capable, US-wide (<a href="${esc(B.url)}" target="_blank" rel="noopener">NHTSA, ${esc(fmtDay(B.date))}</a>); ${n(fl.wEnd.n)} registered in Texas</small></span></div>` : ''}
 </div>
 <div class="flwrap"><svg id="flsvg" role="img" aria-label="Step chart of Tesla Robotaxi vehicles registered in Texas, ${n(fl.T[0].n)} on ${esc(fmtDay(first))} to ${n(fl.end.n)} now, with Waymo's Texas registrations for comparison"></svg><div class="fltip" id="fltip" hidden></div></div>
 <div class="fllegend"><span><i class="t"></i>Tesla registered (TX)</span><span><i class="w"></i>Waymo registered (TX)</span><span><i class="f"></i>Exponential fit, ${pct(fl.wow)} a week</span></div>
-<p class="muted tlnote">Registered vehicles in Texas, not all on the road at the same time, and not a count of cars giving rides. Counts: <a href="${esc(FT.dmvUrl)}" target="_blank" rel="noopener">Texas DMV, Tesla Robotaxi LLC</a> and <a href="${esc(FW.dmvUrl)}" target="_blank" rel="noopener">Waymo LLC</a>, checked ${esc(fmtDay(fleetSrc.checkedAt))}; history: <a href="https://texasavtracker.com/tesla" target="_blank" rel="noopener">Texas AV Tracker</a> snapshots of the same list. <a href="#method">How we count</a></p></section>`;
+<p class="muted tlnote">Registered vehicles in Texas, not all on the road at the same time, and not a count of cars giving rides. Counts: <a href="${esc(FT.dmvUrl)}" target="_blank" rel="noopener">Texas DMV, Tesla Robotaxi LLC</a> and <a href="${esc(FW.dmvUrl)}" target="_blank" rel="noopener">Waymo LLC</a>, checked ${esc(fmtDay(fleetSrc.checkedAt))}; history: <a href="https://texasavtracker.com/tesla" target="_blank" rel="noopener">Texas AV Tracker</a> snapshots of the same list. <a href="#method">How we count</a></p>${cvinHtml()}</section>`;
+}
+function cvinHtml() {
+  const C = FT.cybercabVin, M = FT.txdmvModels; if (!C || !M) return '';
+  const n = v => v.toLocaleString('en-US'), tot = Object.values(M).reduce((a, b) => a + b, 0), cc = M.Cybercab || 0, my = M['Model Y'] || 0, oth = tot - cc - my;
+  const pc = v => (v / tot * 100).toFixed(1), fd = t => fmtDay(t.slice(0, 10));
+  const yrs = Object.entries(C.modelYears || {}).map(([y, k]) => `${n(k)} model year ${y}`).join(', ');
+  const ms = (C.milestones || []).map((m, i, a) => `<li${i === a.length - 1 ? ' class="now"' : ''}><b>#${n(m.serial)}+</b><span>first seen ${esc(fd(m.t))}</span><em>${m.registrationRatePct}%</em><small>${n(m.registeredCount)} of ${n(m.highestSerial)} in TX</small></li>`).join('');
+  return `<div class="cbv" id="cybercab-vin" aria-labelledby="cbv-h">
+<div class="cbvhd"><span class="cbvk"><i></i>Cybercab production</span><h3 id="cbv-h">Highest VIN vs the Texas fleet</h3><p>Every Cybercab VIN ends in a sequential serial number. Reading all ${n(tot)} VINs on Tesla's public TxDMV list shows how far production has reached, and how much of it is registered in Texas.</p></div>
+<div class="cbvkpi">
+<div class="ck g"><b>${n(C.highestSerial)}<sup>+</sup></b><span>Highest Cybercab VIN<small>serial #${n(C.highestSerial)} on the TxDMV list, a floor on production</small></span></div>
+<div class="ck"><b>${n(C.registeredCount)}</b><span>TX registered Cybercabs<small>${esc(yrs)}</small></span></div>
+<div class="ck"><b>${C.registrationRatePct}%</b><span>TX registration rate<small>${n(C.registeredCount)} of serials #1 to #${n(C.highestSerial)}</small></span></div>
+<div class="ck mix"><span>Fleet model mix<small>${n(tot)} Tesla Robotaxi VINs</small></span><div class="cbvmix" role="img" aria-label="${n(cc)} Cybercab (${pc(cc)}%), ${n(my)} Model Y (${pc(my)}%)"><i class="c" style="width:${pc(cc)}%"></i><i class="y" style="width:${pc(my)}%"></i>${oth ? `<i class="o" style="width:${pc(oth)}%"></i>` : ''}</div>
+<div class="cbvmixl"><span class="c"><i></i>Cybercab <b>${n(cc)}</b> ${pc(cc)}%</span><span class="y"><i></i>Model Y <b>${n(my)}</b> ${pc(my)}%</span>${oth ? `<span><i></i>Other <b>${n(oth)}</b></span>` : ''}</div></div>
+</div>
+<div class="cbvwrap"><div class="cbvcap"><b>VIN batch density</b><span>Cybercabs registered in Texas per 500-serial production batch. Hover or tap a batch.</span></div><svg id="cbvsvg" role="img" aria-label="Bar chart: registered Cybercabs in each 500-serial VIN batch from #1 to #${n(C.highestSerial)}"></svg><div class="cbvtip" id="cbvtip" hidden></div></div>
+${ms ? `<div class="cbvms"><p>Registration rate as the highest VIN climbed</p><ol>${ms}</ol></div>` : ''}
+<p class="muted tlnote cbvnote">Method: sequential 6-digit Cybercab serials (VIN positions 12 to 17) on the public <a href="${esc(FT.dmvUrl)}" target="_blank" rel="noopener">TxDMV list</a> give a real lower bound on factory output (the "German tank" method); serials not on the list may be in transit, in internal testing or deployed outside Texas. Model by VIN: 5YJ + model code A + Austin plant is Cybercab, 7SA + Y is Model Y. Milestones use <a href="https://texasavtracker.com/tesla" target="_blank" rel="noopener">Texas AV Tracker</a> snapshots of the same list, each with its full VIN list. Lowest registered serial: #${n(C.lowestSerial)}.</p>
+</div>`;
 }
 function scoreHtml() {
   const W = compare.counts.waymo, both = compare.metros.filter(m => m.tesla && /^live/.test(m.tesla.status) && m.waymo && m.waymo.status === 'live').map(m => m.name);
