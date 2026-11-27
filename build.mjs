@@ -127,6 +127,21 @@ const compare = { checkedAt: cmpSrc.checkedAt, definitions: cmpSrc.definitions, 
     waymo: { live: cnt(m => m.waymo && m.waymo.status === 'live'), open: cnt(m => m.waymo && m.waymo.status === 'live' && !m.waymo.gradual), announced: cnt(m => m.waymo && m.waymo.status === 'announced'), intl: cmpSrc.waymoInternational.length, hiring: cnt(m => m.wh) },
     both: { live: cnt(m => m.tesla && /^live/.test(m.tesla.status) && m.waymo && m.waymo.status === 'live'), planned: cnt(m => m.tesla && m.waymo), any: cnt(m => (m.tesla || m.th.n) && m.waymo) } } };
 for (const m of allCmp) if (m.x === null) console.warn('compare: no projection for', m.id);
+// US metro footprint: each metro counted once per operator, in its furthest stage (live > announced > hiring only)
+const footprint = (() => {
+  const nm = m => m.name.replace(/ area$/, ''), byName = a => a.map(nm).sort((x, y) => x.localeCompare(y));
+  const T = { live: allCmp.filter(m => m.tesla && /^live/.test(m.tesla.status)), ann: allCmp.filter(m => m.tesla && m.tesla.status === 'announced'), hire: allCmp.filter(m => !m.tesla && m.th.n > 0) };
+  const W = { live: allCmp.filter(m => m.waymo && m.waymo.status === 'live'), ann: allCmp.filter(m => m.waymo && m.waymo.status === 'announced'), hire: allCmp.filter(m => !m.waymo && m.wh) };
+  for (const [op, o] of [['tesla', T], ['waymo', W]]) {
+    const ids = [...o.live, ...o.ann, ...o.hire].map(m => m.id);
+    if (new Set(ids).size !== ids.length) { console.error('footprint: metro counted twice for', op); process.exit(1); }
+    const known = allCmp.filter(m => op === 'tesla' ? (m.tesla || m.th.n > 0) : (m.waymo || m.wh)).length;
+    if (known !== ids.length) { console.error('footprint: unclassified metros for', op, known, ids.length); process.exit(1); }
+  }
+  const pack = o => ({ live: byName(o.live), ann: byName(o.ann), hire: byName(o.hire), driver: o.live.filter(m => m.tesla && m.tesla.status === 'live-driver').map(nm) });
+  return { tesla: pack(T), waymo: { ...pack(W), driver: [] } };
+})();
+console.log('footprint: Tesla', footprint.tesla.live.length, footprint.tesla.ann.length, footprint.tesla.hire.length, '| Waymo', footprint.waymo.live.length, footprint.waymo.ann.length, footprint.waymo.hire.length);
 const sdCC = {}; for (const j of Object.values(histAll.jobs)) if (j.country && j.country !== 'US') sdCC[j.country] = 1;
 const COUNTRY_NAMES = { AU: 'Australia', CZ: 'Czechia', ES: 'Spain', FR: 'France', GB: 'United Kingdom', HK: 'Hong Kong', IL: 'Israel', IN: 'India', KR: 'South Korea', NZ: 'New Zealand', PL: 'Poland', SG: 'Singapore', DE: 'Germany', JP: 'Japan', CA: 'Canada', CN: 'China', NL: 'Netherlands', NO: 'Norway', IT: 'Italy', AE: 'United Arab Emirates', TW: 'Taiwan', TH: 'Thailand', MX: 'Mexico', SE: 'Sweden', CH: 'Switzerland' };
 for (const cc of Object.keys(sdCC)) if (!COUNTRY_NAMES[cc]) console.warn('add a country name for', cc);
@@ -186,7 +201,7 @@ const fl = (() => {
 if (FT.txdmvTotal !== fl.end.n) { console.error('fleet: newest point', fl.end.n, 'differs from TxDMV total', FT.txdmvTotal); process.exit(1); }
 const fleetChart = { tesla: fl.T.map(p => [p.t, p.n]), waymo: fl.Wy.map(p => [p.t, p.n]), fit: { t0: fl.t0, a: fl.a, b: fl.b }, end: Date.parse(fleetSrc.checkedAt) };
 const cvin = FT.cybercabVin ? { highestSerial: FT.cybercabVin.highestSerial, bucketSize: FT.cybercabVin.bucketSize, buckets: FT.cybercabVin.buckets } : null;
-const payload = { fleet: fleetChart, cvin, S, hero, places, mapMeta, compare, curve, history, launches, avgLead, leadN: leadVals.length, trackingStart, last, prev, firstRun: runs.length <= 1, runs: runs.length, jobs, roles: content.roles };
+const payload = { fleet: fleetChart, cvin, footprint, S, hero, places, mapMeta, compare, curve, history, launches, avgLead, leadN: leadVals.length, trackingStart, last, prev, firstRun: runs.length <= 1, runs: runs.length, jobs, roles: content.roles };
 
 const css = fs.readFileSync(path.join(root, 'src/styles.css'), 'utf8');
 const js = fs.readFileSync(path.join(root, 'src/map.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/app.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/cities.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/fleet.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/cybercab.js'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'src/hero.js'), 'utf8');
@@ -459,10 +474,28 @@ ${ms ? `<div class="cbvms"><p>Registration rate as the highest VIN climbed</p><o
 <p class="muted tlnote cbvnote">Method: sequential 6-digit Cybercab serials (VIN positions 12 to 17) on the public <a href="${esc(FT.dmvUrl)}" target="_blank" rel="noopener">TxDMV list</a> give a real lower bound on factory output (the "German tank" method); serials not on the list may be in transit, in internal testing or deployed outside Texas. Model by VIN: 5YJ + model code A + Austin plant is Cybercab, 7SA + Y is Model Y. Milestones use <a href="https://texasavtracker.com/tesla" target="_blank" rel="noopener">Texas AV Tracker</a> snapshots of the same list, each with its full VIN list. Lowest registered serial: #${n(C.lowestSerial)}.</p>
 </div>`;
 }
+function fpHtml() {
+  const F = footprint, tot = o => o.live.length + o.ann.length + o.hire.length, mx = Math.max(tot(F.tesla), tot(F.waymo)) || 1;
+  const seg = (op, k, cls, label) => { const n = F[op][k].length; return n ? `<button type="button" class="fps ${cls}" style="flex:${n} 1 0" data-op="${op}" data-k="${k}" aria-label="${label}: ${n} metros, ${esc(F[op][k].join(', '))}">${n}</button>` : ''; };
+  const bar = (op, name) => `<div class="fpr ${op}"><div class="fpn">${name}</div><div class="fpt"><div class="fpb" style="width:${(tot(F[op]) / mx * 100).toFixed(2)}%">${seg(op, 'live', 'lv', 'Live')}${seg(op, 'ann', 'an', 'Announced')}${seg(op, 'hire', 'hi', 'Hiring only')}</div><b class="fptot">${tot(F[op])}</b></div></div>`;
+  const intl = compare.intl.length, drv = F.tesla.driver;
+  return `<div class="fpc" id="vs-bars"><div class="fph"><div><b>US metro footprint</b><span>Each metro counted once, at its furthest stage</span></div><span class="fpbrand"><i></i>FSDriving.com</span></div>
+<div class="fpbars">${bar('tesla', 'Tesla')}${bar('waymo', 'Waymo')}<div class="fptip" id="fptip" hidden></div></div>
+<div class="fplg"><span><i class="lv"></i>Live public rides</span><span><i class="tan"></i><i class="wan"></i>Announced, not live</span><span><i class="thi"></i><i class="whi"></i>Hiring or job ads only</span></div>
+<p class="fpfoot">Live = public rides today${drv.length ? ` (Tesla's ${esc(drv.join(', '))} rides have a safety driver)` : ''}; Dallas and Fort Worth count as one metro. Announced = Tesla Coming Soon or Waymo Up Next. Hiring only = open job ads, no announcement${F.waymo.hire.length ? '' : ' (Waymo job ads name no US metro beyond its live and announced ones)'}. Waymo also lists ${intl} international cities, not shown. Tesla hires fleet supervisors directly; Waymo uses partners such as Moove for some fleet ops. FSDriving.com, statuses checked ${esc(fmtDay(compare.checkedAt))}, jobs ${esc(fmtDay((last || '').slice(0, 10)))}.</p></div>
+<script>addEventListener('DOMContentLoaded',()=>{const F=JSON.parse(document.getElementById('data').textContent).footprint,c=document.getElementById('vs-bars'),tip=document.getElementById('fptip'),L={live:'Live',ann:'Announced, not live',hire:'Hiring or job ads only'};if(!F||!c)return;let cur=null;
+const show=b=>{const op=b.dataset.op,k=b.dataset.k,a=F[op][k],d=F[op].driver||[];cur=b;c.querySelectorAll('.fps').forEach(x=>x.classList.toggle('on',x===b));
+tip.innerHTML='<b>'+(op==='tesla'?'Tesla':'Waymo')+': '+L[k]+' <em>'+a.length+'</em></b><span>'+a.map(n=>d.includes(n)?n+' (safety driver)':n).join(', ')+'</span>';tip.hidden=false;
+const r=b.getBoundingClientRect(),p=tip.parentNode.getBoundingClientRect(),w=tip.offsetWidth;tip.style.left=Math.max(0,Math.min(p.width-w,r.left-p.left+r.width/2-w/2))+'px';tip.style.top=(r.bottom-p.top+8)+'px'};
+const hide=()=>{cur=null;tip.hidden=true;c.querySelectorAll('.fps.on').forEach(x=>x.classList.remove('on'))};
+c.querySelectorAll('.fps').forEach(b=>{b.addEventListener('pointerenter',e=>{if(e.pointerType!=='touch')show(b)});b.addEventListener('pointerleave',e=>{if(e.pointerType!=='touch')hide()});let was=false;b.addEventListener('pointerdown',()=>{was=cur===b&&!tip.hidden});b.addEventListener('click',e=>{e.stopPropagation();was&&e.pointerType==='touch'?hide():show(b)});b.addEventListener('focus',()=>show(b));b.addEventListener('blur',hide)});
+document.addEventListener('click',e=>{if(!c.contains(e.target))hide()});});</script>`;
+}
 function scoreHtml() {
   const W = compare.counts.waymo, both = compare.metros.filter(m => m.tesla && /^live/.test(m.tesla.status) && m.waymo && m.waymo.status === 'live').map(m => m.name);
   const row = (lab, t, tn, w, wn) => `<div class="scr"><div class="scl">${lab}</div><div class="sct"><b>${t}</b><span>${tn}</span></div><div class="scw"><b>${w}</b><span>${wn}</span></div></div>`;
   return `<section class="roles vs" id="vs"><div class="sec-h rv"><h2>Tesla vs Waymo</h2><button class="wbtn" id="showWaymo" type="button" aria-pressed="false"><i></i><span>Show Waymo on map</span></button></div>
+${fpHtml()}
 <div class="score"><div class="scr hd"><div class="scl"></div><div class="sct"><b>Tesla</b></div><div class="scw"><b>Waymo</b></div></div>
 ${row('Live service', S.live, `markets, ${S.driverless} driverless`, W.live, `US metros, all driverless${W.live - W.open ? `, ${W.open} open to all riders` : ''}`)}
 ${row('Coming next', S.soon, esc(S.soonNames.join(', ')), W.announced + W.intl, `${W.announced} US + ${W.intl} abroad on its Up Next list`)}

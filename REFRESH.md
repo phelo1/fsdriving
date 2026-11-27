@@ -435,6 +435,11 @@ Update checklist (weekly, and right after big events):
 - Method note on the page: highest serial is a lower bound on production (German tank method); unregistered serials may be in transit, in testing or outside Texas. Registration rate = registered Cybercabs / highest serial.
 - Check: `python3 tools/fleet_shot.py <url> shots` also reads the VIN KPIs, milestones and three batch tooltips (hover on desktop, tap on mobile) and writes shots/desktop-cybercab-vin.png and shots/mobile-cybercab-vin.png.
 
+### US metro footprint bars (added 27 Nov 2026, top of #vs on /)
+- `footprint` in build.mjs: from the same `allCmp` list that feeds the scoreboard (data/compare.json + Tesla supervisor postings + data/waymo-jobs.json). Each metro is counted once per operator at its furthest stage: Live (status live or live-driver) > Announced (status announced) > Hiring only (job ads, no status). The build exits if a metro lands in two buckets or one is left out.
+- Rendered by `fpHtml()` as two flex bars on one shared scale, with city-list tooltips (hover, tap, focus) and an in-card caption (Bay Area safety driver, DFW as one metro, Waymo's international count, Moove note, checked dates).
+- Check: `python3 tools/vs_bars_shot.py <url> shots` (counts, clipping, tooltips, overflow; writes shots/desktop-vs-bars.png and shots/mobile-vs-bars.png).
+
 ## Economics page (/economics)
 - Built by `tools/economics_page.mjs` from `data/economics.json` (hand-checked facts) and `data/fleet.json` (refreshed daily by `tools/fleet_data.py`). The fleet baseline, growth rates and every KPI update automatically on each daily rebuild.
 - Tracked facts (update by hand, keep the source URL and date): `tsla` (close, market cap, shares outstanding from the latest 10-Q cover page), `throughput` (Waymo paid rides per week from Alphabet earnings), `benchmarks` (fare studies and receipt medians with city, window, takeaway, source).
