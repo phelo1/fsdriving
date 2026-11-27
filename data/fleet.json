@@ -1,5 +1,5 @@
 {
- "checkedAt": "2026-11-27T05:33:55Z",
+ "checkedAt": "2026-11-27T05:50:42Z",
  "about": "Automated vehicles registered to each operator on the Texas DMV automated motor vehicle list. Registered, not necessarily on the road at the same time.",
  "sources": {
   "txdmv": {
@@ -27,7 +27,7 @@
     "Cybercab": 1107,
     "Model Y": 734
    },
-   "txdmvModelsAt": "2026-11-27T05:33:55Z",
+   "txdmvModelsAt": "2026-11-27T05:50:42Z",
    "cybercabVin": {
     "highestSerial": 5363,
     "lowestSerial": 1291,
@@ -333,7 +333,7 @@
       "src": "tracker"
      },
      {
-      "t": "2026-11-27T05:33:55Z",
+      "t": "2026-11-27T05:50:42Z",
       "highestSerial": 5363,
       "registeredCount": 1107,
       "registrationRatePct": 20.6,
@@ -380,9 +380,9 @@
    "av": "AV8313426653583",
    "grantedAt": "2026-05-14T20:25:27.417266+00:00",
    "txdmvTotal": 1841,
-   "txdmvAt": "2026-11-27T05:33:55Z",
+   "txdmvAt": "2026-11-27T05:50:42Z",
    "trackerTotal": 1841,
-   "trackerCheckedAt": "2026-11-27T05:33:48.670Z",
+   "trackerCheckedAt": "2026-11-27T05:50:48.591Z",
    "models": {
     "Cybercab": 1107,
     "Model Y": 734
@@ -604,7 +604,7 @@
      "src": "tracker"
     },
     {
-     "t": "2026-11-27T05:33:55Z",
+     "t": "2026-11-27T05:50:42Z",
      "n": 1841,
      "src": "txdmv"
     }
@@ -616,9 +616,9 @@
    "av": "AV8712526941758",
    "grantedAt": "2026-05-05T21:48:01.185924+00:00",
    "txdmvTotal": 1409,
-   "txdmvAt": "2026-11-27T05:33:55Z",
+   "txdmvAt": "2026-11-27T05:50:42Z",
    "trackerTotal": 1409,
-   "trackerCheckedAt": "2026-11-27T05:33:48.670Z",
+   "trackerCheckedAt": "2026-11-27T05:50:48.591Z",
    "models": {
     "RT": 528,
     "I-PACE": 881
@@ -765,7 +765,7 @@
      "src": "tracker"
     },
     {
-     "t": "2026-11-27T05:33:55Z",
+     "t": "2026-11-27T05:50:42Z",
      "n": 1409,
      "src": "txdmv"
     }
