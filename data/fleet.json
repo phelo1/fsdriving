@@ -1,5 +1,5 @@
 {
- "checkedAt": "2026-11-27T05:50:42Z",
+ "checkedAt": "2026-11-28T05:56:36Z",
  "about": "Automated vehicles registered to each operator on the Texas DMV automated motor vehicle list. Registered, not necessarily on the road at the same time.",
  "sources": {
   "txdmv": {
@@ -27,7 +27,7 @@
     "Cybercab": 1107,
     "Model Y": 734
    },
-   "txdmvModelsAt": "2026-11-27T05:50:42Z",
+   "txdmvModelsAt": "2026-11-28T05:56:36Z",
    "cybercabVin": {
     "highestSerial": 5363,
     "lowestSerial": 1291,
@@ -333,7 +333,7 @@
       "src": "tracker"
      },
      {
-      "t": "2026-11-27T05:50:42Z",
+      "t": "2026-11-28T05:56:36Z",
       "highestSerial": 5363,
       "registeredCount": 1107,
       "registrationRatePct": 20.6,
@@ -380,9 +380,9 @@
    "av": "AV8313426653583",
    "grantedAt": "2026-05-14T20:25:27.417266+00:00",
    "txdmvTotal": 1841,
-   "txdmvAt": "2026-11-27T05:50:42Z",
+   "txdmvAt": "2026-11-28T05:56:36Z",
    "trackerTotal": 1841,
-   "trackerCheckedAt": "2026-11-27T05:50:48.591Z",
+   "trackerCheckedAt": "2026-11-28T05:57:05.061Z",
    "models": {
     "Cybercab": 1107,
     "Model Y": 734
@@ -604,7 +604,7 @@
      "src": "tracker"
     },
     {
-     "t": "2026-11-27T05:50:42Z",
+     "t": "2026-11-28T05:56:36Z",
      "n": 1841,
      "src": "txdmv"
     }
@@ -615,12 +615,12 @@
    "name": "Waymo LLC",
    "av": "AV8712526941758",
    "grantedAt": "2026-05-05T21:48:01.185924+00:00",
-   "txdmvTotal": 1409,
-   "txdmvAt": "2026-11-27T05:50:42Z",
-   "trackerTotal": 1409,
-   "trackerCheckedAt": "2026-11-27T05:50:48.591Z",
+   "txdmvTotal": 1410,
+   "txdmvAt": "2026-11-28T05:56:36Z",
+   "trackerTotal": 1410,
+   "trackerCheckedAt": "2026-11-28T05:57:05.061Z",
    "models": {
-    "RT": 528,
+    "RT": 529,
     "I-PACE": 881
    },
    "series": [
@@ -765,8 +765,13 @@
      "src": "tracker"
     },
     {
-     "t": "2026-11-27T05:50:42Z",
-     "n": 1409,
+     "t": "2026-11-27T19:19:45.792Z",
+     "n": 1410,
+     "src": "tracker"
+    },
+    {
+     "t": "2026-11-28T05:56:36Z",
+     "n": 1410,
      "src": "txdmv"
     }
    ],

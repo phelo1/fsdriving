@@ -1,11 +1,11 @@
 {
  "source": "https://boards-api.greenhouse.io/v1/boards/waymo/jobs",
- "checkedAt": "2026-11-27T08:50:42+03:00",
- "totalJobs": 356,
+ "checkedAt": "2026-11-28T08:56:36+03:00",
+ "totalJobs": 352,
  "skippedRemoteOrCatchAll": 6,
  "metros": {
   "bay-area": {
-   "count": 259,
+   "count": 255,
    "firstPublished": "2025-01-23",
    "examples": [
     {
@@ -297,8 +297,8 @@
    ]
   },
   "new-york": {
-   "count": 20,
-   "firstPublished": "2025-12-08",
+   "count": 18,
+   "firstPublished": "2025-12-10",
    "examples": [
     {
      "id": 8350109,

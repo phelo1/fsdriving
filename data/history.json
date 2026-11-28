@@ -314,6 +314,47 @@
     "VA": 3,
     "WA": 1
    }
+  },
+  {
+   "date": "2026-11-28",
+   "checkedAt": "2026-11-28T08:56:13+03:00",
+   "supervisor": 47,
+   "all": 98,
+   "supervisorCities": 43,
+   "allCities": 50,
+   "byState": {
+    "AZ": 2,
+    "CA": 1,
+    "FL": 14,
+    "GA": 1,
+    "LA": 1,
+    "MA": 1,
+    "MD": 1,
+    "MI": 1,
+    "NC": 1,
+    "NV": 2,
+    "TN": 3,
+    "TX": 17,
+    "VA": 2
+   },
+   "byStateAll": {
+    "AZ": 5,
+    "CA": 6,
+    "FL": 28,
+    "GA": 1,
+    "IL": 1,
+    "LA": 1,
+    "MA": 2,
+    "MD": 1,
+    "MI": 2,
+    "NC": 2,
+    "NV": 4,
+    "PA": 2,
+    "TN": 4,
+    "TX": 35,
+    "VA": 3,
+    "WA": 1
+   }
   }
  ]
 }
